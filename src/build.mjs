@@ -24,6 +24,7 @@ const catalogTag = '<script src="assets/js/catalog.js" defer></script>';
 const pages = [
   ['/', P.home(data)],
   ['/about', P.about(data)],
+  ['/leadership', P.leadership(data)],
   ['/strategic-pillars', P.pillars(data)],
   ['/whitby-smart-sports-village', P.whitby(data)],
   ['/facilities', P.facilities(data)],

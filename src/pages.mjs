@@ -276,78 +276,171 @@ ${ctaBand('Want to host or sponsor an event with us?', [{ label: 'Talk to the pa
 }
 
 // ════════════════════════ ABOUT ════════════════════════
+// Portrait or designed monogram for a leader (monogram until an approved portrait is supplied).
+function portrait(p, cls = '') {
+  return p.img
+    ? html`<div class="portrait ${cls}"><img src="${p.img}" alt="${p.alt || 'Portrait of ' + p.name}" width="940" height="1224" loading="lazy"></div>`
+    : html`<div class="portrait portrait--mono ${cls}" role="img" aria-label="${p.name} — approved portrait pending"><span class="portrait__initials" aria-hidden="true">${initials(p.name)}</span><span class="portrait__note">Portrait coming soon</span></div>`;
+}
+
+const MODEL_ICONS = [
+  '<circle cx="12" cy="7" r="3.2"/><path d="M5 20c.6-3.8 3.4-6 7-6s6.4 2.2 7 6"/><path d="M12 14v3"/>',
+  '<path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="8.5"/>',
+  '<path d="M3 20h18M6 20V9l6-5 6 5v11"/><path d="M10 20v-5h4v5"/>',
+  '<circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/>',
+  '<path d="M4 18l5-6 4 3 7-9"/><path d="M15 6h5v5"/>',
+];
+
 export function about(d) {
-  const leaders = d.leadership.map((p) => html`
-<article class="leader">
-  ${p.img
-    ? html`<div class="leader__photo"><img src="${p.img}" alt="${p.alt || p.name}" width="940" height="1224" loading="lazy"></div>`
-    : html`<div class="leader__placeholder" role="img" aria-label="Portrait of ${p.name} pending approval"><span class="leader__initials" aria-hidden="true">${initials(p.name)}</span><small>Approved portrait pending</small></div>`}
-  <div class="leader__body">
-    <h3>${p.name}</h3>
-    <p class="leader__role">${p.role}</p>
-    <div class="leader__bio">${p.bio.map((para) => html`<p>${para}</p>`)}</div>
-    ${p.bio.length > 1 ? html`<button type="button" class="leader__more" aria-expanded="false">Read full biography</button>` : ''}
-    ${p.focus ? html`<div class="leader__focus">${p.focus.map((f) => html`<div><strong>${f.t}</strong>${f.d}</div>`)}</div>` : ''}
-    ${p.quote ? html`<figure class="leader__quote"><blockquote>${p.quote}</blockquote><figcaption>${p.quoteBy}</figcaption></figure>` : ''}
-  </div>
-</article>`);
+  const story = [
+    { k: 'The belief', t: 'Sport can transform communities', b: 'when it is combined with education, technology and opportunity.' },
+    { k: 'The ecosystem', t: 'AFSVHCL™', b: 'An integrated platform combining sports science, education programs, esports engagement and community participation.' },
+    { k: 'The pilot', t: 'Whitby Smart Sports Village', b: 'A proposed year-round, technology-enabled destination in Whitby, Ontario.', tag: 'Proposed' },
+    { k: 'The network', t: 'Canada, the Caribbean and beyond', b: 'A national network of multi-sport dome facilities and scalable initiatives in global markets.', tag: 'Planned' },
+  ];
   return {
     title: 'About Us',
+    overlay: true,
     description: 'AFSV VRC Global Development Group Ltd. develops a connected ecosystem that expands opportunity through sport, education, technology and inclusive community programming.',
     ogImage: IMG('about-team.jpg'),
     body: html`
-${breadcrumb([{ label: 'About Us' }])}
-<section class="wrap page-head" data-el="about.hero" data-el-build="elementor">
-  <p class="eyebrow">About AFSV VRC</p>
-  <h1 class="h1 split-words" style="max-width:17ch" aria-label="A new model for sport, learning and community development."><span aria-hidden="true">${splitWords('A new model for sport, learning and community development.')}</span></h1>
-  <div class="split">
-    <p class="lead">AFSV VRC Global Development Group Ltd. was formed to develop and operate a connected ecosystem that expands opportunity through sport, education, technology and inclusive community programming. Our work begins with a proposed Smart Sports Village pilot in Whitby, Ontario, and extends to partnerships and scalable initiatives in Canada, the Caribbean and global markets.</p>
-    <figure class="figure figure--16x10 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('about-team.jpg'), alt: 'Four adults of varied ethnicities in discussion around a large table with notebooks and a wall of notes, in a bright meeting space adjoining a sports hall.', video: V.aboutTeam, w: 1344, h: 752 })}</figure>
+<section class="about-hero" data-el="about.hero" data-el-build="elementor">
+  <div class="wrap about-hero__grid">
+    <div class="about-hero__copy">
+      <p class="eyebrow eyebrow-rule">About AFSV VRC</p>
+      <h1 class="h1 split-words" aria-label="A new model for sport, learning and community development."><span aria-hidden="true">${splitWords(['A new model for sport,', 'learning and community', 'development.'], ['development.'])}</span></h1>
+      <p class="lead">AFSV VRC Global Development Group Ltd. was formed to develop and operate a connected ecosystem that expands opportunity through sport, education, technology and inclusive community programming. Our work begins with a proposed Smart Sports Village pilot in Whitby, Ontario, and extends to partnerships and scalable initiatives in Canada, the Caribbean and global markets.</p>
+      <div class="btn-row btn-row--stack">${btn('Meet the leadership', '/leadership', 'gold')}${btn('Our strategic pillars', '/strategic-pillars', 'line-light')}</div>
+    </div>
+    <div class="collage" aria-hidden="true">
+      <div class="collage__a"><div class="pmedia" data-parallax="0.05"><img src="${IMG('about-team.jpg')}" alt="" width="1344" height="752" fetchpriority="high"></div></div>
+      <div class="collage__b"><div class="pmedia" data-parallax="0.12"><img src="${IMG('pillars-hall.jpg')}" alt="" width="1344" height="752"></div></div>
+      <div class="collage__c"><div class="pmedia" data-parallax="0.18"><img src="${IMG('membership-community.jpg')}" alt="" width="1344" height="752"></div></div>
+      <span class="collage__ring"></span>
+    </div>
   </div>
 </section>
 
-<section class="band--navy" data-el="about.mission-vision" data-el-build="elementor">
+<section class="wrap section" data-el="about.mission-vision" data-el-build="elementor">
+  <div class="mv">
+    <article class="mv__card reveal">
+      <span class="mv__label">Mission</span>
+      <p class="mv__text">To create accessible, technology-enabled environments and pathways that develop athletes, strengthen academic and life outcomes, support diverse learners, and generate lasting value for families and communities.</p>
+    </article>
+    <article class="mv__card mv__card--dark reveal">
+      <span class="mv__label">Vision</span>
+      <p class="mv__text">A global network of smart sports villages and connected programs where talent is developed, learning is supported, inclusion is designed in, and communities share in the benefits of sport-led development.</p>
+    </article>
+  </div>
+</section>
+
+<section class="band--cream" data-el="about.story" data-el-build="elementor">
   <div class="wrap section">
-    <div class="hairline" style="--min:320px">
-      <div class="cell" style="padding:40px 40px 44px"><h2 class="eyebrow">Mission</h2><p style="font-family:var(--font-display);font-weight:600;font-size:clamp(19px,1.7vw,25px);line-height:1.42">To create accessible, technology-enabled environments and pathways that develop athletes, strengthen academic and life outcomes, support diverse learners, and generate lasting value for families and communities.</p></div>
-      <div class="cell" style="padding:40px 40px 44px"><h2 class="eyebrow">Vision</h2><p style="font-family:var(--font-display);font-weight:600;font-size:clamp(19px,1.7vw,25px);line-height:1.42">A global network of smart sports villages and connected programs where talent is developed, learning is supported, inclusion is designed in, and communities share in the benefits of sport-led development.</p></div>
-    </div>
+    <div class="section-head reveal"><h2 class="h2">From a belief to a network.</h2><p class="body-lg muted">How the AFSV VRC model grows, from its founding idea to the proposed Whitby pilot and the planned network beyond it.</p></div>
+    <ol class="timeline" data-timeline>
+      ${story.map((s, i) => html`
+      <li class="timeline__step" style="--i:${i}">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <span class="timeline__k">${s.k}${s.tag ? html` <span class="pill">${s.tag}</span>` : ''}</span>
+        <h3 class="timeline__t">${s.t}</h3>
+        <p>${s.b}</p>
+      </li>`)}
+    </ol>
   </div>
 </section>
 
 <section class="wrap section" data-el="about.model" data-el-build="elementor">
   <h2 class="h2 mb-l reveal">What makes the model different.</h2>
-  ${numberedCells(d.aboutModel.map((m) => m.label), { min: 215 })}
-</section>
-
-<section class="band--cream" data-el="about.leadership" data-el-build="elementor">
-  <div class="wrap section">
-    <div class="split split--center" style="margin-bottom:clamp(64px,8vw,96px)">
-      <figure class="figure wipe"><img src="${IMG('martin-lashley.jpg')}" alt="Martin Lashley standing on the turf inside an indoor sports dome." width="940" height="1224" loading="lazy" style="aspect-ratio:940/1224"></figure>
-      <div class="stack reveal" style="--stack:20px">
-        <p class="eyebrow">Founder Story</p>
-        <h2 class="h2">Martin Lashley</h2>
-        <p class="body-lg">Martin Lashley founded Athletes &amp; Fans Sports Village Holding Company Limited with a singular belief: sport can transform communities when combined with education, technology, and opportunity.</p>
-        <p class="body-lg">Recognizing the challenges athletes face in Canada's climate, Lashley envisioned a network of high-performance indoor sports environments capable of supporting year-round training while simultaneously delivering mentorship, academic support, and career pathways for young people.</p>
-        <p class="body-lg">That vision evolved into the AFSVHCL™ ecosystem, an integrated platform combining sports science, education programs, esports engagement, and community participation.</p>
-        <p class="body-lg">The Whitby Smart Sports Village project represents the first step toward building a national network of multi-sport dome facilities designed to serve athletes, families, and communities across Canada.</p>
-        <p style="font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--gold-ink)">Building Today. Inspiring Tomorrow.</p>
-      </div>
-    </div>
-    <figure class="quote-block reveal" style="margin-bottom:clamp(64px,8vw,96px)">
-      <p class="eyebrow">In His Own Words</p>
-      <blockquote>“We are not building a sports facility. We are building an ecosystem — one that will change the trajectory of thousands of young lives and strengthen communities across Canada and the world.”</blockquote>
-      <figcaption>— Martin Lashley, Founder, Chairman &amp; Interim CEO, AFSVHCL™</figcaption>
-      <div class="hairline band--navy" style="--min:180px;margin-top:12px">
-        ${['High-Performance Training', 'Education & Mentorship', 'Sports Science & Technology', 'Community & Global Impact'].map((t, i) => html`<div class="cell" style="padding:22px 20px;gap:8px"><span class="num">${pad2(i + 1)}</span><span style="font-weight:600">${t}</span></div>`)}
-      </div>
-    </figure>
-    <h2 class="h2 mb-l">Leadership</h2>
-    <div class="cards" style="--min:300px;align-items:start" data-stagger>${leaders}</div>
+  <div class="model" data-stagger>
+    ${d.aboutModel.map((m, i) => html`
+    <div class="model__item">
+      <svg class="model__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${raw(MODEL_ICONS[i])}</svg>
+      <span class="num">${m.num}</span>
+      <h3>${m.label}</h3>
+    </div>`)}
   </div>
 </section>
 
-${ctaBand('Connect with our team.', [{ label: 'Connect With Our Team', route: '/contact' }])}`,
+<section class="founder" data-el="about.founder" data-el-build="elementor">
+  <div class="wrap section founder__grid">
+    <figure class="founder__photo wipe">
+      <img src="${IMG('martin-lashley.jpg')}" alt="Martin Lashley standing on the turf inside an indoor sports dome." width="940" height="1224" loading="lazy">
+      <figcaption><b>Martin Lashley</b>Founder, Chairman &amp; Interim CEO</figcaption>
+    </figure>
+    <div class="founder__copy reveal">
+      <p class="eyebrow">Founder story</p>
+      <blockquote class="founder__quote">“We are not building a sports facility. We are building an ecosystem — one that will change the trajectory of thousands of young lives and strengthen communities across Canada and the world.”</blockquote>
+      <p class="body-lg">Recognizing the challenges athletes face in Canada's climate, Martin Lashley envisioned a network of high-performance indoor sports environments capable of supporting year-round training while delivering mentorship, academic support and career pathways for young people.</p>
+      <p class="founder__sign">Building Today. Inspiring Tomorrow.</p>
+      ${btn('Read the founder profile', '/leadership#martin-lashley', 'gold')}
+    </div>
+  </div>
+</section>
+
+<section class="wrap section" data-el="about.leadership" data-el-build="elementor">
+  <div class="section-head reveal"><h2 class="h2">The leadership team.</h2><p class="body-lg muted">The people guiding governance, operations and investment across AFSVHCL. <a class="text-link" href="leadership.html">Full profiles ${arrow()}</a></p></div>
+  <div class="team" data-stagger>
+    ${d.leadership.map((p) => html`
+    <a class="team-card" href="leadership.html#${p.slug}">
+      ${portrait(p, 'team-card__photo')}
+      <span class="team-card__body">
+        <span class="team-card__role">${p.role}</span>
+        <span class="team-card__name">${p.name}</span>
+        <span class="team-card__short">${p.short}</span>
+        <span class="team-card__go">View profile ${arrow()}</span>
+      </span>
+    </a>`)}
+  </div>
+</section>
+
+${ctaBand('Connect with our team.', [{ label: 'Connect With Our Team', route: '/contact' }, { label: 'Partner with us', route: '/partners' }])}`,
+  };
+}
+
+// ════════════════════════ LEADERSHIP ════════════════════════
+export function leadership(d) {
+  return {
+    title: 'Leadership',
+    overlay: true,
+    description: 'Meet the leadership of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL) and AFSV VRC.',
+    ogImage: IMG('martin-lashley.jpg'),
+    body: html`
+<section class="lead-hero" data-el="leadership.hero" data-el-build="elementor">
+  <div class="wrap lead-hero__inner">
+    <p class="eyebrow eyebrow-rule">Leadership team</p>
+    <h1 class="h1 split-words" aria-label="The team behind the vision."><span aria-hidden="true">${splitWords(['The team behind', 'the vision.'], ['vision.'])}</span></h1>
+    <p class="lead">AFSVHCL™ is led by a dedicated team of entrepreneurs, community builders, and visionaries committed to transforming youth sports, education, and community development in Canada and beyond.</p>
+    <nav class="lead-chips" aria-label="Leaders">
+      ${d.leadership.map((p) => html`<a href="#${p.slug}">${portrait(p, 'lead-chips__img')}<span><b>${p.name}</b><small>${p.role}</small></span></a>`)}
+    </nav>
+  </div>
+</section>
+
+${d.leadership.map((p, i) => html`
+<section class="profile${i % 2 ? ' profile--alt' : ''}" id="${p.slug}" data-el="leadership.profile" data-el-build="elementor" aria-labelledby="${p.slug}-name">
+  <div class="wrap section profile__grid">
+    <div class="profile__aside">
+      <div class="profile__sticky">
+        ${portrait(p, 'profile__photo wipe')}
+        <div class="profile__id">
+          <span class="num">${pad2(i + 1)} / ${pad2(d.leadership.length)}</span>
+          <h2 class="profile__name" id="${p.slug}-name">${p.name}</h2>
+          <p class="profile__role">${p.role}</p>
+        </div>
+      </div>
+    </div>
+    <div class="profile__main">
+      <p class="profile__short reveal">${p.short}</p>
+      ${p.quote ? html`<figure class="profile__quote reveal"><blockquote>${p.quote}</blockquote><figcaption>${p.quoteBy}</figcaption></figure>` : ''}
+      <div class="profile__bio reveal">${(p.story || p.bio).map((para) => html`<p>${para}</p>`)}${p.story ? p.bio.map((para) => html`<p>${para}</p>`) : ''}</div>
+      ${p.focus ? html`<div class="profile__focus" data-stagger>${p.focus.map((f) => html`<div><b>${f.t}</b><span>${f.d}</span></div>`)}</div>` : ''}
+    </div>
+  </div>
+</section>`)}
+
+<section class="wrap" style="padding-bottom:72px"><p class="small muted">Portraits for Natalie Sutherland-Lashley, Michelle Lashley and Vinai Charran will appear once approved images are supplied.</p></section>
+
+${ctaBand('Work with the team building AFSV VRC.', [{ label: 'Partner with us', route: '/partners' }, { label: 'Contact us', route: '/contact' }])}`,
   };
 }
 

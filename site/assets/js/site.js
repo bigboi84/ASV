@@ -254,9 +254,9 @@
         if (el.style.transitionDelay) setTimeout(function () { el.style.transitionDelay = ''; }, 1300);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    $$('.reveal, .wipe, h2.h2').forEach(function (el) { io.observe(el); });
+    $$('.reveal, .wipe, h2.h2, [data-timeline]').forEach(function (el) { io.observe(el); });
   } else {
-    $$('.reveal, .wipe, h2.h2').forEach(function (el) { el.classList.add('is-in'); });
+    $$('.reveal, .wipe, h2.h2, [data-timeline]').forEach(function (el) { el.classList.add('is-in'); });
   }
 
   /* ───────── Forms: inline validation + preview confirmation ───────── */

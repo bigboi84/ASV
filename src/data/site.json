@@ -13,12 +13,12 @@
           "href": "/about"
         },
         {
-          "label": "Strategic Pillars",
-          "href": "/strategic-pillars"
+          "label": "Leadership",
+          "href": "/leadership"
         },
         {
-          "label": "Events",
-          "href": "/events"
+          "label": "Strategic Pillars",
+          "href": "/strategic-pillars"
         },
         {
           "label": "News, Stories & Impact",
@@ -2643,7 +2643,35 @@
       "bio": [
         "Martin Lashley is the Founder, Chairman, and Interim Chief Executive Officer of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL), a Canadian-based sports infrastructure and youth development company building an integrated ecosystem that combines elite sport, education support, sports science, esports, and community engagement."
       ],
-      "alt": "Martin Lashley standing on the turf inside an indoor sports dome."
+      "alt": "Martin Lashley standing on the turf inside an indoor sports dome.",
+      "slug": "martin-lashley",
+      "short": "Founded AFSVHCL on a singular belief: sport can transform communities when combined with education, technology and opportunity.",
+      "story": [
+        "Martin Lashley founded Athletes & Fans Sports Village Holding Company Limited with a singular belief: sport can transform communities when combined with education, technology, and opportunity.",
+        "Recognizing the challenges athletes face in Canada's climate, Lashley envisioned a network of high-performance indoor sports environments capable of supporting year-round training while simultaneously delivering mentorship, academic support, and career pathways for young people.",
+        "That vision evolved into the AFSVHCL™ ecosystem, an integrated platform combining sports science, education programs, esports engagement, and community participation.",
+        "The Whitby Smart Sports Village project represents the first step toward building a national network of multi-sport dome facilities designed to serve athletes, families, and communities across Canada."
+      ],
+      "quote": "“We are not building a sports facility. We are building an ecosystem — one that will change the trajectory of thousands of young lives and strengthen communities across Canada and the world.”",
+      "quoteBy": "— Martin Lashley, Founder, Chairman & Interim CEO, AFSVHCL™",
+      "focus": [
+        {
+          "t": "High-Performance Training",
+          "d": "Year-round indoor environments for athlete development."
+        },
+        {
+          "t": "Education & Mentorship",
+          "d": "Academic support and career pathways alongside sport."
+        },
+        {
+          "t": "Sports Science & Technology",
+          "d": "Data-informed performance, esports and innovation."
+        },
+        {
+          "t": "Community & Global Impact",
+          "d": "A national network of multi-sport domes, starting in Whitby."
+        }
+      ]
     },
     {
       "name": "Natalie Sutherland-Lashley",
@@ -2656,6 +2684,26 @@
         "As Co-Chairperson, Natalie works closely with the executive leadership team to ensure that AFSVHCL maintains the highest standards of corporate accountability, transparency, and stakeholder engagement. She is responsible for coordinating board governance, overseeing corporate documentation, and helping manage the strategic relationships that underpin the company's expansion across Canada, the Caribbean, and the broader international sports community.",
         "Natalie is also a passionate advocate for the project's social impact mission, particularly its commitment to creating opportunities for youth and families while integrating education and support programs for neurodivergent children and individuals with learning differences.",
         "Through her work with AFSVHCL, Natalie continues to contribute to the development of a transformational sports and education platform designed to inspire the next generation of athletes, innovators, and community leaders."
+      ],
+      "slug": "natalie-sutherland-lashley",
+      "short": "Guides governance, corporate structure and the strategic relationships behind AFSVHCL’s expansion across Canada and the Caribbean.",
+      "focus": [
+        {
+          "t": "Board Governance",
+          "d": "Coordinating the board and corporate documentation."
+        },
+        {
+          "t": "Accountability & Transparency",
+          "d": "Upholding the highest standards of stakeholder engagement."
+        },
+        {
+          "t": "Strategic Relationships",
+          "d": "Supporting expansion across Canada, the Caribbean and beyond."
+        },
+        {
+          "t": "Social Impact",
+          "d": "Opportunities for youth, families and learners with differences."
+        }
       ]
     },
     {
@@ -2671,7 +2719,27 @@
         "Through her role at AFSVHCL, Michelle continues to help shape a transformative platform designed to empower athletes, support families, and build sustainable sports communities around the world."
       ],
       "quote": "“We operate with purpose, execute with excellence, and serve with heart to create opportunities that change lives and strengthen communities.”",
-      "quoteBy": "— Michelle Lashley, COO"
+      "quoteBy": "— Michelle Lashley, COO",
+      "slug": "michelle-lashley",
+      "short": "Turns the vision into an operating ecosystem — leading operations, partnerships and program delivery across Canada, the Caribbean and the US.",
+      "focus": [
+        {
+          "t": "Operational Execution",
+          "d": "Internal operations and systems across all initiatives."
+        },
+        {
+          "t": "Program Delivery",
+          "d": "Rolling out the Whitby pilot and international projects."
+        },
+        {
+          "t": "Strategic Partnerships",
+          "d": "Managing key stakeholder relationships."
+        },
+        {
+          "t": "Neurodivergent Education",
+          "d": "Founder of MLMSR Mentorship LLC, supporting learners with autism, ADHD and dyslexia."
+        }
+      ]
     },
     {
       "name": "Vinai Charran",
@@ -2704,7 +2772,9 @@
         }
       ],
       "quote": "“I believe in the power of sports and education to transform lives and build stronger communities. My investment in AFSVHCL is an investment in our youth and in a better future for generations to come.”",
-      "quoteBy": "— Vinai Charran, CEO, Charran's Group of Companies"
+      "quoteBy": "— Vinai Charran, CEO, Charran's Group of Companies",
+      "slug": "vinai-charran",
+      "short": "Leads strategic investment and capital growth, drawing on decades building businesses across retail, education, publishing and trade."
     }
   ],
   "pillars4": [
@@ -2966,6 +3036,11 @@
         {
           "label": "About Us",
           "href": "/about",
+          "ext": false
+        },
+        {
+          "label": "Leadership",
+          "href": "/leadership",
           "ext": false
         },
         {
