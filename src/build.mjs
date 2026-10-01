@@ -8,6 +8,7 @@ import * as P from './pages.mjs';
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const out = path.join(root, 'site');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'src/data/site.json'), 'utf8'));
+P.setVideos(JSON.parse(fs.readFileSync(path.join(root, 'src/data/videos.json'), 'utf8')));
 
 fs.rmSync(out, { recursive: true, force: true });
 fs.cpSync(path.join(root, 'src/assets'), path.join(out, 'assets'), { recursive: true });

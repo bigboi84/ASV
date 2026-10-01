@@ -191,7 +191,7 @@
 
   /* ───────── Scroll reveal with grid stagger ───────── */
   var revealEls = $$('.reveal');
-  if (!reduceMotion && 'IntersectionObserver' in window && revealEls.length) {
+  if (!reduceMotion && 'IntersectionObserver' in window) {
     $$('[data-stagger]').forEach(function (grid) {
       Array.prototype.forEach.call(grid.children, function (child, i) {
         child.classList.add('reveal');
@@ -200,12 +200,16 @@
     });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        el.classList.add('is-in'); io.unobserve(el);
+        // drop the stagger delay once revealed so hover/tilt transitions stay instant
+        if (el.style.transitionDelay) setTimeout(function () { el.style.transitionDelay = ''; }, 1300);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    $$('.reveal').forEach(function (el) { io.observe(el); });
+    $$('.reveal, .wipe, h2.h2').forEach(function (el) { io.observe(el); });
   } else {
-    revealEls.forEach(function (el) { el.classList.add('is-in'); });
+    $$('.reveal, .wipe, h2.h2').forEach(function (el) { el.classList.add('is-in'); });
   }
 
   /* ───────── Forms: inline validation + preview confirmation ───────── */

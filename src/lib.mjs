@@ -103,18 +103,36 @@ export function pendingInputs() {
 </section>`;
 }
 
+// Media block: still image, optional lazy background video, parallax drift.
+// The still doubles as the video poster and the reduced-motion fallback.
+export function pmedia({ img, alt = '', video, parallax = 0.08, eager = false, w = 1344, h = 752 }) {
+  const attrs = raw(`${video ? ` data-video="${esc(video)}"` : ''}${parallax ? ` data-parallax="${parallax}"` : ''}`);
+  return html`<div class="pmedia${parallax ? '' : ' pmedia--still'}"${attrs}><img src="${img}" alt="${alt}" width="${w}" height="${h}"${eager ? raw(' fetchpriority="high"') : raw(' loading="lazy"')}></div>`;
+}
+
+// Word-by-word headline cascade. `lines` is an array of strings (line breaks
+// between them); words listed in `ink` get the gold underline sweep.
+export function splitWords(lines, ink = []) {
+  let i = 0;
+  const arr = Array.isArray(lines) ? lines : [lines];
+  return raw(arr.map((line) => line.split(' ').map((word) => {
+    const inner = ink.includes(word) ? `<span class="ink">${esc(word)}</span>` : esc(word);
+    return `<span class="w"><span style="--i:${i++}">${inner}</span></span>`;
+  }).join(' ')).join('<br>'));
+}
+
 // Type A hero: text left, media bleeding off the right edge.
-export function pageHero({ kicker, h1, lead, ctas = [], img, alt }) {
+export function pageHero({ kicker, h1, lead, ctas = [], img, alt, video }) {
   return html`
 <section class="page-hero" data-el="page.hero" data-el-build="elementor">
   <div class="wrap page-hero__grid">
     <div class="page-hero__text">
       <p class="eyebrow eyebrow-rule">${kicker}</p>
-      <h1 class="h1">${h1}</h1>
+      <h1 class="h1 split-words" aria-label="${h1}">${raw('<span aria-hidden="true">')}${splitWords(h1)}${raw('</span>')}</h1>
       <p class="lead">${lead}</p>
       <div class="btn-row btn-row--stack">${ctas.map((c, i) => btn(c.label, c.href || c.route, i === 0 ? 'gold' : 'line-light', c.preselect ? `data-preselect="${c.preselect}"` : ''))}</div>
     </div>
-    <div class="page-hero__media">${img ? html`<img src="${img}" alt="${alt || ''}" width="1344" height="752" fetchpriority="high">` : ''}</div>
+    <div class="page-hero__media" data-video-scope>${img ? pmedia({ img, alt, video, parallax: 0.06, eager: true }) : ''}</div>
   </div>
 </section>`;
 }

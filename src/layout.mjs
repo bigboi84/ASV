@@ -155,6 +155,7 @@ ${footer(data.footerCols)}
 <button type="button" class="to-top" aria-label="Back to top">${icon('up')}</button>
 ${scripts}
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/motion.js" defer></script>
 </body>
 </html>
 `;

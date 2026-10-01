@@ -83,16 +83,32 @@ npm run build        # node src/build.mjs. Needs Node 18+ and nothing else.
 
 All legal and status safeguards from the brief are kept: disclaimers, "Proposed" and "Conceptual rendering" labels, investor and fund notices, and the "interest only" form framing.
 
+## Motion and video
+
+**Background videos.** There are 20 five-second loops, generated with Higgsfield (Kling 3.0 Pro, no sound) from each page's own photography, so the motion matches the stills. They are listed in `src/data/videos.json`.
+- Each video loads only when its section scrolls near the screen.
+- It fades in over the still image, which stays as the poster and fallback.
+- It pauses when off screen and has its own pause button.
+- It is never loaded for visitors who use reduced-motion or data-saver settings.
+
+**Motion layer.** This is `src/assets/js/motion.js` plus the *Motion layer* section at the end of `site.css`.
+- **Headlines.** Words rise in one by one, and a gold underline sweeps under the key word.
+- **Home hero.** Gold running-track lanes draw in, with a pulse "runner" travelling along them, plus a scroll cue.
+- **Program-area ticker.** A gold band scrolls continuously and pauses on hover.
+- **"The model, in numbers".** Stat counters count up when they come into view. The 150,000 sq ft figure keeps its *Proposed* label.
+- **Images.** They wipe in from the left, with a slow parallax drift while scrolling.
+- **Section headings.** A gold rule draws in under each one.
+- **Cards.** A gold spotlight follows the cursor, the pathway cards tilt in 3D, and grid cells grow a gold top bar.
+- **Gold buttons.** A light sheen passes across them on hover, and the primary buttons drift slightly towards the cursor.
+- **Scroll progress bar.** A gold bar along the top shows how far down the page you are.
+
+All of this is switched off automatically under `prefers-reduced-motion`. Pointer effects only run on devices with a mouse.
+
 ## Open items (content the client needs to supply)
 
-1. **Final photography** for the five stand-in hero images. Their pages carry an `imgStandIn: true` flag in `src/data/site.json`:
-   - GAISB
-   - Neurodiversity
-   - Business for Inclusion
-   - Service Provider Network
-   - Access Fund
+1. **Final photography.** The Neurodiversity, Business for Inclusion, Service Provider Network and Access Fund heroes now use the matching images found in the Higgsfield history. GAISB reuses the home-page AI studio image.
 2. **Approved portraits** for Natalie Sutherland-Lashley, Michelle Lashley and Vinai Charran.
-3. **Remote images.** The Programs, Education, Life Skills and Technology & Media heroes, and all product and vendor images, still load from the Higgsfield CDN (`d8j0ntlcm91z4.cloudfront.net`). Download them into `src/assets/img/` before launch so the site doesn't depend on that host.
+3. **Remote media.** The 20 background videos, the Programs, Education, Life Skills, Technology & Media, Neurodiversity, Business for Inclusion, Service Provider Network and Access Fund heroes, and all product and vendor images still load from the Higgsfield CDN (`d8j0ntlcm91z4.cloudfront.net`). Before launch, download them into `src/assets/` (or the WordPress media library) and update `src/data/videos.json` and `site.json`. Consider re-encoding the videos to roughly 1–2 MB each.
 4. **Public mailbox** (`info@afsvvrc.com`) once routing is confirmed. Add it to the footer and the Contact page.
 5. **Form routing.** All forms are previews and submit nowhere. In WordPress each one becomes its own Fluent Forms form, with its own owner and conversion event.
 6. **Legal policies.** All 12 are listed as pending on `legal.html`.
