@@ -3155,7 +3155,12 @@
       ],
       "url": "https://gaisb.ai/port-of-spain.html",
       "ctaPrimary": "Secure your place",
-      "ctaSecondary": "See the agenda"
+      "ctaSecondary": "See the agenda",
+      "brand": "gaisb",
+      "wordmark": [
+        "GAISB AI World Summit",
+        "Trinidad & Tobago"
+      ]
     }
   ]
 }

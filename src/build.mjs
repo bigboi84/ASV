@@ -47,7 +47,7 @@ const pages = [
 
 for (const [route, pg, needsCatalog] of pages) {
   const file = route === '/' ? 'index.html' : route.startsWith('/product/') ? `product-${route.slice(9)}.html` : `${route.slice(1)}.html`;
-  const htmlOut = page({ data, route, title: pg.title, description: pg.description, ogImage: pg.ogImage, overlay: !!pg.overlay, body: String(pg.body), scripts: needsCatalog ? catalogTag : '' });
+  const htmlOut = page({ data, route, title: pg.title, description: pg.description, ogImage: pg.ogImage, overlay: !!pg.overlay, fonts: pg.fonts || [], body: String(pg.body), scripts: needsCatalog ? catalogTag : '' });
   fs.writeFileSync(path.join(out, file), htmlOut);
 }
 

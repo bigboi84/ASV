@@ -112,7 +112,7 @@ function footer(cols) {
 </footer>`;
 }
 
-export function page({ data, route, title, description, body, scripts = '', ogImage, overlay = false }) {
+export function page({ data, route, title, description, body, scripts = '', ogImage, overlay = false, fonts = [] }) {
   const inMarket = MARKET_ROUTES.includes(route) || route.startsWith('/product/');
   const fullTitle = route === '/' ? `${SITE.tagline} | ${SITE.name}` : `${title} | ${SITE.name}`;
   const canonical = SITE.url + (route === '/' ? '/' : route);
@@ -136,6 +136,7 @@ export function page({ data, route, title, description, body, scripts = '', ogIm
 <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
+${fonts.length ? `<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${fonts.map((f) => 'family=' + f.replace(/ /g, '+')).join('&')}&display=swap">` : ''}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>

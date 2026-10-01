@@ -19,6 +19,14 @@
   src: url('../fonts/montserrat-latin.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/anton-latin.woff2') format('woff2');
+}
+
 /* ───────── Tokens ───────── */
 :root {
   --navy: #091E36;
@@ -1123,3 +1131,49 @@ svg[hidden] { display: none; }
 @media (max-width: 1200px) { .site-footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .site-footer__brand { grid-column: 1 / -1; } }
 @media (max-width: 720px) { .site-footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .site-footer__grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ───────── Partner-branded event: GAISB AI World Summit ─────────
+   Scoped tokens so the summit keeps its own identity inside the AFSV VRC page.
+   Values matched from the summit site (gaisb.ai/port-of-spain.html); swap in exact hex when supplied. */
+.event--gaisb {
+  --gx-bg: #110D2E; --gx-bg-2: #1E1652; --gx-violet: #7C3AED; --gx-violet-hi: #9461FF;
+  --gx-peach: #F7A863; --gx-rose: #E3A3C7; --gx-ink: #F5F2FB; --gx-mute: #BDB6D6; --gx-line: rgba(245,242,251,.16);
+  --gx-display: 'Anton', 'Oswald', Impact, 'Arial Narrow Bold', sans-serif;
+  background: var(--gx-bg); color: var(--gx-ink);
+}
+.event--gaisb::before { background:
+  radial-gradient(720px 420px at 88% 8%, rgba(124,58,237,.45), transparent 62%),
+  radial-gradient(520px 380px at 40% 110%, rgba(247,168,99,.20), transparent 65%),
+  linear-gradient(135deg, var(--gx-bg) 0%, var(--gx-bg-2) 100%); }
+.event--gaisb .event__date { background: var(--gx-peach); color: var(--gx-bg); }
+.event--gaisb .event__day { font-family: var(--gx-display); font-weight: 400; font-size: 84px; letter-spacing: 0; }
+.event--gaisb .event__month { font-family: var(--gx-display); font-weight: 400; letter-spacing: .08em; font-size: 26px; }
+.event--gaisb .event__end { border-top-color: rgba(17,13,46,.3); }
+.event__wordmark { display: flex; flex-direction: column; gap: 2px; }
+.event__wordmark span { font-family: var(--gx-display); font-size: 22px; letter-spacing: .02em; text-transform: uppercase; line-height: 1; color: var(--gx-ink); }
+.event__wordmark small { font-size: 10.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gx-peach); }
+.event--gaisb .event__title { font-family: var(--gx-display); font-weight: 400; text-transform: uppercase; letter-spacing: .005em; font-size: clamp(30px, 3.4vw, 50px); line-height: 1.02; }
+.event--gaisb .event__title a:hover { color: var(--gx-peach); }
+.event--gaisb .event__headline { font-family: var(--gx-display); font-weight: 400; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.08; }
+.event--gaisb .event__headline span { color: var(--gx-peach); }
+.event--gaisb .event__themes li { color: var(--gx-peach); }
+.event--gaisb .event__themes li + li::before { background: var(--gx-violet-hi); }
+.event--gaisb .event__summary { color: var(--gx-mute); }
+.event--gaisb .event__where { color: var(--gx-mute); }
+.event--gaisb .event__where strong { color: var(--gx-ink); }
+.event--gaisb .event__host { color: var(--gx-mute); }
+.event--gaisb .event__cta { background: var(--gx-violet); border-color: var(--gx-violet); color: #fff; border-radius: 999px; padding-left: 30px; padding-right: 30px; text-transform: none; letter-spacing: .01em; font-size: 15px; box-shadow: 0 10px 30px -10px rgba(124,58,237,.8); }
+.event--gaisb .event__cta:hover { background: var(--gx-violet-hi); border-color: var(--gx-violet-hi); color: #fff; }
+.event--gaisb .event__cta::before { display: none; }
+.event--gaisb .event__cta2 { border-radius: 999px; border-color: var(--gx-rose); color: var(--gx-ink); text-transform: none; letter-spacing: .01em; font-size: 15px; padding-left: 30px; padding-right: 30px; }
+.event--gaisb .event__cta2:hover { background: var(--gx-rose); border-color: var(--gx-rose); color: var(--gx-bg); }
+.event--gaisb .event__side { background: rgba(17,13,46,.55); border-left-color: var(--gx-line); }
+.event--gaisb .event__side-label { color: var(--gx-peach); }
+.event--gaisb .countdown__cell { background: rgba(17,13,46,.7); border-color: var(--gx-line); border-radius: 10px; }
+.event--gaisb .countdown__num { font-family: var(--gx-display); font-weight: 400; font-size: clamp(26px, 2.4vw, 34px); }
+.event--gaisb .countdown__label { color: var(--gx-mute); }
+.event--gaisb .event__facts { background: var(--gx-line); border-color: var(--gx-line); border-radius: 10px; overflow: hidden; }
+.event--gaisb .event__facts div { background: rgba(17,13,46,.85); }
+.event--gaisb .event__facts dt { font-family: var(--gx-display); font-weight: 400; font-size: 20px; letter-spacing: .02em; color: var(--gx-peach); }
+.event--gaisb .event__facts dd { color: var(--gx-mute); }
+.event--gaisb :focus-visible { outline-color: var(--gx-peach); }

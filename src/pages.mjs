@@ -13,22 +13,22 @@ const PREVIEW = 'Development preview — this form is not connected yet.';
 // Featured event block (home + events page). WordPress: Events CPT single-card template.
 function eventFeature(e, el = 'home.event') {
   return html`
-<article class="event" data-el="${el}" data-el-build="custom-widget">
+<article class="event${e.brand ? ' event--' + e.brand : ''}" data-el="${el}" data-el-build="custom-widget">
   <div class="event__date" aria-hidden="true">
     <span class="event__day">${e.day}</span>
     <span class="event__month">${e.month}</span>
     <span class="event__end">${e.endLabel}</span>
   </div>
   <div class="event__main">
-    <p class="eyebrow eyebrow-rule">${e.kicker} · ${e.city}</p>
-    <h3 class="event__title">${e.name}</h3>
+    <p class="event__wordmark"><small>${e.city} · ${e.dateLabel}</small></p>
+    <h3 class="event__title"><a href="${e.url}" target="_blank" rel="noopener noreferrer">${e.name}<span class="sr-only"> (opens the summit website in a new tab)</span></a></h3>
     <p class="event__headline"><span>${e.headline}</span> ${e.subhead}</p>
     <ul class="event__themes">${e.themes.map((t) => html`<li>${t}</li>`)}</ul>
     <p class="event__summary">${e.summary}</p>
     <p class="event__where"><strong>${e.dateLabel}</strong> · ${e.venue}, ${e.city}</p>
     <div class="btn-row btn-row--stack">
-      <a class="btn btn--gold" href="${e.url}" target="_blank" rel="noopener noreferrer">${e.ctaPrimary}<span class="sr-only"> (opens the summit website in a new tab)</span>${icon('external')}</a>
-      <a class="btn btn--line-light" href="${e.url}" target="_blank" rel="noopener noreferrer">${e.ctaSecondary}<span class="sr-only"> (opens in a new tab)</span>${icon('external')}</a>
+      <a class="btn btn--gold event__cta" href="${e.url}" target="_blank" rel="noopener noreferrer">${e.ctaPrimary}<span class="sr-only"> (opens the summit website in a new tab)</span>${icon('external')}</a>
+      <a class="btn btn--line-light event__cta2" href="${e.url}" target="_blank" rel="noopener noreferrer">${e.ctaSecondary}<span class="sr-only"> (opens in a new tab)</span>${icon('external')}</a>
     </div>
     <p class="event__host">${e.host}</p>
   </div>
