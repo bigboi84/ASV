@@ -1,0 +1,3090 @@
+{
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/",
+      "page": "home"
+    },
+    {
+      "label": "About",
+      "kids": [
+        {
+          "label": "About Us",
+          "href": "/about"
+        },
+        {
+          "label": "Strategic Pillars",
+          "href": "/strategic-pillars"
+        },
+        {
+          "label": "News, Stories & Impact",
+          "href": "/news-impact"
+        }
+      ]
+    },
+    {
+      "label": "Smart Sports Village",
+      "kids": [
+        {
+          "label": "Whitby Smart Sports Village",
+          "href": "/whitby-smart-sports-village"
+        },
+        {
+          "label": "Facilities",
+          "href": "/facilities"
+        }
+      ]
+    },
+    {
+      "label": "Programs",
+      "kids": [
+        {
+          "label": "Programs & Athlete Development",
+          "href": "/programs"
+        },
+        {
+          "label": "Education & Academic Success",
+          "href": "/education"
+        },
+        {
+          "label": "Life Skills",
+          "href": "/life-skills"
+        },
+        {
+          "label": "Esports, Technology, Media & Innovation",
+          "href": "/technology-media"
+        },
+        {
+          "label": "GAISB AI Education & Responsible Innovation",
+          "href": "/gaisb-ai"
+        }
+      ]
+    },
+    {
+      "label": "Neurodiversity",
+      "kids": [
+        {
+          "label": "Neurodiversity Access & Opportunity",
+          "href": "/neurodiversity"
+        },
+        {
+          "label": "Business for Inclusion",
+          "href": "/business-for-inclusion"
+        },
+        {
+          "label": "Service Provider Network",
+          "href": "/service-provider-network"
+        },
+        {
+          "label": "Neurodiversity Access Fund",
+          "href": "/neurodiversity-access-fund"
+        }
+      ]
+    },
+    {
+      "label": "Membership",
+      "href": "/membership"
+    },
+    {
+      "label": "Marketplace",
+      "href": "/marketplace"
+    },
+    {
+      "label": "Partners",
+      "href": "/partners"
+    }
+  ],
+  "products": [
+    {
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215633_c1fb9e55-64ba-44a0-9ae8-9e1233b8ac98.png",
+      "slug": "training-tee",
+      "name": "AFSV VRC Training Tee",
+      "vendor": "AFSV VRC Official",
+      "category": "Apparel",
+      "price": 42,
+      "shot": "Product shot — folded training tee, front",
+      "blurb": "Breathable training layer in district colours.",
+      "desc": "The standard training layer for AFSV VRC programs, in a breathable knit that holds its shape through repeat washing.",
+      "long": "Worn across youth, adult and adaptive program streams. Cut for movement rather than fit-to-size fashion sizing, with flat seams at the shoulder to reduce rub under bibs and vests.",
+      "variantLabel": "Size",
+      "variants": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
+      "specs": [
+        "Recycled polyester / elastane knit",
+        "Flat shoulder seams",
+        "Machine wash 30°C",
+        "Unisex sizing"
+      ]
+    },
+    {
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215635_7ec82064-84ee-409a-8bb7-2423fd4965ea.png",
+      "slug": "performance-hoodie",
+      "name": "Performance Hoodie",
+      "vendor": "AFSV VRC Official",
+      "category": "Apparel",
+      "price": 88,
+      "shot": "Product shot — hoodie on hanger, front",
+      "blurb": "Mid-weight warmup and travel layer.",
+      "desc": "Mid-weight hooded layer for warmups, travel and sideline wear, with a brushed inner face.",
+      "long": "Built as the travel layer for program squads. Sized to layer over a training tee without restricting the shoulder.",
+      "variantLabel": "Size",
+      "variants": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
+      "specs": [
+        "Brushed cotton-blend fleece",
+        "Set-in sleeve",
+        "Side seam pockets",
+        "Machine wash 30°C"
+      ]
+    },
+    {
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215637_22beed6d-1692-4e0c-94ae-bf2aed8d61da.png",
+      "slug": "sensory-warmup-jacket",
+      "name": "Sensory-Friendly Warmup Jacket",
+      "vendor": "Quietform Athletics",
+      "category": "Apparel",
+      "price": 124,
+      "shot": "Product shot — warmup jacket, tag-free interior",
+      "badge": "Neuro-inclusive",
+      "blurb": "Tag-free, seam-reduced, quiet fabric.",
+      "desc": "Warmup jacket designed with sensory sensitivity in mind: no interior tags, reduced seams and a fabric chosen for low rustle.",
+      "long": "Developed with the Neurodiversity Access & Opportunity program. Fastenings are magnetic rather than zip-toothed, and all labelling is heat-transferred onto the outer face.",
+      "variantLabel": "Size",
+      "variants": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "specs": [
+        "Tag-free interior",
+        "Magnetic front closure",
+        "Low-noise woven shell",
+        "Seam count reduced at collar and cuff"
+      ]
+    },
+    {
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215639_f682cbf4-3bd9-4bfd-9c75-7cc1e7919819.png",
+      "slug": "ear-defenders",
+      "name": "Noise-Reducing Ear Defenders",
+      "vendor": "Quietform Athletics",
+      "category": "Inclusion",
+      "price": 56,
+      "shot": "Product shot — folded ear defenders, side",
+      "badge": "Neuro-inclusive",
+      "blurb": "Folding defenders for loud venues.",
+      "desc": "Folding ear defenders for use in loud training halls, arenas and event venues.",
+      "long": "Stocked at the facility desk for loan as well as sale. Sized for youth and adult heads with an adjustable band.",
+      "variantLabel": "Fit",
+      "variants": [
+        "Youth",
+        "Adult"
+      ],
+      "specs": [
+        "26 dB rated reduction",
+        "Folding band",
+        "Wipe-clean cushions",
+        "Carry pouch included"
+      ]
+    },
+    {
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215640_d097f767-2585-4f31-8171-2974b6d29994.png",
+      "slug": "court-grip-trainer",
+      "name": "Court Grip Trainer",
+      "vendor": "Northline Sport Supply",
+      "category": "Equipment",
+      "price": 64,
+      "shot": "Product shot — grip trainer on court floor",
+      "blurb": "Footwork and change-of-direction aid.",
+      "desc": "Footwork trainer for change-of-direction and deceleration work on indoor courts.",
+      "long": "Used in development-stream sessions. Non-marking base, suitable for sprung and coated hardwood.",
+      "specs": [
+        "Non-marking base",
+        "Indoor court use",
+        "Stacks for storage",
+        "Coach guide included"
+      ]
+    },
+    {
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215646_f576d138-90f2-4731-8251-78087f0680e9.png",
+      "slug": "weighted-skills-ball",
+      "name": "Weighted Skills Ball 2 kg",
+      "vendor": "Northline Sport Supply",
+      "category": "Equipment",
+      "price": 38,
+      "shot": "Product shot — weighted ball, single",
+      "blurb": "Textured grip, 2 kg.",
+      "desc": "Textured 2 kg ball for throwing, catching and core progressions.",
+      "long": "Standard kit item across strength and conditioning progressions. Sand-filled, so it does not roll away when set down mid-drill.",
+      "variantLabel": "Weight",
+      "variants": [
+        "1 kg",
+        "2 kg",
+        "3 kg"
+      ],
+      "specs": [
+        "Sand-filled core",
+        "Textured grip shell",
+        "Low bounce",
+        "Colour-coded by weight"
+      ]
+    },
+    {
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215647_b7fb47ad-51f2-466a-b0ce-bce9585a6cfd.png",
+      "slug": "clipboard-set",
+      "name": "Coach Clipboard Set",
+      "vendor": "Northline Sport Supply",
+      "category": "Equipment",
+      "price": 29,
+      "shot": "Product shot — clipboard with session sheets",
+      "blurb": "Session planning board and sheets.",
+      "desc": "Coaching clipboard with dry-wipe court face and a pad of AFSV VRC session sheets.",
+      "long": "Issued to program coaches. Session sheet layout matches the reporting fields used for participation records.",
+      "specs": [
+        "Dry-wipe court face",
+        "50 session sheets",
+        "Marker and eraser",
+        "A4 clip"
+      ]
+    },
+    {
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215649_bd432268-c155-438d-a1ba-7bd949f61194.png",
+      "slug": "recovery-mix",
+      "name": "Focus & Fuel Recovery Mix",
+      "vendor": "Harbour Nutrition Co.",
+      "category": "Nutrition",
+      "price": 34,
+      "shot": "Product shot — recovery mix tub",
+      "blurb": "Post-session recovery drink mix.",
+      "desc": "Post-session recovery mix, unflavoured or citrus, made in Ontario.",
+      "long": "Stocked for adult program participants. Ingredient and allergen labelling is supplied by the vendor and must be verified before public sale.",
+      "variantLabel": "Flavour",
+      "variants": [
+        "Unflavoured",
+        "Citrus",
+        "Berry"
+      ],
+      "specs": [
+        "30 servings",
+        "Made in Ontario",
+        "Allergen panel on pack",
+        "Vendor-supplied labelling"
+      ]
+    },
+    {
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215651_d4927e83-0f4a-4f2b-a06b-71717f4f0404.png",
+      "slug": "water-bottle",
+      "name": "Team Water Bottle 1 L",
+      "vendor": "AFSV VRC Official",
+      "category": "Equipment",
+      "price": 22,
+      "shot": "Product shot — 1 litre bottle, side",
+      "blurb": "Insulated, 1 litre, squad-marked.",
+      "desc": "One-litre insulated bottle with a space for squad and participant marking.",
+      "long": "Issued with membership welcome packs and sold individually. Wide mouth for ice and cleaning.",
+      "variantLabel": "Colour",
+      "variants": [
+        "Black",
+        "Off-white"
+      ],
+      "specs": [
+        "1 litre",
+        "Double-walled stainless",
+        "Wide mouth",
+        "Dishwasher safe"
+      ]
+    },
+    {
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215653_247112d0-7d39-43a3-bd8b-89c20ae80ca6.png",
+      "slug": "skills-camp-pass",
+      "name": "Youth Skills Camp Day Pass",
+      "vendor": "AFSV VRC Official",
+      "category": "Programs",
+      "price": 25,
+      "shot": "Product shot / booking card — camp day pass",
+      "blurb": "Single-day camp admission.",
+      "desc": "Single-day admission to a youth skills camp session, redeemable against a scheduled date.",
+      "long": "Sold as a simple product in this preview. On the live site this becomes a bookable product tied to the facility calendar, and access-fund support is applied at the point of booking.",
+      "variantLabel": "Age group",
+      "variants": [
+        "8–11",
+        "12–14",
+        "15–17"
+      ],
+      "specs": [
+        "One participant, one day",
+        "Date selected at booking",
+        "Access fund support applied at booking",
+        "Non-transferable"
+      ]
+    }
+  ],
+  "ship": [
+    {
+      "id": "standard",
+      "label": "Standard courier",
+      "note": "Ontario-wide, 3–5 business days.",
+      "cost": 9.95
+    },
+    {
+      "id": "express",
+      "label": "Express courier",
+      "note": "Ontario-wide, 1–2 business days.",
+      "cost": 19.95
+    },
+    {
+      "id": "pickup",
+      "label": "Pickup at Whitby Smart Sports Village",
+      "note": "Available once the site is operational.",
+      "cost": 0
+    }
+  ],
+  "content": {
+    "/programs": {
+      "group": "Programs",
+      "kicker": "Programs & Athlete Development",
+      "h1": "Develop the Athlete. Strengthen the Whole Person.",
+      "lead": "AFSV VRC is developing inclusive pathways intended to support participation, skill development, performance, confidence and opportunity.",
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215610_89595cab-2486-4027-97ba-f600820a034b.png",
+      "alt": "A coach crouching to talk with two teenage athletes during a session in an indoor fieldhouse, other participants of mixed ages and abilities training behind them, one using a sport wheelchair.",
+      "ctas": [
+        {
+          "label": "Explore Program Interest",
+          "href": "#interest"
+        },
+        {
+          "label": "Coach / Provider Inquiry",
+          "href": "/contact"
+        },
+        {
+          "label": "Get Updates",
+          "href": "#interest"
+        }
+      ],
+      "note": "Program details coming soon. Schedules, coaching assignments, prices and capacity are not confirmed and are not published on this page.",
+      "listTitle": "Program categories.",
+      "listLead": "Ten categories planned for the first program cycle. Each will carry its own status label until confirmed.",
+      "list": [
+        "Multi-sport development",
+        "Soccer",
+        "Cricket",
+        "Basketball",
+        "Track and sprint",
+        "Strength and conditioning",
+        "Camps and clinics",
+        "Coach education",
+        "Adaptive and sensory-friendly sport",
+        "Athlete mentorship"
+      ],
+      "blocksTitle": "What each program record holds.",
+      "blocks": [
+        {
+          "num": "01",
+          "title": "Structured records",
+          "body": "Approved title, status, age group, ability level, format, schedule, location, capacity, prerequisites, accessibility, coach or provider, price, media and registration route."
+        },
+        {
+          "num": "02",
+          "title": "Status labels",
+          "body": "Every program carries a visible status. Until it is approved the record shows “Program details coming soon” and collects interest only."
+        },
+        {
+          "num": "03",
+          "title": "Adaptive pathway",
+          "body": "Adaptive and sensory-friendly sport is a named category in its own right, not an accommodation applied to another program."
+        },
+        {
+          "num": "04",
+          "title": "Registration later",
+          "body": "Registration and payment stay switched off until inventory, schedules, pricing, waivers and refund terms are approved."
+        }
+      ],
+      "form": {
+        "id": "interest",
+        "title": "Register program interest.",
+        "lead": "Tell us who the participant is and what they are interested in. We collect only what is needed for a first conversation.",
+        "note": "Do not include diagnoses or medical records. Accessibility needs are optional and free-text.",
+        "fields": [
+          {
+            "l": "Participant or caregiver name",
+            "k": "t",
+            "t": "text",
+            "ph": "Full name",
+            "req": true
+          },
+          {
+            "l": "Email",
+            "k": "t",
+            "t": "email",
+            "ph": "you@example.com",
+            "req": true
+          },
+          {
+            "l": "Phone",
+            "k": "t",
+            "t": "tel",
+            "ph": "Optional"
+          },
+          {
+            "l": "Participant age range",
+            "k": "s",
+            "o": [
+              "Under 8",
+              "8–11",
+              "12–14",
+              "15–17",
+              "18–24",
+              "25+"
+            ],
+            "req": true
+          },
+          {
+            "l": "Sport or program",
+            "k": "s",
+            "o": [
+              "Multi-sport development",
+              "Soccer",
+              "Cricket",
+              "Basketball",
+              "Track and sprint",
+              "Strength and conditioning",
+              "Camps and clinics",
+              "Adaptive and sensory-friendly sport",
+              "Athlete mentorship",
+              "Not sure yet"
+            ],
+            "req": true
+          },
+          {
+            "l": "Experience level",
+            "k": "s",
+            "o": [
+              "New to the sport",
+              "Some experience",
+              "Competitive",
+              "Prefer not to say"
+            ]
+          },
+          {
+            "l": "Region",
+            "k": "t",
+            "t": "text",
+            "ph": "City or region",
+            "req": true
+          },
+          {
+            "l": "Preferred format",
+            "k": "s",
+            "o": [
+              "Weekday",
+              "Weekend",
+              "Holiday programming",
+              "Either"
+            ]
+          },
+          {
+            "l": "Preferred timeframe",
+            "k": "s",
+            "o": [
+              "As soon as available",
+              "Next 3 months",
+              "Next 6 months",
+              "Just keeping in touch"
+            ]
+          },
+          {
+            "l": "Accessibility needs",
+            "k": "a",
+            "ph": "Anything that would help us plan a session well",
+            "span": "1 / -1"
+          }
+        ]
+      },
+      "ctaHead": "Coaches and providers register through a separate route.",
+      "ctaLabel": "Coach or provider inquiry",
+      "ctaHref": "/contact"
+    },
+    "/education": {
+      "group": "Programs",
+      "kicker": "Education & Academic Success",
+      "h1": "Learning That Builds Confidence and Capability",
+      "lead": "AFSV VRC is developing academic support intended to help young people develop academically as well as physically and socially.",
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215612_dc47d344-c27f-4406-8274-05f9054c2108.png",
+      "alt": "Two teenagers working at a table with notebooks and a laptop in a study space beside a training hall, an adult tutor leaning in to help.",
+      "ctas": [
+        {
+          "label": "Register Learning Interest",
+          "href": "#interest"
+        },
+        {
+          "label": "Become an Education Partner",
+          "href": "/partners"
+        },
+        {
+          "label": "Educator / Tutor Inquiry",
+          "href": "/contact"
+        }
+      ],
+      "note": "No tutoring service, diagnostic assessment, regulated support, named provider, curriculum approval or school partnership is live. Nothing here should be read as an available service.",
+      "listTitle": "Planned services.",
+      "listLead": "Twelve areas of planned academic support.",
+      "list": [
+        "Tutoring",
+        "Literacy",
+        "Mathematics",
+        "Academic coaching",
+        "Study skills",
+        "Executive-function coaching",
+        "Homework support",
+        "Technology-assisted learning",
+        "Career exploration",
+        "Mentorship",
+        "Digital literacy",
+        "Financial literacy"
+      ],
+      "blocksTitle": "How support is intended to work.",
+      "blocks": [
+        {
+          "num": "01",
+          "title": "Alongside training",
+          "body": "Study time sits inside the program schedule rather than competing with it, so participants are not choosing between the two."
+        },
+        {
+          "num": "02",
+          "title": "Shared reporting",
+          "body": "Where a school partnership is in place, coaches and educators work from the same progress information — with consent."
+        },
+        {
+          "num": "03",
+          "title": "No clinical claims",
+          "body": "Academic coaching is not assessment, diagnosis or regulated therapeutic support, and is never described as such."
+        },
+        {
+          "num": "04",
+          "title": "Data minimisation",
+          "body": "Public forms ask for the least information needed. Anything sensitive moves to an approved secure process later."
+        }
+      ],
+      "list2Title": "Audiences.",
+      "list2Lead": "Five routes, kept separate so families and institutions are not funnelled into one inbox.",
+      "list2": [
+        "Learners and families",
+        "Educators and tutors",
+        "Schools and colleges",
+        "Sponsors",
+        "Community organizations"
+      ],
+      "form": {
+        "id": "interest",
+        "title": "Register learning interest.",
+        "lead": "For families, learners, educators and institutions. Tell us which route applies.",
+        "note": "We do not ask for diagnoses, assessments or medical records. Accommodation requests are optional.",
+        "fields": [
+          {
+            "l": "Name or caregiver name",
+            "k": "t",
+            "t": "text",
+            "ph": "Full name",
+            "req": true
+          },
+          {
+            "l": "Email",
+            "k": "t",
+            "t": "email",
+            "ph": "you@example.com",
+            "req": true
+          },
+          {
+            "l": "Phone",
+            "k": "t",
+            "t": "tel",
+            "ph": "Optional"
+          },
+          {
+            "l": "Learner age range",
+            "k": "s",
+            "o": [
+              "Under 8",
+              "8–11",
+              "12–14",
+              "15–17",
+              "18–24",
+              "25+"
+            ],
+            "req": true
+          },
+          {
+            "l": "Region",
+            "k": "t",
+            "t": "text",
+            "ph": "City or region",
+            "req": true
+          },
+          {
+            "l": "Areas of interest",
+            "k": "s",
+            "o": [
+              "Tutoring",
+              "Literacy",
+              "Mathematics",
+              "Academic coaching",
+              "Study skills",
+              "Executive-function coaching",
+              "Homework support",
+              "Technology-assisted learning",
+              "Career exploration",
+              "Mentorship",
+              "Digital literacy",
+              "Financial literacy"
+            ],
+            "req": true
+          },
+          {
+            "l": "Preferred format",
+            "k": "s",
+            "o": [
+              "In person",
+              "Virtual",
+              "Either"
+            ]
+          },
+          {
+            "l": "Organization, if applicable",
+            "k": "t",
+            "t": "text",
+            "ph": "School, college or community organization"
+          },
+          {
+            "l": "Accommodation request",
+            "k": "a",
+            "ph": "Optional — anything that would help us respond well",
+            "span": "1 / -1"
+          }
+        ]
+      },
+      "ctaHead": "Schools, colleges and tutors have their own route.",
+      "ctaLabel": "Talk about a partnership",
+      "ctaHref": "/contact"
+    },
+    "/life-skills": {
+      "group": "Programs",
+      "kicker": "Life Skills",
+      "h1": "Skills for Life Beyond Sport",
+      "lead": "Life-skills programming is intended to prepare participants for independence, leadership, careers and entrepreneurship.",
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215614_9a3de3a4-8e4a-416b-9834-1fd1818b7adb.png",
+      "alt": "A small-group life skills workshop: five young adults around a table in a bright community room with a facilitator standing and explaining.",
+      "ctas": [
+        {
+          "label": "Register Interest",
+          "href": "#interest"
+        },
+        {
+          "label": "Become a Mentor or Delivery Partner",
+          "href": "#interest"
+        },
+        {
+          "label": "Sponsor Life-Skills Programming",
+          "href": "/partners"
+        }
+      ],
+      "note": "All facilitators, curricula, safeguarding requirements, outcomes, dates and fees remain pending approval. No sessions are scheduled and none should be presented as available.",
+      "listTitle": "Program themes.",
+      "listLead": "Thirteen themes, delivered in short blocks rather than as a single course.",
+      "list": [
+        "Communication",
+        "Personal organization",
+        "Time management",
+        "Financial literacy and budgeting",
+        "Transportation",
+        "Workplace readiness",
+        "Self-advocacy",
+        "Social interaction",
+        "Digital safety",
+        "Personal responsibility",
+        "Goal setting",
+        "Leadership",
+        "Entrepreneurship"
+      ],
+      "blocksTitle": "Delivery concept.",
+      "blocks": [
+        {
+          "num": "01",
+          "title": "Workshops",
+          "body": "Short facilitated sessions on a single theme, sized to fit inside an existing program block. Subject to approved facilitators and schedules."
+        },
+        {
+          "num": "02",
+          "title": "Mentoring",
+          "body": "One-to-one and small-group mentoring, with mentors screened before any participant contact."
+        },
+        {
+          "num": "03",
+          "title": "Integrated modules",
+          "body": "Themes built into athlete-development sessions so the learning is not separated from the training."
+        },
+        {
+          "num": "04",
+          "title": "Family resources",
+          "body": "Material families can use at home, written in plain language."
+        },
+        {
+          "num": "05",
+          "title": "Partner-led learning",
+          "body": "Sessions delivered by employer, education and community partners under the same safeguarding requirements."
+        }
+      ],
+      "form": {
+        "id": "interest",
+        "title": "Register interest.",
+        "lead": "For participants, families, and anyone offering to mentor or deliver.",
+        "note": "Safeguarding screening applies to every mentor and delivery partner before contact with participants.",
+        "fields": [
+          {
+            "l": "Name",
+            "k": "t",
+            "t": "text",
+            "ph": "Full name",
+            "req": true
+          },
+          {
+            "l": "Email",
+            "k": "t",
+            "t": "email",
+            "ph": "you@example.com",
+            "req": true
+          },
+          {
+            "l": "Participant age range",
+            "k": "s",
+            "o": [
+              "Under 8",
+              "8–11",
+              "12–14",
+              "15–17",
+              "18–24",
+              "25+",
+              "Not applicable"
+            ],
+            "req": true
+          },
+          {
+            "l": "Region",
+            "k": "t",
+            "t": "text",
+            "ph": "City or region",
+            "req": true
+          },
+          {
+            "l": "Topics of interest",
+            "k": "s",
+            "o": [
+              "Communication",
+              "Personal organization",
+              "Time management",
+              "Financial literacy and budgeting",
+              "Transportation",
+              "Workplace readiness",
+              "Self-advocacy",
+              "Social interaction",
+              "Digital safety",
+              "Goal setting",
+              "Leadership",
+              "Entrepreneurship"
+            ],
+            "req": true
+          },
+          {
+            "l": "Preferred format",
+            "k": "s",
+            "o": [
+              "Workshop",
+              "Mentoring",
+              "Integrated into training",
+              "Either"
+            ]
+          },
+          {
+            "l": "Preferred timeframe",
+            "k": "s",
+            "o": [
+              "As soon as available",
+              "Next 3 months",
+              "Next 6 months",
+              "Just keeping in touch"
+            ]
+          },
+          {
+            "l": "Mentor or delivery partner interest",
+            "k": "s",
+            "o": [
+              "No — participant or family",
+              "Yes — mentor",
+              "Yes — delivery partner",
+              "Yes — sponsor"
+            ]
+          },
+          {
+            "l": "Accommodation",
+            "k": "a",
+            "ph": "Optional",
+            "span": "1 / -1"
+          }
+        ]
+      },
+      "ctaHead": "Sponsors fund whole blocks of life-skills programming.",
+      "ctaLabel": "Talk to the partnerships team",
+      "ctaHref": "/partners"
+    },
+    "/technology-media": {
+      "group": "Programs",
+      "kicker": "Esports, Technology, Media & Innovation",
+      "h1": "New Pathways to Create, Compete and Build",
+      "lead": "Not every participant connects with traditional sport. These pathways are intended to support social connection, skills, confidence, storytelling and career exploration.",
+      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215616_90815cca-2349-4ddd-9b38-b264231fdb9a.png",
+      "alt": "A broadcast production desk with a mixing console in the foreground and a row of competition stations behind, a young adult in headphones working at the desk.",
+      "ctas": [
+        {
+          "label": "Register Program Interest",
+          "href": "#interest"
+        },
+        {
+          "label": "Become a Technology Partner",
+          "href": "/partners"
+        },
+        {
+          "label": "Media Collaboration",
+          "href": "/contact"
+        }
+      ],
+      "note": "No equipment, studio, event, platform, partner technology or instruction is operational. Media participation requires consent, and safeguarding requirements apply to participants under 18.",
+      "listTitle": "Pathways.",
+      "listLead": "Eleven pathways, each with its own progression and supervision requirements.",
+      "list": [
+        "Esports",
+        "Gaming",
+        "Coding",
+        "Digital media",
+        "Content creation",
+        "Broadcasting",
+        "Podcasting",
+        "AI education",
+        "STEM workshops",
+        "Sports technology",
+        "Entrepreneurship"
+      ],
+      "blocksTitle": "Facility vision — conceptual.",
+      "blocks": [
+        {
+          "num": "01",
+          "title": "Competition and production space",
+          "body": "A room that can run a tournament and produce the coverage of it. Subject to final design and procurement."
+        },
+        {
+          "num": "02",
+          "title": "Broadcast booth",
+          "body": "Commentary and live coverage position for AFSV VRC programs. Conceptual — not built."
+        },
+        {
+          "num": "03",
+          "title": "Podcast studio",
+          "body": "Recording space for participant and community storytelling. Conceptual — not built."
+        },
+        {
+          "num": "04",
+          "title": "Learning labs",
+          "body": "Coding, STEM and AI education rooms. Equipment specification is not finalised."
+        }
+      ],
+      "form": {
+        "id": "interest",
+        "title": "Register program interest.",
+        "lead": "Separate routes for participants, technology partners and media collaboration.",
+        "note": "Media and broadcast participation requires documented consent. For participants under 18, guardian consent and safeguarding checks apply before any recording.",
+        "fields": [
+          {
+            "l": "Name",
+            "k": "t",
+            "t": "text",
+            "ph": "Full name",
+            "req": true
+          },
+          {
+            "l": "Organization",
+            "k": "t",
+            "t": "text",
+            "ph": "Optional"
+          },
+          {
+            "l": "Email",
+            "k": "t",
+            "t": "email",
+            "ph": "you@example.com",
+            "req": true
+          },
+          {
+            "l": "Age range or role",
+            "k": "s",
+            "o": [
+              "Under 13",
+              "13–17",
+              "18–24",
+              "25+",
+              "Parent or guardian",
+              "Educator",
+              "Partner organization",
+              "Media"
+            ],
+            "req": true
+          },
+          {
+            "l": "Pathways",
+            "k": "s",
+            "o": [
+              "Esports",
+              "Gaming",
+              "Coding",
+              "Digital media",
+              "Content creation",
+              "Broadcasting",
+              "Podcasting",
+              "AI education",
+              "STEM workshops",
+              "Sports technology",
+              "Entrepreneurship"
+            ],
+            "req": true
+          },
+          {
+            "l": "Skill level",
+            "k": "s",
+            "o": [
+              "Beginner",
+              "Some experience",
+              "Advanced",
+              "Prefer not to say"
+            ]
+          },
+          {
+            "l": "Interest type",
+            "k": "s",
+            "o": [
+              "Program participation",
+              "Technology partnership",
+              "Media collaboration"
+            ],
+            "req": true
+          },
+          {
+            "l": "Region",
+            "k": "t",
+            "t": "text",
+            "ph": "City or region",
+            "req": true
+          },
+          {
+            "l": "Accessibility needs",
+            "k": "a",
+            "ph": "Optional"
+          },
+          {
+            "l": "Message",
+            "k": "a",
+            "ph": "Anything else we should know",
+            "span": "1 / -1"
+          }
+        ]
+      },
+      "ctaHead": "Technology and media partners shape these pathways.",
+      "ctaLabel": "Talk to the partnerships team",
+      "ctaHref": "/partners"
+    },
+    "/gaisb-ai": {
+      "group": "Programs",
+      "kicker": "GAISB AI Education & Responsible Innovation",
+      "h1": "Advancing Responsible AI Education and Workforce Readiness",
+      "lead": "Through its strategic relationship with the Global AI Standards Body, AFSV VRC is advancing AI education, certification, workforce readiness and responsible innovation across sport, education and community development in Canada and the Caribbean.",
+      "img": "assets/img/ai-education-studio.jpg",
+      "alt": "Three adult learners working at a long desk with large displays showing abstract data visualisations, while an instructor explains a concept in a modern technology education studio.",
+      "ctas": [
+        {
+          "label": "Explore Certification Interest",
+          "href": "#interest"
+        },
+        {
+          "label": "Become an Education Partner",
+          "href": "/partners"
+        },
+        {
+          "label": "Discuss Enterprise AI",
+          "href": "#interest"
+        },
+        {
+          "label": "Summit & Events",
+          "href": "/contact"
+        }
+      ],
+      "note": "This is a strategic relationship with the Global AI Standards Body. No accreditation, exclusivity or course availability is claimed beyond approved language, and no GAISB logo or brand mark is published pending written permission. Programs, territories, certifications, fees and dates appear only once contractually approved.",
+      "listTitle": "Priority pathways.",
+      "listLead": "Eight pathways within the confirmed scope of the relationship.",
+      "list": [
+        "AI literacy",
+        "Professional certification",
+        "Educator and youth learning",
+        "Sport technology",
+        "Responsible-AI governance",
+        "Workforce readiness",
+        "Enterprise innovation",
+        "Community capacity building"
+      ],
+      "blocksTitle": "AI supports the pillars. It does not replace them.",
+      "blocks": [
+        {
+          "num": "01",
+          "title": "Athlete development",
+          "body": "Analysis and planning tools support coaching decisions. The coach makes the decision."
+        },
+        {
+          "num": "02",
+          "title": "Inclusive learning",
+          "body": "Assistive and adaptive tools widen access to material. They do not substitute for a teacher or a support worker."
+        },
+        {
+          "num": "03",
+          "title": "Neurodivergent support",
+          "body": "Tools chosen for accessibility and predictability, reviewed with the people who use them."
+        },
+        {
+          "num": "04",
+          "title": "Operations",
+          "body": "Scheduling, reporting and administration, so staff time goes to participants rather than paperwork."
+        },
+        {
+          "num": "05",
+          "title": "Media and career preparation",
+          "body": "Production and career-readiness skills that reflect how the work is actually done now."
+        }
+      ],
+      "form": {
+        "id": "interest",
+        "title": "Certification, education and enterprise inquiries.",
+        "lead": "Tell us which pathway applies and we will route your inquiry to the right team.",
+        "note": "No certification, fee, territory or date is confirmed by this form. Responses describe approved scope only.",
+        "fields": [
+          {
+            "l": "Name",
+            "k": "t",
+            "t": "text",
+            "ph": "Full name",
+            "req": true
+          },
+          {
+            "l": "Organization",
+            "k": "t",
+            "t": "text",
+            "ph": "Organization name",
+            "req": true
+          },
+          {
+            "l": "Role",
+            "k": "t",
+            "t": "text",
+            "ph": "Your role",
+            "req": true
+          },
+          {
+            "l": "Email",
+            "k": "t",
+            "t": "email",
+            "ph": "you@example.com",
+            "req": true
+          },
+          {
+            "l": "Phone",
+            "k": "t",
+            "t": "tel",
+            "ph": "Optional"
+          },
+          {
+            "l": "Country",
+            "k": "t",
+            "t": "text",
+            "ph": "Country",
+            "req": true
+          },
+          {
+            "l": "Pathway",
+            "k": "s",
+            "o": [
+              "AI literacy",
+              "Professional certification",
+              "Educator and youth learning",
+              "Sport technology",
+              "Responsible-AI governance",
+              "Workforce readiness",
+              "Enterprise innovation",
+              "Community capacity building"
+            ],
+            "req": true
+          },
+          {
+            "l": "Learner or team size",
+            "k": "s",
+            "o": [
+              "1–10",
+              "11–50",
+              "51–200",
+              "200+",
+              "Not yet known"
+            ]
+          },
+          {
+            "l": "Timeframe",
+            "k": "s",
+            "o": [
+              "As soon as available",
+              "Next 3 months",
+              "Next 6 months",
+              "Exploratory"
+            ]
+          },
+          {
+            "l": "Message",
+            "k": "a",
+            "ph": "What you are trying to achieve",
+            "span": "1 / -1"
+          }
+        ]
+      },
+      "ctaHead": "Enterprise and education partners engage separately.",
+      "ctaLabel": "Talk to the partnerships team",
+      "ctaHref": "/partners",
+      "imgStandIn": true
+    },
+    "/neurodiversity": {
+      "group": "Neurodiversity",
+      "kicker": "Neurodiversity Access & Opportunity",
+      "h1": "Different Minds. Equal Opportunity.",
+      "lead": "AFSV VRC is developing an inclusive ecosystem intended to expand access to sport, education, developmental support, life skills, technology and employment for neurodivergent people. Through qualified professionals, community organizations, businesses, sponsors and employers, the program intends to reduce financial and accessibility barriers.",
+      "img": "assets/img/sensory-support-space.jpg",
+      "alt": "Two adults in relaxed conversation in a calm, sensory-considerate support space with soft acoustic wall panels, dimmable lighting and quiet soft seating.",
+      "ctas": [
+        {
+          "label": "Get Support / Register Interest",
+          "href": "#interest"
+        },
+        {
+          "label": "Become a Service Provider",
+          "href": "/service-provider-network"
+        },
+        {
+          "label": "Become a Neuroinclusive Employer",
+          "href": "/business-for-inclusion"
+        },
+        {
+          "label": "Sponsor Access",
+          "href": "/neurodiversity-access-fund"
+        }
+      ],
+      "note": "AFSV VRC does not provide clinical diagnosis, assessment or therapeutic treatment. Regulated services are delivered only by qualified professionals who are reviewed separately, and the public form does not ask for diagnoses or medical records.",
+      "listTitle": "Who it supports.",
+      "listLead": "Written as the community describes itself. Identity-first and person-first preferences are both respected.",
+      "list": [
+        "Autism",
+        "ADHD",
+        "Dyslexia and learning differences",
+        "Communication differences",
+        "Intellectual and developmental disabilities",
+        "Executive-function challenges",
+        "Sensory-processing differences",
+        "Other neurodevelopmental needs"
+      ],
+      "blocksTitle": "Four routes in, four owners.",
+      "blocks": [
+        {
+          "num": "01",
+          "title": "Individuals",
+          "body": "Register interest in programs and support, and hear back from a named contact rather than a general inbox."
+        },
+        {
+          "num": "02",
+          "title": "Families and carers",
+          "body": "Plain-language information, a vetted provider directory, and help working out what is available."
+        },
+        {
+          "num": "03",
+          "title": "Professionals and providers",
+          "body": "Apply to join the Service Provider Network, subject to qualification, insurance and safeguarding review."
+        },
+        {
+          "num": "04",
+          "title": "Businesses and employers",
+          "body": "Join Business for Inclusion as a funding, service, employment, commercial or accessibility partner."
+        }
+      ],
+      "list2Title": "Program pathways.",
+      "list2Lead": "Eight pathways, each qualified until the service behind it is approved.",
+      "list2": [
+        "Qualified developmental services",
+        "Inclusive sport",
+        "Sensory-friendly environments",
+        "Education and academic success",
+        "Life skills",
+        "Esports and technology",
+        "Employment and entrepreneurship",
+        "Family resources"
+      ],
+      "form": {
+        "id": "interest",
+        "title": "Get support or register interest.",
+        "lead": "An initial inquiry only. A named contact will respond by your preferred method.",
+        "note": "We do not ask for a diagnosis or medical records. Accommodation information is optional and free-text, and anything sensitive moves to an approved secure process later.",
+        "fields": [
+          {
+            "l": "Participant or caregiver name",
+            "k": "t",
+            "t": "text",
+            "ph": "Full name",
+            "req": true
+          },
+          {
+            "l": "Age range",
+            "k": "s",
+            "o": [
+              "Under 8",
+              "8–11",
+              "12–14",
+              "15–17",
+              "18–24",
+              "25+",
+              "Prefer not to say"
+            ],
+            "req": true
+          },
+          {
+            "l": "Email",
+            "k": "t",
+            "t": "email",
+            "ph": "you@example.com",
+            "req": true
+          },
+          {
+            "l": "Phone",
+            "k": "t",
+            "t": "tel",
+            "ph": "Optional"
+          },
+          {
+            "l": "Region",
+            "k": "t",
+            "t": "text",
+            "ph": "City or region",
+            "req": true
+          },
+          {
+            "l": "Programs of interest",
+            "k": "s",
+            "o": [
+              "Qualified developmental services",
+              "Inclusive sport",
+              "Sensory-friendly environments",
+              "Education and academic success",
+              "Life skills",
+              "Esports and technology",
+              "Employment and entrepreneurship",
+              "Family resources",
+              "Not sure yet"
+            ],
+            "req": true
+          },
+          {
+            "l": "Preferred contact",
+            "k": "s",
+            "o": [
+              "Email",
+              "Phone"
+            ],
+            "req": true
+          },
+          {
+            "l": "Accommodation information",
+            "k": "a",
+            "ph": "Optional — anything that would help us communicate well with you",
+            "span": "1 / -1"
+          }
+        ]
+      },
+      "ctaHead": "Cost should not decide who takes part.",
+      "ctaLabel": "Neurodiversity Access Fund",
+      "ctaHref": "/neurodiversity-access-fund",
+      "imgStandIn": true
+    },
+    "/business-for-inclusion": {
+      "group": "Neurodiversity",
+      "kicker": "Business for Inclusion",
+      "h1": "Your Business Can Help Remove Barriers",
+      "lead": "AFSV VRC is developing a network of businesses committed to creating opportunities for neurodivergent individuals and families.",
+      "img": "assets/img/about-team.jpg",
+      "alt": "Four adults of varied ethnicities in discussion around a large table with notebooks and a wall of notes, in a bright meeting space adjoining a sports hall.",
+      "ctas": [
+        {
+          "label": "Become a Corporate Partner",
+          "href": "#interest"
+        },
+        {
+          "label": "Sponsor a Program",
+          "href": "#interest"
+        },
+        {
+          "label": "Become a Neuroinclusive Employer",
+          "href": "#interest"
+        },
+        {
+          "label": "Contribute Services",
+          "href": "#interest"
+        }
+      ],
+      "note": "Sponsorship values and packages are administrator-configurable and are not published. Submissions feed an internal review workflow and are never auto-published.",
+      "listTitle": "Participation pathways.",
+      "listLead": "Seven ways a business can take part.",
+      "list": [
+        "Funding Partner",
+        "Service Partner",
+        "In-Kind Partner",
+        "Employment Partner",
+        "Commercial Partner",
+        "Program Sponsor",
+        "Accessibility Partner"
+      ],
+      "blocksTitle": "What a partnership involves.",
+      "blocks": [
+        {
+          "num": "01",
+          "title": "Employer readiness",
+          "body": "A review of recruitment practice, interview format and workplace environment before any candidate is introduced."
+        },
+        {
+          "num": "02",
+          "title": "Role design",
+          "body": "Roles written around the work that needs doing and the strengths of the candidate, not a generic job description."
+        },
+        {
+          "num": "03",
+          "title": "Configurable contribution",
+          "body": "Values and packages are set by an administrator, so nothing is hardcoded and nothing is published before approval."
+        },
+        {
+          "num": "04",
+          "title": "Reviewed, not listed",
+          "body": "A submission starts a review. It does not create a public listing, a logo placement or an announced partnership."
+        }
+      ],
+      "list2Title": "Outcome-oriented opportunities.",
+      "list2Lead": "Sponsorship framed around what it changes for a participant.",
+      "list2": [
+        "Sponsor a Child",
+        "Sponsor a Family",
+        "Inclusive Sport Sponsor",
+        "Academic Success Sponsor",
+        "Sensory Space Sponsor",
+        "Technology Access Sponsor",
+        "Employment Opportunity Sponsor",
+        "Founding Accessibility Partner"
+      ],
+      "list3Title": "In-kind expertise we are seeking.",
+      "list3": [
+        "Legal",
+        "Accounting",
+        "Insurance",
+        "Technology",
+        "Cybersecurity",
+        "Marketing",
+        "Construction",
+        "Engineering",
+        "Architecture",
+        "Accessibility",
+        "HR",
+        "Recruitment",
+        "Transportation",
+        "Food",
+        "Equipment",
+        "Apparel",
+        "Media",
+        "Events"
+      ],
+      "form": {
+        "id": "interest",
+        "title": "Business and employer inquiries.",
+        "lead": "One form, routed by pathway. Investor and sponsorship inquiries reach different teams.",
+        "note": "No sponsorship value is agreed by this form, and no partnership is published without written approval.",
+        "fields": [
+          {
+            "l": "Organization",
+            "k": "t",
+            "t": "text",
+            "ph": "Legal or trading name",
+            "req": true
+          },
+          {
+            "l": "Contact name",
+            "k": "t",
+            "t": "text",
+            "ph": "Full name",
+            "req": true
+          },
+          {
+            "l": "Title",
+            "k": "t",
+            "t": "text",
+            "ph": "Your role",
+            "req": true
+          },
+          {
+            "l": "Email",
+            "k": "t",
+            "t": "email",
+            "ph": "you@example.com",
+            "req": true
+          },
+          {
+            "l": "Phone",
+            "k": "t",
+            "t": "tel",
+            "ph": "Optional"
+          },
+          {
+            "l": "Website",
+            "k": "t",
+            "t": "url",
+            "ph": "https://"
+          },
+          {
+            "l": "Business size",
+            "k": "s",
+            "o": [
+              "1–10",
+              "11–50",
+              "51–250",
+              "251–1000",
+              "1000+"
+            ],
+            "req": true
+          },
+          {
+            "l": "Region",
+            "k": "t",
+            "t": "text",
+            "ph": "City, region or national",
+            "req": true
+          },
+          {
+            "l": "Pathways",
+            "k": "s",
+            "o": [
+              "Funding Partner",
+              "Service Partner",
+              "In-Kind Partner",
+              "Employment Partner",
+              "Commercial Partner",
+              "Program Sponsor",
+              "Accessibility Partner"
+            ],
+            "req": true
+          },
+          {
+            "l": "Contribution interest",
+            "k": "s",
+            "o": [
+              "Sponsor a Child",
+              "Sponsor a Family",
+              "Inclusive Sport Sponsor",
+              "Academic Success Sponsor",
+              "Sensory Space Sponsor",
+              "Technology Access Sponsor",
+              "Employment Opportunity Sponsor",
+              "Founding Accessibility Partner",
+              "Not sure yet"
+            ]
+          },
+          {
+            "l": "Employment opportunities",
+            "k": "s",
+            "o": [
+              "Yes — roles available now",
+              "Yes — in future",
+              "Exploring",
+              "No"
+            ]
+          },
+          {
+            "l": "In-kind services",
+            "k": "a",
+            "ph": "What your organisation could contribute"
+          },
+          {
+            "l": "Preferred contact",
+            "k": "s",
+            "o": [
+              "Email",
+              "Phone"
+            ]
+          },
+          {
+            "l": "Comments",
+            "k": "a",
+            "ph": "Anything else we should know",
+            "span": "1 / -1"
+          }
+        ]
+      },
+      "ctaHead": "Sponsorship values are set per agreement, never published in advance.",
+      "ctaLabel": "Request partnership information",
+      "ctaHref": "/partners",
+      "imgStandIn": true
+    },
+    "/service-provider-network": {
+      "group": "Neurodiversity",
+      "kicker": "Service Provider Network",
+      "h1": "Become an AFSV VRC Service Provider",
+      "lead": "AFSV VRC intends to build a qualified network supporting sport, learning, development, wellbeing and inclusion.",
+      "img": "assets/img/quiet-room.jpg",
+      "alt": "A calm, sensory-considered quiet room with acoustic wall panelling, dimmed warm lighting and a low bench with over-ear defenders resting on it.",
+      "ctas": [
+        {
+          "label": "Register Provider Interest",
+          "href": "#interest"
+        }
+      ],
+      "note": "Submission does not approve or publicly list a provider. All providers remain subject to qualification, licence and registration, insurance, safeguarding, privacy, capacity and agreement reviews.",
+      "listTitle": "Potential categories.",
+      "listLead": "Ten categories under consideration. A category being listed does not mean a provider is available.",
+      "list": [
+        "Occupational therapy",
+        "Speech and language",
+        "Behavioural services",
+        "Counselling and mental health",
+        "Executive function",
+        "Academic intervention",
+        "Family education",
+        "Service navigation",
+        "Social development",
+        "Adaptive and inclusive sport"
+      ],
+      "blocksTitle": "What review covers.",
+      "blocks": [
+        {
+          "num": "01",
+          "title": "Qualification and registration",
+          "body": "Regulated professions must evidence current licence or registration. Those fields are conditional and only appear where they apply."
+        },
+        {
+          "num": "02",
+          "title": "Insurance and safeguarding",
+          "body": "Professional indemnity, screening and safeguarding arrangements are checked before any participant contact."
+        },
+        {
+          "num": "03",
+          "title": "Capacity and coverage",
+          "body": "Age groups, specialisation, geography and delivery mode, so referrals are only made where a provider can genuinely take them."
+        },
+        {
+          "num": "04",
+          "title": "Agreement and listing",
+          "body": "Listing follows a signed agreement. Until then a submission sits in a review queue with an auditable status."
+        }
+      ],
+      "form": {
+        "id": "interest",
+        "title": "Register provider interest.",
+        "lead": "This is an application to be reviewed, not a listing request.",
+        "note": "Licence and registration fields are conditional on regulated profession. Do not attach client records or identifying participant information.",
+        "fields": [
+          {
+            "l": "Organization",
+            "k": "t",
+            "t": "text",
+            "ph": "Practice or organization name",
+            "req": true
+          },
+          {
+            "l": "Contact name",
+            "k": "t",
+            "t": "text",
+            "ph": "Full name",
+            "req": true
+          },
+          {
+            "l": "Email",
+            "k": "t",
+            "t": "email",
+            "ph": "you@example.com",
+            "req": true
+          },
+          {
+            "l": "Telephone",
+            "k": "t",
+            "t": "tel",
+            "ph": "Contact number",
+            "req": true
+          },
+          {
+            "l": "Website",
+            "k": "t",
+            "t": "url",
+            "ph": "https://"
+          },
+          {
+            "l": "Service type",
+            "k": "s",
+            "o": [
+              "Occupational therapy",
+              "Speech and language",
+              "Behavioural services",
+              "Counselling and mental health",
+              "Executive function",
+              "Academic intervention",
+              "Family education",
+              "Service navigation",
+              "Social development",
+              "Adaptive and inclusive sport"
+            ],
+            "req": true
+          },
+          {
+            "l": "Regulated profession",
+            "k": "s",
+            "o": [
+              "Yes",
+              "No",
+              "Unsure"
+            ],
+            "req": true
+          },
+          {
+            "l": "Licence or registration",
+            "k": "t",
+            "t": "text",
+            "ph": "Required if regulated"
+          },
+          {
+            "l": "Qualifications",
+            "k": "a",
+            "ph": "Relevant qualifications and bodies",
+            "span": "1 / -1"
+          },
+          {
+            "l": "Age groups served",
+            "k": "s",
+            "o": [
+              "Under 8",
+              "8–11",
+              "12–14",
+              "15–17",
+              "18–24",
+              "25+",
+              "All ages"
+            ],
+            "req": true
+          },
+          {
+            "l": "Specialization",
+            "k": "t",
+            "t": "text",
+            "ph": "Primary area of practice"
+          },
+          {
+            "l": "Current capacity",
+            "k": "s",
+            "o": [
+              "Accepting referrals",
+              "Limited capacity",
+              "Waitlist only",
+              "Not currently"
+            ],
+            "req": true
+          },
+          {
+            "l": "Accessibility experience",
+            "k": "a",
+            "ph": "Experience working with neurodivergent people"
+          },
+          {
+            "l": "Insurance",
+            "k": "s",
+            "o": [
+              "Professional indemnity in place",
+              "In progress",
+              "Not in place"
+            ],
+            "req": true
+          },
+          {
+            "l": "Geographic area",
+            "k": "t",
+            "t": "text",
+            "ph": "Regions served",
+            "req": true
+          },
+          {
+            "l": "Delivery mode",
+            "k": "s",
+            "o": [
+              "In person",
+              "Virtual",
+              "Both"
+            ],
+            "req": true
+          },
+          {
+            "l": "Discounted or subsidized work",
+            "k": "s",
+            "o": [
+              "Willing",
+              "Case by case",
+              "Not able to"
+            ]
+          },
+          {
+            "l": "Comments",
+            "k": "a",
+            "ph": "Anything else the review should consider",
+            "span": "1 / -1"
+          }
+        ]
+      },
+      "ctaHead": "Families use the network. Providers apply to join it.",
+      "ctaLabel": "Neurodiversity Access & Opportunity",
+      "ctaHref": "/neurodiversity",
+      "imgStandIn": true
+    },
+    "/neurodiversity-access-fund": {
+      "group": "Neurodiversity",
+      "kicker": "Neurodiversity Access Fund",
+      "h1": "Helping Remove the Cost Barrier",
+      "lead": "AFSV VRC intends to develop a funding mechanism helping eligible individuals and families access selected programs and services regardless of financial circumstances.",
+      "img": "assets/img/accessible-entrance.jpg",
+      "alt": "An accessible facility entrance with a step-free doorway and tactile floor strip, a member of staff at a low reception counter helping a visitor who uses a mobility aid.",
+      "ctas": [
+        {
+          "label": "Express Funding Interest",
+          "href": "#interest"
+        },
+        {
+          "label": "Sponsor an Outcome",
+          "href": "#interest"
+        },
+        {
+          "label": "Request Partnership Information",
+          "href": "/partners"
+        }
+      ],
+      "note": "AFSV VRC is not a charity. No donation receipt, tax deductibility, eligibility, funding availability or free service is promised. Contribution and payment functionality remains disabled until legal structure, accounting, privacy, eligibility and fund-administration rules are approved. The form below is an expression of interest, not a donation.",
+      "listTitle": "Potential sources.",
+      "listLead": "Ten possible sources. None is confirmed, and none implies charitable status.",
+      "list": [
+        "Corporate sponsorship",
+        "Business contributions",
+        "Individual contributions where legally permitted",
+        "Grants",
+        "Foundations",
+        "Community fundraising",
+        "Events",
+        "Designated commercial revenues",
+        "In-kind services",
+        "Equipment and program sponsorship"
+      ],
+      "blocksTitle": "How the mechanism is intended to work.",
+      "blocks": [
+        {
+          "num": "01",
+          "title": "Configurable outcomes",
+          "body": "Sponsored outcomes and their values are administrator-configurable. Nothing is hardcoded and nothing is published before approval."
+        },
+        {
+          "num": "02",
+          "title": "No payment route",
+          "body": "There is no Donate button and no payment processing anywhere on this page. Expressions of interest are handled by people, not a gateway."
+        },
+        {
+          "num": "03",
+          "title": "Eligibility later",
+          "body": "Eligibility thresholds, award schedules and application windows follow legal, accounting and privacy sign-off."
+        },
+        {
+          "num": "04",
+          "title": "Reported in aggregate",
+          "body": "Awards are recorded for governance and reported in aggregate. No identifying participant information is published."
+        }
+      ],
+      "list2Title": "Potential sponsored outcomes.",
+      "list2Lead": "Framed by what the funding changes, not by a price.",
+      "list2": [
+        "Participant and family access",
+        "Inclusive sport",
+        "Education",
+        "Sensory environments",
+        "Technology",
+        "Employment preparation"
+      ],
+      "form": {
+        "id": "interest",
+        "title": "Express funding interest.",
+        "lead": "For sponsors, businesses and contributors. This starts a conversation — it does not transfer any funds.",
+        "note": "This is an expression of interest, not a donation. No receipt, deductibility or funding commitment follows from it.",
+        "fields": [
+          {
+            "l": "Name",
+            "k": "t",
+            "t": "text",
+            "ph": "Full name",
+            "req": true
+          },
+          {
+            "l": "Organization",
+            "k": "t",
+            "t": "text",
+            "ph": "Organization, if applicable"
+          },
+          {
+            "l": "Email",
+            "k": "t",
+            "t": "email",
+            "ph": "you@example.com",
+            "req": true
+          },
+          {
+            "l": "Phone",
+            "k": "t",
+            "t": "tel",
+            "ph": "Optional"
+          },
+          {
+            "l": "Contribution type",
+            "k": "s",
+            "o": [
+              "Corporate sponsorship",
+              "Business contribution",
+              "Individual contribution",
+              "Grant or foundation",
+              "Community fundraising",
+              "Event",
+              "In-kind services",
+              "Equipment",
+              "Program sponsorship"
+            ],
+            "req": true
+          },
+          {
+            "l": "Outcome interest",
+            "k": "s",
+            "o": [
+              "Participant and family access",
+              "Inclusive sport",
+              "Education",
+              "Sensory environments",
+              "Technology",
+              "Employment preparation",
+              "No preference"
+            ],
+            "req": true
+          },
+          {
+            "l": "Proposed value range",
+            "k": "s",
+            "o": [
+              "Prefer to discuss",
+              "Under $5,000",
+              "$5,000–$25,000",
+              "$25,000–$100,000",
+              "Over $100,000"
+            ]
+          },
+          {
+            "l": "Region",
+            "k": "t",
+            "t": "text",
+            "ph": "City or region",
+            "req": true
+          },
+          {
+            "l": "Message",
+            "k": "a",
+            "ph": "What you would like to support",
+            "span": "1 / -1"
+          }
+        ]
+      },
+      "ctaHead": "Businesses fund access through Business for Inclusion.",
+      "ctaLabel": "Business for Inclusion",
+      "ctaHref": "/business-for-inclusion",
+      "imgStandIn": true
+    }
+  },
+  "vendors": [
+    {
+      "logo": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215710_51f5da1d-3713-4606-a00d-59c73e0e531c.png",
+      "name": "AFSV VRC Official",
+      "kicker": "In-house",
+      "region": "Whitby, Ontario",
+      "blurb": "Official district kit, equipment and program passes, sold directly by AFSV VRC.",
+      "cats": "Apparel · Equipment · Programs",
+      "count": "4 products"
+    },
+    {
+      "logo": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215713_2d76ea6a-534d-44aa-8f0d-e432f83aaeae.png",
+      "name": "Quietform Athletics",
+      "kicker": "Neuro-inclusive specialist",
+      "region": "Toronto, Ontario",
+      "blurb": "Sensory-considered sportswear and equipment developed with the Neurodiversity Access & Opportunity program.",
+      "cats": "Apparel · Inclusion",
+      "count": "2 products"
+    },
+    {
+      "logo": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215715_90a0d08b-d551-402b-a3ef-019ff759a90f.png",
+      "name": "Northline Sport Supply",
+      "kicker": "Equipment",
+      "region": "Oshawa, Ontario",
+      "blurb": "Training and coaching equipment supplied to development-stream programs.",
+      "cats": "Equipment",
+      "count": "3 products"
+    },
+    {
+      "logo": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215716_6bef49ab-18ee-486d-be5b-89548670f810.png",
+      "name": "Harbour Nutrition Co.",
+      "kicker": "Nutrition",
+      "region": "Ajax, Ontario",
+      "blurb": "Ontario-made recovery and nutrition products for adult program participants.",
+      "cats": "Nutrition",
+      "count": "1 product"
+    }
+  ],
+  "newsTypes": [
+    {
+      "num": "01",
+      "label": "Project updates"
+    },
+    {
+      "num": "02",
+      "label": "Participant stories"
+    },
+    {
+      "num": "03",
+      "label": "Family stories"
+    },
+    {
+      "num": "04",
+      "label": "Employer stories"
+    },
+    {
+      "num": "05",
+      "label": "Athlete mentors"
+    },
+    {
+      "num": "06",
+      "label": "Community partners"
+    },
+    {
+      "num": "07",
+      "label": "Education success"
+    },
+    {
+      "num": "08",
+      "label": "Employment success"
+    },
+    {
+      "num": "09",
+      "label": "Approved media releases"
+    },
+    {
+      "num": "10",
+      "label": "Events"
+    }
+  ],
+  "dirFields": [
+    {
+      "label": "Logo"
+    },
+    {
+      "label": "Name"
+    },
+    {
+      "label": "Description"
+    },
+    {
+      "label": "Services"
+    },
+    {
+      "label": "URL"
+    },
+    {
+      "label": "Geography"
+    },
+    {
+      "label": "Relationship"
+    },
+    {
+      "label": "Inclusion contribution"
+    }
+  ],
+  "impactMetrics": [
+    {
+      "label": "Individuals and families supported"
+    },
+    {
+      "label": "Subsidized program hours"
+    },
+    {
+      "label": "Inclusive sport hours"
+    },
+    {
+      "label": "Education hours"
+    },
+    {
+      "label": "Placements"
+    },
+    {
+      "label": "Internships"
+    },
+    {
+      "label": "Employers"
+    },
+    {
+      "label": "Providers"
+    },
+    {
+      "label": "Partners"
+    },
+    {
+      "label": "Value of subsidized and in-kind services"
+    },
+    {
+      "label": "Access Fund contributions"
+    }
+  ],
+  "newsForm": [
+    {
+      "label": "Contact name",
+      "isText": true,
+      "isSelect": false,
+      "isArea": false,
+      "type": "text",
+      "ph": "Full name",
+      "req": true,
+      "opt": "",
+      "span": "auto",
+      "options": []
+    },
+    {
+      "label": "Email",
+      "isText": true,
+      "isSelect": false,
+      "isArea": false,
+      "type": "email",
+      "ph": "you@example.com",
+      "req": true,
+      "opt": "",
+      "span": "auto",
+      "options": []
+    },
+    {
+      "label": "Story type",
+      "isText": false,
+      "isSelect": true,
+      "isArea": false,
+      "type": "text",
+      "ph": "",
+      "req": true,
+      "opt": "",
+      "span": "auto",
+      "options": [
+        {
+          "label": "Participant story"
+        },
+        {
+          "label": "Family story"
+        },
+        {
+          "label": "Employer story"
+        },
+        {
+          "label": "Athlete mentor"
+        },
+        {
+          "label": "Community partner"
+        },
+        {
+          "label": "Education success"
+        },
+        {
+          "label": "Employment success"
+        },
+        {
+          "label": "Project update"
+        }
+      ]
+    },
+    {
+      "label": "Your relationship to the story",
+      "isText": false,
+      "isSelect": true,
+      "isArea": false,
+      "type": "text",
+      "ph": "",
+      "req": true,
+      "opt": "",
+      "span": "auto",
+      "options": [
+        {
+          "label": "I am the subject"
+        },
+        {
+          "label": "Parent or guardian"
+        },
+        {
+          "label": "Carer or support worker"
+        },
+        {
+          "label": "Employer"
+        },
+        {
+          "label": "Partner organization"
+        },
+        {
+          "label": "Staff or coach"
+        }
+      ]
+    },
+    {
+      "label": "Brief description",
+      "isText": false,
+      "isSelect": false,
+      "isArea": true,
+      "type": "text",
+      "ph": "A few lines — please do not include anyone else’s identifying details",
+      "req": true,
+      "opt": "",
+      "span": "1 / -1",
+      "options": []
+    }
+  ],
+  "accessLists": [
+    {
+      "num": "01",
+      "title": "Accessibility",
+      "lead": "Target: WCAG 2.2 AA across the site.",
+      "items": [
+        {
+          "label": "Keyboard navigation"
+        },
+        {
+          "label": "Screen-reader compatibility"
+        },
+        {
+          "label": "Alt text"
+        },
+        {
+          "label": "Captioned video and transcripts"
+        },
+        {
+          "label": "Tested contrast"
+        },
+        {
+          "label": "Readable typography"
+        },
+        {
+          "label": "Clear navigation"
+        },
+        {
+          "label": "Descriptive buttons"
+        },
+        {
+          "label": "Accessible forms"
+        },
+        {
+          "label": "Logical headings"
+        },
+        {
+          "label": "Reduced flashing and motion"
+        },
+        {
+          "label": "Mobile accessibility"
+        },
+        {
+          "label": "Plain language and clear errors"
+        }
+      ]
+    },
+    {
+      "num": "02",
+      "title": "Privacy",
+      "lead": "Collect only what is necessary, and say why.",
+      "items": [
+        {
+          "label": "Collect only necessary data"
+        },
+        {
+          "label": "Clear notice and purpose"
+        },
+        {
+          "label": "Explicit communications consent"
+        },
+        {
+          "label": "Role-based access"
+        },
+        {
+          "label": "Secure storage and transmission"
+        },
+        {
+          "label": "Retention and deletion rules"
+        },
+        {
+          "label": "Breach-response process"
+        },
+        {
+          "label": "Approved analytics and cookie controls"
+        }
+      ]
+    },
+    {
+      "num": "03",
+      "title": "Safeguarding",
+      "lead": "For children and vulnerable individuals.",
+      "items": [
+        {
+          "label": "Consent and guardian controls"
+        },
+        {
+          "label": "Staff and provider screening requirements"
+        },
+        {
+          "label": "Reporting and escalation route"
+        },
+        {
+          "label": "Photography and testimonial authorization"
+        },
+        {
+          "label": "Restricted data access"
+        }
+      ]
+    }
+  ],
+  "accessForm": [
+    {
+      "label": "Name",
+      "isText": true,
+      "isSelect": false,
+      "isArea": false,
+      "type": "text",
+      "ph": "Full name",
+      "req": true,
+      "opt": "",
+      "span": "auto",
+      "options": []
+    },
+    {
+      "label": "Email",
+      "isText": true,
+      "isSelect": false,
+      "isArea": false,
+      "type": "email",
+      "ph": "you@example.com",
+      "req": true,
+      "opt": "",
+      "span": "auto",
+      "options": []
+    },
+    {
+      "label": "Issue type",
+      "isText": false,
+      "isSelect": true,
+      "isArea": false,
+      "type": "text",
+      "ph": "",
+      "req": true,
+      "opt": "",
+      "span": "auto",
+      "options": [
+        {
+          "label": "Accessibility support request"
+        },
+        {
+          "label": "Report an accessibility issue"
+        },
+        {
+          "label": "Privacy inquiry"
+        },
+        {
+          "label": "Safeguarding concern"
+        },
+        {
+          "label": "Something else"
+        }
+      ]
+    },
+    {
+      "label": "Page or service",
+      "isText": true,
+      "isSelect": false,
+      "isArea": false,
+      "type": "text",
+      "ph": "Where you ran into it",
+      "req": true,
+      "opt": "",
+      "span": "auto",
+      "options": []
+    },
+    {
+      "label": "Preferred response",
+      "isText": false,
+      "isSelect": true,
+      "isArea": false,
+      "type": "text",
+      "ph": "",
+      "req": true,
+      "opt": "",
+      "span": "auto",
+      "options": [
+        {
+          "label": "Email"
+        },
+        {
+          "label": "Phone"
+        },
+        {
+          "label": "Either"
+        }
+      ]
+    },
+    {
+      "label": "Description",
+      "isText": false,
+      "isSelect": false,
+      "isArea": true,
+      "type": "text",
+      "ph": "What happened, and what you expected",
+      "req": true,
+      "opt": "",
+      "span": "1 / -1",
+      "options": []
+    },
+    {
+      "label": "Accommodation for our reply",
+      "isText": false,
+      "isSelect": false,
+      "isArea": true,
+      "type": "text",
+      "ph": "Optional",
+      "req": false,
+      "opt": " (optional)",
+      "span": "1 / -1",
+      "options": []
+    }
+  ],
+  "policySlots": [
+    {
+      "num": "01",
+      "label": "Privacy Policy",
+      "scope": "Site-wide"
+    },
+    {
+      "num": "02",
+      "label": "Terms of Use",
+      "scope": "Site-wide"
+    },
+    {
+      "num": "03",
+      "label": "Accessibility Statement",
+      "scope": "Site-wide"
+    },
+    {
+      "num": "04",
+      "label": "Cookie Notice and Preferences",
+      "scope": "Site-wide"
+    },
+    {
+      "num": "05",
+      "label": "Cancellation and Refund Policy",
+      "scope": "Booking, membership, marketplace"
+    },
+    {
+      "num": "06",
+      "label": "Booking Terms",
+      "scope": "book.afsvvrc.com"
+    },
+    {
+      "num": "07",
+      "label": "Membership Terms",
+      "scope": "Membership"
+    },
+    {
+      "num": "08",
+      "label": "Marketplace Terms",
+      "scope": "Marketplace"
+    },
+    {
+      "num": "09",
+      "label": "Vendor Terms",
+      "scope": "Marketplace vendors"
+    },
+    {
+      "num": "10",
+      "label": "Waiver and Assumption of Risk",
+      "scope": "Programs and facilities"
+    },
+    {
+      "num": "11",
+      "label": "Safeguarding and Child Protection",
+      "scope": "Programs, stories, media"
+    },
+    {
+      "num": "12",
+      "label": "Copyright and Trademark Notice",
+      "scope": "Site-wide"
+    }
+  ],
+  "versionFields": [
+    {
+      "label": "Title"
+    },
+    {
+      "label": "Owner"
+    },
+    {
+      "label": "Approval status"
+    },
+    {
+      "label": "Effective date"
+    },
+    {
+      "label": "Last-updated date"
+    },
+    {
+      "label": "Version"
+    },
+    {
+      "label": "Jurisdiction and scope"
+    },
+    {
+      "label": "Archived prior version"
+    }
+  ],
+  "gates": [
+    {
+      "num": "01",
+      "title": "Booking and payment",
+      "body": "Booking Terms, Cancellation and Refund Policy, and Waiver must be linked and acceptance capture tested."
+    },
+    {
+      "num": "02",
+      "title": "Membership purchase",
+      "body": "Membership Terms, Privacy Policy and refund terms approved and linked."
+    },
+    {
+      "num": "03",
+      "title": "Marketplace checkout",
+      "body": "Marketplace Terms, Vendor Terms and refund policy approved and linked."
+    },
+    {
+      "num": "04",
+      "title": "Sensitive data workflows",
+      "body": "Privacy Policy and the approved secure process in place before any sensitive information is collected."
+    }
+  ],
+  "memberPathways": [
+    {
+      "num": "01",
+      "label": "Athlete"
+    },
+    {
+      "num": "02",
+      "label": "Family"
+    },
+    {
+      "num": "03",
+      "label": "Supporter"
+    },
+    {
+      "num": "04",
+      "label": "Educator & Coach"
+    },
+    {
+      "num": "05",
+      "label": "Corporate & Community Partner"
+    }
+  ],
+  "marketCategories": [
+    {
+      "num": "01",
+      "title": "AFSV VRC apparel and fanwear"
+    },
+    {
+      "num": "02",
+      "title": "Training and performance"
+    },
+    {
+      "num": "03",
+      "title": "Education and life-skills resources"
+    },
+    {
+      "num": "04",
+      "title": "Partner and sponsor offers"
+    },
+    {
+      "num": "05",
+      "title": "Community and vendor products"
+    }
+  ],
+  "contactCategories": [
+    "General",
+    "Membership",
+    "Programs",
+    "Whitby Smart Sports Village",
+    "Education and inclusion",
+    "Sponsorship and investment",
+    "Marketplace / vendors",
+    "Media / speaking",
+    "Technical support"
+  ],
+  "partnerRoutes": [
+    {
+      "num": "01",
+      "label": "Corporate sponsor"
+    },
+    {
+      "num": "02",
+      "label": "Education and community"
+    },
+    {
+      "num": "03",
+      "label": "Technology"
+    },
+    {
+      "num": "04",
+      "label": "Service and in-kind"
+    },
+    {
+      "num": "05",
+      "label": "Development and infrastructure"
+    },
+    {
+      "num": "06",
+      "label": "Investor inquiry"
+    }
+  ],
+  "partnerSections": [
+    {
+      "num": "01",
+      "title": "Why partner",
+      "body": "AFSV VRC’s model depends on aligned partners across municipalities, education, sport, inclusion, technology, corporate sponsorship, community development and capital."
+    },
+    {
+      "num": "02",
+      "title": "Partnership categories",
+      "body": "Six audience routes cover sponsorship, education and community, technology, service and in-kind contribution, development and infrastructure, and investor inquiry."
+    },
+    {
+      "num": "03",
+      "title": "Outcome sponsorship",
+      "body": "Sponsorship structured around measurable participation, learning and inclusion outcomes. Values and packages are administrator-configurable and not published until approved."
+    },
+    {
+      "num": "04",
+      "title": "Development partnerships",
+      "body": "Site, design, construction, technology and operating partnerships connected to the proposed Whitby pilot."
+    }
+  ],
+  "aboutModel": [
+    {
+      "num": "01",
+      "label": "Whole-person development"
+    },
+    {
+      "num": "02",
+      "label": "Inclusive by design"
+    },
+    {
+      "num": "03",
+      "label": "Smart infrastructure"
+    },
+    {
+      "num": "04",
+      "label": "Partnership-led delivery"
+    },
+    {
+      "num": "05",
+      "label": "Scalable impact"
+    }
+  ],
+  "leadership": [
+    {
+      "name": "Martin Lashley",
+      "role": "Founder, Chairman & Interim CEO",
+      "img": "assets/img/martin-lashley.jpg",
+      "noImg": false,
+      "bio": [
+        "Martin Lashley is the Founder, Chairman, and Interim Chief Executive Officer of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL), a Canadian-based sports infrastructure and youth development company building an integrated ecosystem that combines elite sport, education support, sports science, esports, and community engagement."
+      ],
+      "alt": "Martin Lashley standing on the turf inside an indoor sports dome."
+    },
+    {
+      "name": "Natalie Sutherland-Lashley",
+      "role": "Co-Chairperson & Corporate Secretary",
+      "img": null,
+      "noImg": true,
+      "bio": [
+        "Natalie Sutherland-Lashley serves as Co-Chairperson and Corporate Secretary of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL), where she plays a critical role in the governance, strategic development, and international positioning of the organization.",
+        "With a strong background in business administration, organizational leadership, and corporate governance, Natalie helps guide the operational structure and long-term strategy behind the Athletes & Fans Sports Village vision. Her work supports the company's mission of building a next-generation global sports ecosystem that integrates elite athletic development, education, wellness, esports, and community inclusion.",
+        "As Co-Chairperson, Natalie works closely with the executive leadership team to ensure that AFSVHCL maintains the highest standards of corporate accountability, transparency, and stakeholder engagement. She is responsible for coordinating board governance, overseeing corporate documentation, and helping manage the strategic relationships that underpin the company's expansion across Canada, the Caribbean, and the broader international sports community.",
+        "Natalie is also a passionate advocate for the project's social impact mission, particularly its commitment to creating opportunities for youth and families while integrating education and support programs for neurodivergent children and individuals with learning differences.",
+        "Through her work with AFSVHCL, Natalie continues to contribute to the development of a transformational sports and education platform designed to inspire the next generation of athletes, innovators, and community leaders."
+      ]
+    },
+    {
+      "name": "Michelle Lashley",
+      "role": "Chief Operating Officer (COO)",
+      "img": null,
+      "noImg": true,
+      "bio": [
+        "Michelle Lashley serves as the Chief Operating Officer of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL), where she oversees the operational execution of the company's global sports, education, and community development initiatives.",
+        "With extensive experience in organizational management, program development, and strategic implementation, Michelle plays a pivotal role in transforming the Athletes & Fans Sports Village vision into a fully operational ecosystem. She leads the coordination of internal operations, strategic partnerships, and program delivery across the company's expanding initiatives in Canada, the Caribbean, and the United States.",
+        "As COO, Michelle is responsible for ensuring that the organization's core pillars — elite athletic development, education, wellness, esports innovation, and community inclusion — are executed efficiently and sustainably. She works closely with the executive leadership team to implement operational systems, manage key stakeholder relationships, and ensure the successful rollout of major projects including the Whitby Smart Sports Village pilot in Ontario and related international initiatives.",
+        "Michelle is also the Founder of MLMSR Mentorship LLC, an education and mentorship organization that supports the Athletes & Fans Sports Village platform through academic programming, mentorship initiatives, and specialized education support for neurodivergent youth, including individuals on the autism spectrum and those with ADHD and dyslexia.",
+        "Through her role at AFSVHCL, Michelle continues to help shape a transformative platform designed to empower athletes, support families, and build sustainable sports communities around the world."
+      ],
+      "quote": "“We operate with purpose, execute with excellence, and serve with heart to create opportunities that change lives and strengthen communities.”",
+      "quoteBy": "— Michelle Lashley, COO"
+    },
+    {
+      "name": "Vinai Charran",
+      "role": "Chief Investor, AFSVHCL · CEO, Charran's Group of Companies",
+      "img": null,
+      "noImg": true,
+      "bio": [
+        "Vinai Charran serves as Chief Investor for Athletes & Fans Sports Village Holding Company Limited (AFSVHCL) and plays a central role in supporting the organization's strategic growth and capital development initiatives.",
+        "A successful entrepreneur and international businessman, Vinai brings extensive experience in investment strategy, business development, and global commercial operations. His leadership and financial support help advance the Athletes & Fans Sports Village vision of building a next-generation global sports, education, and community development ecosystem.",
+        "Vinai is the CEO of Charran's Group of Companies, a diversified business enterprise with operations spanning retail, education, publishing, and international trade. Through decades of entrepreneurial leadership, he has established a reputation for identifying innovative opportunities and building sustainable business platforms that deliver long-term value.",
+        "Within AFSVHCL, Vinai provides strategic investment leadership and supports the development of major initiatives, including the Whitby Smart Sports Village pilot project in Ontario, Canada, which will serve as the foundation for a broader national and international rollout of integrated sports, education, and community infrastructure.",
+        "Through his partnership with AFSVHCL, Vinai continues to help drive the development of a globally scalable sports and education platform designed to inspire athletes, empower communities, and foster innovation in youth development worldwide."
+      ],
+      "focus": [
+        {
+          "t": "Strategic Investment Leadership",
+          "d": "Driving capital growth and long-term value creation for AFSVHCL."
+        },
+        {
+          "t": "Global Business Development",
+          "d": "Building international partnerships and expanding business opportunities."
+        },
+        {
+          "t": "Community & Youth Impact",
+          "d": "Investing in initiatives that empower youth, promote education, and strengthen communities."
+        },
+        {
+          "t": "Sustainable Growth",
+          "d": "Supporting innovative, scalable projects with a focus on long-term sustainability and global impact."
+        }
+      ],
+      "quote": "“I believe in the power of sports and education to transform lives and build stronger communities. My investment in AFSVHCL is an investment in our youth and in a better future for generations to come.”",
+      "quoteBy": "— Vinai Charran, CEO, Charran's Group of Companies"
+    }
+  ],
+  "pillars4": [
+    {
+      "num": "01",
+      "title": "Sports Development",
+      "body": "Create structured pathways that help participants discover, develop and maximize athletic potential through coaching, training, competition, performance support and exposure.",
+      "href": "/programs",
+      "linkLabel": "Programs & Athlete Development",
+      "caveat": ""
+    },
+    {
+      "num": "02",
+      "title": "Education & Academic Success",
+      "body": "Support learners with tutoring, mentoring, academic enrichment, career awareness and environments connecting classroom achievement with confidence.",
+      "href": "/education",
+      "linkLabel": "Education & Academic Success",
+      "caveat": ""
+    },
+    {
+      "num": "03",
+      "title": "Neurodivergent Support & Inclusive Education",
+      "body": "Develop welcoming spaces, informed programming and practical supports for people with autism, ADHD, dyslexia and other learning, developmental or sensory differences.",
+      "href": "/neurodiversity",
+      "linkLabel": "Neurodiversity Access & Opportunity",
+      "caveat": "Regulated/clinical services remain subject to qualified providers and approvals."
+    },
+    {
+      "num": "04",
+      "title": "Life Skills",
+      "body": "Equip young people and families with tools for leadership, communication, financial literacy, entrepreneurship, career preparation, wellbeing and responsible decision-making.",
+      "href": "/life-skills",
+      "linkLabel": "Life Skills",
+      "caveat": ""
+    }
+  ],
+  "whitbyConcept": [
+    {
+      "label": "Scale",
+      "body": "Approximately 150,000 sq ft in proposed Phase 1, subject to site, design, approvals and financing.",
+      "tag": "Proposed"
+    },
+    {
+      "label": "Sport",
+      "body": "Flexible soccer, cricket, basketball, sprint and configurable sport space.",
+      "tag": ""
+    },
+    {
+      "label": "Performance",
+      "body": "Performance, strength and conditioning, recovery, biomechanics and analytics.",
+      "tag": ""
+    },
+    {
+      "label": "Learning",
+      "body": "Learning, tutoring, mentoring, sensory support and life skills.",
+      "tag": ""
+    },
+    {
+      "label": "Media",
+      "body": "Esports, broadcasting, podcasting and content creation.",
+      "tag": ""
+    },
+    {
+      "label": "Community",
+      "body": "Events, partner activation, concessions, retail and fan experiences.",
+      "tag": ""
+    }
+  ],
+  "whitbyPartners": [
+    "Municipal and public sector",
+    "Colleges and schools",
+    "Clubs and academies",
+    "Performance and inclusion providers",
+    "Technology and responsible AI",
+    "Sponsors and investors",
+    "Retail, concessions and marketplace"
+  ],
+  "facilityCards": [
+    {
+      "num": "01",
+      "title": "Multi-Sport Dome",
+      "body": "Configurable fields and courts for soccer, cricket, basketball, sprint training and other activities."
+    },
+    {
+      "num": "02",
+      "title": "Performance & Recovery",
+      "body": "Strength, testing, biomechanics, analytics and recovery functions under development."
+    },
+    {
+      "num": "03",
+      "title": "Learning & Life Skills",
+      "body": "Tutoring, mentoring, workshops, academic support, meeting rooms and career readiness."
+    },
+    {
+      "num": "04",
+      "title": "Inclusive Support",
+      "body": "Sensory-aware areas and flexible rooms for neurodivergent participants and inclusive service delivery."
+    },
+    {
+      "num": "05",
+      "title": "Esports, Media & Broadcast",
+      "body": "Competition, production, podcast and storytelling spaces."
+    },
+    {
+      "num": "06",
+      "title": "Retail, Food & Partner Activation",
+      "body": "Marketplace, concessions, fan retail and activation zones."
+    }
+  ],
+  "facilityFilters": [
+    "All spaces",
+    "Sport",
+    "Performance",
+    "Learning",
+    "Inclusive support",
+    "Media",
+    "Retail & food"
+  ],
+  "pillars": [
+    {
+      "num": "01",
+      "title": "Sports Development",
+      "desc": "Athlete pathways, coaching and multi-sport training.",
+      "href": "/programs"
+    },
+    {
+      "num": "02",
+      "title": "Education & Academic Success",
+      "desc": "Academic support alongside athletic development.",
+      "href": "/education"
+    },
+    {
+      "num": "03",
+      "title": "Neurodiversity Access & Opportunity",
+      "desc": "Access, support and opportunity built in from the start.",
+      "href": "/neurodiversity"
+    },
+    {
+      "num": "04",
+      "title": "Life Skills",
+      "desc": "Readiness for work, study and independent life.",
+      "href": "/life-skills"
+    }
+  ],
+  "pathways": [
+    {
+      "kicker": "Athletes & families",
+      "title": "Train and develop",
+      "href": "/programs"
+    },
+    {
+      "kicker": "Membership",
+      "title": "Become a member",
+      "href": "/membership"
+    },
+    {
+      "kicker": "Marketplace",
+      "title": "Shop the movement",
+      "href": "/marketplace"
+    },
+    {
+      "kicker": "Organisations",
+      "title": "Partner with us",
+      "href": "/partners"
+    }
+  ],
+  "billingFields": [
+    {
+      "label": "First name",
+      "type": "text",
+      "ph": "First name",
+      "auto": "given-name",
+      "req": true,
+      "span": "auto"
+    },
+    {
+      "label": "Last name",
+      "type": "text",
+      "ph": "Last name",
+      "auto": "family-name",
+      "req": true,
+      "span": "auto"
+    },
+    {
+      "label": "Email",
+      "type": "email",
+      "ph": "you@example.com",
+      "auto": "email",
+      "req": true,
+      "span": "auto"
+    },
+    {
+      "label": "Phone",
+      "type": "tel",
+      "ph": "Optional",
+      "auto": "tel",
+      "req": false,
+      "span": "auto"
+    },
+    {
+      "label": "Street address",
+      "type": "text",
+      "ph": "Number and street",
+      "auto": "address-line1",
+      "req": true,
+      "span": "1 / -1"
+    },
+    {
+      "label": "City",
+      "type": "text",
+      "ph": "City",
+      "auto": "address-level2",
+      "req": true,
+      "span": "auto"
+    },
+    {
+      "label": "Province",
+      "type": "text",
+      "ph": "Ontario",
+      "auto": "address-level1",
+      "req": true,
+      "span": "auto"
+    },
+    {
+      "label": "Postal code",
+      "type": "text",
+      "ph": "L1N 0A0",
+      "auto": "postal-code",
+      "req": true,
+      "span": "auto"
+    }
+  ],
+  "payFields": [
+    {
+      "label": "Card number",
+      "ph": "4242 4242 4242 4242",
+      "span": "1 / -1"
+    },
+    {
+      "label": "Expiry",
+      "ph": "12 / 30",
+      "span": "auto"
+    },
+    {
+      "label": "CVC",
+      "ph": "123",
+      "span": "auto"
+    },
+    {
+      "label": "Name on card",
+      "ph": "As printed on the card",
+      "span": "1 / -1"
+    }
+  ],
+  "footerCols": [
+    {
+      "title": "Explore",
+      "links": [
+        {
+          "label": "About Us",
+          "href": "/about",
+          "ext": false
+        },
+        {
+          "label": "Strategic Pillars",
+          "href": "/strategic-pillars",
+          "ext": false
+        },
+        {
+          "label": "Whitby Smart Sports Village",
+          "href": "/whitby-smart-sports-village",
+          "ext": false
+        },
+        {
+          "label": "Facilities",
+          "href": "/facilities",
+          "ext": false
+        },
+        {
+          "label": "Membership",
+          "href": "/membership",
+          "ext": false
+        },
+        {
+          "label": "Marketplace",
+          "href": "/marketplace",
+          "ext": false
+        }
+      ]
+    },
+    {
+      "title": "Programs",
+      "links": [
+        {
+          "label": "Programs & Athlete Development",
+          "href": "/programs",
+          "ext": false
+        },
+        {
+          "label": "Education & Academic Success",
+          "href": "/education",
+          "ext": false
+        },
+        {
+          "label": "Life Skills",
+          "href": "/life-skills",
+          "ext": false
+        },
+        {
+          "label": "Esports, Technology, Media & Innovation",
+          "href": "/technology-media",
+          "ext": false
+        },
+        {
+          "label": "GAISB AI Education",
+          "href": "/gaisb-ai",
+          "ext": false
+        }
+      ]
+    },
+    {
+      "title": "Inclusion & impact",
+      "links": [
+        {
+          "label": "Neurodiversity Access & Opportunity",
+          "href": "/neurodiversity",
+          "ext": false
+        },
+        {
+          "label": "Business for Inclusion",
+          "href": "/business-for-inclusion",
+          "ext": false
+        },
+        {
+          "label": "Service Provider Network",
+          "href": "/service-provider-network",
+          "ext": false
+        },
+        {
+          "label": "Neurodiversity Access Fund",
+          "href": "/neurodiversity-access-fund",
+          "ext": false
+        },
+        {
+          "label": "News, Stories & Impact",
+          "href": "/news-impact",
+          "ext": false
+        },
+        {
+          "label": "Accessibility, Privacy & Safeguarding",
+          "href": "/accessibility-privacy",
+          "ext": false
+        },
+        {
+          "label": "Legal & Policy Pages",
+          "href": "/legal",
+          "ext": false
+        }
+      ]
+    },
+    {
+      "title": "Get in touch",
+      "links": [
+        {
+          "label": "Contact Us",
+          "href": "/contact",
+          "ext": false
+        },
+        {
+          "label": "Book Now",
+          "href": "https://book.afsvvrc.com",
+          "ext": true
+        },
+        {
+          "label": "Partners & Sponsors",
+          "href": "/partners",
+          "ext": false
+        },
+        {
+          "label": "Become a Vendor",
+          "href": "/marketplace",
+          "ext": false
+        },
+        {
+          "label": "Service Provider Network",
+          "href": "/service-provider-network",
+          "ext": false
+        }
+      ]
+    }
+  ]
+}
