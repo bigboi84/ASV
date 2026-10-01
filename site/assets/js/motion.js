@@ -67,6 +67,74 @@
     videoHosts.forEach(function (h) { vio.observe(h); });
   }
 
+  /* ───────── Whitby frame: inset → full bleed as it scrolls into view ───────── */
+  var expands = $$('[data-expand] .expand__frame');
+  function paintExpand() {
+    var vh = window.innerHeight;
+    expands.forEach(function (f) {
+      var r = f.getBoundingClientRect();
+      var p = reduce.matches ? 1 : Math.max(0, Math.min(1, (vh - r.top) / (vh * 0.75)));
+      f.style.setProperty('--p', p.toFixed(3));
+    });
+  }
+  if (expands.length) {
+    paintExpand();
+    if (!reduce.matches) {
+      var exTick = false;
+      window.addEventListener('scroll', function () { if (!exTick) { exTick = true; requestAnimationFrame(function () { exTick = false; paintExpand(); }); } }, { passive: true });
+      window.addEventListener('resize', paintExpand);
+    }
+  }
+
+  /* ───────── AI band: drifting constellation of connected nodes ───────── */
+  $$('.ai-band__canvas').forEach(function (cv) {
+    var ctx = cv.getContext('2d'); if (!ctx) return;
+    var nodes = [], W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2), running = false, raf = 0;
+    function size() {
+      W = cv.clientWidth; H = cv.clientHeight;
+      cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = Math.round(Math.min(90, (W * H) / 14000));
+      nodes = [];
+      for (var i = 0; i < n; i++) nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .28, vy: (Math.random() - .5) * .28, r: Math.random() * 1.6 + .8, g: Math.random() < .18 });
+    }
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      var max = 150;
+      for (var i = 0; i < nodes.length; i++) {
+        var a = nodes[i];
+        for (var j = i + 1; j < nodes.length; j++) {
+          var b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < max) {
+            ctx.strokeStyle = 'rgba(200,169,81,' + (0.28 * (1 - dist / max)).toFixed(3) + ')';
+            ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+      }
+      for (var k = 0; k < nodes.length; k++) {
+        var n = nodes[k];
+        ctx.fillStyle = n.g ? 'rgba(200,169,81,.95)' : 'rgba(245,243,238,.55)';
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.g ? n.r + 1 : n.r, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+    function step() {
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i]; n.x += n.vx; n.y += n.vy;
+        if (n.x < -20) n.x = W + 20; if (n.x > W + 20) n.x = -20;
+        if (n.y < -20) n.y = H + 20; if (n.y > H + 20) n.y = -20;
+      }
+      draw(); if (running) raf = requestAnimationFrame(step);
+    }
+    size(); draw();
+    window.addEventListener('resize', function () { size(); draw(); });
+    if (reduce.matches || !('IntersectionObserver' in window)) return; // static constellation
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting && !running) { running = true; raf = requestAnimationFrame(step); }
+        else if (!e.isIntersecting) { running = false; cancelAnimationFrame(raf); }
+      });
+    }).observe(cv);
+  });
+
   if (reduce.matches) return; // everything below is decorative motion
 
   /* ───────── Scroll progress ───────── */

@@ -17,6 +17,10 @@
           "href": "/strategic-pillars"
         },
         {
+          "label": "Events",
+          "href": "/events"
+        },
+        {
           "label": "News, Stories & Impact",
           "href": "/news-impact"
         }
@@ -3022,6 +3026,26 @@
       ]
     },
     {
+      "title": "Events",
+      "links": [
+        {
+          "label": "GAISB AI World Summit 2027",
+          "href": "/events",
+          "ext": false
+        },
+        {
+          "label": "Summit website",
+          "href": "https://gaisb.ai/port-of-spain.html",
+          "ext": true
+        },
+        {
+          "label": "All events",
+          "href": "/events",
+          "ext": false
+        }
+      ]
+    },
+    {
       "title": "Inclusion & impact",
       "links": [
         {
@@ -3090,6 +3114,48 @@
           "ext": false
         }
       ]
+    }
+  ],
+  "events": [
+    {
+      "slug": "gaisb-ai-world-summit-2027",
+      "name": "GAISB AI World Summit 2027",
+      "kicker": "AI World Summit 2027",
+      "headline": "AI is moving money.",
+      "subhead": "The rules are being written now.",
+      "themes": [
+        "Work",
+        "Wealth",
+        "Security",
+        "Nations",
+        "Humanity"
+      ],
+      "summary": "AI is joining the workforce. Money is going digital. AI agents now connect the two. Three days in Port of Spain for the people shaping what comes next: CEOs and executives, governments and regulators, financial professionals, investors and builders.",
+      "host": "Hosted in the Caribbean by AFSV VRC Global Development Group Ltd., Canada.",
+      "start": "2027-04-29T09:00:00-04:00",
+      "dateLabel": "April 29 – May 1, 2027",
+      "day": "29",
+      "month": "Apr",
+      "endLabel": "– 1 May 2027",
+      "venue": "Hyatt Regency Trinidad",
+      "city": "Port of Spain, Trinidad & Tobago",
+      "facts": [
+        [
+          "3 days",
+          "of keynotes, roundtables and sessions"
+        ],
+        [
+          "50+",
+          "countries expected among delegates"
+        ],
+        [
+          "Jan 31, 2027",
+          "speaker submissions close"
+        ]
+      ],
+      "url": "https://gaisb.ai/port-of-spain.html",
+      "ctaPrimary": "Secure your place",
+      "ctaSecondary": "See the agenda"
     }
   ]
 }

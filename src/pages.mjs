@@ -9,19 +9,83 @@ export const setVideos = (v) => { V = v; };
 const TICK = ['Multi-sport development', 'Soccer', 'Cricket', 'Basketball', 'Track and sprint', 'Adaptive sport', 'Esports', 'AI education', 'Life skills', 'Mentorship', 'Inclusive education', 'Community'];
 const PREVIEW = 'Development preview — this form is not connected yet.';
 
+
+// Featured event block (home + events page). WordPress: Events CPT single-card template.
+function eventFeature(e, el = 'home.event') {
+  return html`
+<article class="event" data-el="${el}" data-el-build="custom-widget">
+  <div class="event__date" aria-hidden="true">
+    <span class="event__day">${e.day}</span>
+    <span class="event__month">${e.month}</span>
+    <span class="event__end">${e.endLabel}</span>
+  </div>
+  <div class="event__main">
+    <p class="eyebrow eyebrow-rule">${e.kicker} · ${e.city}</p>
+    <h3 class="event__title">${e.name}</h3>
+    <p class="event__headline"><span>${e.headline}</span> ${e.subhead}</p>
+    <ul class="event__themes">${e.themes.map((t) => html`<li>${t}</li>`)}</ul>
+    <p class="event__summary">${e.summary}</p>
+    <p class="event__where"><strong>${e.dateLabel}</strong> · ${e.venue}, ${e.city}</p>
+    <div class="btn-row btn-row--stack">
+      <a class="btn btn--gold" href="${e.url}" target="_blank" rel="noopener noreferrer">${e.ctaPrimary}<span class="sr-only"> (opens the summit website in a new tab)</span>${icon('external')}</a>
+      <a class="btn btn--line-light" href="${e.url}" target="_blank" rel="noopener noreferrer">${e.ctaSecondary}<span class="sr-only"> (opens in a new tab)</span>${icon('external')}</a>
+    </div>
+    <p class="event__host">${e.host}</p>
+  </div>
+  <aside class="event__side">
+    <p class="event__side-label">Summit opens in</p>
+    <div class="countdown" data-countdown="${e.start}" role="timer" aria-label="Countdown to ${e.name}">
+      ${[['days', 'Days'], ['hours', 'Hours'], ['mins', 'Minutes'], ['secs', 'Seconds']].map(([k, l]) => html`<div class="countdown__cell"><span class="countdown__num" data-unit="${k}">--</span><span class="countdown__label">${l}</span></div>`)}
+    </div>
+    <dl class="event__facts">${e.facts.map(([k, v]) => html`<div><dt>${k}</dt><dd>${v}</dd></div>`)}</dl>
+  </aside>
+</article>`;
+}
+
+function esportsBand() {
+  return html`
+<section class="esports" data-el="home.esports" data-el-build="elementor">
+  <div class="esports__grid" aria-hidden="true"><div class="esports__floor"></div></div>
+  <div class="esports__glow" aria-hidden="true"></div>
+  <div class="wrap esports__inner">
+    <div class="esports__copy reveal">
+      <p class="esports__badge"><span class="esports__dot" aria-hidden="true"></span>Dedicated esports site launching soon</p>
+      <p class="eyebrow">Esports, Technology, Media &amp; Innovation</p>
+      <h2 class="esports__title"><span>Compete.</span> <span>Create.</span> <span>Broadcast.</span></h2>
+      <p class="lead">Not every participant connects with traditional sport. AFSV VRC esports and media pathways are intended to build social connection, skills, confidence, storytelling and career exploration — from competition to the broadcast desk.</p>
+      <div class="btn-row btn-row--stack">
+        ${btn('Explore esports & media pathways', '/technology-media', 'gold')}
+        ${btn('Get launch updates', '/technology-media#interest', 'line-light')}
+      </div>
+      <p class="esports__note">Competition, production and podcast spaces are conceptual and not yet operational.</p>
+    </div>
+    <ul class="esports__modes reveal" aria-label="Esports and media pathways">
+      ${[['Esports', 'Team play, tournaments and coaching'], ['Content creation', 'Video, streaming and storytelling'], ['Broadcasting', 'Commentary, production and live coverage'], ['Podcasting', 'Participant and community voices'], ['Coding & STEM', 'Game design and technical skills']].map(([t, d], i) => html`<li style="--i:${i}"><span class="esports__key">${pad2(i + 1)}</span><span><b>${t}</b><small>${d}</small></span></li>`)}
+    </ul>
+  </div>
+</section>`;
+}
+
 // ════════════════════════ HOME ════════════════════════
 export function home(d) {
+  const pillarImgs = [
+    ['pillars-hall.jpg', 'A coach demonstrating a movement to two athletes on an indoor court.'],
+    ['ai-education-studio.jpg', 'Adult learners at a long desk with large data displays while an instructor explains.'],
+    ['accessible-entrance.jpg', 'A step-free facility entrance where a staff member helps a visitor who uses a mobility aid.'],
+    ['about-team.jpg', 'Four adults collaborating around a table with notebooks and a wall of notes.'],
+  ];
   const pathways = [
-    { ...d.pathways[0], desc: 'Athlete pathways, coaching and multi-sport training.' },
-    { ...d.pathways[1], desc: 'Register interest in the five proposed membership pathways.' },
-    { ...d.pathways[2], desc: 'Apparel, training products and community-focused goods.' },
-    { ...d.pathways[3], desc: 'Sponsorship, education, technology and development routes.' },
+    { ...d.pathways[0], desc: 'Athlete pathways, coaching and multi-sport training.', img: 'news-courtside.jpg' },
+    { ...d.pathways[1], desc: 'Register interest in the five proposed membership pathways.', img: 'membership-community.jpg' },
+    { ...d.pathways[2], desc: 'Apparel, training products and community-focused goods.', img: 'marketplace-kit.jpg' },
+    { ...d.pathways[3], desc: 'Sponsorship, education, technology and development routes.', img: 'partners-boardroom.jpg' },
   ];
   return {
     title: 'Home',
+    overlay: true,
     description: 'AFSV VRC is creating a smarter, more inclusive sports and education ecosystem where athletes, families, educators, partners and communities can train, learn, connect and grow.',
     body: html`
-<section class="hero" data-el="home.hero" data-el-build="elementor">
+<section class="hero hero--full" data-el="home.hero" data-el-build="elementor">
   <div class="hero__media">
     <img src="${IMG('hero-fieldhouse.jpg')}" alt="" width="1344" height="752" fetchpriority="high">
     <video src="assets/video/hero-loop.mp4" poster="${IMG('hero-fieldhouse.jpg')}" muted loop playsinline autoplay preload="metadata" aria-hidden="true" tabindex="-1"></video>
@@ -34,19 +98,25 @@ export function home(d) {
     <path class="runner" d="M-40 730 C 400 650, 860 690, 1480 520"/>
   </svg>
   <div class="wrap hero__content">
-    <div>
-      <p class="eyebrow">AFSV VRC Global Development Group</p>
+    <div class="hero__copy">
+      <p class="eyebrow eyebrow-rule">AFSV VRC Global Development Group</p>
       <h1 class="display split-words" aria-label="Building Athletes. Empowering Minds. Strengthening Communities."><span aria-hidden="true">${splitWords(['Building Athletes.', 'Empowering Minds.', 'Strengthening Communities.'], ['Communities.'])}</span></h1>
       <p class="lead">AFSV VRC is creating a smarter, more inclusive sports and education ecosystem where athletes, families, educators, partners and communities can train, learn, connect and grow.</p>
       <div class="btn-row btn-row--stack">
         ${btn('Explore the Smart Sports Village', '/whitby-smart-sports-village', 'gold')}
         ${btn('Join the Movement', '/membership', 'line-light')}
       </div>
-      <p class="hero__tertiary"><a class="text-link text-link--light" href="${SITE.booking}" target="_blank" rel="noopener noreferrer">Book. Train. Perform.<span class="sr-only"> Booking site, opens in a new tab</span>${icon('external')}</a></p>
+    </div>
+  </div>
+  <div class="hero__facts">
+    <div class="wrap hero__facts-inner">
+      <a class="hero__fact" href="whitby-smart-sports-village.html"><span class="hero__fact-k">Pilot</span><span class="hero__fact-v">Whitby, Ontario</span><span class="pill pill--gold">Proposed</span></a>
+      <a class="hero__fact" href="strategic-pillars.html"><span class="hero__fact-k">Model</span><span class="hero__fact-v">4 strategic pillars</span></a>
+      <a class="hero__fact" href="about.html"><span class="hero__fact-k">Reach</span><span class="hero__fact-v">Canada · Caribbean · Global</span></a>
+      <a class="hero__fact hero__fact--book" href="${SITE.booking}" target="_blank" rel="noopener noreferrer"><span class="hero__fact-k">Book. Train. Perform.</span><span class="hero__fact-v">Book a session ${icon('external')}</span><span class="sr-only"> (opens in a new tab)</span></a>
     </div>
   </div>
   <button type="button" class="media-toggle" aria-pressed="false">${icon('pause', 'ico-pause')}${icon('play', 'ico-play')}<span>Pause background video</span></button>
-  <a class="scroll-cue" href="#ecosystem" aria-label="Scroll to content">Scroll<span></span></a>
   <p class="sr-only">Background video: adult athletes training in a modern indoor fieldhouse — a sprinter on the track, an athlete adjusting a wheelchair racing frame, and two athletes talking courtside in low evening light.</p>
 </section>
 
@@ -56,56 +126,54 @@ export function home(d) {
     <ul aria-hidden="true">${TICK.map((t) => html`<li>${t}</li>`)}</ul>
   </div>
 </div>
-<section class="wrap section" id="ecosystem" data-el="home.ecosystem" data-el-build="elementor">
-  <div class="split split--intro reveal">
-    <div>
-      <p class="eyebrow mb-s">One connected ecosystem</p>
-      <h2 class="h2">Sport is only the beginning.</h2>
-    </div>
-    <p class="lead" style="padding-top:8px">AFSV VRC brings together athlete development, academic success, neurodivergent support and inclusive education, life skills, technology, community programming and commercial opportunity in one connected platform.</p>
-  </div>
-  <div class="hairline mt-l" style="--min:240px" data-stagger>
-    ${d.pillars.map((p) => html`
-    <a class="cell cell--link cell--tall" href="${href(p.href)}">
-      <div class="cell__top"><span class="numbox">${p.num}</span>${arrow()}</div>
-      <h3 class="h3" style="font-size:20px">${p.title}</h3>
-      <p>${p.desc}</p>
-    </a>`)}
-  </div>
-</section>
 
-<section class="band--navy" data-el="home.whitby" data-el-build="elementor">
-  <div class="wrap feature">
-    <div class="feature__text reveal">
-      <span class="pill pill--gold">Proposed</span>
-      <h2 class="h2">Whitby Smart Sports Village</h2>
-      <p class="lead">Our proposed Whitby pilot is envisioned as a technology-enabled, multi-sport destination serving athletes, students, families, clubs, educators and community partners.</p>
-      ${btn('Discover the Vision', '/whitby-smart-sports-village', 'gold')}
-    </div>
-    <figure class="feature__media figure wipe" data-video-scope>${pmedia({ img: IMG('whitby-aerial-concept.jpg'), alt: 'Conceptual rendering: aerial view of a proposed multi-sport village campus with linked low-rise pavilions, outdoor pitches, courts, solar canopies and tree-lined walkways. Not an existing facility.', video: V.whitbyAerial, parallax: 0.1, w: 1344, h: 752 })}
-      <figcaption class="caption-bar">Conceptual Rendering — Not an Existing Facility</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="wrap section" data-el="home.pathways" data-el-build="elementor">
+<section class="wrap section event-section" id="events" aria-labelledby="events-h">
   <div class="section-head reveal">
-    <h2 class="h2">Choose your pathway.</h2>
-    <p class="body-lg muted">Four ways in. Each route reaches the team responsible for it.</p>
+    <h2 class="h2" id="events-h">Upcoming event.</h2>
+    <p class="body-lg muted">The first event on the AFSV VRC calendar. <a class="text-link" href="events.html">All events ${arrow()}</a></p>
   </div>
-  <div class="cards" style="--min:255px" data-stagger>
-    ${pathways.map((w) => html`
-    <a class="card-link" href="${href(w.href)}">
-      <span class="eyebrow">${w.kicker}</span>
-      <h3>${w.title}</h3>
-      <p>${w.desc}</p>
-      ${arrow()}
+  ${eventFeature(d.events[0])}
+</section>
+
+<section class="wrap section" id="ecosystem" data-el="home.ecosystem" data-el-build="elementor">
+  <div class="statement reveal">
+    <p class="eyebrow">One connected ecosystem</p>
+    <p class="statement__text"><strong>Sport is only the beginning.</strong> AFSV VRC brings together athlete development, academic success, neurodivergent support and inclusive education, life skills, technology, community programming and commercial opportunity in one connected platform.</p>
+  </div>
+  <div class="panels" data-panels>
+    ${d.pillars.map((p, i) => html`
+    <a class="panel-card${i === 0 ? ' is-active' : ''}" href="${href(p.href)}">
+      <img src="${IMG(pillarImgs[i][0])}" alt="" width="1344" height="752" loading="lazy">
+      <span class="panel-card__shade" aria-hidden="true"></span>
+      <span class="panel-card__num">${p.num}</span>
+      <span class="panel-card__body">
+        <span class="panel-card__title">${p.title}</span>
+        <span class="panel-card__desc">${p.desc}</span>
+        <span class="panel-card__go">Explore ${arrow()}</span>
+      </span>
     </a>`)}
+  </div>
+</section>
+
+<section class="expand" data-el="home.whitby" data-el-build="elementor" data-expand>
+  <div class="expand__frame" data-video-scope>
+    ${pmedia({ img: IMG('whitby-aerial-concept.jpg'), alt: 'Conceptual rendering: aerial view of a proposed multi-sport village campus with linked low-rise pavilions, outdoor pitches, courts, solar canopies and tree-lined walkways. Not an existing facility.', video: V.whitbyAerial, parallax: 0 })}
+    <span class="expand__shade" aria-hidden="true"></span>
+    <div class="wrap expand__content">
+      <div class="expand__card reveal">
+        <span class="pill pill--gold">Proposed</span>
+        <h2 class="h2">Whitby Smart Sports Village</h2>
+        <p class="lead">Our proposed Whitby pilot is envisioned as a technology-enabled, multi-sport destination serving athletes, students, families, clubs, educators and community partners.</p>
+        <ul class="expand__tags">${['Multi-sport dome', 'Performance & recovery', 'Learning & life skills', 'Sensory-aware spaces', 'Esports & broadcast'].map((t) => html`<li>${t}</li>`)}</ul>
+        ${btn('Discover the Vision', '/whitby-smart-sports-village', 'gold')}
+      </div>
+    </div>
+    <p class="caption-bar expand__caption">Conceptual Rendering — Not an Existing Facility</p>
   </div>
 </section>
 
 <section class="band--navy" data-el="home.stats" data-el-build="elementor">
-  <div class="wrap section--tight" style="padding-top:clamp(56px,7vw,88px);padding-bottom:clamp(56px,7vw,88px)">
+  <div class="wrap" style="padding-top:clamp(56px,7vw,88px);padding-bottom:clamp(56px,7vw,88px)">
     <div class="section-head reveal"><h2 class="h2">The model, in numbers.</h2><p class="body-lg" style="color:var(--on-navy-soft)">Planned scope for the first phase. Figures are proposals, not results, and stay labelled that way.</p></div>
     <div class="stats" data-stagger>
       <div class="stat"><span class="stat__value"><span data-count="4">4</span></span><span class="stat__label">Strategic pillars connecting sport, learning, inclusion and life skills</span></div>
@@ -116,27 +184,52 @@ export function home(d) {
   </div>
 </section>
 
-<section class="band--cream" data-el="home.gaisb" data-el-build="elementor">
+<section class="wrap section" data-el="home.pathways" data-el-build="elementor">
+  <div class="section-head reveal">
+    <h2 class="h2">Choose your pathway.</h2>
+    <p class="body-lg muted">Four ways in. Each route reaches the team responsible for it.</p>
+  </div>
+  <div class="path-grid" data-stagger>
+    ${pathways.map((w) => html`
+    <a class="path-card" href="${href(w.href)}">
+      <span class="path-card__img"><img src="${IMG(w.img)}" alt="" width="1344" height="752" loading="lazy"></span>
+      <span class="path-card__body">
+        <span class="eyebrow">${w.kicker}</span>
+        <span class="path-card__title">${w.title}</span>
+        <span class="path-card__desc">${w.desc}</span>
+      </span>
+      <span class="path-card__go" aria-hidden="true">${icon('arrow')}</span>
+    </a>`)}
+  </div>
+</section>
+
+${esportsBand()}
+
+<section class="band--cream" data-el="home.neurodiversity" data-el-build="elementor">
   <div class="wrap section split split--center">
+    <figure class="figure figure--4x3 figure--motion wipe neuro-figure" data-video-scope>${pmedia({ img: IMG('sensory-support-space.jpg'), alt: 'Two adults in relaxed conversation in a calm, sensory-considerate support space with soft acoustic wall panels, dimmable lighting and quiet soft seating.', video: V.sensory, w: 1168, h: 880 })}</figure>
+    <div class="reveal">
+      <p class="eyebrow mb-s">Neurodiversity Access &amp; Opportunity</p>
+      <h2 class="h2 mb-m">Different Minds.<br>Equal Opportunity.</h2>
+      <p class="lead mb-m">AFSV VRC is developing an inclusive ecosystem intended to expand access to sport, education, developmental support, life skills, technology and employment for neurodivergent people — reducing financial and accessibility barriers through qualified professionals, community organizations, businesses, sponsors and employers.</p>
+      <ul class="check-list mb-l">${['Sensory-friendly environments', 'Qualified service provider network', 'Neurodiversity Access Fund', 'Neuroinclusive employers'].map((t) => html`<li>${t}</li>`)}</ul>
+      ${btn('Explore Neurodiversity Access & Opportunity', '/neurodiversity', 'navy')}
+    </div>
+  </div>
+</section>
+
+<section class="band--navy ai-band" data-el="home.gaisb" data-el-build="elementor">
+  <canvas class="ai-band__canvas" aria-hidden="true"></canvas>
+  <div class="wrap section split split--center ai-band__inner">
     <div class="reveal">
       <p class="eyebrow mb-s">GAISB and responsible AI</p>
       <h2 class="h2 mb-m">Responsible innovation, taught properly.</h2>
       <p class="lead mb-l">Through its strategic relationship with the Global AI Standards Body, AFSV VRC is advancing AI education, certification, workforce readiness and responsible innovation across sport, education and community development in Canada and the Caribbean.</p>
-      ${btn('Explore AI Education & Partnerships', '/gaisb-ai', 'navy')}
+      ${btn('Explore AI Education & Partnerships', '/gaisb-ai', 'gold')}
     </div>
-    <figure class="figure figure--4x3 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('ai-education-studio.jpg'), alt: 'Three adult learners working at a long desk with large displays showing abstract data visualisations, while an instructor explains a concept in a modern technology education studio.', video: V.aiStudio, w: 1168, h: 880 })}</figure>
-  </div>
-</section>
-
-<section class="band--navy" data-el="home.neurodiversity" data-el-build="elementor">
-  <div class="wrap feature feature--flip">
-    <figure class="feature__media figure wipe" data-video-scope>${pmedia({ img: IMG('sensory-support-space.jpg'), alt: 'Two adults in relaxed conversation in a calm, sensory-considerate support space with soft acoustic wall panels, dimmable lighting and quiet soft seating.', video: V.sensory, parallax: 0.1, w: 1168, h: 880 })}</figure>
-    <div class="feature__text reveal">
-      <p class="eyebrow">Neurodiversity Access &amp; Opportunity</p>
-      <h2 class="h2">Different Minds.<br>Equal Opportunity.</h2>
-      <p class="lead">AFSV VRC is developing an inclusive ecosystem intended to expand access to sport, education, developmental support, life skills, technology and employment for neurodivergent people — reducing financial and accessibility barriers through qualified professionals, community organizations, businesses, sponsors and employers.</p>
-      ${btn('Explore Neurodiversity Access & Opportunity', '/neurodiversity', 'line-gold')}
-    </div>
+    <ul class="ai-band__list reveal">
+      ${['AI literacy', 'Professional certification', 'Sport technology', 'Responsible-AI governance', 'Workforce readiness'].map((t, i) => html`<li><span class="num">${pad2(i + 1)}</span>${t}</li>`)}
+    </ul>
   </div>
 </section>
 
@@ -158,6 +251,27 @@ ${formSection({
 })}
 
 ${ctaBand('Build the future with us.', [{ label: 'Partner with us', route: '/partners' }, { label: 'Contact us', route: '/contact' }], 'home.cta-band')}`,
+  };
+}
+
+
+// ════════════════════════ EVENTS ════════════════════════
+export function events(d) {
+  return {
+    title: 'Events',
+    description: 'AFSV VRC events, summits and community gatherings — starting with the GAISB AI World Summit 2027 in Port of Spain.',
+    body: html`
+${breadcrumb([{ label: 'Events' }])}
+<section class="wrap page-head" data-el="events.header" data-el-build="elementor">
+  <p class="eyebrow">Events</p>
+  <h1 class="h1 split-words" aria-label="Where the ecosystem meets."><span aria-hidden="true">${splitWords('Where the ecosystem meets.')}</span></h1>
+  <p class="lead measure">Summits, showcases and community gatherings hosted or supported by AFSV VRC. Each event links to its own registration and agenda.</p>
+</section>
+<section class="wrap section section--flush-top" data-el="events.list" data-el-build="custom-widget">
+  <div class="event-list">${d.events.map((e) => eventFeature(e, 'events.card'))}</div>
+  <div class="pending mt-l"><span class="eyebrow">More events</span><p>Further events will be listed here as they are confirmed, including program showcases, partner sessions and Whitby Smart Sports Village milestones.</p></div>
+</section>
+${ctaBand('Want to host or sponsor an event with us?', [{ label: 'Talk to the partnerships team', route: '/partners' }, { label: 'Contact us', route: '/contact' }])}`,
   };
 }
 

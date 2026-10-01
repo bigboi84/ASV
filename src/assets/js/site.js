@@ -42,9 +42,14 @@
   setHeaderH();
   window.addEventListener('resize', setHeaderH);
   var toTop = $('.to-top');
+  var overlayMast = header && header.hasAttribute('data-overlay') ? header.closest('.masthead') : null;
+  function setMastH() { if (overlayMast) doc.style.setProperty('--mast-h', overlayMast.offsetHeight + 'px'); }
+  setMastH(); window.addEventListener('resize', setMastH);
   function onScroll() {
     var y = window.scrollY;
     if (header) header.classList.toggle('is-scrolled', y > 8);
+    // Overlay header: once the transparent masthead has scrolled away, pin a solid bar.
+    if (overlayMast) header.classList.toggle('is-stuck', y > overlayMast.offsetHeight + 60);
     if (toTop) toTop.classList.toggle('is-visible', y > 900);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -146,13 +151,54 @@
     window.addEventListener('resize', function () { if (window.innerWidth >= 1200 && !$('.market-bar')) closeDrawer(); });
   }
 
+  /* ───────── Home pillar panels: hover/focus expands a panel ───────── */
+  $$('[data-panels]').forEach(function (wrap) {
+    var cards = $$('.panel-card', wrap);
+    var activate = function (c) { cards.forEach(function (x) { x.classList.toggle('is-active', x === c); }); };
+    cards.forEach(function (c) {
+      c.addEventListener('mouseenter', function () { activate(c); });
+      c.addEventListener('focus', function () { activate(c); });
+    });
+  });
+
+  /* Hero facts height feeds the video toggle position */
+  var facts = $('.hero__facts');
+  if (facts) {
+    var setFacts = function () { doc.style.setProperty('--facts-h', facts.offsetHeight + 'px'); };
+    setFacts(); window.addEventListener('resize', setFacts);
+  }
+
+  /* ───────── Event countdowns ───────── */
+  $$('[data-countdown]').forEach(function (el) {
+    var target = Date.parse(el.getAttribute('data-countdown'));
+    if (isNaN(target)) return;
+    var cells = {};
+    $$('[data-unit]', el).forEach(function (c) { cells[c.getAttribute('data-unit')] = c; });
+    var pad = function (n) { return n < 10 ? '0' + n : String(n); };
+    var last = {};
+    var update = function () {
+      var ms = Math.max(0, target - Date.now());
+      var v = { days: Math.floor(ms / 864e5), hours: Math.floor(ms / 36e5) % 24, mins: Math.floor(ms / 6e4) % 60, secs: Math.floor(ms / 1e3) % 60 };
+      Object.keys(v).forEach(function (k) {
+        if (!cells[k]) return;
+        var txt = k === 'days' ? String(v[k]) : pad(v[k]);
+        if (last[k] !== txt) {
+          cells[k].textContent = txt;
+          if (!reduceMotion && last[k] !== undefined) { cells[k].classList.remove('tick'); void cells[k].offsetWidth; cells[k].classList.add('tick'); }
+          last[k] = txt;
+        }
+      });
+    };
+    update(); setInterval(update, 1000);
+  });
+
   /* ───────── Announcement banner ───────── */
   var banner = $('.announce');
   if (banner) {
-    if (store.session.get('afsv-banner') === 'closed') banner.hidden = true;
+    if (store.session.get('afsv-banner') === 'closed') { banner.hidden = true; setMastH(); }
     var bClose = $('.announce__close', banner);
     if (bClose) bClose.addEventListener('click', function () {
-      banner.hidden = true; store.session.set('afsv-banner', 'closed'); setHeaderH();
+      banner.hidden = true; store.session.set('afsv-banner', 'closed'); setHeaderH(); if (typeof setMastH === 'function') setMastH();
     });
   }
 
@@ -166,8 +212,9 @@
       var paused = video.paused;
       vBtn.setAttribute('aria-pressed', String(paused));
       vBtn.querySelector('span').textContent = paused ? 'Play background video' : 'Pause background video';
-      vBtn.querySelector('.ico-pause').hidden = paused;
-      vBtn.querySelector('.ico-play').hidden = !paused;
+      // SVG elements have no .hidden property, so toggle the attribute itself
+      vBtn.querySelector('.ico-pause').toggleAttribute('hidden', paused);
+      vBtn.querySelector('.ico-play').toggleAttribute('hidden', !paused);
     };
     if (reduceMotion) { video.removeAttribute('autoplay'); video.pause(); }
     else {

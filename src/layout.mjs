@@ -6,7 +6,7 @@ function isCurrent(route, current) {
   return route === current;
 }
 
-function header(nav, current) {
+function header(nav, current, overlay = false) {
   const items = nav.map((it, i) => {
     if (!it.kids) {
       const cur = isCurrent(it.href, current);
@@ -20,9 +20,9 @@ function header(nav, current) {
 </li>`;
   });
   return html`
-<header class="site-header" data-el="site.header" data-el-build="theme-builder">
+<header class="site-header${overlay ? ' site-header--overlay' : ''}" data-el="site.header" data-el-build="theme-builder"${overlay ? raw(' data-overlay') : ''}>
   <div class="wrap site-header__inner">
-    <a class="brand" href="index.html" aria-label="${SITE.name} home"><img src="assets/img/logo.png" alt="${SITE.legal}" width="600" height="160"></a>
+    <a class="brand" href="index.html" aria-label="${SITE.name} home"><img class="brand__dark" src="assets/img/logo.png" alt="${SITE.legal}" width="600" height="160">${overlay ? raw('<img class="brand__light" src="assets/img/logo-reverse.png" alt="" width="600" height="160">') : ''}</a>
     <nav class="primary-nav" aria-label="Primary"><ul>${items}</ul></nav>
     <button type="button" class="menu-toggle" data-drawer-open aria-controls="site-drawer" aria-expanded="false">
       <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu
@@ -112,7 +112,7 @@ function footer(cols) {
 </footer>`;
 }
 
-export function page({ data, route, title, description, body, scripts = '', ogImage }) {
+export function page({ data, route, title, description, body, scripts = '', ogImage, overlay = false }) {
   const inMarket = MARKET_ROUTES.includes(route) || route.startsWith('/product/');
   const fullTitle = route === '/' ? `${SITE.tagline} | ${SITE.name}` : `${title} | ${SITE.name}`;
   const canonical = SITE.url + (route === '/' ? '/' : route);
@@ -139,13 +139,15 @@ export function page({ data, route, title, description, body, scripts = '', ogIm
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
+${overlay ? '<div class="masthead masthead--overlay">' : ''}
 <div class="announce" role="region" aria-label="Site notice" data-el="site.announcement" data-el-build="theme-builder">
   <div class="wrap announce__inner">
     <p>AFSV VRC is in active development. Facilities, programs and partnerships shown as proposed or planned are future-state concepts and are not yet operational.</p>
     <button type="button" class="announce__close">Dismiss<span class="sr-only"> site notice</span></button>
   </div>
 </div>
-${header(data.nav, route)}
+${header(data.nav, route, overlay)}
+${overlay ? '</div>' : ''}
 ${inMarket ? marketBar(route) : ''}
 ${drawer(data.nav, route)}
 <main id="main" tabindex="-1">
