@@ -1,0 +1,316 @@
+{
+ "slug": "education",
+ "title": "Education & Academic Success",
+ "overlay": false,
+ "elements": [
+  {
+   "id": "1ef600e7",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "dbeedee6",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<nav class=\"breadcrumb wrap\" aria-label=\"Breadcrumb\"><ol><li><a href=\"{{url:/}}\">Home</a></li><li aria-hidden=\"true\">/</li><li>Programs</li><li aria-hidden=\"true\">/</li><li aria-current=\"page\">Education &amp; Academic Success</li></ol></nav>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "e43f7284",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "8d90734d",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"page-hero\" data-el=\"page.hero\" data-el-build=\"elementor\">\n  <div class=\"wrap page-hero__grid\">\n    <div class=\"page-hero__text\">\n      <p class=\"eyebrow eyebrow-rule\">Education &amp; Academic Success</p>\n      <h1 class=\"h1 split-words\" aria-label=\"Learning That Builds Confidence and Capability\"><span aria-hidden=\"true\"><span class=\"w\"><span style=\"--i:0\">Learning</span></span> <span class=\"w\"><span style=\"--i:1\">That</span></span> <span class=\"w\"><span style=\"--i:2\">Builds</span></span> <span class=\"w\"><span style=\"--i:3\">Confidence</span></span> <span class=\"w\"><span style=\"--i:4\">and</span></span> <span class=\"w\"><span style=\"--i:5\">Capability</span></span></span></h1>\n      <p class=\"lead\">AFSV VRC is developing academic support intended to help young people develop academically as well as physically and socially.</p>\n      <div class=\"btn-row btn-row--stack\"><a class=\"btn btn--gold\" href=\"#interest\">Register Learning Interest<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a><a class=\"btn btn--line-light\" href=\"{{url:/partners/}}\">Become an Education Partner<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a><a class=\"btn btn--line-light\" href=\"{{url:/contact/}}\">Educator / Tutor Inquiry<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a></div>\n    </div>\n    <div class=\"page-hero__media\" data-video-scope><div class=\"pmedia\" data-video=\"https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20261001_223947_08607129-54c8-49db-8a38-56af26e05ad2.mp4\" data-parallax=\"0.06\"><img src=\"https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215612_dc47d344-c27f-4406-8274-05f9054c2108.png\" alt=\"Two teenagers working at a table with notebooks and a laptop in a study space beside a training hall, an adult tutor leaning in to help.\" width=\"1344\" height=\"752\" fetchpriority=\"high\"></div></div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "a5155a1c",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "c646b5d6",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap\" data-el=\"status.mandatory-note\" data-el-build=\"elementor\" style=\"padding-top:56px\"><p class=\"note\" role=\"note\">No tutoring service, diagnostic assessment, regulated support, named provider, curriculum approval or school partnership is live. Nothing here should be read as an available service.</p></section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "77c6b5ab",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "792213a5",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section\" data-el=\"page.list-primary\" data-el-build=\"elementor\">\n  <div class=\"section-head reveal\" style=\"align-items:start\"><h2 class=\"h2\">Planned services.</h2><p class=\"body-lg muted\">Twelve areas of planned academic support.</p></div>\n  <div class=\"hairline list-cells\" style=\"--min:255px\" data-stagger ><div class=\"cell\"><span class=\"num\">01</span><span>Tutoring</span></div><div class=\"cell\"><span class=\"num\">02</span><span>Literacy</span></div><div class=\"cell\"><span class=\"num\">03</span><span>Mathematics</span></div><div class=\"cell\"><span class=\"num\">04</span><span>Academic coaching</span></div><div class=\"cell\"><span class=\"num\">05</span><span>Study skills</span></div><div class=\"cell\"><span class=\"num\">06</span><span>Executive-function coaching</span></div><div class=\"cell\"><span class=\"num\">07</span><span>Homework support</span></div><div class=\"cell\"><span class=\"num\">08</span><span>Technology-assisted learning</span></div><div class=\"cell\"><span class=\"num\">09</span><span>Career exploration</span></div><div class=\"cell\"><span class=\"num\">10</span><span>Mentorship</span></div><div class=\"cell\"><span class=\"num\">11</span><span>Digital literacy</span></div><div class=\"cell\"><span class=\"num\">12</span><span>Financial literacy</span></div></div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "c655fc16",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "97d2abbb",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"band--cream\" data-el=\"page.blocks\" data-el-build=\"elementor\">\n  <div class=\"wrap section\">\n    <h2 class=\"h2 mb-l reveal\" style=\"max-width:26ch\">How support is intended to work.</h2>\n    <div class=\"hairline\" style=\"--min:260px\" data-stagger>\n      <div class=\"cell\" style=\"min-height:240px;padding:34px 28px 38px\"><span class=\"num\">01</span><h3 class=\"h3\">Alongside training</h3><p style=\"font-size:15.5px\">Study time sits inside the program schedule rather than competing with it, so participants are not choosing between the two.</p></div><div class=\"cell\" style=\"min-height:240px;padding:34px 28px 38px\"><span class=\"num\">02</span><h3 class=\"h3\">Shared reporting</h3><p style=\"font-size:15.5px\">Where a school partnership is in place, coaches and educators work from the same progress information — with consent.</p></div><div class=\"cell\" style=\"min-height:240px;padding:34px 28px 38px\"><span class=\"num\">03</span><h3 class=\"h3\">No clinical claims</h3><p style=\"font-size:15.5px\">Academic coaching is not assessment, diagnosis or regulated therapeutic support, and is never described as such.</p></div><div class=\"cell\" style=\"min-height:240px;padding:34px 28px 38px\"><span class=\"num\">04</span><h3 class=\"h3\">Data minimisation</h3><p style=\"font-size:15.5px\">Public forms ask for the least information needed. Anything sensitive moves to an approved secure process later.</p></div>\n    </div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "68433f1a",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "d11c88f4",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"band--navy\" data-el=\"page.list-secondary\" data-el-build=\"elementor\">\n  <div class=\"wrap section split\">\n    <div class=\"reveal\"><h2 class=\"h2 mb-m\">Audiences.</h2><p class=\"body-lg\" style=\"color:#E7E4DC;max-width:46ch\">Five routes, kept separate so families and institutions are not funnelled into one inbox.</p></div>\n    <ul class=\"rows\" data-stagger><li><span class=\"num\">01</span><span>Learners and families</span></li><li><span class=\"num\">02</span><span>Educators and tutors</span></li><li><span class=\"num\">03</span><span>Schools and colleges</span></li><li><span class=\"num\">04</span><span>Sponsors</span></li><li><span class=\"num\">05</span><span>Community organizations</span></li></ul>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "83af3a6e",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "8d6e8b01",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section \" id=\"interest\" data-el=\"page.interest-form\" data-el-build=\"plugin\">\n  <div class=\"split split--form\">\n    <div class=\"form-intro reveal\">\n      <h2 class=\"h2\">Register learning interest.</h2>\n      <p class=\"body-lg\">For families, learners, educators and institutions. Tell us which route applies.</p>\n      <p class=\"small muted\">We do not ask for diagnoses, assessments or medical records. Accommodation requests are optional.</p>\n    </div>\n    \n<form class=\"form\" data-preview-form data-endpoint=\"{{form:education}}\">\n  <p class=\"small muted\">Fields marked <span aria-hidden=\"true\" style=\"color:var(--danger)\">*</span><span class=\"sr-only\">with an asterisk</span> are required.</p>\n  <div class=\"form__grid\">\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f80\">Name or caregiver name<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f80\" name=\"name-or-caregiver-name\" aria-describedby=\"f80-err\" required aria-required=\"true\" placeholder=\"Full name\">\n  \n  <span class=\"field__error\" id=\"f80-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f81\">Email<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"email\" id=\"f81\" name=\"email\" aria-describedby=\"f81-err\" required aria-required=\"true\" placeholder=\"you@example.com\">\n  \n  <span class=\"field__error\" id=\"f81-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f82\">Phone <span class=\"opt\">(optional)</span></label>\n  <input type=\"tel\" id=\"f82\" name=\"phone\" aria-describedby=\"f82-err\" placeholder=\"Optional\">\n  \n  <span class=\"field__error\" id=\"f82-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f83\">Learner age range<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f83\" name=\"learner-age-range\" aria-describedby=\"f83-err\" required aria-required=\"true\"><option value=\"\">Please select</option><option value=\"Under 8\">Under 8</option><option value=\"8–11\">8–11</option><option value=\"12–14\">12–14</option><option value=\"15–17\">15–17</option><option value=\"18–24\">18–24</option><option value=\"25+\">25+</option></select>\n  \n  <span class=\"field__error\" id=\"f83-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f84\">Region<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f84\" name=\"region\" aria-describedby=\"f84-err\" required aria-required=\"true\" placeholder=\"City or region\">\n  \n  <span class=\"field__error\" id=\"f84-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f85\">Areas of interest<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f85\" name=\"areas-of-interest\" aria-describedby=\"f85-err\" required aria-required=\"true\"><option value=\"\">Please select</option><option value=\"Tutoring\">Tutoring</option><option value=\"Literacy\">Literacy</option><option value=\"Mathematics\">Mathematics</option><option value=\"Academic coaching\">Academic coaching</option><option value=\"Study skills\">Study skills</option><option value=\"Executive-function coaching\">Executive-function coaching</option><option value=\"Homework support\">Homework support</option><option value=\"Technology-assisted learning\">Technology-assisted learning</option><option value=\"Career exploration\">Career exploration</option><option value=\"Mentorship\">Mentorship</option><option value=\"Digital literacy\">Digital literacy</option><option value=\"Financial literacy\">Financial literacy</option></select>\n  \n  <span class=\"field__error\" id=\"f85-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f86\">Preferred format <span class=\"opt\">(optional)</span></label>\n  <select id=\"f86\" name=\"preferred-format\" aria-describedby=\"f86-err\"><option value=\"\">Please select</option><option value=\"In person\">In person</option><option value=\"Virtual\">Virtual</option><option value=\"Either\">Either</option></select>\n  \n  <span class=\"field__error\" id=\"f86-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f87\">Organization, if applicable <span class=\"opt\">(optional)</span></label>\n  <input type=\"text\" id=\"f87\" name=\"organization-if-applicable\" aria-describedby=\"f87-err\" placeholder=\"School, college or community organization\">\n  \n  <span class=\"field__error\" id=\"f87-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field field--full\">\n  <label class=\"field__label\" for=\"f88\">Accommodation request <span class=\"opt\">(optional)</span></label>\n  <textarea id=\"f88\" name=\"accommodation-request\" aria-describedby=\"f88-err\" rows=\"4\" placeholder=\"Optional — anything that would help us respond well\"></textarea>\n  \n  <span class=\"field__error\" id=\"f88-err\" aria-live=\"polite\"></span>\n</div></div>\n  <label class=\"check\" for=\"f79\"><input type=\"checkbox\" id=\"f79\" name=\"consent\" required aria-describedby=\"f79-err\"><span>I agree to be contacted about this inquiry and to receive occasional updates from AFSV VRC. You can unsubscribe at any time.<span class=\"field__error\" id=\"f79-err\"></span></span></label>\n  <div class=\"form-status\" role=\"status\" tabindex=\"-1\" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. On the live site it routes to a named owner and sends an automatic confirmation.</div>\n  <div><button type=\"submit\" class=\"btn btn--navy\">Submit inquiry<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></button></div>\n</form>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "541d2d3d",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "a0d1ec13",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap\" data-el=\"status.pending-inputs\" data-el-build=\"elementor\" style=\"padding-bottom:88px\">\n  <div class=\"pending\"><span class=\"eyebrow\">Pending inputs</span>\n    <p>Page copy follows the approved brief. Still outstanding: final photography, approved logos and partner permissions, mailbox routing, legal policies, operational program data, pricing, dates and a named content owner.</p>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "9727e852",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "0db25467",
+     "elType": "widget",
+     "widgetType": "afsv-cta-band",
+     "settings": {
+      "heading": "Schools, colleges and tutors have their own route.",
+      "buttons": [
+       {
+        "_id": "4dd9453",
+        "label": "Talk about a partnership",
+        "link": {
+         "url": "/contact",
+         "is_external": "",
+         "nofollow": ""
+        }
+       }
+      ]
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "description": "AFSV VRC is developing academic support intended to help young people develop academically as well as physically and socially."
+}

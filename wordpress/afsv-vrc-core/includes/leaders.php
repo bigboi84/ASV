@@ -14,7 +14,7 @@ function afsv_core_get_leaders() {
 			'post_type'      => 'afsv_leader',
 			'post_status'    => 'publish',
 			'posts_per_page' => -1,
-			'orderby'        => array( 'menu_order' => 'ASC', 'title' => 'ASC' ),
+			'orderby'        => array( 'menu_order' => 'ASC', 'ID' => 'ASC' ),
 		)
 	);
 }

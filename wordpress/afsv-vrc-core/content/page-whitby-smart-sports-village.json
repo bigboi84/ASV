@@ -1,0 +1,239 @@
+{
+ "slug": "whitby-smart-sports-village",
+ "title": "Whitby Smart Sports Village",
+ "overlay": false,
+ "elements": [
+  {
+   "id": "6d232ac7",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "70182d9f",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<nav class=\"breadcrumb wrap\" aria-label=\"Breadcrumb\"><ol><li><a href=\"{{url:/}}\">Home</a></li><li aria-hidden=\"true\">/</li><li>Smart Sports Village</li><li aria-hidden=\"true\">/</li><li aria-current=\"page\">Whitby Smart Sports Village</li></ol></nav>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "6345000e",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "608360d3",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap page-head\" data-el=\"whitby.hero\" data-el-build=\"elementor\" style=\"padding-bottom:0\">\n  <span class=\"pill mb-m\">Proposed development</span>\n  <h1 class=\"h1 split-words\" style=\"max-width:22ch\" aria-label=\"The Whitby Smart Sports Village: a connected place to train, learn and belong.\"><span aria-hidden=\"true\"><span class=\"w\"><span style=\"--i:0\">The</span></span> <span class=\"w\"><span style=\"--i:1\">Whitby</span></span> <span class=\"w\"><span style=\"--i:2\">Smart</span></span> <span class=\"w\"><span style=\"--i:3\">Sports</span></span> <span class=\"w\"><span style=\"--i:4\">Village:</span></span> <span class=\"w\"><span style=\"--i:5\">a</span></span> <span class=\"w\"><span style=\"--i:6\">connected</span></span> <span class=\"w\"><span style=\"--i:7\">place</span></span> <span class=\"w\"><span style=\"--i:8\">to</span></span> <span class=\"w\"><span style=\"--i:9\">train,</span></span> <span class=\"w\"><span style=\"--i:10\">learn</span></span> <span class=\"w\"><span style=\"--i:11\">and</span></span> <span class=\"w\"><span style=\"--i:12\">belong.</span></span></span></h1>\n  <p class=\"lead measure mb-l\">AFSV VRC is advancing a proposed Smart Sports Village pilot in Whitby, Ontario: a year-round, technology-enabled destination bringing multi-sport participation, athlete development, education, inclusive supports, media and community experiences under one roof.</p>\n  <figure class=\"figure figure--16x9 figure--motion wipe\" data-video-scope><div class=\"pmedia\" data-video=\"https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20261001_223921_6e4a3a74-fe20-401a-9884-426a7df4627a.mp4\" data-parallax=\"0.08\"><img src=\"{{asset:img/whitby-clay-exterior.jpg}}\" alt=\"Conceptual clay-model rendering: ground-level view of a proposed sports dome with an adjoining low-rise pavilion, shown as an untextured white and grey massing study. Not an existing facility.\" width=\"1344\" height=\"752\" loading=\"lazy\"></div>\n    <figcaption class=\"caption-bar\">Conceptual Rendering — Not an Existing Facility</figcaption>\n  </figure>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "3ac3543c",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "850ad768",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section\" data-el=\"whitby.concept\" data-el-build=\"elementor\">\n  <h2 class=\"h2 mb-l reveal\">Concept at a glance.</h2>\n  <div class=\"hairline\" style=\"--min:300px\" data-stagger>\n    \n    <div class=\"cell\" style=\"min-height:190px\">\n      <div class=\"cell__top\"><span class=\"eyebrow\" style=\"font-size:11px;letter-spacing:.16em\">Scale</span><span class=\"pill\" style=\"font-size:9.5px;padding:4px 8px\">Proposed</span></div>\n      <p style=\"font-family:var(--font-display);font-weight:600;font-size:17px;line-height:1.44\">Approximately 150,000 sq ft in proposed Phase 1, subject to site, design, approvals and financing.</p>\n    </div>\n    <div class=\"cell\" style=\"min-height:190px\">\n      <div class=\"cell__top\"><span class=\"eyebrow\" style=\"font-size:11px;letter-spacing:.16em\">Sport</span></div>\n      <p style=\"font-family:var(--font-display);font-weight:600;font-size:17px;line-height:1.44\">Flexible soccer, cricket, basketball, sprint and configurable sport space.</p>\n    </div>\n    <div class=\"cell\" style=\"min-height:190px\">\n      <div class=\"cell__top\"><span class=\"eyebrow\" style=\"font-size:11px;letter-spacing:.16em\">Performance</span></div>\n      <p style=\"font-family:var(--font-display);font-weight:600;font-size:17px;line-height:1.44\">Performance, strength and conditioning, recovery, biomechanics and analytics.</p>\n    </div>\n    <div class=\"cell\" style=\"min-height:190px\">\n      <div class=\"cell__top\"><span class=\"eyebrow\" style=\"font-size:11px;letter-spacing:.16em\">Learning</span></div>\n      <p style=\"font-family:var(--font-display);font-weight:600;font-size:17px;line-height:1.44\">Learning, tutoring, mentoring, sensory support and life skills.</p>\n    </div>\n    <div class=\"cell\" style=\"min-height:190px\">\n      <div class=\"cell__top\"><span class=\"eyebrow\" style=\"font-size:11px;letter-spacing:.16em\">Media</span></div>\n      <p style=\"font-family:var(--font-display);font-weight:600;font-size:17px;line-height:1.44\">Esports, broadcasting, podcasting and content creation.</p>\n    </div>\n    <div class=\"cell\" style=\"min-height:190px\">\n      <div class=\"cell__top\"><span class=\"eyebrow\" style=\"font-size:11px;letter-spacing:.16em\">Community</span></div>\n      <p style=\"font-family:var(--font-display);font-weight:600;font-size:17px;line-height:1.44\">Events, partner activation, concessions, retail and fan experiences.</p>\n    </div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "4eab636e",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "4a71b348",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"band--navy\" data-el=\"whitby.smart\" data-el-build=\"elementor\">\n  <div class=\"wrap section split split--center\">\n    <div class=\"reveal\">\n      <p class=\"eyebrow mb-s\">Smart by design</p>\n      <h2 class=\"h2 mb-m\">Technology as infrastructure, not decoration.</h2>\n      <p class=\"lead\">Digital access, secure connectivity, facility sensors, automation, data-informed programming, modern signage and emerging technology—subject to privacy, security, design and procurement.</p>\n    </div>\n    <figure class=\"figure figure--16x9 figure--motion wipe\" data-video-scope><div class=\"pmedia\" data-video=\"https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20261001_223921_c68c03f6-81f3-4076-b967-afea36a7d32a.mp4\" data-parallax=\"0.08\"><img src=\"{{asset:img/whitby-clay-cutaway.jpg}}\" alt=\"Conceptual clay-model rendering: cutaway interior of a proposed sports dome showing a long-span arched roof, abstracted field zones, mezzanine learning rooms and a media studio volume as untextured masses. Not an existing facility.\" width=\"1344\" height=\"752\" loading=\"lazy\"></div>\n      <figcaption class=\"caption-bar\">Conceptual Rendering — Not an Existing Facility</figcaption>\n    </figure>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "4f64ebfa",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "74d4ba6a",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section\" data-el=\"whitby.partnerships\" data-el-build=\"elementor\">\n  <div class=\"split\">\n    <div class=\"reveal\">\n      <h2 class=\"h2 mb-m\">Partnership pathways.</h2>\n      <p class=\"body-lg muted mb-m\">Seven routes into the pilot, from municipal partners to retail and concessions.</p>\n      <div class=\"btn-row btn-row--stack\">\n        <a class=\"btn btn--navy\" href=\"#whitby-partner-form\">Become a Development Partner<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a>\n        <a class=\"btn btn--line-dark\" href=\"#whitby-partner-form\">Request the Project Brief<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a>\n      </div>\n    </div>\n    <ul class=\"rows\" data-stagger><li><span class=\"num\">01</span><span>Municipal and public sector</span></li><li><span class=\"num\">02</span><span>Colleges and schools</span></li><li><span class=\"num\">03</span><span>Clubs and academies</span></li><li><span class=\"num\">04</span><span>Performance and inclusion providers</span></li><li><span class=\"num\">05</span><span>Technology and responsible AI</span></li><li><span class=\"num\">06</span><span>Sponsors and investors</span></li><li><span class=\"num\">07</span><span>Retail, concessions and marketplace</span></li></ul>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "2a2b7338",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "801b7cac",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap\" data-el=\"whitby.disclaimer\" data-el-build=\"elementor\">\n  <div class=\"callout\" role=\"note\"><span class=\"eyebrow\">Important</span><p style=\"font-size:15.5px;line-height:1.66\">The Whitby Smart Sports Village is a proposed development. Images, dimensions, uses, timelines, partnerships and features shown are conceptual and subject to feasibility, approvals, financing, final design and operating agreements.</p></div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "aa259b83",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "b0790c8d",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section \" id=\"whitby-partner-form\" data-el=\"whitby.partner-form\" data-el-build=\"plugin\">\n  <div class=\"split split--form\">\n    <div class=\"form-intro reveal\">\n      <h2 class=\"h2\">Request the project brief.</h2>\n      <p class=\"body-lg\">Tell us how your organisation would work with the pilot and we will share the current project materials.</p>\n      <p class=\"small muted\">Development preview — no documents are distributed from this form until the project brief is approved for release.</p>\n    </div>\n    \n<form class=\"form\" data-preview-form data-endpoint=\"{{form:whitby-smart-sports-village}}\">\n  <p class=\"small muted\">Fields marked <span aria-hidden=\"true\" style=\"color:var(--danger)\">*</span><span class=\"sr-only\">with an asterisk</span> are required.</p>\n  <div class=\"form__grid\">\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f2\">Name<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f2\" name=\"name\" autocomplete=\"name\" aria-describedby=\"f2-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f2-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f3\">Organisation<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f3\" name=\"organisation\" autocomplete=\"organization\" aria-describedby=\"f3-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f3-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f4\">Role<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f4\" name=\"role\" autocomplete=\"organization-title\" aria-describedby=\"f4-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f4-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f5\">Email<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"email\" id=\"f5\" name=\"email\" autocomplete=\"email\" aria-describedby=\"f5-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f5-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f6\">Phone <span class=\"opt\">(optional)</span></label>\n  <input type=\"tel\" id=\"f6\" name=\"phone\" autocomplete=\"tel\" aria-describedby=\"f6-err\">\n  \n  <span class=\"field__error\" id=\"f6-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f7\">Partnership type<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f7\" name=\"partnership-type\" aria-describedby=\"f7-err\" required aria-required=\"true\"><option value=\"\">Select a type</option><option value=\"Municipal and public sector\">Municipal and public sector</option><option value=\"Colleges and schools\">Colleges and schools</option><option value=\"Clubs and academies\">Clubs and academies</option><option value=\"Performance and inclusion providers\">Performance and inclusion providers</option><option value=\"Technology and responsible AI\">Technology and responsible AI</option><option value=\"Sponsors and investors\">Sponsors and investors</option><option value=\"Retail, concessions and marketplace\">Retail, concessions and marketplace</option></select>\n  \n  <span class=\"field__error\" id=\"f7-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field field--full\">\n  <label class=\"field__label\" for=\"f8\">Message<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <textarea id=\"f8\" name=\"message\" aria-describedby=\"f8-err\" required aria-required=\"true\" rows=\"4\" placeholder=\"\"></textarea>\n  \n  <span class=\"field__error\" id=\"f8-err\" aria-live=\"polite\"></span>\n</div></div>\n  <label class=\"check\" for=\"f1\"><input type=\"checkbox\" id=\"f1\" name=\"consent\" required aria-describedby=\"f1-err\"><span>I agree to be contacted about partnership opportunities with AFSV VRC.<span class=\"field__error\" id=\"f1-err\"></span></span></label>\n  <div class=\"form-status\" role=\"status\" tabindex=\"-1\" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. Submissions will route to the partnerships inbox once confirmed.</div>\n  <div><button type=\"submit\" class=\"btn btn--navy\">Submit request<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></button></div>\n</form>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "description": "A proposed year-round, technology-enabled destination in Whitby, Ontario bringing multi-sport participation, athlete development, education, inclusive supports, media and community under one roof."
+}

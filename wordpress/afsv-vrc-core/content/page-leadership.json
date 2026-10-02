@@ -1,0 +1,162 @@
+{
+ "slug": "leadership",
+ "title": "Leadership",
+ "overlay": true,
+ "elements": [
+  {
+   "id": "dd95f08d",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "68a4907f",
+     "elType": "widget",
+     "widgetType": "afsv-leadership",
+     "settings": {
+      "layout": "hero",
+      "heading": "The team behind\nthe vision.",
+      "text": "AFSVHCL™ is led by a dedicated team of entrepreneurs, community builders, and visionaries committed to transforming youth sports, education, and community development in Canada and beyond."
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "0e52d19f",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "33d2db57",
+     "elType": "widget",
+     "widgetType": "afsv-leadership",
+     "settings": {
+      "layout": "profiles"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "8487507a",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "c3f46cbe",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap\" style=\"padding-bottom:72px\"><p class=\"small muted\">Portraits for Natalie Sutherland-Lashley, Michelle Lashley and Vinai Charran will appear once approved images are supplied.</p></section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "05466b22",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "d95eb014",
+     "elType": "widget",
+     "widgetType": "afsv-cta-band",
+     "settings": {
+      "heading": "Work with the team building AFSV VRC.",
+      "buttons": [
+       {
+        "_id": "a6061d7",
+        "label": "Partner with us",
+        "link": {
+         "url": "/partners",
+         "is_external": "",
+         "nofollow": ""
+        }
+       },
+       {
+        "_id": "eb3d7e4",
+        "label": "Contact us",
+        "link": {
+         "url": "/contact",
+         "is_external": "",
+         "nofollow": ""
+        }
+       }
+      ]
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "description": "Meet the leadership of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL) and AFSV VRC."
+}

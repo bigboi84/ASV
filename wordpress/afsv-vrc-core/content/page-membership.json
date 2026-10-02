@@ -1,0 +1,140 @@
+{
+ "slug": "membership",
+ "title": "Membership",
+ "overlay": false,
+ "elements": [
+  {
+   "id": "60bc7f01",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "2f544a0b",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<nav class=\"breadcrumb wrap\" aria-label=\"Breadcrumb\"><ol><li><a href=\"{{url:/}}\">Home</a></li><li aria-hidden=\"true\">/</li><li aria-current=\"page\">Membership</li></ol></nav>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "21f649b4",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "caee5053",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap page-head\" data-el=\"membership.hero\" data-el-build=\"elementor\">\n  <div class=\"split split--center\">\n    <div>\n      <span class=\"pill mb-m\">Registration of interest only</span>\n      <h1 class=\"h1 split-words\" aria-label=\"Join the AFSV VRC community.\"><span aria-hidden=\"true\"><span class=\"w\"><span style=\"--i:0\">Join</span></span> <span class=\"w\"><span style=\"--i:1\">the</span></span> <span class=\"w\"><span style=\"--i:2\">AFSV</span></span> <span class=\"w\"><span style=\"--i:3\">VRC</span></span> <span class=\"w\"><span style=\"--i:4\">community.</span></span></span></h1>\n      <p class=\"lead measure mb-l\">Membership will connect athletes, families, supporters, educators, partners and community members to AFSV VRC programs, experiences and opportunities. Register your interest to receive approved launch updates and help shape the experience.</p>\n      <a class=\"btn btn--navy\" href=\"#membership-form\">Register Your Interest<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a>\n    </div>\n    <figure class=\"figure figure--4x3 figure--motion wipe\" data-video-scope><div class=\"pmedia\" data-video=\"https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20261001_223921_9668f2f9-4d2a-49b0-8ca8-50664f8257b8.mp4\" data-parallax=\"0.08\"><img src=\"{{asset:img/membership-community.jpg}}\" alt=\"A diverse group of adults talking together outside a sports facility entrance after a session, holding kit bags and water bottles in late afternoon light.\" width=\"1344\" height=\"752\" loading=\"lazy\"></div></figure>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "8cfa438f",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "8bbcb99a",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"band--cream\" data-el=\"membership.pathways\" data-el-build=\"elementor\">\n  <div class=\"wrap section\">\n    <h2 class=\"h2 mb-l reveal\">Proposed pathways.</h2>\n    <div class=\"hairline\" style=\"--min:220px\" data-stagger>\n      \n      <div class=\"cell\" style=\"min-height:196px\">\n        <div class=\"cell__top\"><span class=\"num\">01</span><span class=\"pill pill--soft\">Proposed</span></div>\n        <h3 class=\"h3\" style=\"font-size:20px;margin-bottom:auto\">Athlete</h3>\n        <p class=\"small muted\">Benefits and pricing pending approval.</p>\n      </div>\n      <div class=\"cell\" style=\"min-height:196px\">\n        <div class=\"cell__top\"><span class=\"num\">02</span><span class=\"pill pill--soft\">Proposed</span></div>\n        <h3 class=\"h3\" style=\"font-size:20px;margin-bottom:auto\">Family</h3>\n        <p class=\"small muted\">Benefits and pricing pending approval.</p>\n      </div>\n      <div class=\"cell\" style=\"min-height:196px\">\n        <div class=\"cell__top\"><span class=\"num\">03</span><span class=\"pill pill--soft\">Proposed</span></div>\n        <h3 class=\"h3\" style=\"font-size:20px;margin-bottom:auto\">Supporter</h3>\n        <p class=\"small muted\">Benefits and pricing pending approval.</p>\n      </div>\n      <div class=\"cell\" style=\"min-height:196px\">\n        <div class=\"cell__top\"><span class=\"num\">04</span><span class=\"pill pill--soft\">Proposed</span></div>\n        <h3 class=\"h3\" style=\"font-size:20px;margin-bottom:auto\">Educator &amp; Coach</h3>\n        <p class=\"small muted\">Benefits and pricing pending approval.</p>\n      </div>\n      <div class=\"cell\" style=\"min-height:196px\">\n        <div class=\"cell__top\"><span class=\"num\">05</span><span class=\"pill pill--soft\">Proposed</span></div>\n        <h3 class=\"h3\" style=\"font-size:20px;margin-bottom:auto\">Corporate &amp; Community Partner</h3>\n        <p class=\"small muted\">Benefits and pricing pending approval.</p>\n      </div>\n    </div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "fa6e2569",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "56bb158f",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section \" id=\"membership-form\" data-el=\"membership.form\" data-el-build=\"plugin\">\n  <div class=\"split split--form\">\n    <div class=\"form-intro reveal\">\n      <h2 class=\"h2\">Register your interest.</h2>\n      <p class=\"body-lg\">This is not a purchase. Membership details, benefits and launch timing will be shared as they are approved.</p>\n      <p class=\"small muted\">Accommodation requests are optional and free-text. Please do not include a diagnosis or medical records.</p>\n    </div>\n    \n<form class=\"form\" data-preview-form data-endpoint=\"{{form:membership}}\">\n  <p class=\"small muted\">Fields marked <span aria-hidden=\"true\" style=\"color:var(--danger)\">*</span><span class=\"sr-only\">with an asterisk</span> are required.</p>\n  <div class=\"form__grid\">\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f20\">First name<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f20\" name=\"first-name\" autocomplete=\"given-name\" aria-describedby=\"f20-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f20-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f21\">Last name<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f21\" name=\"last-name\" autocomplete=\"family-name\" aria-describedby=\"f21-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f21-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f22\">Email<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"email\" id=\"f22\" name=\"email\" autocomplete=\"email\" aria-describedby=\"f22-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f22-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f23\">Mobile <span class=\"opt\">(optional)</span></label>\n  <input type=\"tel\" id=\"f23\" name=\"mobile\" autocomplete=\"tel\" aria-describedby=\"f23-err\">\n  \n  <span class=\"field__error\" id=\"f23-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f24\">City or region<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f24\" name=\"city-or-region\" autocomplete=\"address-level2\" aria-describedby=\"f24-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f24-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f25\">Country<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f25\" name=\"country\" autocomplete=\"country-name\" aria-describedby=\"f25-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f25-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f26\">Membership pathway<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f26\" name=\"membership-pathway\" aria-describedby=\"f26-err\" required aria-required=\"true\"><option value=\"\">Select a pathway</option><option value=\"Athlete\">Athlete</option><option value=\"Family\">Family</option><option value=\"Supporter\">Supporter</option><option value=\"Educator &amp; Coach\">Educator &amp; Coach</option><option value=\"Corporate &amp; Community Partner\">Corporate &amp; Community Partner</option></select>\n  \n  <span class=\"field__error\" id=\"f26-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f27\">Sports or interests <span class=\"opt\">(optional)</span></label>\n  <input type=\"text\" id=\"f27\" name=\"sports-or-interests\" aria-describedby=\"f27-err\">\n  \n  <span class=\"field__error\" id=\"f27-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f28\">Age group <span class=\"opt\">(optional)</span></label>\n  <select id=\"f28\" name=\"age-group\" aria-describedby=\"f28-err\"><option value=\"\">Prefer not to say</option><option value=\"Under 18\">Under 18</option><option value=\"18–24\">18–24</option><option value=\"25–39\">25–39</option><option value=\"40–59\">40–59</option><option value=\"60+\">60+</option></select>\n  \n  <span class=\"field__error\" id=\"f28-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f29\">Preferred communication channel<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f29\" name=\"preferred-communication-channel\" aria-describedby=\"f29-err\" required aria-required=\"true\"><option value=\"\">Select a channel</option><option value=\"Email\">Email</option><option value=\"Phone\">Phone</option><option value=\"Text message\">Text message</option></select>\n  \n  <span class=\"field__error\" id=\"f29-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field field--full\">\n  <label class=\"field__label\" for=\"f30\">Accessibility or accommodation request <span class=\"opt\">(optional)</span></label>\n  <textarea id=\"f30\" name=\"accessibility-or-accommodation-request\" aria-describedby=\"f30-err\" rows=\"3\" placeholder=\"\"></textarea>\n  \n  <span class=\"field__error\" id=\"f30-err\" aria-live=\"polite\"></span>\n</div></div>\n  <label class=\"check\" for=\"f19\"><input type=\"checkbox\" id=\"f19\" name=\"consent\" required aria-describedby=\"f19-err\"><span>I agree to receive membership updates from AFSV VRC. You can unsubscribe at any time.<span class=\"field__error\" id=\"f19-err\"></span></span></label>\n  <div class=\"form-status\" role=\"status\" tabindex=\"-1\" hidden><strong>Thank you for joining the AFSV VRC interest list.</strong>We will share membership details, benefits and launch timing as they are approved.</div>\n  <div><button type=\"submit\" class=\"btn btn--navy\">Register Your Interest<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></button></div>\n</form>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "description": "Register your interest in AFSV VRC membership — athlete, family, supporter, educator & coach, and corporate & community partner pathways."
+}

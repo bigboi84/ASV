@@ -10,7 +10,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'AFSV_THEME_VERSION', '1.0.0' );
+define( 'AFSV_THEME_VERSION', '1.1.0' );
 define( 'AFSV_BOOKING_URL', 'https://book.afsvvrc.com' );
 
 require_once get_stylesheet_directory() . '/inc/defaults.php';
@@ -53,7 +53,10 @@ add_action( 'wp_enqueue_scripts', function () {
 		wp_dequeue_style( $handle );
 	}
 
-	wp_enqueue_style( 'afsv-site', $uri . '/css/site.css', array(), $ver );
+	// Load after Elementor's frontend CSS so the design system wins ties
+	// (e.g. Elementor's ".elementor img { height: auto }").
+	$deps = wp_style_is( 'elementor-frontend', 'registered' ) ? array( 'elementor-frontend' ) : array();
+	wp_enqueue_style( 'afsv-site', $uri . '/css/site.css', $deps, $ver );
 	wp_enqueue_style( 'afsv-bridge', get_stylesheet_uri(), array( 'afsv-site' ), $ver );
 
 	wp_enqueue_script( 'afsv-site', $uri . '/js/site.js', array(), $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );

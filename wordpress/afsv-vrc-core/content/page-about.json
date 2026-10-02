@@ -1,0 +1,259 @@
+{
+ "slug": "about",
+ "title": "About Us",
+ "overlay": true,
+ "elements": [
+  {
+   "id": "33e46907",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "cbaa73a7",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"about-hero\" data-el=\"about.hero\" data-el-build=\"elementor\">\n  <div class=\"wrap about-hero__grid\">\n    <div class=\"about-hero__copy\">\n      <p class=\"eyebrow eyebrow-rule\">About AFSV VRC</p>\n      <h1 class=\"h1 split-words\" aria-label=\"A new model for sport, learning and community development.\"><span aria-hidden=\"true\"><span class=\"w\"><span style=\"--i:0\">A</span></span> <span class=\"w\"><span style=\"--i:1\">new</span></span> <span class=\"w\"><span style=\"--i:2\">model</span></span> <span class=\"w\"><span style=\"--i:3\">for</span></span> <span class=\"w\"><span style=\"--i:4\">sport,</span></span><br><span class=\"w\"><span style=\"--i:5\">learning</span></span> <span class=\"w\"><span style=\"--i:6\">and</span></span> <span class=\"w\"><span style=\"--i:7\">community</span></span><br><span class=\"w\"><span style=\"--i:8\"><span class=\"ink\">development.</span></span></span></span></h1>\n      <p class=\"lead\">AFSV VRC Global Development Group Ltd. was formed to develop and operate a connected ecosystem that expands opportunity through sport, education, technology and inclusive community programming. Our work begins with a proposed Smart Sports Village pilot in Whitby, Ontario, and extends to partnerships and scalable initiatives in Canada, the Caribbean and global markets.</p>\n      <div class=\"btn-row btn-row--stack\"><a class=\"btn btn--gold\" href=\"{{url:/leadership/}}\">Meet the leadership<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a><a class=\"btn btn--line-light\" href=\"{{url:/strategic-pillars/}}\">Our strategic pillars<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a></div>\n    </div>\n    <div class=\"collage\" aria-hidden=\"true\">\n      <div class=\"collage__a\"><div class=\"pmedia\" data-parallax=\"0.05\"><img src=\"{{asset:img/about-team.jpg}}\" alt=\"\" width=\"1344\" height=\"752\" fetchpriority=\"high\"></div></div>\n      <div class=\"collage__b\"><div class=\"pmedia\" data-parallax=\"0.12\"><img src=\"{{asset:img/pillars-hall.jpg}}\" alt=\"\" width=\"1344\" height=\"752\"></div></div>\n      <div class=\"collage__c\"><div class=\"pmedia\" data-parallax=\"0.18\"><img src=\"{{asset:img/membership-community.jpg}}\" alt=\"\" width=\"1344\" height=\"752\"></div></div>\n      <span class=\"collage__ring\"></span>\n    </div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "15d4c734",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "5492fc55",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section\" data-el=\"about.mission-vision\" data-el-build=\"elementor\">\n  <div class=\"mv\">\n    <article class=\"mv__card reveal\">\n      <span class=\"mv__label\">Mission</span>\n      <p class=\"mv__text\">To create accessible, technology-enabled environments and pathways that develop athletes, strengthen academic and life outcomes, support diverse learners, and generate lasting value for families and communities.</p>\n    </article>\n    <article class=\"mv__card mv__card--dark reveal\">\n      <span class=\"mv__label\">Vision</span>\n      <p class=\"mv__text\">A global network of smart sports villages and connected programs where talent is developed, learning is supported, inclusion is designed in, and communities share in the benefits of sport-led development.</p>\n    </article>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "19e510c1",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "2ddae50e",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"band--cream\" data-el=\"about.story\" data-el-build=\"elementor\">\n  <div class=\"wrap section\">\n    <div class=\"section-head reveal\"><h2 class=\"h2\">From a belief to a network.</h2><p class=\"body-lg muted\">How the AFSV VRC model grows, from its founding idea to the proposed Whitby pilot and the planned network beyond it.</p></div>\n    <ol class=\"timeline\" data-timeline>\n      \n      <li class=\"timeline__step\" style=\"--i:0\">\n        <span class=\"timeline__dot\" aria-hidden=\"true\"></span>\n        <span class=\"timeline__k\">The belief</span>\n        <h3 class=\"timeline__t\">Sport can transform communities</h3>\n        <p>when it is combined with education, technology and opportunity.</p>\n      </li>\n      <li class=\"timeline__step\" style=\"--i:1\">\n        <span class=\"timeline__dot\" aria-hidden=\"true\"></span>\n        <span class=\"timeline__k\">The ecosystem</span>\n        <h3 class=\"timeline__t\">AFSVHCL™</h3>\n        <p>An integrated platform combining sports science, education programs, esports engagement and community participation.</p>\n      </li>\n      <li class=\"timeline__step\" style=\"--i:2\">\n        <span class=\"timeline__dot\" aria-hidden=\"true\"></span>\n        <span class=\"timeline__k\">The pilot <span class=\"pill\">Proposed</span></span>\n        <h3 class=\"timeline__t\">Whitby Smart Sports Village</h3>\n        <p>A proposed year-round, technology-enabled destination in Whitby, Ontario.</p>\n      </li>\n      <li class=\"timeline__step\" style=\"--i:3\">\n        <span class=\"timeline__dot\" aria-hidden=\"true\"></span>\n        <span class=\"timeline__k\">The network <span class=\"pill\">Planned</span></span>\n        <h3 class=\"timeline__t\">Canada, the Caribbean and beyond</h3>\n        <p>A national network of multi-sport dome facilities and scalable initiatives in global markets.</p>\n      </li>\n    </ol>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "d31d4b03",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "172a071d",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section\" data-el=\"about.model\" data-el-build=\"elementor\">\n  <h2 class=\"h2 mb-l reveal\">What makes the model different.</h2>\n  <div class=\"model\" data-stagger>\n    \n    <div class=\"model__item\">\n      <svg class=\"model__icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"12\" cy=\"7\" r=\"3.2\"/><path d=\"M5 20c.6-3.8 3.4-6 7-6s6.4 2.2 7 6\"/><path d=\"M12 14v3\"/></svg>\n      <span class=\"num\">01</span>\n      <h3>Whole-person development</h3>\n    </div>\n    <div class=\"model__item\">\n      <svg class=\"model__icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h16M12 4v16\"/><circle cx=\"12\" cy=\"12\" r=\"8.5\"/></svg>\n      <span class=\"num\">02</span>\n      <h3>Inclusive by design</h3>\n    </div>\n    <div class=\"model__item\">\n      <svg class=\"model__icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M3 20h18M6 20V9l6-5 6 5v11\"/><path d=\"M10 20v-5h4v5\"/></svg>\n      <span class=\"num\">03</span>\n      <h3>Smart infrastructure</h3>\n    </div>\n    <div class=\"model__item\">\n      <svg class=\"model__icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"8\" cy=\"12\" r=\"4\"/><circle cx=\"16\" cy=\"12\" r=\"4\"/></svg>\n      <span class=\"num\">04</span>\n      <h3>Partnership-led delivery</h3>\n    </div>\n    <div class=\"model__item\">\n      <svg class=\"model__icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 18l5-6 4 3 7-9\"/><path d=\"M15 6h5v5\"/></svg>\n      <span class=\"num\">05</span>\n      <h3>Scalable impact</h3>\n    </div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "5ceabc0e",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "7ca3c8d2",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"founder\" data-el=\"about.founder\" data-el-build=\"elementor\">\n  <div class=\"wrap section founder__grid\">\n    <figure class=\"founder__photo wipe\">\n      <img src=\"{{asset:img/martin-lashley.jpg}}\" alt=\"Martin Lashley standing on the turf inside an indoor sports dome.\" width=\"940\" height=\"1224\" loading=\"lazy\">\n      <figcaption><b>Martin Lashley</b>Founder, Chairman &amp; Interim CEO</figcaption>\n    </figure>\n    <div class=\"founder__copy reveal\">\n      <p class=\"eyebrow\">Founder story</p>\n      <blockquote class=\"founder__quote\">“We are not building a sports facility. We are building an ecosystem — one that will change the trajectory of thousands of young lives and strengthen communities across Canada and the world.”</blockquote>\n      <p class=\"body-lg\">Recognizing the challenges athletes face in Canada's climate, Martin Lashley envisioned a network of high-performance indoor sports environments capable of supporting year-round training while delivering mentorship, academic support and career pathways for young people.</p>\n      <p class=\"founder__sign\">Building Today. Inspiring Tomorrow.</p>\n      <a class=\"btn btn--gold\" href=\"{{url:/leadership/#martin-lashley}}\">Read the founder profile<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a>\n    </div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "b3c32a63",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "daa33633",
+     "elType": "widget",
+     "widgetType": "afsv-leadership",
+     "settings": {
+      "layout": "cards"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "1cf575c9",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "6ff47f2e",
+     "elType": "widget",
+     "widgetType": "afsv-cta-band",
+     "settings": {
+      "heading": "Connect with our team.",
+      "buttons": [
+       {
+        "_id": "dc358c9",
+        "label": "Connect With Our Team",
+        "link": {
+         "url": "/contact",
+         "is_external": "",
+         "nofollow": ""
+        }
+       },
+       {
+        "_id": "aabb3cc",
+        "label": "Partner with us",
+        "link": {
+         "url": "/partners",
+         "is_external": "",
+         "nofollow": ""
+        }
+       }
+      ]
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "description": "AFSV VRC Global Development Group Ltd. develops a connected ecosystem that expands opportunity through sport, education, technology and inclusive community programming."
+}

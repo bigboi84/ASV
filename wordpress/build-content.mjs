@@ -1,6 +1,6 @@
 // Builds the WordPress content for the AFSV VRC site from src/data/site.json:
 // Elementor page layouts (using the AFSV VRC Core widgets), the header/footer
-// templates, Events and Leaders. Output: wordpress/content/*.json
+// templates, Events and Leaders. Output: wordpress/afsv-vrc-core/content/*.json (shipped inside the plugin)
 //
 //   node wordpress/build-content.mjs
 //
@@ -9,9 +9,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import * as P from '../src/pages.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const out = path.join(root, 'wordpress/content');
+const out = path.join(root, 'wordpress/afsv-vrc-core/content');
 const d = JSON.parse(fs.readFileSync(path.join(root, 'src/data/site.json'), 'utf8'));
 const V = JSON.parse(fs.readFileSync(path.join(root, 'src/data/videos.json'), 'utf8'));
 fs.mkdirSync(out, { recursive: true });
@@ -63,6 +64,80 @@ page('home', 'Home', true, [
   W('afsv-cta-band'),
 ], { front: true });
 
+// ───────── All other pages: the design build's sections, one Elementor element each ─────────
+// Sections that map to a data-driven AFSV widget use it (Leadership, Events, CTA bands);
+// the rest go in Elementor's HTML widget with the exact design markup, so they look
+// identical and can be moved, duplicated or edited in Elementor.
+P.setVideos(V);
+const VOID = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
+
+// Split body HTML into its top-level elements.
+function topLevel(html) {
+  const out = []; let depth = 0; let start = -1;
+  const re = /<!--[\s\S]*?-->|<\/?([a-zA-Z][\w-]*)(?:\s[^>]*?)?(\/?)>/g; let m;
+  while ((m = re.exec(html))) {
+    if (!m[1]) continue;
+    const tag = m[1].toLowerCase(); const closing = m[0][1] === '/'; const selfClose = m[2] === '/' || VOID.has(tag);
+    if (closing) { depth--; if (depth === 0) { out.push(html.slice(start, re.lastIndex)); start = -1; } }
+    else if (!selfClose) { if (depth === 0) start = m.index; depth++; }
+    else if (depth === 0) out.push(m[0]);
+  }
+  return out.map((x) => x.trim()).filter(Boolean);
+}
+
+// Static links → placeholders resolved by WordPress at import time.
+function wpLinks(html) {
+  return html
+    .replace(/(href|src|poster)="assets\/([^"]+)"/g, (_, a, f) => `${a}="{{asset:${f}}}"`)
+    .replace(/href="index\.html(#[^"]*)?"/g, (_, h) => `href="{{url:/${h || ''}}}"`)
+    .replace(/href="product-([a-z0-9-]+)\.html"/g, (_, s) => `href="{{url:/product/${s}}}"`)
+    .replace(/href="([a-z0-9-]+)\.html(\?[^"#]*)?(#[^"]*)?"/g, (_, f, q, h) => `href="{{url:/${f}/${q || ''}${h || ''}}}"`);
+}
+
+const attr = (block, name) => (block.match(new RegExp(`${name}="([^"]*)"`)) || [])[1] || '';
+const text = (s) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
+
+function toElements(body, slug) {
+  const els = []; let leadersDone = false;
+  for (const block of topLevel(String(body))) {
+    const el = attr(block, 'data-el');
+    if (/class="cta-band/.test(block)) {
+      const heading = text((block.match(/<h2[^>]*>([\s\S]*?)<\/h2>/) || [])[1] || '');
+      const buttons = [...block.matchAll(/<a class="btn[^"]*" href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)].map(([, href, label]) => ({
+        label: text(label.replace(/<span class="sr-only">[\s\S]*?<\/span>/, '')),
+        link: link(href.startsWith('http') ? href : '/' + href.replace(/\.html/, '').replace(/^index$/, '')),
+      }));
+      els.push(W('afsv-cta-band', { heading, buttons: items(buttons) }));
+    } else if (el === 'about.leadership') {
+      els.push(W('afsv-leadership', { layout: 'cards' }));
+    } else if (el === 'leadership.hero') {
+      els.push(W('afsv-leadership', { layout: 'hero', heading: 'The team behind\nthe vision.', text: 'AFSVHCL™ is led by a dedicated team of entrepreneurs, community builders, and visionaries committed to transforming youth sports, education, and community development in Canada and beyond.' }));
+    } else if (el === 'leadership.profile') {
+      if (!leadersDone) els.push(W('afsv-leadership', { layout: 'profiles' }));
+      leadersDone = true;
+    } else if (el === 'events.list') {
+      els.push(W('afsv-event-feature', { source: 'all', heading: '' }));
+    } else {
+      // Forms post to the AFSV VRC Core inbox.
+      const html = wpLinks(block).replace(/<form class="form" data-preview-form>/g, `<form class="form" data-preview-form data-endpoint="{{form:${slug}}}">`);
+      els.push(W('html', { html }));
+    }
+  }
+  return els;
+}
+
+const designPages = [
+  ['about', 'About Us', P.about(d)], ['leadership', 'Leadership', P.leadership(d)],
+  ['strategic-pillars', 'Strategic Pillars', P.pillars(d)], ['whitby-smart-sports-village', 'Whitby Smart Sports Village', P.whitby(d)],
+  ['facilities', 'Facilities', P.facilities(d)], ['membership', 'Membership', P.membership(d)],
+  ['marketplace', 'Marketplace', P.marketplace(d)], ['vendors', 'Vendors', P.vendors(d)],
+  ['contact', 'Contact Us', P.contact(d)], ['partners', 'Partners', P.partners(d)],
+  ...Object.keys(d.content).map((r) => [r.slice(1), null, P.contentPage(d, r)]),
+  ['events', 'Events', P.events(d)], ['news-impact', 'News, Stories & Impact', P.news(d)],
+  ['accessibility-privacy', 'Accessibility, Privacy & Safeguarding', P.access(d)], ['legal', 'Legal & Policy Pages', P.legal(d)],
+];
+for (const [slug, title, pg] of designPages) page(slug, title || pg.title, !!pg.overlay, toElements(pg.body, slug), { description: pg.description });
+
 // ───────── Header / footer templates ─────────
 const templates = [
   { slug: 'afsv-site-header', title: 'AFSV Site Header', elements: [W('afsv-site-header', { logo_dark: IMG('logo.png'), logo_light: IMG('logo-reverse.png') })] },
@@ -96,4 +171,4 @@ for (const p of pages) fs.writeFileSync(path.join(out, `page-${p.slug}.json`), J
 for (const t of templates) fs.writeFileSync(path.join(out, `template-${t.slug}.json`), JSON.stringify(t, null, 1));
 fs.writeFileSync(path.join(out, 'events.json'), JSON.stringify(events, null, 1));
 fs.writeFileSync(path.join(out, 'leaders.json'), JSON.stringify(leaders, null, 1));
-console.log(`Wrote ${pages.length} pages, ${templates.length} templates, ${events.length} events, ${leaders.length} leaders → wordpress/content/`);
+console.log(`Wrote ${pages.length} pages, ${templates.length} templates, ${events.length} events, ${leaders.length} leaders → wordpress/afsv-vrc-core/content/`);

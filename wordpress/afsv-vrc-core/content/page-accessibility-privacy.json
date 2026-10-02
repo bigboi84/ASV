@@ -1,0 +1,217 @@
+{
+ "slug": "accessibility-privacy",
+ "title": "Accessibility, Privacy & Safeguarding",
+ "overlay": false,
+ "elements": [
+  {
+   "id": "b0b24ca6",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "b0b1dd7f",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<nav class=\"breadcrumb wrap\" aria-label=\"Breadcrumb\"><ol><li><a href=\"{{url:/}}\">Home</a></li><li aria-hidden=\"true\">/</li><li aria-current=\"page\">Accessibility, Privacy &amp; Safeguarding</li></ol></nav>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "fd057c1f",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "96ad1f1d",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"page-hero\" data-el=\"page.hero\" data-el-build=\"elementor\">\n  <div class=\"wrap page-hero__grid\">\n    <div class=\"page-hero__text\">\n      <p class=\"eyebrow eyebrow-rule\">Accessibility, Privacy &amp; Safeguarding</p>\n      <h1 class=\"h1 split-words\" aria-label=\"Access, Privacy and Safety by Design\"><span aria-hidden=\"true\"><span class=\"w\"><span style=\"--i:0\">Access,</span></span> <span class=\"w\"><span style=\"--i:1\">Privacy</span></span> <span class=\"w\"><span style=\"--i:2\">and</span></span> <span class=\"w\"><span style=\"--i:3\">Safety</span></span> <span class=\"w\"><span style=\"--i:4\">by</span></span> <span class=\"w\"><span style=\"--i:5\">Design</span></span></span></h1>\n      <p class=\"lead\">What we commit to on accessibility, privacy and safeguarding, and how it is implemented. This is a commitment statement — the final legal policies are pending authorized approval.</p>\n      <div class=\"btn-row btn-row--stack\"><a class=\"btn btn--gold\" href=\"#support\" data-preselect=\"issue-type=Accessibility support request\">Request Accessibility Support<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a><a class=\"btn btn--line-light\" href=\"#support\" data-preselect=\"issue-type=Report an accessibility issue\">Report an Accessibility Issue<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a><a class=\"btn btn--line-light\" href=\"#support\" data-preselect=\"issue-type=Privacy inquiry\">Privacy Inquiry<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a></div>\n    </div>\n    <div class=\"page-hero__media\" data-video-scope><div class=\"pmedia\" data-parallax=\"0.06\"><img src=\"{{asset:img/accessible-entrance.jpg}}\" alt=\"An accessible facility entrance with a step-free doorway and tactile floor strip, a member of staff at a low reception counter helping a visitor who uses a mobility aid.\" width=\"1344\" height=\"752\" fetchpriority=\"high\"></div></div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "1eca33e5",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "192f5621",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap\" data-el=\"status.mandatory-note\" data-el-build=\"elementor\" style=\"padding-top:56px\"><p class=\"note\" role=\"note\">Publication state: this page carries a commitment statement. The full Privacy Policy and Accessibility Statement require counsel and authorized approval before publication, and are listed as pending on the Legal and Policy page. General forms never ask for diagnoses or medical records.</p></section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "42152de5",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "420cbe75",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section\" data-el=\"access.commitments\" data-el-build=\"elementor\">\n  <div class=\"hairline\" style=\"--min:290px\" data-stagger>\n    <div class=\"cell\" style=\"padding:40px 32px 44px;gap:18px\"><span class=\"num\">01</span><h2 style=\"font-weight:800;font-size:clamp(22px,2vw,28px)\">Accessibility</h2><p style=\"font-size:15.5px\">Target: WCAG 2.2 AA across the site.</p><ul class=\"dash-list\"><li>Keyboard navigation</li><li>Screen-reader compatibility</li><li>Alt text</li><li>Captioned video and transcripts</li><li>Tested contrast</li><li>Readable typography</li><li>Clear navigation</li><li>Descriptive buttons</li><li>Accessible forms</li><li>Logical headings</li><li>Reduced flashing and motion</li><li>Mobile accessibility</li><li>Plain language and clear errors</li></ul></div><div class=\"cell\" style=\"padding:40px 32px 44px;gap:18px\"><span class=\"num\">02</span><h2 style=\"font-weight:800;font-size:clamp(22px,2vw,28px)\">Privacy</h2><p style=\"font-size:15.5px\">Collect only what is necessary, and say why.</p><ul class=\"dash-list\"><li>Collect only necessary data</li><li>Clear notice and purpose</li><li>Explicit communications consent</li><li>Role-based access</li><li>Secure storage and transmission</li><li>Retention and deletion rules</li><li>Breach-response process</li><li>Approved analytics and cookie controls</li></ul></div><div class=\"cell\" style=\"padding:40px 32px 44px;gap:18px\"><span class=\"num\">03</span><h2 style=\"font-weight:800;font-size:clamp(22px,2vw,28px)\">Safeguarding</h2><p style=\"font-size:15.5px\">For children and vulnerable individuals.</p><ul class=\"dash-list\"><li>Consent and guardian controls</li><li>Staff and provider screening requirements</li><li>Reporting and escalation route</li><li>Photography and testimonial authorization</li><li>Restricted data access</li></ul></div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "dea170dd",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "1d89c38d",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section \" id=\"support\" data-el=\"page.interest-form\" data-el-build=\"plugin\">\n  <div class=\"split split--form\">\n    <div class=\"form-intro reveal\">\n      <h2 class=\"h2\">Accessibility and privacy contact.</h2>\n      <p class=\"body-lg\">Tell us what you ran into and how you would like us to reply. We treat accessibility reports as defects, not feedback.</p>\n      <p class=\"small muted\">We do not ask for proof of disability or any medical documentation. Safeguarding concerns are routed to a named owner and are not handled by general support.</p>\n    </div>\n    \n<form class=\"form\" data-preview-form data-endpoint=\"{{form:accessibility-privacy}}\">\n  <p class=\"small muted\">Fields marked <span aria-hidden=\"true\" style=\"color:var(--danger)\">*</span><span class=\"sr-only\">with an asterisk</span> are required.</p>\n  <div class=\"form__grid\">\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f181\">Name<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f181\" name=\"name\" aria-describedby=\"f181-err\" required aria-required=\"true\" placeholder=\"Full name\">\n  \n  <span class=\"field__error\" id=\"f181-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f182\">Email<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"email\" id=\"f182\" name=\"email\" aria-describedby=\"f182-err\" required aria-required=\"true\" placeholder=\"you@example.com\">\n  \n  <span class=\"field__error\" id=\"f182-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"issue-type\">Issue type<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"issue-type\" name=\"issue-type\" aria-describedby=\"issue-type-err\" required aria-required=\"true\"><option value=\"\">Please select</option><option value=\"Accessibility support request\">Accessibility support request</option><option value=\"Report an accessibility issue\">Report an accessibility issue</option><option value=\"Privacy inquiry\">Privacy inquiry</option><option value=\"Safeguarding concern\">Safeguarding concern</option><option value=\"Something else\">Something else</option></select>\n  \n  <span class=\"field__error\" id=\"issue-type-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f183\">Page or service<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f183\" name=\"page-or-service\" aria-describedby=\"f183-err\" required aria-required=\"true\" placeholder=\"Where you ran into it\">\n  \n  <span class=\"field__error\" id=\"f183-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f184\">Preferred response<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f184\" name=\"preferred-response\" aria-describedby=\"f184-err\" required aria-required=\"true\"><option value=\"\">Please select</option><option value=\"Email\">Email</option><option value=\"Phone\">Phone</option><option value=\"Either\">Either</option></select>\n  \n  <span class=\"field__error\" id=\"f184-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field field--full\">\n  <label class=\"field__label\" for=\"f185\">Description<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <textarea id=\"f185\" name=\"description\" aria-describedby=\"f185-err\" required aria-required=\"true\" rows=\"4\" placeholder=\"What happened, and what you expected\"></textarea>\n  \n  <span class=\"field__error\" id=\"f185-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field field--full\">\n  <label class=\"field__label\" for=\"f186\">Accommodation for our reply <span class=\"opt\">(optional)</span></label>\n  <textarea id=\"f186\" name=\"accommodation-for-our-reply\" aria-describedby=\"f186-err\" rows=\"4\" placeholder=\"Optional\"></textarea>\n  \n  <span class=\"field__error\" id=\"f186-err\" aria-live=\"polite\"></span>\n</div></div>\n  <label class=\"check\" for=\"f180\"><input type=\"checkbox\" id=\"f180\" name=\"consent\" required aria-describedby=\"f180-err\"><span>I agree to be contacted about this inquiry.<span class=\"field__error\" id=\"f180-err\"></span></span></label>\n  <div class=\"form-status\" role=\"status\" tabindex=\"-1\" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. On the live site it routes to a named owner and sends an automatic confirmation.</div>\n  <div><button type=\"submit\" class=\"btn btn--navy\">Send inquiry<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></button></div>\n</form>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "f2a57a05",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "17887b31",
+     "elType": "widget",
+     "widgetType": "afsv-cta-band",
+     "settings": {
+      "heading": "Policies are listed with their approval status.",
+      "buttons": [
+       {
+        "_id": "f7f5013",
+        "label": "Legal and policy pages",
+        "link": {
+         "url": "/legal",
+         "is_external": "",
+         "nofollow": ""
+        }
+       }
+      ]
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "description": "What AFSV VRC commits to on accessibility, privacy and safeguarding, and how to request support or report an issue."
+}

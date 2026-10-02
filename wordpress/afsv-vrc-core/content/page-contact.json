@@ -1,0 +1,107 @@
+{
+ "slug": "contact",
+ "title": "Contact Us",
+ "overlay": false,
+ "elements": [
+  {
+   "id": "7322e3dd",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "9d139b20",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<nav class=\"breadcrumb wrap\" aria-label=\"Breadcrumb\"><ol><li><a href=\"{{url:/}}\">Home</a></li><li aria-hidden=\"true\">/</li><li aria-current=\"page\">Contact</li></ol></nav>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "5f81cde5",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "7da24869",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap page-head\" data-el=\"contact.header\" data-el-build=\"elementor\">\n  <p class=\"eyebrow\">Contact</p>\n  <h1 class=\"h1 split-words\" aria-label=\"Let’s build what comes next.\"><span aria-hidden=\"true\"><span class=\"w\"><span style=\"--i:0\">Let’s</span></span> <span class=\"w\"><span style=\"--i:1\">build</span></span> <span class=\"w\"><span style=\"--i:2\">what</span></span> <span class=\"w\"><span style=\"--i:3\">comes</span></span> <span class=\"w\"><span style=\"--i:4\">next.</span></span></span></h1>\n  <p class=\"lead\" style=\"max-width:68ch\">Whether you are an athlete, family, educator, coach, sponsor, investor, vendor or community organization, we welcome the opportunity to explore how you can take part.</p>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "78506b8c",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "1faa4817",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section section--flush-top\" data-el=\"contact.form\" data-el-build=\"plugin\">\n  <div class=\"split split--contact\">\n    \n<form class=\"form\" data-preview-form data-endpoint=\"{{form:contact}}\">\n  <p class=\"small muted\">Fields marked <span aria-hidden=\"true\" style=\"color:var(--danger)\">*</span><span class=\"sr-only\">with an asterisk</span> are required.</p>\n  <div class=\"form__grid\">\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f49\">Name<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f49\" name=\"name\" autocomplete=\"name\" aria-describedby=\"f49-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f49-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f50\">Organisation <span class=\"opt\">(optional)</span></label>\n  <input type=\"text\" id=\"f50\" name=\"organisation\" autocomplete=\"organization\" aria-describedby=\"f50-err\">\n  \n  <span class=\"field__error\" id=\"f50-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f51\">Email<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"email\" id=\"f51\" name=\"email\" autocomplete=\"email\" aria-describedby=\"f51-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f51-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f52\">Phone <span class=\"opt\">(optional)</span></label>\n  <input type=\"tel\" id=\"f52\" name=\"phone\" autocomplete=\"tel\" aria-describedby=\"f52-err\">\n  \n  <span class=\"field__error\" id=\"f52-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f53\">City and country<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f53\" name=\"city-and-country\" aria-describedby=\"f53-err\" required aria-required=\"true\">\n  \n  <span class=\"field__error\" id=\"f53-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f54\">Preferred response method<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f54\" name=\"preferred-response-method\" aria-describedby=\"f54-err\" required aria-required=\"true\"><option value=\"\">Select a method</option><option value=\"Email\">Email</option><option value=\"Phone call\">Phone call</option></select>\n  \n  <span class=\"field__error\" id=\"f54-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field field--full\">\n  <label class=\"field__label\" for=\"f55\">Inquiry category<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f55\" name=\"inquiry-category\" aria-describedby=\"f55-err\" required aria-required=\"true\"><option value=\"\">Select a category</option><option value=\"General\">General</option><option value=\"Membership\">Membership</option><option value=\"Programs\">Programs</option><option value=\"Whitby Smart Sports Village\">Whitby Smart Sports Village</option><option value=\"Education and inclusion\">Education and inclusion</option><option value=\"Sponsorship and investment\">Sponsorship and investment</option><option value=\"Marketplace / vendors\">Marketplace / vendors</option><option value=\"Media / speaking\">Media / speaking</option><option value=\"Technical support\">Technical support</option></select>\n  \n  <span class=\"field__error\" id=\"f55-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field field--full\">\n  <label class=\"field__label\" for=\"f56\">Message<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <textarea id=\"f56\" name=\"message\" aria-describedby=\"f56-hint f56-err\" required aria-required=\"true\" rows=\"5\" placeholder=\"\"></textarea>\n  <span class=\"field__hint\" id=\"f56-hint\">Please do not include health records or diagnoses. Sensitive information is handled through a separate approved secure process.</span>\n  <span class=\"field__error\" id=\"f56-err\" aria-live=\"polite\"></span>\n</div></div>\n  <label class=\"check\" for=\"f48\"><input type=\"checkbox\" id=\"f48\" name=\"consent\" required aria-describedby=\"f48-err\"><span>I agree to AFSV VRC contacting me about this inquiry.<span class=\"field__error\" id=\"f48-err\"></span></span></label>\n  <div class=\"form-status\" role=\"status\" tabindex=\"-1\" hidden><strong>Thank you for contacting AFSV VRC.</strong>Your inquiry has been received and will be directed to the appropriate team member.</div>\n  <div><button type=\"submit\" class=\"btn btn--navy\">Contact AFSV VRC<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></button></div>\n</form>\n    <aside class=\"callout\" data-el=\"contact.org-info\" data-el-build=\"elementor\" style=\"border-color:var(--line)\">\n      <h2 class=\"eyebrow\" style=\"font-size:11px;margin-bottom:18px\">Organisation</h2>\n      <p style=\"font-family:var(--font-display);font-weight:700;font-size:19px;line-height:1.3;margin-bottom:8px\">AFSV VRC Global Development Group Ltd.</p>\n      <p class=\"small mb-m\">afsvvrc.com</p>\n      <div style=\"border-top:1px solid var(--line);padding-top:22px\">\n        <span class=\"pill mb-s\">Pending</span>\n        <p class=\"small\">A public inquiry mailbox will be published once routing is confirmed. Use the form and your inquiry will reach the right team.</p>\n      </div>\n      <div style=\"border-top:1px solid var(--line);padding-top:22px;margin-top:22px\">\n        <h3 class=\"eyebrow\" style=\"font-size:11px;margin-bottom:12px\">Looking for something specific?</h3>\n        <ul class=\"dash-list small\">\n          <li><a href=\"{{url:/partners/#partner-form}}\">Partnership, sponsorship or investor inquiry</a></li>\n          <li><a href=\"{{url:/marketplace/#vendor-form}}\">Become a marketplace vendor</a></li>\n          <li><a href=\"{{url:/service-provider-network/#interest}}\">Join the service provider network</a></li>\n          <li><a href=\"{{url:/accessibility-privacy/#support}}\">Accessibility or privacy request</a></li>\n        </ul>\n      </div>\n    </aside>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "description": "Contact AFSV VRC — athletes, families, educators, coaches, sponsors, investors, vendors and community organizations."
+}

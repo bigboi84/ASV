@@ -1,0 +1,283 @@
+{
+ "slug": "service-provider-network",
+ "title": "Service Provider Network",
+ "overlay": false,
+ "elements": [
+  {
+   "id": "3e81aeed",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "3f1b035e",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<nav class=\"breadcrumb wrap\" aria-label=\"Breadcrumb\"><ol><li><a href=\"{{url:/}}\">Home</a></li><li aria-hidden=\"true\">/</li><li>Neurodiversity</li><li aria-hidden=\"true\">/</li><li aria-current=\"page\">Service Provider Network</li></ol></nav>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "41859caf",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "f7268253",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"page-hero\" data-el=\"page.hero\" data-el-build=\"elementor\">\n  <div class=\"wrap page-hero__grid\">\n    <div class=\"page-hero__text\">\n      <p class=\"eyebrow eyebrow-rule\">Service Provider Network</p>\n      <h1 class=\"h1 split-words\" aria-label=\"Become an AFSV VRC Service Provider\"><span aria-hidden=\"true\"><span class=\"w\"><span style=\"--i:0\">Become</span></span> <span class=\"w\"><span style=\"--i:1\">an</span></span> <span class=\"w\"><span style=\"--i:2\">AFSV</span></span> <span class=\"w\"><span style=\"--i:3\">VRC</span></span> <span class=\"w\"><span style=\"--i:4\">Service</span></span> <span class=\"w\"><span style=\"--i:5\">Provider</span></span></span></h1>\n      <p class=\"lead\">AFSV VRC intends to build a qualified network supporting sport, learning, development, wellbeing and inclusion.</p>\n      <div class=\"btn-row btn-row--stack\"><a class=\"btn btn--gold\" href=\"#interest\">Register Provider Interest<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></a></div>\n    </div>\n    <div class=\"page-hero__media\" data-video-scope><div class=\"pmedia\" data-video=\"https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20261001_223941_4ee69e2c-0ad2-47e5-a692-51d34feb0b44.mp4\" data-parallax=\"0.06\"><img src=\"https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_033957_d3468bc8-df31-4e66-ab86-dd97a564e0f3.png\" alt=\"Two professionals in smart casual clothing seated across a low table in a calm, non-clinical consulting room, reviewing printed materials and a tablet together.\" width=\"1344\" height=\"752\" fetchpriority=\"high\"></div></div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "b2f0dfb0",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "ac7e8da9",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap\" data-el=\"status.mandatory-note\" data-el-build=\"elementor\" style=\"padding-top:56px\"><p class=\"note\" role=\"note\">Submission does not approve or publicly list a provider. All providers remain subject to qualification, licence and registration, insurance, safeguarding, privacy, capacity and agreement reviews.</p></section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "e038d9ec",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "3d2ae84a",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section\" data-el=\"page.list-primary\" data-el-build=\"elementor\">\n  <div class=\"section-head reveal\" style=\"align-items:start\"><h2 class=\"h2\">Potential categories.</h2><p class=\"body-lg muted\">Ten categories under consideration. A category being listed does not mean a provider is available.</p></div>\n  <div class=\"hairline list-cells\" style=\"--min:255px\" data-stagger ><div class=\"cell\"><span class=\"num\">01</span><span>Occupational therapy</span></div><div class=\"cell\"><span class=\"num\">02</span><span>Speech and language</span></div><div class=\"cell\"><span class=\"num\">03</span><span>Behavioural services</span></div><div class=\"cell\"><span class=\"num\">04</span><span>Counselling and mental health</span></div><div class=\"cell\"><span class=\"num\">05</span><span>Executive function</span></div><div class=\"cell\"><span class=\"num\">06</span><span>Academic intervention</span></div><div class=\"cell\"><span class=\"num\">07</span><span>Family education</span></div><div class=\"cell\"><span class=\"num\">08</span><span>Service navigation</span></div><div class=\"cell\"><span class=\"num\">09</span><span>Social development</span></div><div class=\"cell\"><span class=\"num\">10</span><span>Adaptive and inclusive sport</span></div></div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "ed6b6dcd",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "f02cc13e",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"band--cream\" data-el=\"page.blocks\" data-el-build=\"elementor\">\n  <div class=\"wrap section\">\n    <h2 class=\"h2 mb-l reveal\" style=\"max-width:26ch\">What review covers.</h2>\n    <div class=\"hairline\" style=\"--min:260px\" data-stagger>\n      <div class=\"cell\" style=\"min-height:240px;padding:34px 28px 38px\"><span class=\"num\">01</span><h3 class=\"h3\">Qualification and registration</h3><p style=\"font-size:15.5px\">Regulated professions must evidence current licence or registration. Those fields are conditional and only appear where they apply.</p></div><div class=\"cell\" style=\"min-height:240px;padding:34px 28px 38px\"><span class=\"num\">02</span><h3 class=\"h3\">Insurance and safeguarding</h3><p style=\"font-size:15.5px\">Professional indemnity, screening and safeguarding arrangements are checked before any participant contact.</p></div><div class=\"cell\" style=\"min-height:240px;padding:34px 28px 38px\"><span class=\"num\">03</span><h3 class=\"h3\">Capacity and coverage</h3><p style=\"font-size:15.5px\">Age groups, specialisation, geography and delivery mode, so referrals are only made where a provider can genuinely take them.</p></div><div class=\"cell\" style=\"min-height:240px;padding:34px 28px 38px\"><span class=\"num\">04</span><h3 class=\"h3\">Agreement and listing</h3><p style=\"font-size:15.5px\">Listing follows a signed agreement. Until then a submission sits in a review queue with an auditable status.</p></div>\n    </div>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "203b986c",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "07f26128",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap section \" id=\"interest\" data-el=\"page.interest-form\" data-el-build=\"plugin\">\n  <div class=\"split split--form\">\n    <div class=\"form-intro reveal\">\n      <h2 class=\"h2\">Register provider interest.</h2>\n      <p class=\"body-lg\">This is an application to be reviewed, not a listing request.</p>\n      <p class=\"small muted\">Licence and registration fields are conditional on regulated profession. Do not attach client records or identifying participant information.</p>\n    </div>\n    \n<form class=\"form\" data-preview-form data-endpoint=\"{{form:service-provider-network}}\">\n  <p class=\"small muted\">Fields marked <span aria-hidden=\"true\" style=\"color:var(--danger)\">*</span><span class=\"sr-only\">with an asterisk</span> are required.</p>\n  <div class=\"form__grid\">\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f146\">Organization<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f146\" name=\"organization\" aria-describedby=\"f146-err\" required aria-required=\"true\" placeholder=\"Practice or organization name\">\n  \n  <span class=\"field__error\" id=\"f146-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f147\">Contact name<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f147\" name=\"contact-name\" aria-describedby=\"f147-err\" required aria-required=\"true\" placeholder=\"Full name\">\n  \n  <span class=\"field__error\" id=\"f147-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f148\">Email<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"email\" id=\"f148\" name=\"email\" aria-describedby=\"f148-err\" required aria-required=\"true\" placeholder=\"you@example.com\">\n  \n  <span class=\"field__error\" id=\"f148-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f149\">Telephone<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"tel\" id=\"f149\" name=\"telephone\" aria-describedby=\"f149-err\" required aria-required=\"true\" placeholder=\"Contact number\">\n  \n  <span class=\"field__error\" id=\"f149-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f150\">Website <span class=\"opt\">(optional)</span></label>\n  <input type=\"url\" id=\"f150\" name=\"website\" aria-describedby=\"f150-err\" placeholder=\"https://\">\n  \n  <span class=\"field__error\" id=\"f150-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f151\">Service type<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f151\" name=\"service-type\" aria-describedby=\"f151-err\" required aria-required=\"true\"><option value=\"\">Please select</option><option value=\"Occupational therapy\">Occupational therapy</option><option value=\"Speech and language\">Speech and language</option><option value=\"Behavioural services\">Behavioural services</option><option value=\"Counselling and mental health\">Counselling and mental health</option><option value=\"Executive function\">Executive function</option><option value=\"Academic intervention\">Academic intervention</option><option value=\"Family education\">Family education</option><option value=\"Service navigation\">Service navigation</option><option value=\"Social development\">Social development</option><option value=\"Adaptive and inclusive sport\">Adaptive and inclusive sport</option></select>\n  \n  <span class=\"field__error\" id=\"f151-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f152\">Regulated profession<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f152\" name=\"regulated-profession\" aria-describedby=\"f152-err\" required aria-required=\"true\"><option value=\"\">Please select</option><option value=\"Yes\">Yes</option><option value=\"No\">No</option><option value=\"Unsure\">Unsure</option></select>\n  \n  <span class=\"field__error\" id=\"f152-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f153\">Licence or registration <span class=\"opt\">(optional)</span></label>\n  <input type=\"text\" id=\"f153\" name=\"licence-or-registration\" aria-describedby=\"f153-err\" placeholder=\"Required if regulated\">\n  \n  <span class=\"field__error\" id=\"f153-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field field--full\">\n  <label class=\"field__label\" for=\"f154\">Qualifications <span class=\"opt\">(optional)</span></label>\n  <textarea id=\"f154\" name=\"qualifications\" aria-describedby=\"f154-err\" rows=\"4\" placeholder=\"Relevant qualifications and bodies\"></textarea>\n  \n  <span class=\"field__error\" id=\"f154-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f155\">Age groups served<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f155\" name=\"age-groups-served\" aria-describedby=\"f155-err\" required aria-required=\"true\"><option value=\"\">Please select</option><option value=\"Under 8\">Under 8</option><option value=\"8–11\">8–11</option><option value=\"12–14\">12–14</option><option value=\"15–17\">15–17</option><option value=\"18–24\">18–24</option><option value=\"25+\">25+</option><option value=\"All ages\">All ages</option></select>\n  \n  <span class=\"field__error\" id=\"f155-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f156\">Specialization <span class=\"opt\">(optional)</span></label>\n  <input type=\"text\" id=\"f156\" name=\"specialization\" aria-describedby=\"f156-err\" placeholder=\"Primary area of practice\">\n  \n  <span class=\"field__error\" id=\"f156-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f157\">Current capacity<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f157\" name=\"current-capacity\" aria-describedby=\"f157-err\" required aria-required=\"true\"><option value=\"\">Please select</option><option value=\"Accepting referrals\">Accepting referrals</option><option value=\"Limited capacity\">Limited capacity</option><option value=\"Waitlist only\">Waitlist only</option><option value=\"Not currently\">Not currently</option></select>\n  \n  <span class=\"field__error\" id=\"f157-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f158\">Accessibility experience <span class=\"opt\">(optional)</span></label>\n  <textarea id=\"f158\" name=\"accessibility-experience\" aria-describedby=\"f158-err\" rows=\"4\" placeholder=\"Experience working with neurodivergent people\"></textarea>\n  \n  <span class=\"field__error\" id=\"f158-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f159\">Insurance<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f159\" name=\"insurance\" aria-describedby=\"f159-err\" required aria-required=\"true\"><option value=\"\">Please select</option><option value=\"Professional indemnity in place\">Professional indemnity in place</option><option value=\"In progress\">In progress</option><option value=\"Not in place\">Not in place</option></select>\n  \n  <span class=\"field__error\" id=\"f159-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f160\">Geographic area<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <input type=\"text\" id=\"f160\" name=\"geographic-area\" aria-describedby=\"f160-err\" required aria-required=\"true\" placeholder=\"Regions served\">\n  \n  <span class=\"field__error\" id=\"f160-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f161\">Delivery mode<span class=\"req\" aria-hidden=\"true\">*</span></label>\n  <select id=\"f161\" name=\"delivery-mode\" aria-describedby=\"f161-err\" required aria-required=\"true\"><option value=\"\">Please select</option><option value=\"In person\">In person</option><option value=\"Virtual\">Virtual</option><option value=\"Both\">Both</option></select>\n  \n  <span class=\"field__error\" id=\"f161-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field\">\n  <label class=\"field__label\" for=\"f162\">Discounted or subsidized work <span class=\"opt\">(optional)</span></label>\n  <select id=\"f162\" name=\"discounted-or-subsidized-work\" aria-describedby=\"f162-err\"><option value=\"\">Please select</option><option value=\"Willing\">Willing</option><option value=\"Case by case\">Case by case</option><option value=\"Not able to\">Not able to</option></select>\n  \n  <span class=\"field__error\" id=\"f162-err\" aria-live=\"polite\"></span>\n</div>\n<div class=\"field field--full\">\n  <label class=\"field__label\" for=\"f163\">Comments <span class=\"opt\">(optional)</span></label>\n  <textarea id=\"f163\" name=\"comments\" aria-describedby=\"f163-err\" rows=\"4\" placeholder=\"Anything else the review should consider\"></textarea>\n  \n  <span class=\"field__error\" id=\"f163-err\" aria-live=\"polite\"></span>\n</div></div>\n  <label class=\"check\" for=\"f145\"><input type=\"checkbox\" id=\"f145\" name=\"consent\" required aria-describedby=\"f145-err\"><span>I agree to be contacted about this inquiry and to receive occasional updates from AFSV VRC. You can unsubscribe at any time.<span class=\"field__error\" id=\"f145-err\"></span></span></label>\n  <div class=\"form-status\" role=\"status\" tabindex=\"-1\" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. On the live site it routes to a named owner and sends an automatic confirmation.</div>\n  <div><button type=\"submit\" class=\"btn btn--navy\">Submit inquiry<span class=\"arrow\" aria-hidden=\"true\"><svg class=\"icon \" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"square\"/></svg></span></button></div>\n</form>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "aeb981b7",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "394d0936",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap\" data-el=\"status.pending-inputs\" data-el-build=\"elementor\" style=\"padding-bottom:88px\">\n  <div class=\"pending\"><span class=\"eyebrow\">Pending inputs</span>\n    <p>Page copy follows the approved brief. Still outstanding: final photography, approved logos and partner permissions, mailbox routing, legal policies, operational program data, pricing, dates and a named content owner.</p>\n  </div>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "823483b3",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "8a05f65c",
+     "elType": "widget",
+     "widgetType": "afsv-cta-band",
+     "settings": {
+      "heading": "Families use the network. Providers apply to join it.",
+      "buttons": [
+       {
+        "_id": "1560b6b",
+        "label": "Neurodiversity Access & Opportunity",
+        "link": {
+         "url": "/neurodiversity",
+         "is_external": "",
+         "nofollow": ""
+        }
+       }
+      ]
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "description": "AFSV VRC intends to build a qualified network supporting sport, learning, development, wellbeing and inclusion."
+}

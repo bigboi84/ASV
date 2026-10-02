@@ -1,0 +1,161 @@
+{
+ "slug": "events",
+ "title": "Events",
+ "overlay": false,
+ "elements": [
+  {
+   "id": "cc48f172",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "b6cae090",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<nav class=\"breadcrumb wrap\" aria-label=\"Breadcrumb\"><ol><li><a href=\"{{url:/}}\">Home</a></li><li aria-hidden=\"true\">/</li><li aria-current=\"page\">Events</li></ol></nav>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "f5c39208",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "b83241d4",
+     "elType": "widget",
+     "widgetType": "html",
+     "settings": {
+      "html": "<section class=\"wrap page-head\" data-el=\"events.header\" data-el-build=\"elementor\">\n  <p class=\"eyebrow\">Events</p>\n  <h1 class=\"h1 split-words\" aria-label=\"Where the ecosystem meets.\"><span aria-hidden=\"true\"><span class=\"w\"><span style=\"--i:0\">Where</span></span> <span class=\"w\"><span style=\"--i:1\">the</span></span> <span class=\"w\"><span style=\"--i:2\">ecosystem</span></span> <span class=\"w\"><span style=\"--i:3\">meets.</span></span></span></h1>\n  <p class=\"lead measure\">Summits, showcases and community gatherings hosted or supported by AFSV VRC. Each event links to its own registration and agenda.</p>\n</section>"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "f9b82a3d",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "56bbc38f",
+     "elType": "widget",
+     "widgetType": "afsv-event-feature",
+     "settings": {
+      "source": "all",
+      "heading": ""
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "6ef0832d",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "0ae2d3b4",
+     "elType": "widget",
+     "widgetType": "afsv-cta-band",
+     "settings": {
+      "heading": "Want to host or sponsor an event with us?",
+      "buttons": [
+       {
+        "_id": "a4abdef",
+        "label": "Talk to the partnerships team",
+        "link": {
+         "url": "/partners",
+         "is_external": "",
+         "nofollow": ""
+        }
+       },
+       {
+        "_id": "b0aae16",
+        "label": "Contact us",
+        "link": {
+         "url": "/contact",
+         "is_external": "",
+         "nofollow": ""
+        }
+       }
+      ]
+     },
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "description": "AFSV VRC events, summits and community gatherings — starting with the GAISB AI World Summit 2027 in Port of Spain."
+}
