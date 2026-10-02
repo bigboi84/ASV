@@ -1,0 +1,51 @@
+/*
+Theme Name:   AFSV VRC
+Theme URI:    https://afsvvrc.com
+Description:  AFSV VRC design system as a Hello Elementor child theme: header, footer, design tokens, fonts and motion. Pair with the AFSV VRC Core plugin for the Elementor widgets, Events and Leadership.
+Author:       AFSV VRC Global Development Group Ltd.
+Template:     hello-elementor
+Version:      1.0.0
+Requires at least: 6.5
+Requires PHP: 7.4
+License:      GPL-2.0-or-later
+Text Domain:  afsv-vrc
+*/
+
+/* The design system lives in assets/css/site.css. This file only carries the
+   WordPress/Elementor bridge rules. */
+
+/* Elementor wrappers around the header/footer parts must not create a new
+   positioning context, or the overlay header cannot sit on the hero. */
+.afsv-part,
+.afsv-part > .elementor,
+.afsv-part .e-con,
+.afsv-part .e-con-inner,
+.afsv-part .elementor-element,
+.afsv-part .elementor-widget-container { position: static; padding: 0; margin: 0; max-width: none; gap: 0; }
+.afsv-part .e-con { --padding-top: 0; --padding-bottom: 0; --padding-left: 0; --padding-right: 0; }
+
+/* Full-bleed AFSV sections inside Elementor containers. */
+.elementor-widget[class*="elementor-widget-afsv-"] > .elementor-widget-container { margin: 0; padding: 0; }
+.e-con:has(> .elementor-widget[class*="elementor-widget-afsv-"]) { --padding-top: 0; --padding-bottom: 0; --padding-left: 0; --padding-right: 0; --gap: 0; }
+
+/* Hello Elementor prints a page title on non-Elementor pages; keep it on-brand. */
+.page-header .entry-title { font-family: var(--font-display); color: var(--navy); }
+.site-main:not(.elementor) { padding-top: 32px; }
+
+/* AFSV Card Grid extras: image cards and non-link cards. */
+.card-link--static:hover { background: inherit; border-color: var(--line); transform: none; }
+.card-link--img { padding-top: 0; overflow: hidden; }
+.card-link__img { display: block; margin: 0 -28px 6px; aspect-ratio: 16 / 9; overflow: hidden; }
+.card-link__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.card-link--img:hover .card-link__img img { transform: scale(1.04); }
+
+/* AFSV Text Section: long-form copy. */
+.prose > * + * { margin-top: 1em; }
+.prose h2, .prose h3 { font-family: var(--font-display); line-height: 1.2; margin-top: 1.6em; }
+.prose ul, .prose ol { padding-left: 1.2em; list-style: revert; }
+.prose a { color: var(--gold-ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Elementor editor preview: animated content shows at once. */
+.elementor-editor-active .reveal,
+.elementor-editor-active .wipe,
+.elementor-editor-active [data-stagger] > * { opacity: 1; transform: none; clip-path: none; }

@@ -1,0 +1,515 @@
+{
+ "slug": "home",
+ "title": "Home",
+ "overlay": true,
+ "elements": [
+  {
+   "id": "16246bc3",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "d926d9ca",
+     "elType": "widget",
+     "widgetType": "afsv-hero",
+     "settings": {
+      "image": {
+       "url": "{{img:hero-fieldhouse.jpg}}"
+      },
+      "video": "{{asset:video/hero-loop.mp4}}"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "55169052",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "250cbc14",
+     "elType": "widget",
+     "widgetType": "afsv-ticker",
+     "settings": {},
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "4236c028",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "e6ee0b01",
+     "elType": "widget",
+     "widgetType": "afsv-event-feature",
+     "settings": {
+      "source": "0"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "1e1fc2aa",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "0d589a10",
+     "elType": "widget",
+     "widgetType": "afsv-panels",
+     "settings": {
+      "panels": [
+       {
+        "_id": "57e6b2f",
+        "num": "01",
+        "title": "Sports Development",
+        "desc": "Athlete pathways, coaching and multi-sport training.",
+        "link": {
+         "url": "/programs",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "image": {
+         "url": "{{img:pillars-hall.jpg}}"
+        }
+       },
+       {
+        "_id": "7ca4764",
+        "num": "02",
+        "title": "Education & Academic Success",
+        "desc": "Academic support alongside athletic development.",
+        "link": {
+         "url": "/education",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "image": {
+         "url": "{{img:ai-education-studio.jpg}}"
+        }
+       },
+       {
+        "_id": "d6c6551",
+        "num": "03",
+        "title": "Neurodiversity Access & Opportunity",
+        "desc": "Access, support and opportunity built in from the start.",
+        "link": {
+         "url": "/neurodiversity",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "image": {
+         "url": "{{img:accessible-entrance.jpg}}"
+        }
+       },
+       {
+        "_id": "6167265",
+        "num": "04",
+        "title": "Life Skills",
+        "desc": "Readiness for work, study and independent life.",
+        "link": {
+         "url": "/life-skills",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "image": {
+         "url": "{{img:about-team.jpg}}"
+        }
+       }
+      ]
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "9bda4836",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "2feaae71",
+     "elType": "widget",
+     "widgetType": "afsv-expand-feature",
+     "settings": {
+      "image": {
+       "url": "{{img:whitby-aerial-concept.jpg}}"
+      },
+      "video": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20261001_223921_1744b3f9-fc07-4217-8133-47aea99fb445.mp4"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "59904c02",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "41fd8ae0",
+     "elType": "widget",
+     "widgetType": "afsv-stats",
+     "settings": {},
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "f91b9e27",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "d7f6ef29",
+     "elType": "widget",
+     "widgetType": "afsv-path-cards",
+     "settings": {
+      "cards": [
+       {
+        "_id": "340fe3b",
+        "kicker": "Athletes & families",
+        "title": "Train and develop",
+        "link": {
+         "url": "/programs",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "desc": "Athlete pathways, coaching and multi-sport training.",
+        "image": {
+         "url": "{{img:news-courtside.jpg}}"
+        }
+       },
+       {
+        "_id": "65ff3f1",
+        "kicker": "Membership",
+        "title": "Become a member",
+        "link": {
+         "url": "/membership",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "desc": "Register interest in the five proposed membership pathways.",
+        "image": {
+         "url": "{{img:membership-community.jpg}}"
+        }
+       },
+       {
+        "_id": "3510de7",
+        "kicker": "Marketplace",
+        "title": "Shop the movement",
+        "link": {
+         "url": "/marketplace",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "desc": "Apparel, training products and community-focused goods.",
+        "image": {
+         "url": "{{img:marketplace-kit.jpg}}"
+        }
+       },
+       {
+        "_id": "49afe78",
+        "kicker": "Organisations",
+        "title": "Partner with us",
+        "link": {
+         "url": "/partners",
+         "is_external": "",
+         "nofollow": ""
+        },
+        "desc": "Sponsorship, education, technology and development routes.",
+        "image": {
+         "url": "{{img:partners-boardroom.jpg}}"
+        }
+       }
+      ]
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "fda6109c",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "0d67ab19",
+     "elType": "widget",
+     "widgetType": "afsv-esports",
+     "settings": {},
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "b3a6c1b5",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "ae1eb85d",
+     "elType": "widget",
+     "widgetType": "afsv-split-feature",
+     "settings": {
+      "image": {
+       "url": "{{img:sensory-support-space.jpg}}"
+      },
+      "video": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20261001_223921_155b4719-26ce-4daf-a132-0de796fdf0cd.mp4"
+     },
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "53cd147b",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "1f450416",
+     "elType": "widget",
+     "widgetType": "afsv-ai-band",
+     "settings": {},
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "3f24c6a7",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "a435777e",
+     "elType": "widget",
+     "widgetType": "afsv-interest-form",
+     "settings": {},
+     "elements": []
+    }
+   ]
+  },
+  {
+   "id": "f9a591ea",
+   "elType": "container",
+   "isInner": false,
+   "settings": {
+    "content_width": "full",
+    "padding": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "0",
+     "left": "0",
+     "isLinked": true
+    },
+    "flex_gap": {
+     "unit": "px",
+     "size": 0,
+     "column": "0",
+     "row": "0"
+    }
+   },
+   "elements": [
+    {
+     "id": "90035f28",
+     "elType": "widget",
+     "widgetType": "afsv-cta-band",
+     "settings": {},
+     "elements": []
+    }
+   ]
+  }
+ ],
+ "front": true
+}
