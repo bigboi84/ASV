@@ -1319,3 +1319,4 @@ svg[hidden] { display: none; }
   .profile__photo { max-width: 420px; }
   .profile__focus { grid-template-columns: minmax(0, 1fr); }
 }
+.about-hero .eyebrow, .lead-hero .eyebrow { color: var(--gold); }
