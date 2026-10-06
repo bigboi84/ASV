@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shop | AFSV VRC</title>
-<meta name="description" content="AFSV VRC marketplace commerce preview — kit, equipment and inclusion products. Sample data for build review.">
+<title>The Collection | AFSV VRC</title>
+<meta name="description" content="Every piece in the AFSV VRC concept collection: Executive and Everyday &amp; Sport apparel and accessories.">
 <link rel="canonical" href="https://afsvvrc.com/shop">
 <meta name="theme-color" content="#091E36">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AFSV VRC">
-<meta property="og:title" content="Shop | AFSV VRC">
-<meta property="og:description" content="AFSV VRC marketplace commerce preview — kit, equipment and inclusion products. Sample data for build review.">
-<meta property="og:image" content="assets/img/hero-fieldhouse.jpg">
+<meta property="og:title" content="The Collection | AFSV VRC">
+<meta property="og:description" content="Every piece in the AFSV VRC concept collection: Executive and Everyday &amp; Sport apparel and accessories.">
+<meta property="og:image" content="assets/img/merch/regular-varsity-jacket-navy.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -66,10 +66,10 @@
 <div class="market-bar" data-el="marketplace.bar" data-el-build="theme-builder">
   <div class="wrap market-bar__inner">
     <div class="market-bar__title">Marketplace</div>
-    <nav aria-label="Marketplace"><a href="marketplace.html">Overview</a><a href="shop.html" aria-current="page">Shop All</a><a href="vendors.html">Vendors</a><a href="cart.html">Cart</a></nav>
+    <nav aria-label="Marketplace"><a href="marketplace.html">Overview</a><a href="shop.html" aria-current="page">The Collection</a></nav>
     <div class="market-bar__actions">
       <a class="btn btn--line-light btn--sm market-bar__sell" href="marketplace.html#vendor-form">Sell with us</a>
-      <a class="btn btn--gold btn--sm cart-link" href="cart.html" aria-label="View cart">Cart<span class="cart-count" data-cart-count>0</span></a>
+      <a class="btn btn--gold btn--sm" href="marketplace.html#buyer-form">Join the launch list</a>
     </div>
   </div>
 </div>
@@ -108,115 +108,224 @@
 </div>
 <main id="main" tabindex="-1">
 
-<nav class="breadcrumb wrap" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li><a href="marketplace.html">Marketplace</a></li><li aria-hidden="true">/</li><li aria-current="page">Shop</li></ol></nav>
-<section class="wrap" data-el="shop.hero" data-el-build="elementor" style="padding-top:48px;padding-bottom:40px">
-  <p class="eyebrow mb-s">Marketplace — development preview</p>
-  <div class="split split--end"><h1 class="h1 split-words" aria-label="Shop the district."><span aria-hidden="true"><span class="w"><span style="--i:0">Shop</span></span> <span class="w"><span style="--i:1">the</span></span> <span class="w"><span style="--i:2">district.</span></span></span></h1><p class="lead">Kit, equipment and inclusion products from AFSV VRC and its vendor partners. Every listing below is test data for build review.</p></div>
-  <div class="test-note" role="note"><b>TEST</b><p>This is a functional preview of the commerce flow — catalogue, product, cart, checkout and confirmation. Products, vendors, prices, tax and shipping are sample data. No payment is processed and no order is created.</p></div>
+<nav class="breadcrumb wrap" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-hidden="true">/</li><li><a href="marketplace.html">Marketplace</a></li><li aria-hidden="true">/</li><li aria-current="page">The Collection</li></ol></nav>
+<section class="wrap page-head" data-el="shop.header" data-el-build="elementor">
+  <p class="eyebrow">The AFSV VRC Collection</p>
+  <h1 class="h1 split-words" aria-label="The Collection."><span aria-hidden="true"><span class="w"><span style="--i:0">The</span></span> <span class="w"><span style="--i:1">Collection.</span></span></span></h1>
+  <p class="lead measure">13 pieces across four collections. Concept visualisations for executive review. Final crest artwork, colours, sizing, pricing and product details are subject to approval.</p>
 </section>
-<section class="wrap" data-el="shop.controls" data-el-build="custom-widget" style="padding-bottom:32px">
-  <div class="shop-controls">
-    <div class="chip-row" role="group" aria-label="Filter by category"><button type="button" class="chip" data-cat="All" aria-pressed="true">All</button><button type="button" class="chip" data-cat="Apparel" aria-pressed="false">Apparel</button><button type="button" class="chip" data-cat="Equipment" aria-pressed="false">Equipment</button><button type="button" class="chip" data-cat="Inclusion" aria-pressed="false">Inclusion</button><button type="button" class="chip" data-cat="Nutrition" aria-pressed="false">Nutrition</button><button type="button" class="chip" data-cat="Programs" aria-pressed="false">Programs</button></div>
-    <div class="shop-selects">
-      <label for="shop-vendor">Vendor <select id="shop-vendor"><option value="All">All</option><option value="AFSV VRC Official">AFSV VRC Official</option><option value="Quietform Athletics">Quietform Athletics</option><option value="Northline Sport Supply">Northline Sport Supply</option><option value="Harbour Nutrition Co.">Harbour Nutrition Co.</option></select></label>
-      <label for="shop-sort">Sort <select id="shop-sort"><option value="featured">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option><option value="name">Name, A–Z</option></select></label>
-    </div>
+<section class="wrap section section--flush-top" data-el="shop.grid" data-el-build="plugin" data-merch>
+  <div class="mk-filter" role="group" aria-label="Filter by collection">
+    <button type="button" class="mk-chip" data-filter="all" aria-pressed="true">All <span>13</span></button>
+    <button type="button" class="mk-chip" data-filter="executive-apparel" aria-pressed="false">Executive Apparel <span>3</span></button><button type="button" class="mk-chip" data-filter="executive-accessories" aria-pressed="false">Executive Accessories <span>2</span></button><button type="button" class="mk-chip" data-filter="everyday-apparel" aria-pressed="false">Everyday &amp; Sport Apparel <span>6</span></button><button type="button" class="mk-chip" data-filter="everyday-accessories" aria-pressed="false">Everyday &amp; Sport Accessories <span>2</span></button>
   </div>
-  <p class="small mt-m" id="shop-count" aria-live="polite">Showing 10 products</p>
-</section>
-<section class="wrap section section--flush-top" data-el="shop.archive" data-el-build="woo-template">
-  <div class="product-grid" id="shop-grid">
-<a class="product-card" href="product-training-tee.html" data-cat="Apparel" data-vendor="AFSV VRC Official" data-price="42" data-name="AFSV VRC Training Tee">
-  <div class="product-card__img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215633_c1fb9e55-64ba-44a0-9ae8-9e1233b8ac98.png" alt="Product shot — folded training tee, front" width="800" height="800" loading="lazy"></div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">AFSV VRC Official</span>
-    <h2>AFSV VRC Training Tee</h2>
-    <p>Breathable training layer in district colours.</p>
-    <div class="product-card__foot"><span class="price">$42.00</span><span class="cell__foot" style="padding:0">View <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span></div>
-  </div>
+  <p class="sr-only" aria-live="polite" data-merch-status></p>
+  <div class="merch-grid">
+<a class="merch-card merch-card--executive" href="product-executive-aviator-jacket.html" data-collection="executive-apparel">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/executive-aviator-jacket-black.jpg" alt="Executive Aviator Jacket in black — concept image" width="960" height="1200" loading="lazy">
+    
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Executive · Gold crest</span>
+    <h2 class="merch-card__name">Executive Aviator Jacket</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Black"><span class="swatch" style="--sw:#111111" title="Black"></span><span class="merch-card__count">Black</span></span>
+  </span>
 </a>
-<a class="product-card" href="product-performance-hoodie.html" data-cat="Apparel" data-vendor="AFSV VRC Official" data-price="88" data-name="Performance Hoodie">
-  <div class="product-card__img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215635_7ec82064-84ee-409a-8bb7-2423fd4965ea.png" alt="Product shot — hoodie on hanger, front" width="800" height="800" loading="lazy"></div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">AFSV VRC Official</span>
-    <h2>Performance Hoodie</h2>
-    <p>Mid-weight warmup and travel layer.</p>
-    <div class="product-card__foot"><span class="price">$88.00</span><span class="cell__foot" style="padding:0">View <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span></div>
-  </div>
+<a class="merch-card merch-card--executive" href="product-executive-leather-jacket.html" data-collection="executive-apparel">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/executive-leather-jacket-black.jpg" alt="Executive Leather Jacket in black — concept image" width="960" height="1200" loading="lazy">
+    
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Executive · Gold crest</span>
+    <h2 class="merch-card__name">Executive Leather Jacket</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Black"><span class="swatch" style="--sw:#111111" title="Black"></span><span class="merch-card__count">Black</span></span>
+  </span>
 </a>
-<a class="product-card" href="product-sensory-warmup-jacket.html" data-cat="Apparel" data-vendor="Quietform Athletics" data-price="124" data-name="Sensory-Friendly Warmup Jacket">
-  <div class="product-card__img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215637_22beed6d-1692-4e0c-94ae-bf2aed8d61da.png" alt="Product shot — warmup jacket, tag-free interior" width="800" height="800" loading="lazy"><span class="badge">Neuro-inclusive</span></div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">Quietform Athletics</span>
-    <h2>Sensory-Friendly Warmup Jacket</h2>
-    <p>Tag-free, seam-reduced, quiet fabric.</p>
-    <div class="product-card__foot"><span class="price">$124.00</span><span class="cell__foot" style="padding:0">View <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span></div>
-  </div>
+<a class="merch-card merch-card--executive" href="product-executive-polo.html" data-collection="executive-apparel">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/executive-polo-black.jpg" alt="Executive Polo in black — concept image" width="960" height="1200" loading="lazy">
+    <img class="merch-card__alt" src="assets/img/merch/executive-polo-white.jpg" alt="" width="960" height="1200" loading="lazy">
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Executive · Gold crest</span>
+    <h2 class="merch-card__name">Executive Polo</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Black, White"><span class="swatch" style="--sw:#111111" title="Black"></span><span class="swatch" style="--sw:#F7F7F5" title="White"></span><span class="merch-card__count">2 colours</span></span>
+  </span>
 </a>
-<a class="product-card" href="product-ear-defenders.html" data-cat="Inclusion" data-vendor="Quietform Athletics" data-price="56" data-name="Noise-Reducing Ear Defenders">
-  <div class="product-card__img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215639_f682cbf4-3bd9-4bfd-9c75-7cc1e7919819.png" alt="Product shot — folded ear defenders, side" width="800" height="800" loading="lazy"><span class="badge">Neuro-inclusive</span></div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">Quietform Athletics</span>
-    <h2>Noise-Reducing Ear Defenders</h2>
-    <p>Folding defenders for loud venues.</p>
-    <div class="product-card__foot"><span class="price">$56.00</span><span class="cell__foot" style="padding:0">View <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span></div>
-  </div>
+<a class="merch-card merch-card--executive" href="product-executive-beanie.html" data-collection="executive-accessories">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/executive-beanie-black.jpg" alt="Executive Beanie in black — concept image" width="960" height="1200" loading="lazy">
+    
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Executive · Gold crest</span>
+    <h2 class="merch-card__name">Executive Beanie</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Black"><span class="swatch" style="--sw:#111111" title="Black"></span><span class="merch-card__count">Black</span></span>
+  </span>
 </a>
-<a class="product-card" href="product-court-grip-trainer.html" data-cat="Equipment" data-vendor="Northline Sport Supply" data-price="64" data-name="Court Grip Trainer">
-  <div class="product-card__img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215640_d097f767-2585-4f31-8171-2974b6d29994.png" alt="Product shot — grip trainer on court floor" width="800" height="800" loading="lazy"></div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">Northline Sport Supply</span>
-    <h2>Court Grip Trainer</h2>
-    <p>Footwork and change-of-direction aid.</p>
-    <div class="product-card__foot"><span class="price">$64.00</span><span class="cell__foot" style="padding:0">View <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span></div>
-  </div>
+<a class="merch-card merch-card--executive" href="product-executive-scarf.html" data-collection="executive-accessories">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/executive-scarf-black.jpg" alt="Executive Scarf in black — concept image" width="960" height="1200" loading="lazy">
+    
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Executive · Gold crest</span>
+    <h2 class="merch-card__name">Executive Scarf</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Black"><span class="swatch" style="--sw:#111111" title="Black"></span><span class="merch-card__count">Black</span></span>
+  </span>
 </a>
-<a class="product-card" href="product-weighted-skills-ball.html" data-cat="Equipment" data-vendor="Northline Sport Supply" data-price="38" data-name="Weighted Skills Ball 2 kg">
-  <div class="product-card__img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215646_f576d138-90f2-4731-8251-78087f0680e9.png" alt="Product shot — weighted ball, single" width="800" height="800" loading="lazy"></div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">Northline Sport Supply</span>
-    <h2>Weighted Skills Ball 2 kg</h2>
-    <p>Textured grip, 2 kg.</p>
-    <div class="product-card__foot"><span class="price">$38.00</span><span class="cell__foot" style="padding:0">View <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span></div>
-  </div>
+<a class="merch-card merch-card--everyday" href="product-polo.html" data-collection="everyday-apparel">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/regular-polo-navy.jpg" alt="Polo in navy — concept image" width="960" height="1200" loading="lazy">
+    <img class="merch-card__alt" src="assets/img/merch/regular-polo-white.jpg" alt="" width="960" height="1200" loading="lazy">
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Everyday &amp; Sport · Colour crest</span>
+    <h2 class="merch-card__name">Polo</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Navy, White"><span class="swatch" style="--sw:#14254A" title="Navy"></span><span class="swatch" style="--sw:#F7F7F5" title="White"></span><span class="merch-card__count">2 colours</span></span>
+  </span>
 </a>
-<a class="product-card" href="product-clipboard-set.html" data-cat="Equipment" data-vendor="Northline Sport Supply" data-price="29" data-name="Coach Clipboard Set">
-  <div class="product-card__img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215647_b7fb47ad-51f2-466a-b0ce-bce9585a6cfd.png" alt="Product shot — clipboard with session sheets" width="800" height="800" loading="lazy"></div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">Northline Sport Supply</span>
-    <h2>Coach Clipboard Set</h2>
-    <p>Session planning board and sheets.</p>
-    <div class="product-card__foot"><span class="price">$29.00</span><span class="cell__foot" style="padding:0">View <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span></div>
-  </div>
+<a class="merch-card merch-card--everyday" href="product-tee.html" data-collection="everyday-apparel">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/regular-tee-navy.jpg" alt="Tee in navy — concept image" width="960" height="1200" loading="lazy">
+    <img class="merch-card__alt" src="assets/img/merch/regular-tee-white.jpg" alt="" width="960" height="1200" loading="lazy">
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Everyday &amp; Sport · Colour crest</span>
+    <h2 class="merch-card__name">Tee</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Navy, White"><span class="swatch" style="--sw:#14254A" title="Navy"></span><span class="swatch" style="--sw:#F7F7F5" title="White"></span><span class="merch-card__count">2 colours</span></span>
+  </span>
 </a>
-<a class="product-card" href="product-recovery-mix.html" data-cat="Nutrition" data-vendor="Harbour Nutrition Co." data-price="34" data-name="Focus &amp; Fuel Recovery Mix">
-  <div class="product-card__img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215649_bd432268-c155-438d-a1ba-7bd949f61194.png" alt="Product shot — recovery mix tub" width="800" height="800" loading="lazy"></div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">Harbour Nutrition Co.</span>
-    <h2>Focus &amp; Fuel Recovery Mix</h2>
-    <p>Post-session recovery drink mix.</p>
-    <div class="product-card__foot"><span class="price">$34.00</span><span class="cell__foot" style="padding:0">View <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span></div>
-  </div>
+<a class="merch-card merch-card--everyday" href="product-hoodie.html" data-collection="everyday-apparel">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/regular-hoodie-navy.jpg" alt="Hoodie in navy — concept image" width="960" height="1200" loading="lazy">
+    <img class="merch-card__alt" src="assets/img/merch/regular-hoodie-white.jpg" alt="" width="960" height="1200" loading="lazy">
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Everyday &amp; Sport · Colour crest</span>
+    <h2 class="merch-card__name">Hoodie</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Navy, White"><span class="swatch" style="--sw:#14254A" title="Navy"></span><span class="swatch" style="--sw:#F7F7F5" title="White"></span><span class="merch-card__count">2 colours</span></span>
+  </span>
 </a>
-<a class="product-card" href="product-water-bottle.html" data-cat="Equipment" data-vendor="AFSV VRC Official" data-price="22" data-name="Team Water Bottle 1 L">
-  <div class="product-card__img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215651_d4927e83-0f4a-4f2b-a06b-71717f4f0404.png" alt="Product shot — 1 litre bottle, side" width="800" height="800" loading="lazy"></div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">AFSV VRC Official</span>
-    <h2>Team Water Bottle 1 L</h2>
-    <p>Insulated, 1 litre, squad-marked.</p>
-    <div class="product-card__foot"><span class="price">$22.00</span><span class="cell__foot" style="padding:0">View <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span></div>
-  </div>
+<a class="merch-card merch-card--everyday" href="product-varsity-jacket.html" data-collection="everyday-apparel">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/regular-varsity-jacket-navy.jpg" alt="Varsity Jacket in navy / white — concept image" width="960" height="1200" loading="lazy">
+    
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Everyday &amp; Sport · Colour crest</span>
+    <h2 class="merch-card__name">Varsity Jacket</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Navy / White"><span class="swatch" style="--sw:#14254A" title="Navy / White"></span><span class="merch-card__count">Navy / White</span></span>
+  </span>
 </a>
-<a class="product-card" href="product-skills-camp-pass.html" data-cat="Programs" data-vendor="AFSV VRC Official" data-price="25" data-name="Youth Skills Camp Day Pass">
-  <div class="product-card__img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215653_247112d0-7d39-43a3-bd8b-89c20ae80ca6.png" alt="Product shot / booking card — camp day pass" width="800" height="800" loading="lazy"></div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">AFSV VRC Official</span>
-    <h2>Youth Skills Camp Day Pass</h2>
-    <p>Single-day camp admission.</p>
-    <div class="product-card__foot"><span class="price">$25.00</span><span class="cell__foot" style="padding:0">View <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span></div>
-  </div>
+<a class="merch-card merch-card--everyday" href="product-parka.html" data-collection="everyday-apparel">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/regular-parka-navy.jpg" alt="Parka in navy — concept image" width="960" height="1200" loading="lazy">
+    
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Everyday &amp; Sport · Colour crest</span>
+    <h2 class="merch-card__name">Parka</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Navy"><span class="swatch" style="--sw:#14254A" title="Navy"></span><span class="merch-card__count">Navy</span></span>
+  </span>
+</a>
+<a class="merch-card merch-card--everyday" href="product-athletic-shorts.html" data-collection="everyday-apparel">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/regular-shorts-navy.jpg" alt="Athletic Shorts in navy — concept image" width="960" height="1200" loading="lazy">
+    
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Everyday &amp; Sport · Colour crest</span>
+    <h2 class="merch-card__name">Athletic Shorts</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Navy"><span class="swatch" style="--sw:#14254A" title="Navy"></span><span class="merch-card__count">Navy</span></span>
+  </span>
+</a>
+<a class="merch-card merch-card--everyday" href="product-cap.html" data-collection="everyday-accessories">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/regular-cap-navy.jpg" alt="Cap in navy — concept image" width="960" height="1200" loading="lazy">
+    <img class="merch-card__alt" src="assets/img/merch/regular-cap-white.jpg" alt="" width="960" height="1200" loading="lazy">
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Everyday &amp; Sport · Colour crest</span>
+    <h2 class="merch-card__name">Cap</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Navy, White"><span class="swatch" style="--sw:#14254A" title="Navy"></span><span class="swatch" style="--sw:#F7F7F5" title="White"></span><span class="merch-card__count">2 colours</span></span>
+  </span>
+</a>
+<a class="merch-card merch-card--everyday" href="product-backpack.html" data-collection="everyday-accessories">
+  <span class="merch-card__media">
+    <img src="assets/img/merch/regular-backpack-navy.jpg" alt="Backpack in navy — concept image" width="960" height="1200" loading="lazy">
+    
+    <span class="merch-card__tag">Concept</span>
+  </span>
+  <span class="merch-card__body">
+    <span class="merch-card__line">Everyday &amp; Sport · Colour crest</span>
+    <h2 class="merch-card__name">Backpack</h2>
+    <span class="merch-card__swatches" aria-label="Colours: Navy"><span class="swatch" style="--sw:#14254A" title="Navy"></span><span class="merch-card__count">Navy</span></span>
+  </span>
 </a></div>
-  <div class="empty-state" id="shop-empty" hidden><p>No products match that combination.</p><button type="button" class="btn btn--navy" data-clear-filters>Clear filters</button></div>
+</section>
+
+<section class="wrap section" id="buyer-form" data-el="marketplace.buyer-form" data-el-build="plugin">
+  <div class="split split--form">
+    <div class="form-intro reveal">
+      <p class="eyebrow mb-s">Launch list</p>
+      <h2 class="h2">Be first to the collection.</h2>
+      <p class="body-lg">Tell us which pieces interest you. We will be in touch when the range is approved and the marketplace opens.</p>
+      <p class="small muted">Concept visualisations for executive review. Final crest artwork, colours, sizing, pricing and product details are subject to approval.</p>
+    </div>
+    
+<form class="form" data-preview-form>
+  <p class="small muted">Fields marked <span aria-hidden="true" style="color:var(--danger)">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+  <div class="form__grid">
+<div class="field">
+  <label class="field__label" for="f192">Name<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f192" name="name" autocomplete="name" aria-describedby="f192-err" required aria-required="true">
+  
+  <span class="field__error" id="f192-err" aria-live="polite"></span>
+</div>
+<div class="field">
+  <label class="field__label" for="f193">Email<span class="req" aria-hidden="true">*</span></label>
+  <input type="email" id="f193" name="email" autocomplete="email" aria-describedby="f193-err" required aria-required="true">
+  
+  <span class="field__error" id="f193-err" aria-live="polite"></span>
+</div>
+<div class="field">
+  <label class="field__label" for="f194">Country<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f194" name="country" autocomplete="country-name" aria-describedby="f194-err" required aria-required="true">
+  
+  <span class="field__error" id="f194-err" aria-live="polite"></span>
+</div>
+<div class="field">
+  <label class="field__label" for="interest-collection">Collection of interest <span class="opt">(optional)</span></label>
+  <select id="interest-collection" name="collection-of-interest" aria-describedby="interest-collection-err"><option value="">Select a collection</option><option value="Executive Apparel">Executive Apparel</option><option value="Executive Accessories">Executive Accessories</option><option value="Everyday &amp; Sport Apparel">Everyday &amp; Sport Apparel</option><option value="Everyday &amp; Sport Accessories">Everyday &amp; Sport Accessories</option><option value="All of the collection">All of the collection</option></select>
+  
+  <span class="field__error" id="interest-collection-err" aria-live="polite"></span>
+</div>
+<div class="field field--full">
+  <label class="field__label" for="f195">Pieces you are interested in <span class="opt">(optional)</span></label>
+  <textarea id="f195" name="pieces-you-are-interested-in" aria-describedby="f195-err" rows="2" placeholder=""></textarea>
+  
+  <span class="field__error" id="f195-err" aria-live="polite"></span>
+</div></div>
+  <label class="check" for="f191"><input type="checkbox" id="f191" name="consent" required aria-describedby="f191-err"><span>I agree to receive marketplace launch updates from AFSV VRC.<span class="field__error" id="f191-err"></span></span></label>
+  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. Launch-list submissions will route once commerce approvals are complete.</div>
+  <div><button type="submit" class="btn btn--navy">Join the Launch List<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></button></div>
+</form>
+  </div>
 </section>
 </main>
 

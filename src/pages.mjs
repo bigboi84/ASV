@@ -77,7 +77,7 @@ export function home(d) {
   const pathways = [
     { ...d.pathways[0], desc: 'Athlete pathways, coaching and multi-sport training.', img: 'news-courtside.jpg' },
     { ...d.pathways[1], desc: 'Register interest in the five proposed membership pathways.', img: 'membership-community.jpg' },
-    { ...d.pathways[2], desc: 'Apparel, training products and community-focused goods.', img: 'marketplace-kit.jpg' },
+    { ...d.pathways[2], desc: 'Executive and Everyday & Sport apparel and accessories.', img: 'merch/regular-varsity-jacket-navy.jpg' },
     { ...d.pathways[3], desc: 'Sponsorship, education, technology and development routes.', img: 'partners-boardroom.jpg' },
   ];
   return {
@@ -188,7 +188,7 @@ export function home(d) {
 
 <section class="expand" data-el="home.whitby" data-el-build="elementor" data-expand>
   <div class="expand__frame" data-video-scope>
-    ${pmedia({ img: IMG('whitby-aerial-concept.jpg'), alt: 'Conceptual rendering: aerial view of a proposed multi-sport village campus with linked low-rise pavilions, outdoor pitches, courts, solar canopies and tree-lined walkways. Not an existing facility.', video: V.whitbyAerial, parallax: 0 })}
+    ${pmedia({ img: IMG('whitby-dome.jpg'), alt: 'Conceptual rendering: a large white inflatable sports dome carrying the AFSV VRC crest, with a glass-fronted entrance pavilion, landscaped plaza, accessible parking and people arriving, and a lake on the horizon. Not an existing facility.', parallax: 0, w: 1600, h: 900 })}
     <span class="expand__shade" aria-hidden="true"></span>
     <div class="wrap expand__content">
       <div class="expand__card reveal">
@@ -536,14 +536,14 @@ export function whitby(d) {
   return {
     title: 'Whitby Smart Sports Village',
     description: 'A proposed year-round, technology-enabled destination in Whitby, Ontario bringing multi-sport participation, athlete development, education, inclusive supports, media and community under one roof.',
-    ogImage: IMG('whitby-aerial-concept.jpg'),
+    ogImage: IMG('whitby-dome.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Smart Sports Village' }, { label: 'Whitby Smart Sports Village' }])}
 <section class="wrap page-head" data-el="whitby.hero" data-el-build="elementor" style="padding-bottom:0">
   <span class="pill mb-m">Proposed development</span>
   <h1 class="h1 split-words" style="max-width:22ch" aria-label="The Whitby Smart Sports Village: a connected place to train, learn and belong."><span aria-hidden="true">${splitWords('The Whitby Smart Sports Village: a connected place to train, learn and belong.')}</span></h1>
   <p class="lead measure mb-l">AFSV VRC is advancing a proposed Smart Sports Village pilot in Whitby, Ontario: a year-round, technology-enabled destination bringing multi-sport participation, athlete development, education, inclusive supports, media and community experiences under one roof.</p>
-  <figure class="figure figure--16x9 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('whitby-clay-exterior.jpg'), alt: 'Conceptual clay-model rendering: ground-level view of a proposed sports dome with an adjoining low-rise pavilion, shown as an untextured white and grey massing study. Not an existing facility.', video: V.whitbyExterior, w: 1344, h: 752 })}
+  <figure class="figure figure--16x9 figure--motion wipe">${pmedia({ img: IMG('whitby-dome.jpg'), alt: 'Conceptual rendering: a large white inflatable sports dome carrying the AFSV VRC crest, with a glass-fronted entrance pavilion, landscaped plaza, accessible parking and people arriving, and a lake on the horizon. Not an existing facility.', parallax: 0.05, eager: true, w: 1600, h: 900 })}
     <figcaption class="caption-bar">Conceptual Rendering — Not an Existing Facility</figcaption>
   </figure>
 </section>
@@ -730,98 +730,6 @@ ${formSection({
     status: 'We will share membership details, benefits and launch timing as they are approved.',
   }),
 })}`,
-  };
-}
-
-// ════════════════════════ MARKETPLACE ════════════════════════
-export function marketplace(d) {
-  const featured = d.products.slice(0, 3);
-  return {
-    title: 'Marketplace',
-    description: 'Wear the Movement. Build the Future. The AFSV VRC Marketplace will bring together branded apparel, sport and training products, education resources and community goods.',
-    ogImage: IMG('marketplace-kit.jpg'),
-    body: html`
-${breadcrumb([{ label: 'Marketplace' }])}
-<section class="band--navy" data-el="marketplace.hero" data-el-build="elementor" style="margin-top:22px">
-  <div class="wrap section split split--center">
-    <div>
-      <p class="eyebrow mb-s">Marketplace</p>
-      <h1 class="h1 mb-m split-words" aria-label="Wear the Movement. Build the Future."><span aria-hidden="true">${splitWords(['Wear the Movement.', 'Build the Future.'], ['Movement.', 'Future.'])}</span></h1>
-      <p class="lead measure mb-l">The AFSV VRC Marketplace will bring together branded apparel, sport and training products, education resources, partner offers and community-focused goods and services. Purchases are intended to strengthen the wider ecosystem.</p>
-      <div class="btn-row btn-row--stack">
-        ${btn('Join the Launch List', '#buyer-form', 'gold')}
-        ${btn('Become a Marketplace Vendor', '#vendor-form', 'line-light')}
-      </div>
-      <p class="mt-m"><a class="text-link text-link--light" href="shop.html">View the commerce preview ${arrow()}</a></p>
-      <p class="small mt-m" style="color:var(--on-navy-muted)">The commerce preview is an internal build review of the catalogue, cart and checkout flow using sample data. It is not a live store.</p>
-    </div>
-    <figure class="figure figure--4x3 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('marketplace-kit.jpg'), alt: 'Folded plain unbranded training apparel, a towel, water bottle, resistance band and dark trainers arranged on a matte charcoal surface under soft directional light.', video: V.marketplace, w: 1344, h: 752 })}</figure>
-  </div>
-</section>
-<section class="wrap section" data-el="marketplace.categories" data-el-build="elementor">
-  <h2 class="h2 mb-l reveal">Launch categories.</h2>
-  <div class="hairline" style="--min:220px" data-stagger>
-    ${d.marketCategories.map((c) => html`<div class="cell" style="min-height:180px"><div class="cell__top"><span class="num">${c.num}</span><span class="pill pill--soft">Coming soon</span></div><h3 class="h3" style="font-size:19px">${c.title}</h3></div>`)}
-  </div>
-</section>
-<section class="band--cream" data-el="marketplace.featured" data-el-build="elementor">
-  <div class="wrap section">
-    <div class="section-head reveal">
-      <h2 class="h2">A first look at the range.</h2>
-      <p class="body-lg muted">Sample listings from the commerce preview. Names, prices and imagery are for build review and are not on sale.</p>
-    </div>
-    <div class="product-grid" data-stagger>${featured.map((p) => productCard(p, 'h3'))}</div>
-    <p class="mt-m"><a class="text-link" href="shop.html">Browse all ${d.products.length} sample products ${arrow()}</a></p>
-  </div>
-</section>
-<section class="wrap section section--flush-bottom" data-el="marketplace.vendor-pathway" data-el-build="elementor">
-  <div class="split reveal">
-    <h2 class="h2">Vendor pathway.</h2>
-    <p class="lead">Invite qualified brands, creators, service providers and community businesses to register interest. Final onboarding depends on commercial, brand, quality, insurance, payment, tax, fulfilment and policy approval.</p>
-  </div>
-</section>
-<section class="wrap" id="buyer-form" data-el="marketplace.buyer-form" data-el-build="plugin" style="padding-top:64px">
-  <div class="panel">
-    <h2 class="h2 h2--sm mb-s">Join the launch list</h2>
-    <p class="body-lg mb-l">For shoppers. We will let you know when the marketplace opens.</p>
-    ${previewForm({
-      fields: [
-        { label: 'Name', req: true, auto: 'name' },
-        { label: 'Email', type: 'email', req: true, auto: 'email' },
-        { label: 'Country', req: true, auto: 'country-name' },
-        { label: 'Interests' },
-      ],
-      consent: 'I agree to receive marketplace launch updates from AFSV VRC.',
-      submit: 'Join the Launch List',
-      status: `${PREVIEW} Launch-list submissions will route once commerce approvals are complete.`,
-    })}
-  </div>
-</section>
-<section class="wrap section section--flush-top" id="vendor-form" data-el="marketplace.vendor-form" data-el-build="plugin" style="padding-top:32px">
-  <div class="panel panel--dark">
-    <span class="pill mb-m">Interest only — not approval</span>
-    <h2 class="h2 h2--sm mb-s">Become a marketplace vendor</h2>
-    <p class="body-lg mb-l measure">Submitting this form registers your interest. It does not create a vendor account or constitute onboarding.</p>
-    ${previewForm({
-      fields: [
-        { label: 'Legal or brand name', req: true, auto: 'organization' },
-        { label: 'Contact name', req: true, auto: 'name' },
-        { label: 'Email', type: 'email', req: true, auto: 'email' },
-        { label: 'Phone', type: 'tel', auto: 'tel' },
-        { label: 'Website', type: 'url', ph: 'https://', auto: 'url' },
-        { label: 'Category', type: 'select', req: true, ph: 'Select a category', options: ['Apparel and fanwear', 'Training and performance', 'Education and life-skills resources', 'Partner and sponsor offers', 'Community and vendor products'] },
-        { label: 'Regions served' },
-        { label: 'Insurance status', type: 'select', ph: 'Select a status', options: ['Current cover in place', 'Application in progress', 'Not yet arranged'] },
-        { label: 'Product or service description', type: 'textarea', req: true, rows: 3, full: true },
-        { label: 'Fulfilment capability', type: 'textarea', rows: 2, full: true },
-        { label: 'Comments', type: 'textarea', rows: 2, full: true },
-      ],
-      consent: 'I agree to be contacted about marketplace vendor opportunities and understand this submission is not an approval.',
-      submit: 'Register vendor interest',
-      status: `${PREVIEW} Vendor submissions will route to a manual review queue; no vendor account is created automatically.`,
-    })}
-  </div>
-</section>`,
   };
 }
 
@@ -1115,246 +1023,6 @@ ${note('All policy copy is pending authorized legal and executive approval. No l
   </div>
 </section>
 ${ctaBand('Questions about these policies go to a named owner.', [{ label: 'Contact us', route: '/contact' }])}`,
-  };
-}
-
-// ════════════════════════ COMMERCE PREVIEW ════════════════════════
-function productCard(p, tag = 'h2') {
-  return html`
-<a class="product-card" href="product-${p.slug}.html" data-cat="${p.category}" data-vendor="${p.vendor}" data-price="${p.price}" data-name="${p.name}">
-  <div class="product-card__img"><img src="${p.img}" alt="${p.shot}" width="800" height="800" loading="lazy">${p.badge ? html`<span class="badge">${p.badge}</span>` : ''}</div>
-  <div class="product-card__body">
-    <span class="product-card__vendor">${p.vendor}</span>
-    ${raw(`<${tag}>`)}${p.name}${raw(`</${tag}>`)}
-    <p>${p.blurb}</p>
-    <div class="product-card__foot"><span class="price">${money(p.price)}</span><span class="cell__foot" style="padding:0">View ${arrow()}</span></div>
-  </div>
-</a>`;
-}
-
-const testNote = html`<div class="test-note" role="note"><b>TEST</b><p>This is a functional preview of the commerce flow — catalogue, product, cart, checkout and confirmation. Products, vendors, prices, tax and shipping are sample data. No payment is processed and no order is created.</p></div>`;
-
-function commerceHead(h1, step) {
-  const steps = ['Cart', 'Checkout', 'Confirmation'];
-  return html`
-<section class="wrap" data-el="cart.head" data-el-build="woo-template" style="padding-top:48px;padding-bottom:36px">
-  <p class="eyebrow mb-s">Marketplace — development preview</p>
-  <h1 class="h1 mb-l">${h1}</h1>
-  <ol class="steps" aria-label="Checkout progress">${steps.map((s, i) => html`<li${i === step ? raw(' aria-current="step"') : ''}><span class="num">${pad2(i + 1)}</span>${s}</li>`)}</ol>
-</section>`;
-}
-
-export function shop(d) {
-  const cats = ['All', 'Apparel', 'Equipment', 'Inclusion', 'Nutrition', 'Programs'];
-  const vends = ['All', ...d.vendors.map((v) => v.name)];
-  return {
-    title: 'Shop',
-    description: 'AFSV VRC marketplace commerce preview — kit, equipment and inclusion products. Sample data for build review.',
-    body: html`
-${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'Shop' }])}
-<section class="wrap" data-el="shop.hero" data-el-build="elementor" style="padding-top:48px;padding-bottom:40px">
-  <p class="eyebrow mb-s">Marketplace — development preview</p>
-  <div class="split split--end"><h1 class="h1 split-words" aria-label="Shop the district."><span aria-hidden="true">${splitWords('Shop the district.')}</span></h1><p class="lead">Kit, equipment and inclusion products from AFSV VRC and its vendor partners. Every listing below is test data for build review.</p></div>
-  ${testNote}
-</section>
-<section class="wrap" data-el="shop.controls" data-el-build="custom-widget" style="padding-bottom:32px">
-  <div class="shop-controls">
-    <div class="chip-row" role="group" aria-label="Filter by category">${cats.map((c, i) => html`<button type="button" class="chip" data-cat="${c}" aria-pressed="${i === 0 ? 'true' : 'false'}">${c}</button>`)}</div>
-    <div class="shop-selects">
-      <label for="shop-vendor">Vendor <select id="shop-vendor">${vends.map((v) => html`<option value="${v}">${v}</option>`)}</select></label>
-      <label for="shop-sort">Sort <select id="shop-sort"><option value="featured">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option><option value="name">Name, A–Z</option></select></label>
-    </div>
-  </div>
-  <p class="small mt-m" id="shop-count" aria-live="polite">Showing ${d.products.length} products</p>
-</section>
-<section class="wrap section section--flush-top" data-el="shop.archive" data-el-build="woo-template">
-  <div class="product-grid" id="shop-grid">${d.products.map((p) => productCard(p))}</div>
-  <div class="empty-state" id="shop-empty" hidden><p>No products match that combination.</p><button type="button" class="btn btn--navy" data-clear-filters>Clear filters</button></div>
-</section>`,
-  };
-}
-
-export function product(d, p) {
-  const sku = 'AFSV-' + p.slug.toUpperCase().replace(/-/g, '').slice(0, 10);
-  const related = (() => {
-    let r = d.products.filter((x) => x.slug !== p.slug && x.category === p.category).slice(0, 3);
-    if (r.length < 3) r = d.products.filter((x) => x.slug !== p.slug).slice(0, 3);
-    return r;
-  })();
-  const thumbs = [['Front', 'center'], ['Angle', 'left center'], ['Detail', 'center top'], ['Alternate', 'right center']];
-  return {
-    title: p.name,
-    description: p.desc,
-    ogImage: p.img,
-    body: html`
-<nav class="breadcrumb wrap" aria-label="Breadcrumb"><ol>
-  <li><a href="index.html">Home</a></li><li aria-hidden="true">/</li>
-  <li><a href="shop.html">Shop</a></li><li aria-hidden="true">/</li>
-  <li><a href="shop.html?cat=${encodeURIComponent(p.category)}">${p.category}</a></li><li aria-hidden="true">/</li>
-  <li aria-current="page">${p.name}</li>
-</ol></nav>
-<section class="wrap" data-product="${p.slug}" data-el="product.single" data-el-build="woo-template" style="padding-top:40px;padding-bottom:88px">
-  <div class="product">
-    <div class="gallery">
-      <div class="gallery__main"><img src="${p.img}" alt="${p.shot}" width="800" height="800" fetchpriority="high"></div>
-      <div class="gallery__thumbs" role="group" aria-label="Image views">${thumbs.map(([l, pos], i) => html`<button type="button" data-pos="${pos}" aria-pressed="${i === 0 ? 'true' : 'false'}" aria-label="${l} view"><img src="${p.img}" alt="" loading="lazy" style="object-position:${pos}"></button>`)}</div>
-    </div>
-    <div>
-      <div class="product__meta-top"><a class="product-card__vendor" style="border-bottom:1px solid var(--gold);padding-bottom:2px" href="shop.html?vendor=${encodeURIComponent(p.vendor)}">${p.vendor}</a>${p.badge ? html`<span class="badge">${p.badge}</span>` : ''}</div>
-      <h1 class="h1" style="font-size:clamp(28px,3.1vw,44px)">${p.name}</h1>
-      <p class="price">${money(p.price)}</p>
-      <p class="small muted mb-m">CAD, excluding HST. Tax is calculated at checkout.</p>
-      <p class="body-lg measure">${p.desc}</p>
-      ${p.variants && p.variants.length ? html`
-      <div class="variant-group"><span class="field__label" id="vlabel">${p.variantLabel}</span>
-        <div class="variants" role="group" aria-labelledby="vlabel">${p.variants.map((v, i) => html`<button type="button" data-variant="${v}" aria-pressed="${i === 0 ? 'true' : 'false'}">${v}</button>`)}</div>
-      </div>` : html`<div style="height:28px"></div>`}
-      <div class="buy-row">
-        <div class="qty" role="group" aria-label="Quantity"><button type="button" data-qty-step="-1" aria-label="Decrease quantity">−</button><output data-qty aria-live="polite">1</output><button type="button" data-qty-step="1" aria-label="Increase quantity">+</button></div>
-        <button type="button" class="btn btn--navy" data-add-to-cart>Add to cart</button>
-      </div>
-      <p class="form-status mb-m" id="added-status" role="status" tabindex="-1" hidden>Added to your cart. <a href="cart.html" style="font-weight:700;border-bottom:1px solid var(--gold)">View cart and check out</a>.</p>
-      <dl class="spec-table">
-        ${[['Vendor', p.vendor], ['Category', p.category], ['SKU', sku], ['Availability', 'Sample stock — preview only']].map(([k, v]) => html`<div><dt>${k}</dt><dd>${v}</dd></div>`)}
-      </dl>
-    </div>
-  </div>
-</section>
-<section class="band--cream">
-  <div class="wrap section" style="display:grid;gap:48px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))">
-    <div><h2 class="h2 h2--sm mb-m">Details</h2><p class="body-lg">${p.long}</p></div>
-    <div><h3 class="eyebrow mb-m" style="color:var(--gold-mid)">Specification</h3><ul class="dash-list">${(p.specs || []).map((s) => html`<li>${s}</li>`)}</ul></div>
-    <div><h3 class="eyebrow mb-m" style="color:var(--gold-mid)">Shipping &amp; returns</h3><p class="mb-s" style="font-size:15.5px">Shipped by the vendor from within Ontario. Standard courier 3–5 business days, or free pickup at the Whitby site once operational.</p><p class="small muted">Returns policy is per-vendor and is not yet finalised. Final wording is required before checkout goes live.</p></div>
-  </div>
-</section>
-<section class="wrap section" data-el="product.related" data-el-build="woo-template">
-  <h2 class="h2 h2--sm mb-l">Also from the marketplace</h2>
-  <div class="product-grid">${related.map((r) => productCard(r, 'h3'))}</div>
-</section>`,
-  };
-}
-
-export function vendors(d) {
-  return {
-    title: 'Vendors',
-    description: 'AFSV VRC marketplace vendors — sample storefronts for build review.',
-    body: html`
-${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'Vendors' }])}
-<section class="wrap" style="padding-top:48px;padding-bottom:44px">
-  <p class="eyebrow mb-s">Marketplace — development preview</p>
-  <div class="split split--end"><h1 class="h1 split-words" aria-label="Vendors."><span aria-hidden="true">${splitWords('Vendors.')}</span></h1><p class="lead">A multi-vendor marketplace: each vendor runs its own storefront, listings and fulfilment under AFSV VRC marketplace terms. All four below are sample vendors for build review.</p></div>
-</section>
-<section class="wrap section section--flush-top" data-el="vendors.archive" data-el-build="plugin">
-  <div class="hairline" style="--min:280px" data-stagger>
-    ${d.vendors.map((v) => html`
-    <div class="cell" style="min-height:290px">
-      <div style="display:flex;align-items:center;gap:14px"><div class="vendor-logo"><img src="${v.logo}" alt="${v.name} logo" width="96" height="96" loading="lazy"></div><span class="product-card__vendor">${v.kicker}</span></div>
-      <h2 class="h3" style="font-size:20px">${v.name}</h2>
-      <p>${v.blurb}</p>
-      <dl class="vendor-dl"><div><dt>Region</dt><dd>${v.region}</dd></div><div><dt>Sells</dt><dd>${v.cats}</dd></div></dl>
-      <div class="cell__foot" style="justify-content:space-between;padding-top:16px"><span style="font-family:var(--font-display);font-weight:800;font-size:14px;text-transform:none;letter-spacing:0">${v.count}</span><a class="text-link" href="shop.html?vendor=${encodeURIComponent(v.name)}">Visit store<span class="sr-only">: ${v.name}</span> ${arrow()}</a></div>
-    </div>`)}
-  </div>
-  <div class="band--navy mt-l" style="padding:44px 36px;display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));align-items:center">
-    <div><h2 class="h2 h2--sm mb-s">Sell with the district.</h2><p style="color:#E7E4DC;max-width:50ch">Vendor applications, commission terms, payouts and verification are configured before the marketplace opens. Nothing is live yet.</p></div>
-    <div>${btn('Become a vendor', '/marketplace#vendor-form', 'gold')}</div>
-  </div>
-</section>`,
-  };
-}
-
-export function cart() {
-  return {
-    title: 'Your cart',
-    description: 'Your AFSV VRC marketplace preview cart.',
-    body: html`
-${commerceHead('Your cart.', 0)}
-<section class="wrap section section--flush-top" id="cart-root" data-el="cart.body" data-el-build="woo-template">
-  <div class="empty-state" id="cart-empty"><p>Your cart is empty.</p>${btn('Browse the shop', '/shop', 'navy')}</div>
-  <div class="cart-layout" id="cart-filled" hidden>
-    <div>
-      <div class="cart-head" aria-hidden="true"><span>Product</span><span style="width:130px">Quantity</span><span style="width:90px;text-align:right">Total</span></div>
-      <div id="cart-lines"></div>
-      <div class="panel mt-l" data-el="cart.coupon" data-el-build="woo-template" style="padding:26px">
-        <h2 class="field__label mb-s" style="font-size:11.5px">Coupon code</h2>
-        <p class="small mb-m">Preview test code: AFSV10</p>
-        <form id="coupon-form" class="btn-row"><label class="sr-only" for="coupon">Coupon code</label><input id="coupon" type="text" placeholder="Enter code" style="flex:1;min-width:180px;font:inherit;font-size:16px;padding:13px 15px;border:1px solid var(--field)"><button type="submit" class="btn btn--line-dark">Apply</button></form>
-        <p class="small mt-m" id="coupon-msg" role="status"></p>
-      </div>
-    </div>
-    <aside class="summary" aria-labelledby="sum-h">
-      <h2 id="sum-h">Order summary</h2>
-      <dl class="totals" id="cart-totals"></dl>
-      <div class="grand"><span>Total</span><span id="cart-total"></span></div>
-      <a class="btn btn--navy btn--block" href="checkout.html">Proceed to checkout ${arrow()}</a>
-      <a class="btn btn--line-dark btn--block" href="shop.html">Continue shopping</a>
-      <p class="small muted mt-m">Tax shown at Ontario HST 13% on sample data. Final tax configuration requires sign-off.</p>
-    </aside>
-  </div>
-</section>`,
-  };
-}
-
-export function checkout(d) {
-  return {
-    title: 'Checkout',
-    description: 'AFSV VRC marketplace preview checkout — test mode, no payment taken.',
-    body: html`
-${commerceHead('Checkout.', 1)}
-<section class="wrap section section--flush-top" id="checkout-root" data-el="checkout.body" data-el-build="woo-template">
-  <div class="empty-state" id="co-empty" hidden><p>There is nothing to check out. Add a product first.</p>${btn('Browse the shop', '/shop', 'navy')}</div>
-  <form id="co-form" class="cart-layout" hidden>
-    <div style="display:flex;flex-direction:column;gap:48px">
-      <fieldset><legend>01 — Contact and billing</legend>
-        <div class="form__grid">${d.billingFields.map((f) => raw(fieldHTML(f)))}</div>
-      </fieldset>
-      <fieldset><legend>02 — Delivery method</legend>
-        <div class="ship-options">${d.ship.map((s) => html`<label><input type="radio" name="shipping" value="${s.id}"${s.id === 'standard' ? raw(' checked') : ''}><span><b>${s.label}</b><small>${s.note}</small></span><span class="cost">${s.cost ? money(s.cost) : 'Free'}</span></label>`)}</div>
-      </fieldset>
-      <fieldset><legend>03 — Payment</legend>
-        <div class="pay-box">
-          <div class="pay-box__note"><b>TEST MODE</b><span>Stripe is not connected. Nothing is charged and no card details are transmitted or stored.</span></div>
-          <div class="form__grid">${d.payFields.map((f, i) => html`<div class="field${f.span === '1 / -1' ? ' field--full' : ''}"><label class="field__label" for="pay${i}">${f.label} <span class="opt">(test only)</span></label><input id="pay${i}" type="text" placeholder="${f.ph}" autocomplete="off"></div>`)}</div>
-        </div>
-      </fieldset>
-    </div>
-    <aside class="summary" aria-labelledby="co-h">
-      <h2 id="co-h">Your order</h2>
-      <ul class="mini-lines" id="co-lines"></ul>
-      <dl class="totals" id="co-totals"></dl>
-      <div class="grand"><span>Total</span><span id="co-total"></span></div>
-      <label class="check mb-m" for="agree"><input type="checkbox" id="agree" required aria-describedby="agree-err"><span>I understand this is a development preview, that no payment will be taken, and that no order will be fulfilled.<span class="field__error" id="agree-err"></span></span></label>
-      <button type="submit" class="btn btn--gold btn--block">Place test order</button>
-      <p class="center mt-m"><a class="text-link" href="cart.html">Back to cart</a></p>
-    </aside>
-  </form>
-</section>`,
-  };
-}
-
-function fieldHTML(f) {
-  const id = 'b-' + f.auto;
-  return `<div class="field${f.span === '1 / -1' ? ' field--full' : ''}"><label class="field__label" for="${id}">${f.label}${f.req ? '<span class="req" aria-hidden="true">*</span>' : ' <span class="opt">(optional)</span>'}</label><input id="${id}" type="${f.type}" placeholder="${f.ph}" autocomplete="${f.auto}"${f.req ? ' required' : ''} aria-describedby="${id}-err"><span class="field__error" id="${id}-err"></span></div>`;
-}
-
-export function orderReceived() {
-  return {
-    title: 'Order received',
-    description: 'AFSV VRC marketplace preview order confirmation.',
-    body: html`
-${commerceHead('Order received.', 2)}
-<section class="wrap section section--flush-top" id="order-root" data-el="order.received" data-el-build="woo-template">
-  <div class="empty-state" id="order-none"><p>No order to show. Run the flow from the shop to see a confirmation.</p>${btn('Browse the shop', '/shop', 'navy')}</div>
-  <div class="cart-layout" id="order-has" hidden>
-    <div>
-      <div class="order-meta" id="order-meta"></div>
-      <h2 class="h2 h2--sm" style="margin:44px 0 22px">Order details</h2>
-      <ul class="mini-lines" id="order-lines"></ul>
-      <div class="note mt-l" role="note"><p class="eyebrow mb-s" style="color:var(--gold-mid)">No payment taken</p><p>This confirmation is generated by the build preview to demonstrate the completed flow. No payment was processed, no confirmation email is sent, and nothing will be shipped.</p></div>
-    </div>
-    <aside class="summary"><h2>Totals</h2><dl class="totals" id="order-totals"></dl><div class="grand"><span>Paid</span><span id="order-total"></span></div>${btn('Back to the shop', '/shop', 'navy')}</aside>
-  </div>
-</section>`,
   };
 }
 

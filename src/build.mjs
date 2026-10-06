@@ -4,22 +4,16 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { page } from './layout.mjs';
 import * as P from './pages.mjs';
+import * as MK from './marketplace.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const out = path.join(root, 'site');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'src/data/site.json'), 'utf8'));
 P.setVideos(JSON.parse(fs.readFileSync(path.join(root, 'src/data/videos.json'), 'utf8')));
+const merch = JSON.parse(fs.readFileSync(path.join(root, 'src/data/merch.json'), 'utf8'));
 
 fs.rmSync(out, { recursive: true, force: true });
 fs.cpSync(path.join(root, 'src/assets'), path.join(out, 'assets'), { recursive: true });
-
-// Catalogue for the client-side cart (products + shipping only).
-const catalog = {
-  products: data.products.map(({ slug, name, vendor, category, price, img, variants }) => ({ slug, name, vendor, category, price, img, variants })),
-  ship: data.ship,
-};
-fs.writeFileSync(path.join(out, 'assets/js/catalog.js'), `window.AFSV_CATALOG = ${JSON.stringify(catalog)};\n`);
-const catalogTag = '<script src="assets/js/catalog.js" defer></script>';
 
 const pages = [
   ['/', P.home(data)],
@@ -29,7 +23,7 @@ const pages = [
   ['/whitby-smart-sports-village', P.whitby(data)],
   ['/facilities', P.facilities(data)],
   ['/membership', P.membership(data)],
-  ['/marketplace', P.marketplace(data)],
+  ['/marketplace', MK.marketplace(data, merch)],
   ['/contact', P.contact(data)],
   ['/partners', P.partners(data)],
   ...Object.keys(data.content).map((r) => [r, P.contentPage(data, r)]),
@@ -37,18 +31,14 @@ const pages = [
   ['/news-impact', P.news(data)],
   ['/accessibility-privacy', P.access(data)],
   ['/legal', P.legal(data)],
-  ['/shop', P.shop(data)],
-  ['/vendors', P.vendors(data)],
-  ['/cart', P.cart(data), true],
-  ['/checkout', P.checkout(data), true],
-  ['/order-received', P.orderReceived(data), true],
-  ...data.products.map((p) => [`/product/${p.slug}`, P.product(data, p), true]),
+  ['/shop', MK.shop(data, merch)],
+  ...merch.products.map((p) => [`/product/${p.slug}`, MK.merchProduct(data, merch, p)]),
   ['/404', P.notFound(data)],
 ];
 
-for (const [route, pg, needsCatalog] of pages) {
+for (const [route, pg] of pages) {
   const file = route === '/' ? 'index.html' : route.startsWith('/product/') ? `product-${route.slice(9)}.html` : `${route.slice(1)}.html`;
-  const htmlOut = page({ data, route, title: pg.title, description: pg.description, ogImage: pg.ogImage, overlay: !!pg.overlay, fonts: pg.fonts || [], body: String(pg.body), scripts: needsCatalog ? catalogTag : '' });
+  const htmlOut = page({ data, route, title: pg.title, description: pg.description, ogImage: pg.ogImage, overlay: !!pg.overlay, fonts: pg.fonts || [], body: String(pg.body) });
   fs.writeFileSync(path.join(out, file), htmlOut);
 }
 

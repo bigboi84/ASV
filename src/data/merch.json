@@ -1,0 +1,141 @@
+{
+  "note": "Concept range from Martin Lashley's Designer Logo Corrected Mockups (Google Drive, 2026-09-28). Executive pieces carry the gold crest; Everyday & Sport pieces carry the designer's colour crest. No prices, sizes or specifications are published until approved.",
+  "collections": [
+    {
+      "id": "executive-apparel",
+      "name": "Executive Apparel",
+      "line": "executive",
+      "blurb": "Black and white pieces finished with a small gold crest.",
+      "cover": "executive-aviator-jacket-black.jpg"
+    },
+    {
+      "id": "executive-accessories",
+      "name": "Executive Accessories",
+      "line": "executive",
+      "blurb": "Winter accessories with a discreet gold crest.",
+      "cover": "executive-scarf-black.jpg"
+    },
+    {
+      "id": "everyday-apparel",
+      "name": "Everyday & Sport Apparel",
+      "line": "everyday",
+      "blurb": "Navy and white essentials with the colour crest.",
+      "cover": "regular-varsity-jacket-navy.jpg"
+    },
+    {
+      "id": "everyday-accessories",
+      "name": "Everyday & Sport Accessories",
+      "line": "everyday",
+      "blurb": "Caps and bags for training days and match days.",
+      "cover": "regular-backpack-navy.jpg"
+    }
+  ],
+  "products": [
+    {
+      "slug": "executive-aviator-jacket",
+      "name": "Executive Aviator Jacket",
+      "collection": "executive-apparel",
+      "desc": "A black aviator-style jacket with a warm shearling-style collar, gold zips and gold-tipped ribbed trims, finished with a small gold crest on the chest.",
+      "colours": [{ "name": "Black", "hex": "#111111", "img": "executive-aviator-jacket-black.jpg" }]
+    },
+    {
+      "slug": "executive-leather-jacket",
+      "name": "Executive Leather Jacket",
+      "collection": "executive-apparel",
+      "desc": "A clean black leather-style jacket with a point collar and gold zip, carrying a small gold crest on the chest.",
+      "colours": [{ "name": "Black", "hex": "#111111", "img": "executive-leather-jacket-black.jpg" }]
+    },
+    {
+      "slug": "executive-polo",
+      "name": "Executive Polo",
+      "collection": "executive-apparel",
+      "desc": "A piqué-style polo with gold-tipped collar and cuffs and a small gold crest on the chest.",
+      "colours": [
+        { "name": "Black", "hex": "#111111", "img": "executive-polo-black.jpg" },
+        { "name": "White", "hex": "#F7F7F5", "img": "executive-polo-white.jpg" }
+      ]
+    },
+    {
+      "slug": "executive-beanie",
+      "name": "Executive Beanie",
+      "collection": "executive-accessories",
+      "desc": "A ribbed black beanie with a pom, carrying a small gold crest on the cuff.",
+      "colours": [{ "name": "Black", "hex": "#111111", "img": "executive-beanie-black.jpg" }]
+    },
+    {
+      "slug": "executive-scarf",
+      "name": "Executive Scarf",
+      "collection": "executive-accessories",
+      "desc": "A soft black fringed scarf with a small gold crest.",
+      "colours": [{ "name": "Black", "hex": "#111111", "img": "executive-scarf-black.jpg" }]
+    },
+    {
+      "slug": "polo",
+      "name": "Polo",
+      "collection": "everyday-apparel",
+      "desc": "A classic polo in navy or white with a small colour crest on the chest.",
+      "colours": [
+        { "name": "Navy", "hex": "#14254A", "img": "regular-polo-navy.jpg" },
+        { "name": "White", "hex": "#F7F7F5", "img": "regular-polo-white.jpg" }
+      ]
+    },
+    {
+      "slug": "tee",
+      "name": "Tee",
+      "collection": "everyday-apparel",
+      "desc": "A crew-neck tee in navy or white with a small colour crest on the chest.",
+      "colours": [
+        { "name": "Navy", "hex": "#14254A", "img": "regular-tee-navy.jpg" },
+        { "name": "White", "hex": "#F7F7F5", "img": "regular-tee-white.jpg" }
+      ]
+    },
+    {
+      "slug": "hoodie",
+      "name": "Hoodie",
+      "collection": "everyday-apparel",
+      "desc": "A pullover hoodie with a kangaroo pocket, in navy or white, with a small colour crest on the chest.",
+      "colours": [
+        { "name": "Navy", "hex": "#14254A", "img": "regular-hoodie-navy.jpg" },
+        { "name": "White", "hex": "#F7F7F5", "img": "regular-hoodie-white.jpg" }
+      ]
+    },
+    {
+      "slug": "varsity-jacket",
+      "name": "Varsity Jacket",
+      "collection": "everyday-apparel",
+      "desc": "A navy varsity jacket with white sleeves, gold-striped trims and a small colour crest on the chest.",
+      "colours": [{ "name": "Navy / White", "hex": "#14254A", "img": "regular-varsity-jacket-navy.jpg" }]
+    },
+    {
+      "slug": "parka",
+      "name": "Parka",
+      "collection": "everyday-apparel",
+      "desc": "A navy hooded winter parka with a faux-fur-style trim and utility pockets, finished with a small colour crest.",
+      "colours": [{ "name": "Navy", "hex": "#14254A", "img": "regular-parka-navy.jpg" }]
+    },
+    {
+      "slug": "athletic-shorts",
+      "name": "Athletic Shorts",
+      "collection": "everyday-apparel",
+      "desc": "Navy athletic shorts with white piping and a drawcord waist, with a small colour crest.",
+      "colours": [{ "name": "Navy", "hex": "#14254A", "img": "regular-shorts-navy.jpg" }]
+    },
+    {
+      "slug": "cap",
+      "name": "Cap",
+      "collection": "everyday-accessories",
+      "desc": "A six-panel cap in navy or white with a small colour crest on the front.",
+      "colours": [
+        { "name": "Navy", "hex": "#14254A", "img": "regular-cap-navy.jpg" },
+        { "name": "White", "hex": "#F7F7F5", "img": "regular-cap-white.jpg" }
+      ]
+    },
+    {
+      "slug": "backpack",
+      "name": "Backpack",
+      "collection": "everyday-accessories",
+      "desc": "A navy backpack with gold piping, a front zip pocket and a side mesh pocket, carrying the colour crest on the front.",
+      "colours": [{ "name": "Navy", "hex": "#14254A", "img": "regular-backpack-navy.jpg" }]
+    }
+  ]
+}

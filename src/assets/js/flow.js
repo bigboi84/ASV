@@ -142,6 +142,50 @@
     });
   }
 
+  /* ───────── Marketplace: collection filter (with #hash) ───────── */
+  var merch = $('[data-merch]');
+  if (merch) {
+    var chips = $$('[data-filter]', merch);
+    var items = $$('[data-collection]', merch);
+    var status = $('[data-merch-status]', merch);
+    var applyFilter = function (id, announce) {
+      if (!chips.some(function (c) { return c.getAttribute('data-filter') === id; })) id = 'all';
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-filter') === id ? 'true' : 'false'); });
+      var n = 0;
+      items.forEach(function (it) {
+        var show = id === 'all' || it.getAttribute('data-collection') === id;
+        it.hidden = !show; if (show) n++;
+      });
+      if (announce && status) status.textContent = n + (n === 1 ? ' piece' : ' pieces') + ' shown';
+    };
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        var id = c.getAttribute('data-filter');
+        applyFilter(id, true);
+        if (history.replaceState) history.replaceState(null, '', id === 'all' ? location.pathname : '#' + id);
+      });
+    });
+    applyFilter((location.hash || '').slice(1) || 'all', false);
+    window.addEventListener('hashchange', function () { applyFilter(location.hash.slice(1) || 'all', true); });
+  }
+
+  /* ───────── Product page: colour swap ───────── */
+  var prod = $('[data-merch-product]');
+  if (prod) {
+    var stage = $('[data-stage]', prod);
+    var cname = $('[data-colour-name]', prod);
+    var thumbs = $$('[data-thumb]', prod);
+    var swatches = $$('.mk-colour', prod);
+    swatches.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        swatches.forEach(function (s) { s.setAttribute('aria-pressed', s === b ? 'true' : 'false'); });
+        thumbs.forEach(function (t, j) { t.classList.toggle('is-on', j === i); });
+        if (stage) { stage.src = b.getAttribute('data-img'); stage.alt = b.getAttribute('data-alt'); }
+        if (cname) cname.textContent = b.getAttribute('data-name');
+      });
+    });
+  }
+
   /* ───────── Frame loop ───────── */
   var ticking = false;
   function frame() {

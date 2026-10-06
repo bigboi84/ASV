@@ -1484,3 +1484,112 @@ svg[hidden] { display: none; }
   .path-grid--float .path-card { translate: none; }
   .dock { transition: none; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   MARKETPLACE — the AFSV VRC Collection (concept)
+   Understated, warm neutral, small crests; Executive line in
+   near-black and gold, Everyday & Sport in navy and white.
+   ════════════════════════════════════════════════════════════ */
+:root { --mk-bg: #F5F3EE; --mk-media: #ECEAE5; --mk-black: #0B0B0B; --mk-charcoal: #292929; }
+
+/* Hero: copy left, three-image mosaic right */
+.mk-hero { background: var(--mk-bg); padding: clamp(40px, 6vw, 80px) 0 clamp(56px, 7vw, 96px); margin-top: 22px; }
+.mk-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.mk-hero__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.mk-hero__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(40px, 5.4vw, 78px); line-height: 1.02; letter-spacing: -.025em; color: var(--mk-black); }
+.mk-hero__copy .lead { color: var(--ink-soft); max-width: 46ch; }
+.mk-hero__note { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-soft); }
+.mk-hero__mosaic { display: grid; grid-template-columns: 1.25fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; height: clamp(420px, 44vw, 620px); }
+.mk-tile { margin: 0; border-radius: var(--r-lg); overflow: hidden; background: var(--mk-media); }
+.mk-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.mk-tile:hover img { transform: scale(1.04); }
+.mk-tile--a { grid-row: 1 / span 2; }
+@media (max-width: 899px) { .mk-hero__grid { grid-template-columns: 1fr; } .mk-hero__mosaic { height: 420px; } }
+
+/* Collections: four tall tiles */
+.mk-collections { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+.mk-collection { position: relative; display: flex; flex-direction: column; border-radius: var(--r-lg); overflow: hidden; background: var(--mk-media); color: var(--navy); transition: transform .4s var(--ease), box-shadow .4s; }
+.mk-collection:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -36px rgba(11,11,11,.45); color: var(--navy); }
+.mk-collection__img { display: block; aspect-ratio: 4 / 5; overflow: hidden; }
+.mk-collection__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.mk-collection:hover .mk-collection__img img { transform: scale(1.05); }
+.mk-collection__body { display: flex; flex-direction: column; gap: 8px; padding: 22px 22px 24px; background: var(--white); }
+.mk-collection--executive .mk-collection__body { background: var(--mk-black); color: #F2EFE7; }
+.mk-collection__k { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-ink); }
+.mk-collection--executive .mk-collection__k { color: var(--gold); }
+.mk-collection__name { font-family: var(--font-display); font-weight: 800; font-size: 21px; line-height: 1.2; }
+.mk-collection__blurb { font-size: 14.5px; line-height: 1.55; opacity: .8; }
+.mk-collection__go { margin-top: 6px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+
+/* Product card */
+.merch-grid { display: grid; gap: 22px 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
+.merch-card { display: flex; flex-direction: column; gap: 14px; color: var(--navy); }
+.merch-card:hover { color: var(--navy); }
+.merch-card__media { position: relative; display: block; aspect-ratio: 4 / 5; border-radius: var(--r); overflow: hidden; background: var(--mk-media); }
+.merch-card__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease), opacity .5s; }
+.merch-card:hover .merch-card__media img { transform: scale(1.04); }
+.merch-card__alt { opacity: 0; }
+.merch-card:hover .merch-card__alt, .merch-card:focus-visible .merch-card__alt { opacity: 1; }
+.merch-card__tag { position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: var(--r-pill); background: rgba(255,255,255,.88); font-size: 10.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.merch-card__body { display: flex; flex-direction: column; gap: 6px; padding: 0 4px; }
+.merch-card__line { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-ink); }
+.merch-card__name { font-family: var(--font-display); font-weight: 700; font-size: 18px; line-height: 1.25; }
+.merch-card__swatches { display: flex; align-items: center; gap: 6px; }
+.merch-card__count { margin-left: 4px; font-size: 13px; color: var(--ink-soft); }
+.swatch { width: 14px; height: 14px; border-radius: 50%; background: var(--sw); box-shadow: inset 0 0 0 1px rgba(11,11,11,.25); }
+
+/* Executive band: near-black and gold, products on a sideways rail */
+.mk-exec { background: var(--mk-black); color: #F2EFE7; border-radius: var(--r-lg); margin: 0 clamp(8px, 1.2vw, 16px); }
+.mk-exec__head { display: grid; gap: 16px; max-width: 640px; margin-bottom: clamp(32px, 4vw, 56px); }
+.mk-exec__head .eyebrow { color: var(--gold); }
+.mk-exec__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 4.2vw, 58px); line-height: 1.05; letter-spacing: -.02em; color: #F2EFE7; }
+.mk-exec__head .body-lg { color: #CFCAC0; }
+.mk-exec [data-sweep] { --sweep-hi: #E9D49A; --sweep-hi2: var(--gold); }
+.mk-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(230px, 1fr); gap: 18px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #555 transparent; }
+.mk-rail .merch-card { scroll-snap-align: start; color: #F2EFE7; }
+.mk-rail .merch-card__media { background: #1A1A1A; }
+.mk-rail .merch-card__line { color: var(--gold); }
+.mk-rail .merch-card__count { color: #B8B2A6; }
+.mk-rail .swatch { box-shadow: inset 0 0 0 1px rgba(255,255,255,.4); }
+
+.mk-everyday { padding-top: clamp(16px, 2vw, 24px); }
+
+/* Details: three quiet points */
+.mk-details { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.mk-details > div { padding: 30px 28px; border-radius: var(--r); background: var(--mk-bg); display: flex; flex-direction: column; gap: 10px; }
+.mk-details h3 { font-family: var(--font-display); font-weight: 700; font-size: 20px; }
+.mk-details p { color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
+
+/* Collection filter */
+.mk-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.mk-chip { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--r-pill); border: 1px solid var(--line-2); background: var(--white); color: var(--navy); font: 600 14px/1 var(--font-body); cursor: pointer; transition: background-color .2s, color .2s, border-color .2s; }
+.mk-chip span { font-size: 12px; color: var(--ink-soft); }
+.mk-chip:hover { border-color: var(--navy); }
+.mk-chip[aria-pressed="true"] { background: var(--navy); color: var(--on-navy); border-color: var(--navy); }
+.mk-chip[aria-pressed="true"] span { color: var(--gold); }
+
+/* Product page */
+.mk-product { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; padding-top: 24px; }
+.mk-product__gallery { display: grid; gap: 12px; position: sticky; top: 24px; }
+.mk-product__stage { margin: 0; aspect-ratio: 4 / 5; border-radius: var(--r-lg); overflow: hidden; background: var(--mk-media); }
+.mk-product__stage img { width: 100%; height: 100%; object-fit: cover; transition: opacity .35s; }
+.mk-product__thumbs { display: flex; gap: 10px; }
+.mk-product__thumbs span { width: 84px; aspect-ratio: 4 / 5; border-radius: var(--r-sm); overflow: hidden; background: var(--mk-media); opacity: .55; transition: opacity .25s; outline: 2px solid transparent; outline-offset: 2px; }
+.mk-product__thumbs span.is-on { opacity: 1; outline-color: var(--navy); }
+.mk-product__thumbs img { width: 100%; height: 100%; object-fit: cover; }
+.mk-product__info { display: flex; flex-direction: column; gap: 20px; padding-top: 12px; }
+.mk-product__name { font-family: var(--font-display); font-weight: 800; font-size: clamp(32px, 3.6vw, 52px); line-height: 1.05; letter-spacing: -.02em; }
+.mk-product__info .lead { color: var(--ink-soft); }
+.mk-colours { border: 0; padding: 0; margin: 0; }
+.mk-colours legend { font-size: 14px; color: var(--ink-soft); margin-bottom: 10px; }
+.mk-colours legend b { color: var(--navy); }
+.mk-colours__row { display: flex; gap: 10px; }
+.mk-colour { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--sw); box-shadow: inset 0 0 0 1px rgba(11,11,11,.25), 0 0 0 3px var(--white), 0 0 0 4px transparent; cursor: pointer; transition: box-shadow .2s; }
+.mk-colour[aria-pressed="true"] { box-shadow: inset 0 0 0 1px rgba(11,11,11,.25), 0 0 0 3px var(--white), 0 0 0 5px var(--navy); }
+.mk-colour:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.mk-specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; border-radius: var(--r); overflow: hidden; background: var(--line); border: 1px solid var(--line); margin: 0; }
+.mk-specs > div { background: var(--white); padding: 14px 16px; }
+.mk-specs dt { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.mk-specs dd { margin: 4px 0 0; font-weight: 600; }
+@media (max-width: 899px) { .mk-product { grid-template-columns: 1fr; } .mk-product__gallery { position: static; } }
+.merch-card[hidden]{display:none!important}

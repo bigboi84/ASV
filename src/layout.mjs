@@ -1,6 +1,6 @@
 import { SITE, html, raw, esc, href, extAttrs, isExternal, icon } from './lib.mjs';
 
-const MARKET_ROUTES = ['/marketplace', '/shop', '/vendors', '/cart', '/checkout', '/order-received'];
+const MARKET_ROUTES = ['/marketplace', '/shop'];
 
 function isCurrent(route, current) {
   return route === current;
@@ -65,9 +65,7 @@ function drawer(nav, current) {
 function marketBar(current) {
   const tabs = [
     { label: 'Overview', route: '/marketplace' },
-    { label: 'Shop All', route: '/shop' },
-    { label: 'Vendors', route: '/vendors' },
-    { label: 'Cart', route: '/cart' },
+    { label: 'The Collection', route: '/shop' },
   ];
   return html`
 <div class="market-bar" data-el="marketplace.bar" data-el-build="theme-builder">
@@ -79,7 +77,7 @@ function marketBar(current) {
     })}</nav>
     <div class="market-bar__actions">
       <a class="btn btn--line-light btn--sm market-bar__sell" href="marketplace.html#vendor-form">Sell with us</a>
-      <a class="btn btn--gold btn--sm cart-link" href="cart.html" aria-label="View cart">Cart<span class="cart-count" data-cart-count>0</span></a>
+      <a class="btn btn--gold btn--sm" href="marketplace.html#buyer-form">Join the launch list</a>
     </div>
   </div>
 </div>`;
