@@ -142,6 +142,60 @@
     });
   }
 
+  /* ───────── Home hero reel: a tour of the village, scene by scene ───────── */
+  var reel = $('[data-reel]');
+  if (reel) {
+    var scenes = $$('.reel__scene', reel);
+    var chips = $$('[data-reel-go]', reel);
+    var cap = $('[data-reel-caption]', reel);
+    var capTitle = $('[data-reel-title]', reel);
+    var capLine = $('[data-reel-line]', reel);
+    var pauseBtn = $('[data-reel-pause]', reel);
+    var DUR = 5600, cur = 0, timer = null, paused = reduce, visible = true;
+    reel.style.setProperty('--reel-dur', DUR + 'ms');
+    function show(i, byUser) {
+      cur = (i + scenes.length) % scenes.length;
+      scenes.forEach(function (s, j) { s.classList.toggle('is-on', j === cur); });
+      chips.forEach(function (c, j) {
+        c.setAttribute('aria-pressed', j === cur ? 'true' : 'false');
+        c.classList.remove('is-run'); if (j === cur) { void c.offsetWidth; c.classList.add('is-run'); }
+      });
+      if (cap) {
+        cap.setAttribute('aria-live', byUser ? 'polite' : 'off');
+        cap.classList.remove('is-in'); void cap.offsetWidth; cap.classList.add('is-in');
+        capTitle.textContent = chips[cur].getAttribute('data-title'); capLine.textContent = chips[cur].getAttribute('data-line');
+      }
+      var c = chips[cur]; var rail = c.parentNode;
+      if (rail.scrollWidth > rail.clientWidth) rail.scrollTo({ left: c.offsetLeft - rail.clientWidth / 2 + c.offsetWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
+      schedule();
+    }
+    function schedule() {
+      clearTimeout(timer);
+      if (!paused && visible) timer = setTimeout(function () { show(cur + 1, false); }, DUR);
+    }
+    function setPaused(p) {
+      paused = p;
+      reel.classList.toggle('is-paused', p);
+      if (pauseBtn) {
+        pauseBtn.setAttribute('aria-pressed', String(p));
+        $('.sr-only', pauseBtn).textContent = p ? 'Play the scene slideshow' : 'Pause the scene slideshow';
+        $('.ico-pause', pauseBtn).toggleAttribute('hidden', p);
+        $('.ico-play', pauseBtn).toggleAttribute('hidden', !p);
+      }
+      if (!p) show(cur, false); else clearTimeout(timer);
+    }
+    chips.forEach(function (c, i) { c.addEventListener('click', function () { show(i, true); }); });
+    if (pauseBtn) pauseBtn.addEventListener('click', function () { setPaused(!paused); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        visible = en[0].isIntersecting;
+        reel.classList.toggle('is-offscreen', !visible);
+        if (visible && !paused) show(cur, false); else clearTimeout(timer);
+      }, { threshold: 0.2 }).observe(reel);
+    }
+    setPaused(paused);
+  }
+
   /* ───────── Marketplace: collection filter (with #hash) ───────── */
   var merch = $('[data-merch]');
   if (merch) {

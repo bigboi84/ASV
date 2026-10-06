@@ -67,6 +67,19 @@ function esportsBand() {
 }
 
 // ════════════════════════ HOME ════════════════════════
+// Hero reel: a tour of the proposed village. Scene 1 is the designer's Whitby dome rendering;
+// the rest are AI concept renderings created for this homepage mockup.
+const REEL = [
+  { img: 'whitby-dome.jpg', label: 'The Village', line: 'The proposed Whitby Smart Sports Village and its year-round dome.', ox: '50%', oy: '40%' },
+  { img: 'village/gate.jpg', label: 'Arrival', line: 'A welcoming, step-free arrival plaza for athletes, families and visitors.', ox: '30%', oy: '55%' },
+  { img: 'village/esports.jpg', label: 'Esports Arena', line: 'Tournaments, creators and media under one roof.', ox: '55%', oy: '35%' },
+  { img: 'village/ai-studio.jpg', label: 'AI & Education', line: 'AI, performance analytics and learning studios for athletes and students.', ox: '35%', oy: '45%' },
+  { img: 'village/food-park.jpg', label: 'Food Park', line: 'A food park where game day and community meet.', ox: '70%', oy: '50%' },
+  { img: 'village/family-park.jpg', label: 'Family Park', line: 'Family attractions, play spaces and a splash pad.', ox: '25%', oy: '45%' },
+  { img: 'village/sensory.jpg', label: 'Sensory Spaces', line: 'Calm, sensory-friendly spaces designed with neurodivergent visitors.', ox: '40%', oy: '55%' },
+  { img: 'village/match-night.jpg', label: 'Match Night', line: 'Under the dome on match night.', ox: '50%', oy: '60%' },
+];
+
 export function home(d) {
   const pillarImgs = [
     ['pillars-hall.jpg', 'A coach demonstrating a movement to two athletes on an indoor court.'],
@@ -85,39 +98,34 @@ export function home(d) {
     overlay: true,
     description: 'AFSV VRC is creating a smarter, more inclusive sports and education ecosystem where athletes, families, educators, partners and communities can train, learn, connect and grow.',
     body: html`
-<section class="hero hero--full" data-el="home.hero" data-el-build="elementor">
-  <div class="hero__media">
-    <img src="${IMG('hero-fieldhouse.jpg')}" alt="" width="1344" height="752" fetchpriority="high">
-    <video src="assets/video/hero-loop.mp4" poster="${IMG('hero-fieldhouse.jpg')}" muted loop playsinline autoplay preload="metadata" aria-hidden="true" tabindex="-1"></video>
+<section class="hero hero--full hero--reel" data-el="home.hero" data-el-build="elementor" data-reel>
+  <div class="hero__media reel" aria-hidden="true">
+    ${REEL.map((r, i) => html`<figure class="reel__scene${i === 0 ? ' is-on' : ''}" style="--ox:${r.ox};--oy:${r.oy}"><img src="${IMG(r.img)}" alt="" width="1920" height="1080"${i === 0 ? raw(' fetchpriority="high"') : raw(' loading="lazy"')}></figure>`)}
   </div>
   <div class="hero__scrim" aria-hidden="true"></div>
-  <svg class="hero__lanes" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path d="M-40 690 C 380 610, 820 640, 1480 470"/>
-    <path d="M-40 730 C 400 650, 860 690, 1480 520"/>
-    <path d="M-40 770 C 420 690, 900 740, 1480 570"/>
-    <path class="runner" d="M-40 730 C 400 650, 860 690, 1480 520"/>
-  </svg>
   <div class="wrap hero__content">
     <div class="hero__copy">
-      <p class="eyebrow eyebrow-rule">AFSV VRC Global Development Group</p>
+      <p class="eyebrow eyebrow-rule">Whitby Smart Sports Village · Proposed</p>
       <h1 class="display split-words" aria-label="Building Athletes. Empowering Minds. Strengthening Communities."><span aria-hidden="true">${splitWords(['Building Athletes.', 'Empowering Minds.', 'Strengthening Communities.'], ['Communities.'])}</span></h1>
-      <p class="lead">AFSV VRC is creating a smarter, more inclusive sports and education ecosystem where athletes, families, educators, partners and communities can train, learn, connect and grow.</p>
+      <p class="lead">One connected village for sport, esports, AI and education, food, family and inclusive spaces — where athletes, families and communities can train, learn, connect and grow.</p>
       <div class="btn-row btn-row--stack">
         ${btn('Explore the Smart Sports Village', '/whitby-smart-sports-village', 'gold')}
         ${btn('Join the Movement', '/membership', 'line-light')}
       </div>
     </div>
-  </div>
-  <div class="hero__facts">
-    <div class="wrap hero__facts-inner">
-      <a class="hero__fact" href="whitby-smart-sports-village.html"><span class="hero__fact-k">Pilot</span><span class="hero__fact-v">Whitby, Ontario</span><span class="pill pill--gold">Proposed</span></a>
-      <a class="hero__fact" href="strategic-pillars.html"><span class="hero__fact-k">Model</span><span class="hero__fact-v">4 strategic pillars</span></a>
-      <a class="hero__fact" href="about.html"><span class="hero__fact-k">Reach</span><span class="hero__fact-v">Canada · Caribbean · Global</span></a>
-      <a class="hero__fact hero__fact--book" href="${SITE.booking}" target="_blank" rel="noopener noreferrer"><span class="hero__fact-k">Book. Train. Perform.</span><span class="hero__fact-v">Book a session ${icon('external')}</span><span class="sr-only"> (opens in a new tab)</span></a>
+    <div class="reel__caption" aria-live="polite" data-reel-caption>
+      <span class="pill pill--gold">Concept rendering</span>
+      <p><b data-reel-title>${REEL[0].label}</b><span data-reel-line>${REEL[0].line}</span></p>
     </div>
   </div>
-  <button type="button" class="media-toggle" aria-pressed="false">${icon('pause', 'ico-pause')}${icon('play', 'ico-play')}<span>Pause background video</span></button>
-  <p class="sr-only">Background video: adult athletes training in a modern indoor fieldhouse — a sprinter on the track, an athlete adjusting a wheelchair racing frame, and two athletes talking courtside in low evening light.</p>
+  <div class="reel__bar">
+    <div class="wrap reel__bar-inner">
+      <div class="reel__chips" role="group" aria-label="Explore the village">
+        ${REEL.map((r, i) => html`<button type="button" class="reel__chip" data-reel-go="${i}" data-title="${r.label}" data-line="${r.line}" aria-pressed="${i === 0 ? 'true' : 'false'}"><span class="reel__num">${String(i + 1).padStart(2, '0')}</span>${r.label}<i class="reel__prog" aria-hidden="true"></i></button>`)}
+      </div>
+      <button type="button" class="reel__pause" aria-pressed="false" data-reel-pause>${icon('pause', 'ico-pause')}${icon('play', 'ico-play')}<span class="sr-only">Pause the scene slideshow</span></button>
+    </div>
+  </div>
 </section>
 
 <div class="ticker" aria-label="Program areas">
