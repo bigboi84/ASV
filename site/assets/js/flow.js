@@ -142,58 +142,71 @@
     });
   }
 
-  /* ───────── Home hero reel: a tour of the village, scene by scene ───────── */
-  var reel = $('[data-reel]');
-  if (reel) {
-    var scenes = $$('.reel__scene', reel);
-    var chips = $$('[data-reel-go]', reel);
-    var cap = $('[data-reel-caption]', reel);
-    var capTitle = $('[data-reel-title]', reel);
-    var capLine = $('[data-reel-line]', reel);
-    var pauseBtn = $('[data-reel-pause]', reel);
-    var DUR = 5600, cur = 0, timer = null, paused = reduce, visible = true;
-    reel.style.setProperty('--reel-dur', DUR + 'ms');
-    function show(i, byUser) {
-      cur = (i + scenes.length) % scenes.length;
-      scenes.forEach(function (s, j) { s.classList.toggle('is-on', j === cur); });
-      chips.forEach(function (c, j) {
-        c.setAttribute('aria-pressed', j === cur ? 'true' : 'false');
-        c.classList.remove('is-run'); if (j === cur) { void c.offsetWidth; c.classList.add('is-run'); }
-      });
-      if (cap) {
-        cap.setAttribute('aria-live', byUser ? 'polite' : 'off');
-        cap.classList.remove('is-in'); void cap.offsetWidth; cap.classList.add('is-in');
-        capTitle.textContent = chips[cur].getAttribute('data-title'); capLine.textContent = chips[cur].getAttribute('data-line');
+  /* ───────── Home hero film: chapters follow the flythrough's timeline ───────── */
+  var film = $('[data-film]');
+  var fv = film ? $('video[data-film-video]', film) : null;
+  if (film && fv) {
+    var chips = $$('[data-reel-go]', film);
+    var starts = chips.map(function (c) { return parseFloat(c.getAttribute('data-t')) || 0; });
+    var cap = $('[data-reel-caption]', film);
+    var capTitle = $('[data-reel-title]', film);
+    var capLine = $('[data-reel-line]', film);
+    var pauseBtn = $('[data-reel-pause]', film);
+    var cur = -1, userPaused = reduce, byUser = false;
+    function chapterAt(t) { var i = 0; starts.forEach(function (s, j) { if (t >= s - 0.05) i = j; }); return i; }
+    function paint() {
+      var t = fv.currentTime || 0, dur = fv.duration || (starts[starts.length - 1] + 5);
+      var i = chapterAt(t);
+      if (i !== cur) {
+        cur = i;
+        chips.forEach(function (c, j) { c.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+        if (cap) {
+          cap.setAttribute('aria-live', byUser ? 'polite' : 'off');
+          cap.classList.remove('is-in'); void cap.offsetWidth; cap.classList.add('is-in');
+          capTitle.textContent = chips[i].getAttribute('data-title'); capLine.textContent = chips[i].getAttribute('data-line');
+        }
+        var c = chips[i], rail = c.parentNode;
+        if (rail.scrollWidth > rail.clientWidth) rail.scrollTo({ left: c.offsetLeft - rail.clientWidth / 2 + c.offsetWidth / 2, behavior: 'smooth' });
+        byUser = false;
       }
-      var c = chips[cur]; var rail = c.parentNode;
-      if (rail.scrollWidth > rail.clientWidth) rail.scrollTo({ left: c.offsetLeft - rail.clientWidth / 2 + c.offsetWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
-      schedule();
-    }
-    function schedule() {
-      clearTimeout(timer);
-      if (!paused && visible) timer = setTimeout(function () { show(cur + 1, false); }, DUR);
+      chips.forEach(function (c, j) {
+        var s = starts[j], e = j + 1 < starts.length ? starts[j + 1] : dur;
+        c.style.setProperty('--p', j < i ? 1 : j > i ? 0 : Math.min(1, Math.max(0, (t - s) / (e - s))).toFixed(3));
+      });
     }
     function setPaused(p) {
-      paused = p;
-      reel.classList.toggle('is-paused', p);
+      userPaused = p;
+      film.classList.toggle('is-paused', p);
       if (pauseBtn) {
         pauseBtn.setAttribute('aria-pressed', String(p));
-        $('.sr-only', pauseBtn).textContent = p ? 'Play the scene slideshow' : 'Pause the scene slideshow';
+        $('.sr-only', pauseBtn).textContent = p ? 'Play the background film' : 'Pause the background film';
         $('.ico-pause', pauseBtn).toggleAttribute('hidden', p);
         $('.ico-play', pauseBtn).toggleAttribute('hidden', !p);
       }
-      if (!p) show(cur, false); else clearTimeout(timer);
+      if (p) fv.pause(); else { var q = fv.play(); if (q && q.catch) q.catch(function () {}); }
     }
-    chips.forEach(function (c, i) { c.addEventListener('click', function () { show(i, true); }); });
-    if (pauseBtn) pauseBtn.addEventListener('click', function () { setPaused(!paused); });
+    fv.addEventListener('timeupdate', paint);
+    fv.addEventListener('seeked', paint);
+    fv.addEventListener('loadedmetadata', paint);
+    fv.addEventListener('playing', function () { film.classList.add('is-playing'); });
+    chips.forEach(function (c, i) {
+      c.addEventListener('click', function () {
+        byUser = true; cur = -1;
+        try { fv.currentTime = starts[i]; } catch (e) {}
+        film.classList.add('is-playing'); // show the frame even while paused / reduced motion
+        paint();
+      });
+    });
+    if (pauseBtn) pauseBtn.addEventListener('click', function () { setPaused(!userPaused); });
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (en) {
-        visible = en[0].isIntersecting;
-        reel.classList.toggle('is-offscreen', !visible);
-        if (visible && !paused) show(cur, false); else clearTimeout(timer);
-      }, { threshold: 0.2 }).observe(reel);
+        if (en[0].isIntersecting) { if (!userPaused) { var q = fv.play(); if (q && q.catch) q.catch(function () {}); } }
+        else fv.pause();
+      }, { threshold: 0.2 }).observe(film);
     }
-    setPaused(paused);
+    if (reduce) fv.removeAttribute('autoplay');
+    setPaused(userPaused);
+    paint();
   }
 
   /* ───────── Marketplace: collection filter (with #hash) ───────── */

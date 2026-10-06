@@ -203,7 +203,7 @@
   }
 
   /* ───────── Hero video: pause control + pause when off screen ───────── */
-  var video = $('.hero video');
+  var video = $('.hero video:not([data-film-video])');
   var vBtn = $('.media-toggle');
   if (video) {
     var userPaused = false;

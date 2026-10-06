@@ -67,17 +67,14 @@ function esportsBand() {
 }
 
 // ════════════════════════ HOME ════════════════════════
-// Hero reel: a tour of the proposed village. Scene 1 is the designer's Whitby dome rendering;
-// the rest are AI concept renderings created for this homepage mockup.
-const REEL = [
-  { img: 'whitby-dome.jpg', label: 'The Village', line: 'The proposed Whitby Smart Sports Village and its year-round dome.', ox: '50%', oy: '40%' },
-  { img: 'village/gate.jpg', label: 'Arrival', line: 'A welcoming, step-free arrival plaza for athletes, families and visitors.', ox: '30%', oy: '55%' },
-  { img: 'village/esports.jpg', label: 'Esports Arena', line: 'Tournaments, creators and media under one roof.', ox: '55%', oy: '35%' },
-  { img: 'village/ai-studio.jpg', label: 'AI & Education', line: 'AI, performance analytics and learning studios for athletes and students.', ox: '35%', oy: '45%' },
-  { img: 'village/food-park.jpg', label: 'Food Park', line: 'A food park where game day and community meet.', ox: '70%', oy: '50%' },
-  { img: 'village/family-park.jpg', label: 'Family Park', line: 'Family attractions, play spaces and a splash pad.', ox: '25%', oy: '45%' },
-  { img: 'village/sensory.jpg', label: 'Sensory Spaces', line: 'Calm, sensory-friendly spaces designed with neurodivergent visitors.', ox: '40%', oy: '55%' },
-  { img: 'village/match-night.jpg', label: 'Match Night', line: 'Under the dome on match night.', ox: '50%', oy: '60%' },
+// Hero film: a 25-second concept flythrough of the proposed village (AI concept renderings,
+// opening on the designer's Whitby dome). Chips follow the film's timeline and jump to each chapter.
+const FILM = [
+  { t: 0, label: 'The Village', line: 'The proposed Whitby Smart Sports Village and its year-round dome.' },
+  { t: 5, label: 'Arrival', line: 'Through the main gate and up into the concourse.' },
+  { t: 10, label: 'Esports Arena', line: 'Tournaments, creators and media under one roof.' },
+  { t: 15, label: 'Food & Family Park', line: 'A food park, family attractions and a splash pad.' },
+  { t: 20, label: 'Match Night', line: 'Through the tunnel and into the dome on match night.' },
 ];
 
 export function home(d) {
@@ -98,9 +95,10 @@ export function home(d) {
     overlay: true,
     description: 'AFSV VRC is creating a smarter, more inclusive sports and education ecosystem where athletes, families, educators, partners and communities can train, learn, connect and grow.',
     body: html`
-<section class="hero hero--full hero--reel" data-el="home.hero" data-el-build="elementor" data-reel>
+<section class="hero hero--full hero--reel" data-el="home.hero" data-el-build="elementor" data-film>
   <div class="hero__media reel" aria-hidden="true">
-    ${REEL.map((r, i) => html`<figure class="reel__scene${i === 0 ? ' is-on' : ''}" style="--ox:${r.ox};--oy:${r.oy}"><img src="${IMG(r.img)}" alt="" width="1920" height="1080"${i === 0 ? raw(' fetchpriority="high"') : raw(' loading="lazy"')}></figure>`)}
+    <img src="${IMG('village/film-poster.jpg')}" alt="" width="1920" height="1080" fetchpriority="high">
+    <video data-film-video poster="${IMG('village/film-poster.jpg')}" muted loop playsinline preload="metadata" tabindex="-1"><source src="assets/video/village-flythrough.webm" type="video/webm"><source src="assets/video/village-flythrough.mp4" type="video/mp4"></video>
   </div>
   <div class="hero__scrim" aria-hidden="true"></div>
   <div class="wrap hero__content">
@@ -114,16 +112,16 @@ export function home(d) {
       </div>
     </div>
     <div class="reel__caption" aria-live="polite" data-reel-caption>
-      <span class="pill pill--gold">Concept rendering</span>
-      <p><b data-reel-title>${REEL[0].label}</b><span data-reel-line>${REEL[0].line}</span></p>
+      <span class="pill pill--gold">Concept flythrough</span>
+      <p><b data-reel-title>${FILM[0].label}</b><span data-reel-line>${FILM[0].line}</span></p>
     </div>
   </div>
   <div class="reel__bar">
     <div class="wrap reel__bar-inner">
       <div class="reel__chips" role="group" aria-label="Explore the village">
-        ${REEL.map((r, i) => html`<button type="button" class="reel__chip" data-reel-go="${i}" data-title="${r.label}" data-line="${r.line}" aria-pressed="${i === 0 ? 'true' : 'false'}"><span class="reel__num">${String(i + 1).padStart(2, '0')}</span>${r.label}<i class="reel__prog" aria-hidden="true"></i></button>`)}
+        ${FILM.map((r, i) => html`<button type="button" class="reel__chip" data-reel-go="${i}" data-t="${r.t}" data-title="${r.label}" data-line="${r.line}" aria-pressed="${i === 0 ? 'true' : 'false'}"><span class="reel__num">${String(i + 1).padStart(2, '0')}</span>${r.label}<i class="reel__prog" aria-hidden="true"></i></button>`)}
       </div>
-      <button type="button" class="reel__pause" aria-pressed="false" data-reel-pause>${icon('pause', 'ico-pause')}${icon('play', 'ico-play')}<span class="sr-only">Pause the scene slideshow</span></button>
+      <button type="button" class="reel__pause" aria-pressed="false" data-reel-pause>${icon('pause', 'ico-pause')}${icon('play', 'ico-play')}<span class="sr-only">Pause the background film</span></button>
     </div>
   </div>
 </section>

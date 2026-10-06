@@ -1598,12 +1598,8 @@ svg[hidden] { display: none; }
 
 /* ═════════ HOME HERO REEL — "Arrive at the Village" (scene tour with Ken Burns) ═════════ */
 .hero--reel .reel { overflow: hidden; background: var(--navy); }
-.reel__scene { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 1.1s var(--ease); }
-.reel__scene img { width: 100%; height: 100%; object-fit: cover; transform-origin: var(--ox) var(--oy); }
-.reel__scene.is-on { opacity: 1; z-index: 1; }
-.reel__scene.is-on img { animation: reelKen calc(var(--reel-dur, 5600ms) + 1400ms) linear both; }
-.hero--reel.is-paused .reel__scene.is-on img, .hero--reel.is-offscreen .reel__scene.is-on img { animation-play-state: paused; }
-@keyframes reelKen { from { transform: scale(1.02); } to { transform: scale(1.13); } }
+.hero--reel .reel video { opacity: 0; transition: opacity .8s var(--ease); }
+.hero--reel.is-playing .reel video, .hero--reel.is-paused.is-playing .reel video { opacity: 1; }
 .hero--reel .hero__scrim { background:
   linear-gradient(180deg, rgba(9,30,54,.7) 0%, rgba(9,30,54,.12) 28%, rgba(9,30,54,.2) 52%, rgba(9,30,54,.94) 100%),
   linear-gradient(90deg, rgba(9,30,54,.82) 0%, rgba(9,30,54,.3) 55%, rgba(9,30,54,0) 100%); }
@@ -1627,11 +1623,7 @@ svg[hidden] { display: none; }
 .reel__chip:hover { border-color: var(--gold); }
 .reel__chip[aria-pressed="true"] { background: rgba(245,243,238,.1); border-color: var(--gold); }
 .reel__num { font-size: 10px; color: var(--gold); letter-spacing: .1em; }
-.reel__prog { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--gold); transform: scaleX(0); transform-origin: left; }
-.reel__chip.is-run .reel__prog { animation: reelProg var(--reel-dur, 5600ms) linear both; }
-.hero--reel.is-paused .reel__prog, .hero--reel.is-offscreen .reel__prog { animation-play-state: paused; }
-.hero--reel.is-paused .reel__chip[aria-pressed="true"] .reel__prog { animation: none; transform: scaleX(1); }
-@keyframes reelProg { to { transform: scaleX(1); } }
+.reel__prog { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--gold); transform: scaleX(var(--p, 0)); transform-origin: left; transition: transform .25s linear; }
 .reel__pause { flex: none; width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: transparent; color: var(--on-navy); border: 1px solid rgba(245,243,238,.35); cursor: pointer; }
 .reel__pause:hover { border-color: var(--gold); color: var(--gold); }
 .reel__pause svg { width: 14px; height: 14px; }
@@ -1641,7 +1633,6 @@ svg[hidden] { display: none; }
   .reel__chip { flex: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .reel__scene { transition: none; }
-  .reel__scene.is-on img, .reel__caption.is-in p { animation: none; }
-  .reel__prog { display: none; }
+  .reel__caption.is-in p { animation: none; }
+  .hero--reel .reel video { transition: none; }
 }
