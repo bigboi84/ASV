@@ -181,6 +181,7 @@ export function page({ data, route, title, description, body, scripts = '', ogIm
 ${fonts.length ? `<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${fonts.map((f) => 'family=' + f.replace(/ /g, '+')).join('&')}&display=swap">` : ''}
 </head>
 <body${inMarket ? ' class="is-market"' : ''}>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="sketchy" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="0.9" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
 <a class="skip-link" href="#main">Skip to main content</a>
 ${overlay ? '<div class="masthead masthead--overlay">' : ''}
 <div class="announce" role="region" aria-label="Site notice" data-el="site.announcement" data-el-build="theme-builder">

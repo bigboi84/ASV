@@ -7,6 +7,22 @@ const IMG = (f) => `assets/img/${f}`;
 let V = {};
 export const setVideos = (v) => { V = v; };
 const TICK = ['Multi-sport development', 'Soccer', 'Cricket', 'Basketball', 'Track and sprint', 'Adaptive sport', 'Esports', 'AI education', 'Life skills', 'Mentorship', 'Inclusive education', 'Community'];
+// Hand-drawn style line icons for the program strip under the home intro (24×24 grid, stroked).
+const SKETCH = {
+  'Multi-sport development': '<path d="M7 4h10v4a5 5 0 0 1-10 0z"/><path d="M7 6H4.5a2.5 2.5 0 0 0 2.6 3.2M17 6h2.5a2.5 2.5 0 0 1-2.6 3.2"/><path d="M12 13v4M8.5 20.5h7M9.5 17h5v3.5"/>',
+  Soccer: '<circle cx="12" cy="12" r="8.6"/><path d="M12 8.2l3.2 2.3-1.2 3.8h-4l-1.2-3.8z"/><path d="M12 3.4v4.8M15.2 10.5l4.3-1.6M14 14.3l2.7 3.8M10 14.3l-2.7 3.8M8.8 10.5L4.5 8.9"/>',
+  Cricket: '<path d="M14.6 3.6l2.4 2.4-8.2 8.2-2.4-2.4z"/><path d="M6.4 11.8l-2.6 2.6a1.4 1.4 0 0 0 0 2l.4.4a1.4 1.4 0 0 0 2 0l2.6-2.6"/><circle cx="17.2" cy="17.4" r="2.6"/><path d="M15.6 15.6c.9.4 2 1.6 2.4 2.6"/>',
+  Basketball: '<circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4v17.2"/><path d="M6 5.8c2.6 2.8 2.6 9.6 0 12.4M18 5.8c-2.6 2.8-2.6 9.6 0 12.4"/>',
+  'Track and sprint': '<circle cx="14.6" cy="4.6" r="1.8"/><path d="M8.2 9.6l3.4-2 3 1.8 2 3.2 2.6.6"/><path d="M11.6 7.6l-1.4 5.6 3.2 2.6-.8 5"/><path d="M10.2 13.2l-2.6 3.4-3.6-.4"/><path d="M2.6 21h6M15.6 21h5.8"/>',
+  'Adaptive sport': '<circle cx="12.4" cy="4.4" r="1.8"/><path d="M12 7v5.6h4.6l2 5"/><path d="M12 9.6h4"/><circle cx="10" cy="16" r="4.8"/><path d="M5.4 21h3"/>',
+  Esports: '<path d="M6.6 7.6h10.8a3.6 3.6 0 0 1 3.5 2.8l1 4.6a2.4 2.4 0 0 1-4 2.2l-2.1-2.2H8.2L6.1 17.2a2.4 2.4 0 0 1-4-2.2l1-4.6a3.6 3.6 0 0 1 3.5-2.8z"/><path d="M7.4 10.2v3M5.9 11.7h3"/><circle cx="15.6" cy="11" r=".9"/><circle cx="17.6" cy="12.8" r=".9"/>',
+  'AI education': '<rect x="6.4" y="6.4" width="11.2" height="11.2" rx="2"/><path d="M9.6 3.2v3.2M14.4 3.2v3.2M9.6 17.6v3.2M14.4 17.6v3.2M3.2 9.6h3.2M3.2 14.4h3.2M17.6 9.6h3.2M17.6 14.4h3.2"/><path d="M9.6 14.6l1.4-5.2h2l1.4 5.2M10.2 12.8h3.6"/>',
+  'Life skills': '<path d="M9 17.4h6M9.6 20.4h4.8"/><path d="M12 3.2a6 6 0 0 0-3.6 10.8c.6.5.9 1.1.9 1.9v1.5h5.4v-1.5c0-.8.3-1.4.9-1.9A6 6 0 0 0 12 3.2z"/><path d="M12 7.2v3.6l2-1.2"/>',
+  Mentorship: '<circle cx="8.4" cy="6.2" r="2.6"/><circle cx="16.6" cy="9.4" r="2"/><path d="M3.6 20.4v-3.2a4.8 4.8 0 0 1 9.6 0v3.2"/><path d="M13 15.2a3.6 3.6 0 0 1 7.2 1.2v4"/><path d="M11.2 12.4l2.6.8"/>',
+  'Inclusive education': '<path d="M12 6.6C9.8 5 6.6 4.6 3.4 5v13.4c3.2-.4 6.4 0 8.6 1.6 2.2-1.6 5.4-2 8.6-1.6V5c-3.2-.4-6.4 0-8.6 1.6z"/><path d="M12 6.6v13.4"/><path d="M15.8 10.4c.6-1 2.4-.8 2.4.6 0 1.2-2.4 2.6-2.4 2.6s-2.4-1.4-2.4-2.6c0-1.4 1.8-1.6 2.4-.6z"/>',
+  Community: '<circle cx="12" cy="6.4" r="2.4"/><circle cx="5.4" cy="9.4" r="2"/><circle cx="18.6" cy="9.4" r="2"/><path d="M7.6 20.4v-2.6a4.4 4.4 0 0 1 8.8 0v2.6"/><path d="M2.2 18.4v-1a3.2 3.2 0 0 1 4.8-2.8M21.8 18.4v-1a3.2 3.2 0 0 0-4.8-2.8"/>',
+};
+const sketchIcon = (name) => raw(`<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${SKETCH[name]}</svg>`);
 const PREVIEW = 'Development preview — this form is not connected yet.';
 
 
@@ -122,6 +138,12 @@ export function home(d) {
     <div class="reveal">
       <p class="eyebrow eyebrow-rule mb-s">AFSV VRC Global Development Group</p>
       <h2 class="home-intro__title">Building Athletes. Empowering Minds. <em>Strengthening Communities.</em></h2>
+      <div class="sport-strip" aria-label="Program areas">
+        <div class="sport-strip__track">
+          <ul>${TICK.map((t) => html`<li>${sketchIcon(t)}<span>${t}</span></li>`)}</ul>
+          <ul aria-hidden="true">${TICK.map((t) => html`<li>${sketchIcon(t)}<span>${t}</span></li>`)}</ul>
+        </div>
+      </div>
     </div>
     <div class="reveal">
       <p class="lead mb-m">One connected village for sport, high performance, esports, education, mentorship and inclusion — where athletes, families and communities can train, learn, connect and grow.</p>
@@ -138,13 +160,6 @@ export function home(d) {
     </div>
   </div>
 </section>
-
-<div class="ticker" aria-label="Program areas">
-  <div class="ticker__track">
-    <ul>${TICK.map((t) => html`<li>${t}</li>`)}</ul>
-    <ul aria-hidden="true">${TICK.map((t) => html`<li>${t}</li>`)}</ul>
-  </div>
-</div>
 
 <section class="wrap section event-section" id="events" aria-labelledby="events-h">
   <div class="section-head reveal">
