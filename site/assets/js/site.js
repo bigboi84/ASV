@@ -148,7 +148,7 @@
     $$('a', drawer).forEach(function (a) {
       a.addEventListener('click', function () { if (a.getAttribute('href').charAt(0) === '#') closeDrawer(); });
     });
-    window.addEventListener('resize', function () { if (window.innerWidth >= 1200 && !$('.market-bar')) closeDrawer(); });
+    window.addEventListener('resize', function () { if (window.innerWidth >= 1200 && !$('.shop-header')) closeDrawer(); });
   }
 
   /* ───────── Home pillar panels: hover/focus expands a panel ───────── */

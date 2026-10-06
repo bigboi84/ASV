@@ -313,35 +313,7 @@ button { font: inherit; color: inherit; }
 .drawer__sub a:hover, .drawer__sub a[aria-current="page"] { color: var(--gold); }
 .drawer__ctas { padding: 24px 24px 0; display: grid; gap: 10px; }
 
-/* ───────── Marketplace sub-bar ───────── */
-.market-bar {
-  position: sticky; top: var(--header-h); z-index: 55;
-  background: var(--navy); color: var(--on-navy); border-top: 1px solid rgba(245,243,238,.08);
-}
-.market-bar__inner { display: flex; align-items: stretch; gap: 20px; flex-wrap: wrap; }
-.market-bar__title { display: flex; align-items: center; gap: 13px; padding: 12px 0; font-family: var(--font-display); font-weight: 800; font-size: 13.5px; letter-spacing: .03em; }
-.market-bar nav { flex: 1; display: flex; min-width: 0; overflow-x: auto; scrollbar-width: none; }
-.market-bar nav::-webkit-scrollbar { display: none; }
-.market-bar nav a {
-  display: flex; align-items: center; padding: 0 15px; white-space: nowrap;
-  font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
-  color: var(--on-navy); border-bottom: 2px solid transparent;
-}
-.market-bar nav a:hover { color: var(--gold); }
-.market-bar nav a[aria-current="page"] { color: var(--gold); border-bottom-color: var(--gold); }
-.market-bar__actions { display: flex; align-items: center; gap: 10px; padding: 10px 0; }
 .cart-link { display: inline-flex; align-items: center; gap: 9px; }
-.cart-count {
-  min-width: 20px; height: 20px; padding: 0 5px; background: var(--navy); color: var(--gold);
-  display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;
-}
-@media (max-width: 720px) {
-  .market-bar__title { display: none; }
-  .market-bar__inner { gap: 8px; }
-  .market-bar nav { flex-basis: 100%; order: 2; }
-  .market-bar nav a { padding: 12px 12px; }
-  .market-bar__actions { flex: 1; justify-content: flex-end; }
-  .market-bar__sell { display: none; }
 }
 
 /* ───────── Breadcrumb ───────── */
@@ -770,7 +742,7 @@ legend { padding: 0; margin-bottom: 22px; font-family: var(--font-display); font
 .center { text-align: center; }
 
 @media print {
-  .announce, .site-header, .market-bar, .drawer, .to-top, .media-toggle, .site-footer { display: none !important; }
+  .announce, .site-header, .drawer, .to-top, .media-toggle, .site-footer { display: none !important; }
   .band--navy { background: none; color: #000; }
 }
 
@@ -1331,7 +1303,7 @@ svg[hidden] { display: none; }
 :root { --r-xs: 10px; --r-sm: 14px; --r: 22px; --r-lg: 30px; --r-pill: 999px; }
 
 /* Corners */
-.btn, .pill, .lead-chips a, .expand__tags li, .esports__badge, .market-bar .btn, .cart-count { border-radius: var(--r-pill); }
+.btn, .pill, .lead-chips a, .expand__tags li, .esports__badge, .cart-count { border-radius: var(--r-pill); }
 .field input, .field select, .field textarea { border-radius: var(--r-sm); }
 .check input { border-radius: 6px; }
 .dropdown { border-radius: var(--r-sm); overflow: hidden; }
@@ -1593,3 +1565,33 @@ svg[hidden] { display: none; }
 .mk-specs dd { margin: 4px 0 0; font-weight: 600; }
 @media (max-width: 899px) { .mk-product { grid-template-columns: 1fr; } .mk-product__gallery { position: static; } }
 .merch-card[hidden]{display:none!important}
+
+/* ═════════ MARKETPLACE HEADER (replaces the site header + dock on shop pages) ═════════ */
+.shop-header__inner { display: flex; align-items: center; gap: 18px; min-height: var(--header-h); }
+.shop-header__label {
+  font-family: var(--font-display); font-weight: 800; font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--navy); padding: 6px 0 6px 18px; border-left: 1px solid var(--line); white-space: nowrap;
+}
+.shop-header__label:hover, .shop-header__label[aria-current="page"] { color: var(--gold-ink, #8A6A1C); }
+.shop-nav { flex: 1; }
+.shop-nav > ul { display: flex; align-items: center; gap: 2px; }
+.shop-menu { min-width: 340px; padding: 14px 0 8px; display: grid; }
+.shop-menu__group + .shop-menu__group { border-top: 1px solid rgba(245,243,238,.1); margin-top: 6px; padding-top: 6px; }
+.shop-menu__line { margin: 0; padding: 6px 22px 4px; font-size: 10.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.shop-menu a { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+.shop-menu a span { font-size: 11px; font-weight: 700; color: var(--on-navy-soft); }
+.shop-menu__all { border-top: 1px solid rgba(245,243,238,.1); margin-top: 8px; font-weight: 700 !important; }
+.shop-header__actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+.shop-header .shop-header__menu { display: inline-flex; margin-left: 0; }
+.is-market .site-header { animation: none; transform: none; }
+@media (max-width: 1080px) { .shop-header__sell { display: none; } }
+@media (max-width: 860px) {
+  .shop-header__inner { flex-wrap: wrap; gap: 0 12px; padding-top: 10px; }
+  .shop-header__label { display: none; }
+  .shop-header__join { display: none; }
+  .shop-nav { order: 3; flex-basis: 100%; margin: 6px -11px 0; }
+  .shop-nav .nav-link { padding: 12px 11px; }
+  .shop-nav .nav-item { position: static; }
+  .shop-nav .dropdown { left: 16px; right: 16px; top: calc(100% - 4px); min-width: 0; }
+}
+.drawer__note { margin: 0; padding: 18px 24px 6px; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }

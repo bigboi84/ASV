@@ -1,4 +1,7 @@
+import fs from 'node:fs';
 import { SITE, html, raw, esc, href, extAttrs, isExternal, icon } from './lib.mjs';
+
+const MERCH = JSON.parse(fs.readFileSync(new URL('./data/merch.json', import.meta.url), 'utf8'));
 
 const MARKET_ROUTES = ['/marketplace', '/shop'];
 
@@ -31,7 +34,7 @@ function header(nav, current, overlay = false) {
 </header>`;
 }
 
-function drawer(nav, current) {
+function drawer(nav, current, inMarket = false) {
   const groups = nav.map((it, i) => {
     if (!it.kids) {
       return html`<div class="drawer__group"><a class="drawer__link" href="${href(it.href)}"${isCurrent(it.href, current) ? raw(' aria-current="page"') : ''}>${it.label}</a></div>`;
@@ -52,8 +55,10 @@ function drawer(nav, current) {
       <button type="button" class="drawer__close" data-drawer-close aria-label="Close menu">×</button>
     </div>
     <nav aria-label="Site">
+      ${inMarket ? html`<p class="drawer__note">Explore the rest of AFSV VRC</p>` : ''}
       ${groups}
       <div class="drawer__ctas">
+        ${inMarket ? html`<a class="btn btn--line-light" href="marketplace.html#buyer-form">Join the launch list</a><a class="btn btn--line-light" href="marketplace.html#vendor-form">Sell with us</a>` : ''}
         <a class="btn btn--gold" href="${SITE.booking}" target="_blank" rel="noopener noreferrer">Book Now<span class="sr-only"> (opens in a new tab)</span>${icon('external')}</a>
         <a class="btn btn--line-light" href="contact.html">Contact</a>
       </div>
@@ -62,25 +67,45 @@ function drawer(nav, current) {
 </div>`;
 }
 
-function marketBar(current) {
-  const tabs = [
-    { label: 'Overview', route: '/marketplace' },
-    { label: 'The Collection', route: '/shop' },
+// Marketplace header: replaces the site header (and the dock) on every shop page.
+// Shop categories + The Collection up front; the rest of the site lives in the menu drawer and footer.
+function shopHeader(current) {
+  const onShop = current === '/shop' || current.startsWith('/product/');
+  const lines = [
+    { label: 'Executive', ids: MERCH.collections.filter((c) => c.line === 'executive') },
+    { label: 'Everyday & Sport', ids: MERCH.collections.filter((c) => c.line === 'everyday') },
   ];
+  const count = (id) => MERCH.products.filter((p) => p.collection === id).length;
   return html`
-<div class="market-bar" data-el="marketplace.bar" data-el-build="theme-builder">
-  <div class="wrap market-bar__inner">
-    <div class="market-bar__title">Marketplace</div>
-    <nav aria-label="Marketplace">${tabs.map((t) => {
-      const on = t.route === '/shop' ? current === '/shop' || current.startsWith('/product/') : current === t.route;
-      return html`<a href="${href(t.route)}"${on ? raw(' aria-current="page"') : ''}>${t.label}</a>`;
-    })}</nav>
-    <div class="market-bar__actions">
-      <a class="btn btn--line-light btn--sm market-bar__sell" href="marketplace.html#vendor-form">Sell with us</a>
-      <a class="btn btn--gold btn--sm" href="marketplace.html#buyer-form">Join the launch list</a>
+<header class="site-header shop-header" data-el="marketplace.header" data-el-build="theme-builder">
+  <div class="wrap shop-header__inner">
+    <a class="brand" href="index.html" aria-label="${SITE.name} home"><img src="assets/img/logo.png" alt="${SITE.legal}" width="600" height="160"></a>
+    <a class="shop-header__label" href="marketplace.html"${current === '/marketplace' ? raw(' aria-current="page"') : ''}>Marketplace</a>
+    <nav class="shop-nav" aria-label="Marketplace">
+      <ul>
+        <li class="nav-item has-dropdown">
+          <button type="button" class="nav-link" aria-expanded="false" aria-controls="shop-menu">Shop<span class="caret" aria-hidden="true">▼</span></button>
+          <div class="dropdown shop-menu" id="shop-menu">
+            ${lines.map((l) => html`
+            <div class="shop-menu__group">
+              <p class="shop-menu__line">${l.label}</p>
+              ${l.ids.map((c) => html`<a href="shop.html#${c.id}">${c.name.replace(/^Everyday & Sport /, '').replace(/^Executive /, '')}<span>${count(c.id)}</span></a>`)}
+            </div>`)}
+            <a class="shop-menu__all" href="shop.html">All pieces<span>${MERCH.products.length}</span></a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="shop.html"${onShop ? raw(' aria-current="page"') : ''}>The Collection</a></li>
+      </ul>
+    </nav>
+    <div class="shop-header__actions">
+      <a class="btn btn--line-dark btn--sm shop-header__sell" href="marketplace.html#vendor-form">Sell with us</a>
+      <a class="btn btn--gold btn--sm shop-header__join" href="marketplace.html#buyer-form">Join the launch list</a>
+      <button type="button" class="menu-toggle shop-header__menu" data-drawer-open aria-controls="site-drawer" aria-expanded="false">
+        <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu
+      </button>
     </div>
   </div>
-</div>`;
+</header>`;
 }
 
 // Floating dock: replaces the top header once the visitor scrolls past the first screen.
@@ -155,7 +180,7 @@ export function page({ data, route, title, description, body, scripts = '', ogIm
 <link rel="stylesheet" href="assets/css/site.css">
 ${fonts.length ? `<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${fonts.map((f) => 'family=' + f.replace(/ /g, '+')).join('&')}&display=swap">` : ''}
 </head>
-<body>
+<body${inMarket ? ' class="is-market"' : ''}>
 <a class="skip-link" href="#main">Skip to main content</a>
 ${overlay ? '<div class="masthead masthead--overlay">' : ''}
 <div class="announce" role="region" aria-label="Site notice" data-el="site.announcement" data-el-build="theme-builder">
@@ -164,11 +189,10 @@ ${overlay ? '<div class="masthead masthead--overlay">' : ''}
     <button type="button" class="announce__close">Dismiss<span class="sr-only"> site notice</span></button>
   </div>
 </div>
-${header(data.nav, route, overlay)}
+${inMarket ? shopHeader(route) : header(data.nav, route, overlay)}
 ${overlay ? '</div>' : ''}
-${dock(route)}
-${inMarket ? marketBar(route) : ''}
-${drawer(data.nav, route)}
+${inMarket ? '' : dock(route)}
+${drawer(data.nav, route, inMarket)}
 <main id="main" tabindex="-1">
 ${body}
 </main>
