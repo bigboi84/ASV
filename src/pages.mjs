@@ -70,11 +70,12 @@ function esportsBand() {
 // Hero film: a 25-second concept flythrough of the proposed village (AI concept renderings,
 // opening on the designer's Whitby dome). Chips follow the film's timeline and jump to each chapter.
 const FILM = [
-  { t: 0, label: 'The Village', line: 'The proposed Whitby Smart Sports Village and its year-round dome.' },
-  { t: 5, label: 'Arrival', line: 'Through the main gate and up into the concourse.' },
-  { t: 10, label: 'Esports Arena', line: 'Tournaments, creators and media under one roof.' },
-  { t: 15, label: 'Food & Family Park', line: 'A food park, family attractions and a splash pad.' },
-  { t: 20, label: 'Match Night', line: 'Through the tunnel and into the dome on match night.' },
+  { t: 0, label: 'The Village', line: 'The proposed Whitby Smart Sports Village: dome, fields, track and courts.' },
+  { t: 4.17, label: 'Arrival', line: 'Through the main gate and up into the concourse.' },
+  { t: 8.33, label: 'High Performance', line: 'Strength & conditioning, sports science and recovery.' },
+  { t: 12.5, label: 'Esports Studio', line: 'Compete. Stream. Connect. The future is digital.' },
+  { t: 16.67, label: 'Learning Centre', line: 'Classrooms, tutoring, mentorship and special needs support.' },
+  { t: 20.83, label: 'Match Night', line: 'Through the tunnel and into the dome on match night.' },
 ];
 
 export function home(d) {
@@ -105,7 +106,7 @@ export function home(d) {
     <div class="hero__copy">
       <p class="eyebrow eyebrow-rule">Whitby Smart Sports Village · Proposed</p>
       <h1 class="display split-words" aria-label="Building Athletes. Empowering Minds. Strengthening Communities."><span aria-hidden="true">${splitWords(['Building Athletes.', 'Empowering Minds.', 'Strengthening Communities.'], ['Communities.'])}</span></h1>
-      <p class="lead">One connected village for sport, esports, AI and education, food, family and inclusive spaces — where athletes, families and communities can train, learn, connect and grow.</p>
+      <p class="lead">One connected village for sport, high performance, esports, education, mentorship and inclusion — where athletes, families and communities can train, learn, connect and grow.</p>
       <div class="btn-row btn-row--stack">
         ${btn('Explore the Smart Sports Village', '/whitby-smart-sports-village', 'gold')}
         ${btn('Join the Movement', '/membership', 'line-light')}
@@ -538,6 +539,26 @@ ${breadcrumb([{ label: 'About', route: '/about' }, { label: 'Strategic Pillars' 
 }
 
 // ════════════════════════ WHITBY ════════════════════════
+// Whitby facilities, from the AFSV VRC Whitby Smart Sports Village facility mockup.
+const WH_FACILITIES = [
+  { img: 'dome', name: 'Multi-Sport Inflatable Dome', line: 'Year-round training under one roof.', items: ['Soccer fields', 'Cricket nets', 'Multi-sport courts', 'Year-round training'] },
+  { img: 'soccer', name: 'Soccer Fields', line: 'Outdoor pitches for training and match play.', items: ['Outdoor training fields'] },
+  { img: 'cricket', name: 'Cricket Facility', line: 'Dedicated nets and turf for the cricket pathway.', items: ['Practice nets', 'Turf training pitches'] },
+  { img: 'track', name: 'Track & Field', line: 'A full athletics venue for sprint, jump and throw.', items: ['400m track', 'Sprint lanes', 'Long jump / triple jump', 'Shot put / discus'] },
+  { img: 'basketball', name: 'Basketball Courts', line: 'Indoor and outdoor courts for play and development.', items: ['Indoor & outdoor courts', 'Skill development programs'] },
+  { img: 'hp', name: 'High Performance Training Centre', line: 'Elite training for peak performance.', items: ['Strength & conditioning', 'Sports science lab', 'Recovery & rehab', 'Athlete development programs'] },
+  { img: 'esports', name: 'Esports Competition Studio', line: 'Compete. Stream. Connect. The future is digital.', items: ['Competitive gaming arena', 'Streaming & broadcasting', 'Content creation lab', 'Esports & Digital Hub'] },
+  { img: 'learn', name: 'Learning & Mentorship Centre', line: 'Education today. Leaders tomorrow.', items: ['Classrooms', 'Tutoring & mentorship', 'Special needs support programs', 'Life skills development'] },
+  { img: 'lounge', name: 'Community Lounge', line: 'A space for families, partners and communities.', items: ['Family & partner hospitality', 'Community gatherings'] },
+];
+const WH_HIGHLIGHTS = ['Year-round training', 'State-of-the-art infrastructure', 'Multi-sport development', 'Education & mentorship', 'Special needs inclusion', 'Esports & innovation', 'Community engagement', 'Sustainable & green design'];
+const WH_FEATURES = ['Serving athletes of all ages', 'Inclusive programs for every ability', 'Pathways to scholarships & careers', 'Building stronger communities', 'Connecting the Caribbean diaspora', 'Creating a legacy for generations'];
+const WH_ECOSYSTEM = [
+  { name: 'AFSV VRC Development Group Ltd.', role: 'Infrastructure development' },
+  { name: 'MLMSR Mentorship LLC', role: 'Education & special needs support' },
+  { name: 'EFN — Esports & Fans Network', role: 'Digital & esports division' },
+];
+
 export function whitby(d) {
   return {
     title: 'Whitby Smart Sports Village',
@@ -561,6 +582,66 @@ ${breadcrumb([{ label: 'Smart Sports Village' }, { label: 'Whitby Smart Sports V
       <div class="cell__top"><span class="eyebrow" style="font-size:11px;letter-spacing:.16em">${c.label}</span>${c.tag ? html`<span class="pill" style="font-size:9.5px;padding:4px 8px">${c.tag}</span>` : ''}</div>
       <p style="font-family:var(--font-display);font-weight:600;font-size:17px;line-height:1.44">${c.body}</p>
     </div>`)}
+  </div>
+</section>
+<section class="wh-plan" data-el="whitby.site-plan" data-el-build="elementor">
+  <div class="wrap section">
+    <div class="section-head reveal">
+      <p class="eyebrow mb-s">Site plan</p>
+      <h2 class="h2">One village. Endless opportunities. A global impact.</h2>
+      <p class="body-lg muted">Building the future of youth sports, education and community development in Whitby, Ontario.</p>
+    </div>
+    <figure class="figure figure--16x9 wh-plan__figure wipe">
+      <img src="${IMG('whitby/site-aerial.jpg')}" alt="Conceptual night aerial of the proposed village: the white multi-sport dome with lit A, F, S, V roof panels, outdoor basketball courts, a cluster of training, esports and learning buildings around a plaza with a globe sculpture, floodlit soccer and cricket fields, a red running track and a pond with a fountain. Not an existing facility." width="1920" height="1080" loading="lazy">
+      <figcaption class="caption-bar">Conceptual Rendering — Not an Existing Facility</figcaption>
+    </figure>
+    <ul class="wh-pillars" aria-label="Village focus">${['Sports excellence', 'Education & mentorship', 'Inclusion', 'Innovation', 'Global community'].map((t) => html`<li>${t}</li>`)}</ul>
+  </div>
+</section>
+<section class="band--cream" data-el="whitby.facilities" data-el-build="custom-widget">
+  <div class="wrap section">
+    <div class="section-head reveal">
+      <p class="eyebrow mb-s">Proposed facilities</p>
+      <h2 class="h2">Everything an athlete, student and family needs.</h2>
+    </div>
+    <div class="wh-fac" data-stagger>
+      ${WH_FACILITIES.map((f, i) => html`
+      <article class="wh-fac__card">
+        <figure><img src="${IMG(`whitby/${f.img}.jpg`)}" alt="Conceptual rendering of the proposed ${f.name.toLowerCase()}. Not an existing facility." width="1200" height="800" loading="lazy"></figure>
+        <div class="wh-fac__body">
+          <div class="wh-fac__top"><span class="num">${String(i + 1).padStart(2, '0')}</span><span class="pill pill--soft">Proposed</span></div>
+          <h3 class="h3">${f.name}</h3>
+          <p class="muted">${f.line}</p>
+          <ul>${f.items.map((x) => html`<li>${x}</li>`)}</ul>
+        </div>
+      </article>`)}
+    </div>
+  </div>
+</section>
+<section class="band--navy" data-el="whitby.highlights" data-el-build="elementor">
+  <div class="wrap section wh-hl">
+    <div class="reveal">
+      <p class="eyebrow mb-s">Facility highlights</p>
+      <h2 class="h2 mb-m">Built for every stage of the journey.</h2>
+      <ul class="wh-ticks wh-ticks--grid">${WH_HIGHLIGHTS.map((t) => html`<li>${t}</li>`)}</ul>
+    </div>
+    <div class="wh-hl__card reveal">
+      <p class="eyebrow mb-s">Key features</p>
+      <ul class="wh-ticks">${WH_FEATURES.map((t) => html`<li>${t}</li>`)}</ul>
+    </div>
+  </div>
+</section>
+<section class="wrap section" data-el="whitby.ecosystem" data-el-build="elementor">
+  <div class="wh-eco">
+    <div class="reveal">
+      <p class="eyebrow mb-s">AFSVHCL ecosystem</p>
+      <h2 class="h2 mb-m">Three divisions, one village.</h2>
+      <ol class="wh-eco__list">${WH_ECOSYSTEM.map((e) => html`<li><b>${e.name}</b><span>${e.role}</span></li>`)}</ol>
+    </div>
+    <blockquote class="wh-quote reveal">
+      <p>Empowering youth. Strengthening communities. Building a legacy.</p>
+      <footer><b>Martin Lashley</b><span>Founder &amp; Chairman, AFSV VRC</span></footer>
+    </blockquote>
   </div>
 </section>
 <section class="band--navy" data-el="whitby.smart" data-el-build="elementor">
