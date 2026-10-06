@@ -56,6 +56,13 @@
 </header>
 </div>
 
+<nav class="dock" aria-label="Quick navigation" data-dock data-el="site.dock" data-el-build="theme-builder">
+  <a class="dock__top" href="#main" aria-label="Back to top"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></a>
+  <ul class="dock__links"><li><a href="about.html">About</a></li><li><a href="whitby-smart-sports-village.html">Smart Sports Village</a></li><li><a href="programs.html">Programs</a></li><li><a href="neurodiversity.html">Neurodiversity</a></li><li><a href="membership.html">Membership</a></li><li><a href="marketplace.html">Marketplace</a></li></ul>
+  <button type="button" class="dock__menu" data-drawer-open aria-controls="site-drawer" aria-expanded="false"><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu</button>
+  <a class="btn btn--gold btn--sm dock__cta" href="https://book.afsvvrc.com" target="_blank" rel="noopener noreferrer">Book Now<span class="sr-only"> (opens in a new tab)</span></a>
+</nav>
+
 
 <div class="drawer" id="site-drawer" data-el="marketplace.drawer" data-el-build="theme-builder" hidden>
   <button type="button" class="drawer__scrim" data-drawer-close tabindex="-1" aria-label="Close menu"></button>
@@ -187,10 +194,13 @@
 <section class="wrap" style="padding-bottom:72px"><p class="small muted">Portraits for Natalie Sutherland-Lashley, Michelle Lashley and Vinai Charran will appear once approved images are supplied.</p></section>
 
 
-<section class="cta-band band--navy" data-el="cta.band" data-el-build="elementor">
-  <div class="wrap cta-band__inner">
-    <h2 class="reveal">Work with the team building AFSV VRC.</h2>
-    <div class="btn-row btn-row--stack"><a class="btn btn--gold" href="partners.html">Partner with us<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a><a class="btn btn--line-light" href="contact.html">Contact us<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a></div>
+<section class="cta-band" data-el="cta.band" data-el-build="elementor">
+  <div class="wrap">
+    <div class="cta-band__inner band--navy">
+      <span class="cta-band__glow" aria-hidden="true"></span>
+      <h2 class="reveal">Work with the team building AFSV VRC.</h2>
+      <div class="btn-row btn-row--stack"><a class="btn btn--gold" href="partners.html">Partner with us<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a><a class="btn btn--line-light" href="contact.html">Contact us<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a></div>
+    </div>
   </div>
 </section>
 </main>
@@ -238,5 +248,6 @@
 
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/motion.js" defer></script>
+<script src="assets/js/flow.js" defer></script>
 </body>
 </html>

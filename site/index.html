@@ -56,6 +56,13 @@
 </header>
 </div>
 
+<nav class="dock" aria-label="Quick navigation" data-dock data-el="site.dock" data-el-build="theme-builder">
+  <a class="dock__top" href="#main" aria-label="Back to top"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></a>
+  <ul class="dock__links"><li><a href="about.html">About</a></li><li><a href="whitby-smart-sports-village.html">Smart Sports Village</a></li><li><a href="programs.html">Programs</a></li><li><a href="neurodiversity.html">Neurodiversity</a></li><li><a href="membership.html">Membership</a></li><li><a href="marketplace.html">Marketplace</a></li></ul>
+  <button type="button" class="dock__menu" data-drawer-open aria-controls="site-drawer" aria-expanded="false"><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu</button>
+  <a class="btn btn--gold btn--sm dock__cta" href="https://book.afsvvrc.com" target="_blank" rel="noopener noreferrer">Book Now<span class="sr-only"> (opens in a new tab)</span></a>
+</nav>
+
 
 <div class="drawer" id="site-drawer" data-el="marketplace.drawer" data-el-build="theme-builder" hidden>
   <button type="button" class="drawer__scrim" data-drawer-close tabindex="-1" aria-label="Close menu"></button>
@@ -168,54 +175,85 @@
 </article>
 </section>
 
-<section class="wrap section" id="ecosystem" data-el="home.ecosystem" data-el-build="elementor">
-  <div class="statement reveal">
-    <p class="eyebrow">One connected ecosystem</p>
-    <p class="statement__text"><strong>Sport is only the beginning.</strong> AFSV VRC brings together athlete development, academic success, neurodivergent support and inclusive education, life skills, technology, community programming and commercial opportunity in one connected platform.</p>
+<section class="flow-stack" id="ecosystem" data-el="home.ecosystem" data-el-build="custom-widget">
+  <div class="wrap">
+    <div class="statement reveal">
+      <p class="eyebrow">One connected ecosystem</p>
+      <p class="statement__text"><strong>Sport is only the beginning.</strong> AFSV VRC brings together athlete development, academic success, neurodivergent support and inclusive education, life skills, technology, community programming and commercial opportunity in one connected platform.</p>
+    </div>
+    <div class="stack" data-stack>
+      <nav class="stack__tabs" aria-label="Strategic pillars">
+        <a href="#pillar-01" class="is-active" aria-current="true"><span>01</span>Sports Development</a><a href="#pillar-02"><span>02</span>Education &amp; Academic Success</a><a href="#pillar-03"><span>03</span>Neurodiversity Access &amp; Opportunity</a><a href="#pillar-04"><span>04</span>Life Skills</a>
+      </nav>
+      <div class="stack__list">
+        
+        <article class="stack-card" id="pillar-01" style="--i:0" aria-labelledby="pillar-01-t">
+          <div class="stack-card__copy">
+            <span class="stack-card__num">01 <small>/ 04</small></span>
+            <h3 class="stack-card__title" id="pillar-01-t">Sports Development</h3>
+            <p class="stack-card__body">Create structured pathways that help participants discover, develop and maximize athletic potential through coaching, training, competition, performance support and exposure.</p>
+            
+            <a class="btn btn--gold" href="programs.html">Explore Programs &amp; Athlete Development<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a>
+          </div>
+          <figure class="stack-card__media"><img src="assets/img/pillars-hall.jpg" alt="A coach demonstrating a movement to two athletes on an indoor court." width="1344" height="752" loading="lazy"></figure>
+        </article>
+        <article class="stack-card" id="pillar-02" style="--i:1" aria-labelledby="pillar-02-t">
+          <div class="stack-card__copy">
+            <span class="stack-card__num">02 <small>/ 04</small></span>
+            <h3 class="stack-card__title" id="pillar-02-t">Education &amp; Academic Success</h3>
+            <p class="stack-card__body">Support learners with tutoring, mentoring, academic enrichment, career awareness and environments connecting classroom achievement with confidence.</p>
+            
+            <a class="btn btn--gold" href="education.html">Explore Education &amp; Academic Success<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a>
+          </div>
+          <figure class="stack-card__media"><img src="assets/img/ai-education-studio.jpg" alt="Adult learners at a long desk with large data displays while an instructor explains." width="1344" height="752" loading="lazy"></figure>
+        </article>
+        <article class="stack-card" id="pillar-03" style="--i:2" aria-labelledby="pillar-03-t">
+          <div class="stack-card__copy">
+            <span class="stack-card__num">03 <small>/ 04</small></span>
+            <h3 class="stack-card__title" id="pillar-03-t">Neurodivergent Support &amp; Inclusive Education</h3>
+            <p class="stack-card__body">Develop welcoming spaces, informed programming and practical supports for people with autism, ADHD, dyslexia and other learning, developmental or sensory differences.</p>
+            <p class="stack-card__caveat">Regulated/clinical services remain subject to qualified providers and approvals.</p>
+            <a class="btn btn--gold" href="neurodiversity.html">Explore Neurodiversity Access &amp; Opportunity<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a>
+          </div>
+          <figure class="stack-card__media"><img src="assets/img/accessible-entrance.jpg" alt="A step-free facility entrance where a staff member helps a visitor who uses a mobility aid." width="1344" height="752" loading="lazy"></figure>
+        </article>
+        <article class="stack-card" id="pillar-04" style="--i:3" aria-labelledby="pillar-04-t">
+          <div class="stack-card__copy">
+            <span class="stack-card__num">04 <small>/ 04</small></span>
+            <h3 class="stack-card__title" id="pillar-04-t">Life Skills</h3>
+            <p class="stack-card__body">Equip young people and families with tools for leadership, communication, financial literacy, entrepreneurship, career preparation, wellbeing and responsible decision-making.</p>
+            
+            <a class="btn btn--gold" href="life-skills.html">Explore Life Skills<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a>
+          </div>
+          <figure class="stack-card__media"><img src="assets/img/about-team.jpg" alt="Four adults collaborating around a table with notebooks and a wall of notes." width="1344" height="752" loading="lazy"></figure>
+        </article>
+      </div>
+    </div>
   </div>
-  <div class="panels" data-panels>
-    
-    <a class="panel-card is-active" href="programs.html">
-      <img src="assets/img/pillars-hall.jpg" alt="" width="1344" height="752" loading="lazy">
-      <span class="panel-card__shade" aria-hidden="true"></span>
-      <span class="panel-card__num">01</span>
-      <span class="panel-card__body">
-        <span class="panel-card__title">Sports Development</span>
-        <span class="panel-card__desc">Athlete pathways, coaching and multi-sport training.</span>
-        <span class="panel-card__go">Explore <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span>
-      </span>
-    </a>
-    <a class="panel-card" href="education.html">
-      <img src="assets/img/ai-education-studio.jpg" alt="" width="1344" height="752" loading="lazy">
-      <span class="panel-card__shade" aria-hidden="true"></span>
-      <span class="panel-card__num">02</span>
-      <span class="panel-card__body">
-        <span class="panel-card__title">Education &amp; Academic Success</span>
-        <span class="panel-card__desc">Academic support alongside athletic development.</span>
-        <span class="panel-card__go">Explore <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span>
-      </span>
-    </a>
-    <a class="panel-card" href="neurodiversity.html">
-      <img src="assets/img/accessible-entrance.jpg" alt="" width="1344" height="752" loading="lazy">
-      <span class="panel-card__shade" aria-hidden="true"></span>
-      <span class="panel-card__num">03</span>
-      <span class="panel-card__body">
-        <span class="panel-card__title">Neurodiversity Access &amp; Opportunity</span>
-        <span class="panel-card__desc">Access, support and opportunity built in from the start.</span>
-        <span class="panel-card__go">Explore <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span>
-      </span>
-    </a>
-    <a class="panel-card" href="life-skills.html">
-      <img src="assets/img/about-team.jpg" alt="" width="1344" height="752" loading="lazy">
-      <span class="panel-card__shade" aria-hidden="true"></span>
-      <span class="panel-card__num">04</span>
-      <span class="panel-card__body">
-        <span class="panel-card__title">Life Skills</span>
-        <span class="panel-card__desc">Readiness for work, study and independent life.</span>
-        <span class="panel-card__go">Explore <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span>
-      </span>
-    </a>
+</section>
+
+<section class="draw" data-draw data-el="home.whitby-intro" data-el-build="custom-widget">
+  <div class="wrap draw__head reveal">
+    <p class="eyebrow">Proposed pilot · Whitby, Ontario</p>
+    <h2 class="draw__title" data-sweep>A year-round home for sport, learning and community.</h2>
   </div>
+  <svg class="draw__art" viewBox="0 0 1200 360" role="img" aria-label="Line drawing of the proposed Whitby Smart Sports Village: a multi-sport dome beside low pavilions with solar canopies, a running track in front." focusable="false">
+    <circle class="draw__line draw__line--gold" pathLength="1" cx="1060" cy="104" r="34"/>
+    <path class="draw__line" pathLength="1" d="M0 300 H1200"/>
+    <path class="draw__line" pathLength="1" d="M170 300 C 170 115, 770 115, 770 300"/>
+    <path class="draw__line" pathLength="1" d="M250 300 C 255 165, 685 165, 690 300"/>
+    <path class="draw__line" pathLength="1" d="M335 300 C 340 205, 600 205, 605 300"/>
+    <path class="draw__line" pathLength="1" d="M470 161 V300 M370 182 L330 300 M570 182 L610 300 M290 225 L240 300 M650 225 L700 300"/>
+    <path class="draw__line" pathLength="1" d="M420 300 V262 H520 V300"/>
+    <path class="draw__line" pathLength="1" d="M810 300 V232 H990 V300 M840 300 V258 H880 V300 M920 258 H960"/>
+    <path class="draw__line draw__line--gold" pathLength="1" d="M796 236 L1004 210 M820 233 V242 M900 223 V232 M980 213 V222"/>
+    <path class="draw__line" pathLength="1" d="M1010 300 V252 H1130 V300"/>
+    <path class="draw__line draw__line--gold" pathLength="1" d="M1002 256 L1138 238"/>
+    <path class="draw__line" pathLength="1" d="M70 300 V262 M70 262 m-22 0 a22 22 0 1 0 44 0 a22 22 0 1 0 -44 0 M118 300 V272 M118 272 m-15 0 a15 15 0 1 0 30 0 a15 15 0 1 0 -30 0"/>
+    <path class="draw__line" pathLength="1" d="M1172 300 V266 M1172 266 m-18 0 a18 18 0 1 0 36 0 a18 18 0 1 0 -36 0"/>
+    <path class="draw__line draw__line--gold" pathLength="1" d="M120 330 H1080 M150 346 H1050"/>
+    <path class="draw__line" pathLength="1" d="M760 300 V150 M752 150 H768 M1150 300 V170 M1142 170 H1158"/>
+  </svg>
 </section>
 
 <section class="expand" data-el="home.whitby" data-el-build="elementor" data-expand>
@@ -235,61 +273,98 @@
   </div>
 </section>
 
-<section class="band--navy" data-el="home.stats" data-el-build="elementor">
-  <div class="wrap" style="padding-top:clamp(56px,7vw,88px);padding-bottom:clamp(56px,7vw,88px)">
-    <div class="section-head reveal"><h2 class="h2">The model, in numbers.</h2><p class="body-lg" style="color:var(--on-navy-soft)">Planned scope for the first phase. Figures are proposals, not results, and stay labelled that way.</p></div>
-    <div class="stats" data-stagger>
-      <div class="stat"><span class="stat__value"><span data-count="4">4</span></span><span class="stat__label">Strategic pillars connecting sport, learning, inclusion and life skills</span></div>
-      <div class="stat"><span class="stat__value"><span data-count="10">10</span></span><span class="stat__label">Program categories planned for the first cycle</span></div>
-      <div class="stat"><span class="stat__value"><span data-count="150000">150,000</span><small>sq ft</small></span><span class="stat__label">Approximate Phase 1 floor area, subject to site, design, approvals and financing</span><span class="pill pill--gold">Proposed</span></div>
-      <div class="stat"><span class="stat__value"><span data-count="6">6</span></span><span class="stat__label">Facility zones, from the multi-sport dome to media and broadcast</span></div>
+<section class="hscroll" data-hscroll data-el="home.stats" data-el-build="custom-widget" aria-labelledby="numbers-h">
+  <div class="hscroll__pin">
+    <div class="hscroll__glow" aria-hidden="true"></div>
+    <div class="wrap hscroll__head">
+      <p class="eyebrow">Planned scope</p>
+      <h2 class="hscroll__title" id="numbers-h" data-sweep>The model, in numbers.</h2>
+      <p class="body-lg">Planned scope for the first phase. Figures are proposals, not results, and stay labelled that way.</p>
+    </div>
+    <div class="hscroll__viewport">
+      <ul class="hscroll__track">
+        
+        <li class="num-card" style="--i:0">
+          <span class="num-card__value"><span data-count="4">4</span></span>
+          <span class="num-card__k">Strategic pillars</span>
+          <span class="num-card__label">Connecting sport, learning, inclusion and life skills</span>
+          
+        </li>
+        <li class="num-card" style="--i:1">
+          <span class="num-card__value"><span data-count="10">10</span></span>
+          <span class="num-card__k">Program categories</span>
+          <span class="num-card__label">Planned for the first cycle</span>
+          
+        </li>
+        <li class="num-card" style="--i:2">
+          <span class="num-card__value"><span data-count="150000">150,000</span><small>sq ft</small></span>
+          <span class="num-card__k">Phase 1 floor area</span>
+          <span class="num-card__label">Approximate, subject to site, design, approvals and financing</span>
+          <span class="pill pill--gold">Proposed</span>
+        </li>
+        <li class="num-card" style="--i:3">
+          <span class="num-card__value"><span data-count="6">6</span></span>
+          <span class="num-card__k">Facility zones</span>
+          <span class="num-card__label">From the multi-sport dome to media and broadcast</span>
+          
+        </li>
+        <li class="num-card" style="--i:4">
+          <span class="num-card__value"><span data-count="3">3</span></span>
+          <span class="num-card__k">Regions</span>
+          <span class="num-card__label">Canada, the Caribbean and global partnerships</span>
+          <span class="pill pill--gold">Planned</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="wrap section" data-el="home.pathways" data-el-build="elementor">
-  <div class="section-head reveal">
-    <h2 class="h2">Choose your pathway.</h2>
-    <p class="body-lg muted">Four ways in. Each route reaches the team responsible for it.</p>
-  </div>
-  <div class="path-grid" data-stagger>
-    
-    <a class="path-card" href="programs.html">
-      <span class="path-card__img"><img src="assets/img/news-courtside.jpg" alt="" width="1344" height="752" loading="lazy"></span>
-      <span class="path-card__body">
-        <span class="eyebrow">Athletes &amp; families</span>
-        <span class="path-card__title">Train and develop</span>
-        <span class="path-card__desc">Athlete pathways, coaching and multi-sport training.</span>
-      </span>
-      <span class="path-card__go" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>
-    </a>
-    <a class="path-card" href="membership.html">
-      <span class="path-card__img"><img src="assets/img/membership-community.jpg" alt="" width="1344" height="752" loading="lazy"></span>
-      <span class="path-card__body">
-        <span class="eyebrow">Membership</span>
-        <span class="path-card__title">Become a member</span>
-        <span class="path-card__desc">Register interest in the five proposed membership pathways.</span>
-      </span>
-      <span class="path-card__go" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>
-    </a>
-    <a class="path-card" href="marketplace.html">
-      <span class="path-card__img"><img src="assets/img/marketplace-kit.jpg" alt="" width="1344" height="752" loading="lazy"></span>
-      <span class="path-card__body">
-        <span class="eyebrow">Marketplace</span>
-        <span class="path-card__title">Shop the movement</span>
-        <span class="path-card__desc">Apparel, training products and community-focused goods.</span>
-      </span>
-      <span class="path-card__go" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>
-    </a>
-    <a class="path-card" href="partners.html">
-      <span class="path-card__img"><img src="assets/img/partners-boardroom.jpg" alt="" width="1344" height="752" loading="lazy"></span>
-      <span class="path-card__body">
-        <span class="eyebrow">Organisations</span>
-        <span class="path-card__title">Partner with us</span>
-        <span class="path-card__desc">Sponsorship, education, technology and development routes.</span>
-      </span>
-      <span class="path-card__go" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>
-    </a>
+<section class="float-paths" data-el="home.pathways" data-el-build="elementor">
+  <div class="float-paths__glow" aria-hidden="true"></div>
+  <div class="wrap section">
+    <div class="section-head reveal">
+      <h2 class="h2">Choose your pathway.</h2>
+      <p class="body-lg muted">Four ways in. Each route reaches the team responsible for it.</p>
+    </div>
+    <div class="path-grid path-grid--float" data-stagger>
+      
+      <a class="path-card" href="programs.html">
+        <span class="path-card__img"><img src="assets/img/news-courtside.jpg" alt="" width="1344" height="752" loading="lazy"></span>
+        <span class="path-card__body">
+          <span class="eyebrow">Athletes &amp; families</span>
+          <span class="path-card__title">Train and develop</span>
+          <span class="path-card__desc">Athlete pathways, coaching and multi-sport training.</span>
+        </span>
+        <span class="path-card__go" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>
+      </a>
+      <a class="path-card" href="membership.html">
+        <span class="path-card__img"><img src="assets/img/membership-community.jpg" alt="" width="1344" height="752" loading="lazy"></span>
+        <span class="path-card__body">
+          <span class="eyebrow">Membership</span>
+          <span class="path-card__title">Become a member</span>
+          <span class="path-card__desc">Register interest in the five proposed membership pathways.</span>
+        </span>
+        <span class="path-card__go" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>
+      </a>
+      <a class="path-card" href="marketplace.html">
+        <span class="path-card__img"><img src="assets/img/marketplace-kit.jpg" alt="" width="1344" height="752" loading="lazy"></span>
+        <span class="path-card__body">
+          <span class="eyebrow">Marketplace</span>
+          <span class="path-card__title">Shop the movement</span>
+          <span class="path-card__desc">Apparel, training products and community-focused goods.</span>
+        </span>
+        <span class="path-card__go" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>
+      </a>
+      <a class="path-card" href="partners.html">
+        <span class="path-card__img"><img src="assets/img/partners-boardroom.jpg" alt="" width="1344" height="752" loading="lazy"></span>
+        <span class="path-card__body">
+          <span class="eyebrow">Organisations</span>
+          <span class="path-card__title">Partner with us</span>
+          <span class="path-card__desc">Sponsorship, education, technology and development routes.</span>
+        </span>
+        <span class="path-card__go" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -381,10 +456,13 @@
 </section>
 
 
-<section class="cta-band band--navy" data-el="home.cta-band" data-el-build="elementor">
-  <div class="wrap cta-band__inner">
-    <h2 class="reveal">Build the future with us.</h2>
-    <div class="btn-row btn-row--stack"><a class="btn btn--gold" href="partners.html">Partner with us<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a><a class="btn btn--line-light" href="contact.html">Contact us<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a></div>
+<section class="cta-band" data-el="home.cta-band" data-el-build="elementor">
+  <div class="wrap">
+    <div class="cta-band__inner band--navy">
+      <span class="cta-band__glow" aria-hidden="true"></span>
+      <h2 class="reveal">Build the future with us.</h2>
+      <div class="btn-row btn-row--stack"><a class="btn btn--gold" href="partners.html">Partner with us<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a><a class="btn btn--line-light" href="contact.html">Contact us<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></a></div>
+    </div>
   </div>
 </section>
 </main>
@@ -432,5 +510,6 @@
 
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/motion.js" defer></script>
+<script src="assets/js/flow.js" defer></script>
 </body>
 </html>
