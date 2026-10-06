@@ -518,6 +518,14 @@ ${d.leadership.map((p, i) => html`
       ${p.quote ? html`<figure class="profile__quote reveal"><blockquote>${p.quote}</blockquote><figcaption>${p.quoteBy}</figcaption></figure>` : ''}
       <div class="profile__bio reveal">${(p.story || p.bio).map((para) => html`<p>${para}</p>`)}${p.story ? p.bio.map((para) => html`<p>${para}</p>`) : ''}</div>
       ${p.focus ? html`<div class="profile__focus" data-stagger>${p.focus.map((f) => html`<div><b>${f.t}</b><span>${f.d}</span></div>`)}</div>` : ''}
+      ${p.venture || p.motto || p.mission ? html`
+      <div class="profile__panel reveal">
+        ${p.motto ? html`<div class="profile__motto"><b>${p.motto.t}</b><span>${p.motto.d}</span></div>` : ''}
+        ${p.strengths ? html`<ul class="profile__strengths">${p.strengths.map((t) => html`<li>${t}</li>`)}</ul>` : ''}
+        ${p.venture ? html`<div class="profile__venture"><span class="profile__venture-mark" aria-hidden="true">${p.venture.name.charAt(0)}</span><div><small>${p.venture.kicker}</small><b>${p.venture.name}</b><span>${p.venture.desc}</span></div></div>` : ''}
+        ${p.mission ? html`<div class="profile__mission"><small>Our mission</small><p>${p.mission}</p></div>` : ''}
+        ${p.tagline ? html`<p class="profile__tagline">${p.tagline}</p>` : ''}
+      </div>` : ''}
     </div>
   </div>
 </section>`)}

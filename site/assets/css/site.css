@@ -1741,3 +1741,25 @@ svg[hidden] { display: none; }
 .home-intro__grid > * { min-width: 0; }
 .sport-strip li { width: 136px; }
 .sport-strip svg { width: 66px; height: 66px; }
+
+/* ───────── Leadership: designed feature panel (from the leader profile sheets) ───────── */
+.profile__panel { margin-top: 36px; padding: clamp(24px, 3vw, 36px); border-radius: var(--r-lg); background: var(--navy); color: var(--on-navy); display: grid; gap: 22px; position: relative; overflow: hidden; }
+.profile__panel::before { content: ''; position: absolute; inset: 0; background: radial-gradient(520px 260px at 100% 0%, rgba(200,169,81,.2), transparent 65%); pointer-events: none; }
+.profile__panel > * { position: relative; }
+.profile__motto { display: grid; gap: 6px; padding-bottom: 20px; border-bottom: 1px solid rgba(245,243,238,.14); }
+.profile__motto b { font-family: var(--font-display); font-size: clamp(22px, 2.2vw, 30px); letter-spacing: .02em; text-transform: uppercase; color: var(--gold); }
+.profile__motto span { color: var(--on-navy-soft); max-width: 52ch; }
+.profile__strengths { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.profile__strengths li { padding: 16px 14px; border-radius: var(--r-sm); border: 1px solid rgba(200,169,81,.45); text-align: center; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.profile__venture { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+.profile__venture-mark { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--gold); display: grid; place-items: center; font-family: Georgia, serif; font-size: 34px; color: var(--gold); }
+.profile__venture div { display: grid; gap: 4px; }
+.profile__venture small, .profile__mission small { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.profile__venture b { font-family: var(--font-display); font-size: 22px; }
+.profile__venture span { color: var(--on-navy-soft); font-size: 15px; }
+.profile__mission { display: grid; gap: 8px; }
+.profile__mission p { margin: 0; font-size: 17px; line-height: 1.55; }
+.profile__tagline { margin: 0; padding-top: 18px; border-top: 1px solid rgba(245,243,238,.14); font-size: 12px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+@media (max-width: 560px) { .profile__strengths { grid-template-columns: 1fr; } }
+.profile__venture-mark { font-size: 34px !important; line-height: 1; }
+.profile__venture b { line-height: 1.2; }

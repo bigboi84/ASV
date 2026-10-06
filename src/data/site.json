@@ -2716,6 +2716,7 @@
         "With extensive experience in organizational management, program development, and strategic implementation, Michelle plays a pivotal role in transforming the Athletes & Fans Sports Village vision into a fully operational ecosystem. She leads the coordination of internal operations, strategic partnerships, and program delivery across the company's expanding initiatives in Canada, the Caribbean, and the United States.",
         "As COO, Michelle is responsible for ensuring that the organization's core pillars — elite athletic development, education, wellness, esports innovation, and community inclusion — are executed efficiently and sustainably. She works closely with the executive leadership team to implement operational systems, manage key stakeholder relationships, and ensure the successful rollout of major projects including the Whitby Smart Sports Village pilot in Ontario and related international initiatives.",
         "Michelle is also the Founder of MLMSR Mentorship LLC, an education and mentorship organization that supports the Athletes & Fans Sports Village platform through academic programming, mentorship initiatives, and specialized education support for neurodivergent youth, including individuals on the autism spectrum and those with ADHD and dyslexia.",
+        "Her leadership strengthens the organization's ability to deliver a next-generation sports infrastructure model that integrates high-performance athletics with education, technology, and community impact.",
         "Through her role at AFSVHCL, Michelle continues to help shape a transformative platform designed to empower athletes, support families, and build sustainable sports communities around the world."
       ],
       "quote": "“We operate with purpose, execute with excellence, and serve with heart to create opportunities that change lives and strengthen communities.”",
@@ -2739,18 +2740,29 @@
           "t": "Neurodivergent Education",
           "d": "Founder of MLMSR Mentorship LLC, supporting learners with autism, ADHD and dyslexia."
         }
-      ]
+      ],
+      "motto": {
+        "t": "Vision. Strategy. Impact.",
+        "d": "Driving operational excellence and program implementation across a global sports and education ecosystem."
+      },
+      "strengths": [
+        "Strategic leadership",
+        "Operational excellence",
+        "Program execution"
+      ],
+      "mission": "Building a next-generation global sports ecosystem that empowers athletes, inspires communities, and transforms lives through sports, education, and innovation."
     },
     {
       "name": "Vinai Charran",
-      "role": "Chief Investor, AFSVHCL · CEO, Charran's Group of Companies",
+      "role": "Chief Investor, AFSVHCL · Founder & CEO, Charran's Group of Companies",
       "img": null,
       "noImg": true,
       "bio": [
         "Vinai Charran serves as Chief Investor for Athletes & Fans Sports Village Holding Company Limited (AFSVHCL) and plays a central role in supporting the organization's strategic growth and capital development initiatives.",
         "A successful entrepreneur and international businessman, Vinai brings extensive experience in investment strategy, business development, and global commercial operations. His leadership and financial support help advance the Athletes & Fans Sports Village vision of building a next-generation global sports, education, and community development ecosystem.",
-        "Vinai is the CEO of Charran's Group of Companies, a diversified business enterprise with operations spanning retail, education, publishing, and international trade. Through decades of entrepreneurial leadership, he has established a reputation for identifying innovative opportunities and building sustainable business platforms that deliver long-term value.",
+        "Vinai is the Founder and CEO of Charran's Group of Companies, a diversified business enterprise with operations spanning retail, education, publishing, and international trade. Through decades of entrepreneurial leadership, he has established a reputation for identifying innovative opportunities and building sustainable business platforms that deliver long-term value.",
         "Within AFSVHCL, Vinai provides strategic investment leadership and supports the development of major initiatives, including the Whitby Smart Sports Village pilot project in Ontario, Canada, which will serve as the foundation for a broader national and international rollout of integrated sports, education, and community infrastructure.",
+        "Beyond his business accomplishments, Vinai is deeply committed to initiatives that promote education, youth development, and community empowerment. His investment in the Athletes & Fans Sports Village platform reflects his belief that sports, education, and mentorship can transform lives and create lasting opportunities for future generations.",
         "Through his partnership with AFSVHCL, Vinai continues to help drive the development of a globally scalable sports and education platform designed to inspire athletes, empower communities, and foster innovation in youth development worldwide."
       ],
       "focus": [
@@ -2774,7 +2786,13 @@
       "quote": "“I believe in the power of sports and education to transform lives and build stronger communities. My investment in AFSVHCL is an investment in our youth and in a better future for generations to come.”",
       "quoteBy": "— Vinai Charran, CEO, Charran's Group of Companies",
       "slug": "vinai-charran",
-      "short": "Leads strategic investment and capital growth, drawing on decades building businesses across retail, education, publishing and trade."
+      "short": "Leads strategic investment and capital growth, drawing on decades building businesses across retail, education, publishing and trade.",
+      "venture": {
+        "kicker": "Founder & CEO",
+        "name": "Charran's Group of Companies",
+        "desc": "A diversified business enterprise with operations across retail, education, publishing, and international trade."
+      },
+      "tagline": "Building a legacy. Inspiring generations."
     }
   ],
   "pillars4": [
