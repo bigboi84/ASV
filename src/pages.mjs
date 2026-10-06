@@ -826,8 +826,11 @@ ${breadcrumb([{ label: 'Partners, Sponsors & Investors' }])}
 </section>
 <section class="wrap section" data-el="partners.directory" data-el-build="elementor">
   <h2 class="h2 mb-s reveal">Approved partners</h2>
-  <p class="body-lg mb-l" style="max-width:70ch">No organisation is listed as a partner without written authorization. Approved logos will appear here once permissions are confirmed.</p>
-  <div class="slot" style="padding:56px 32px;background:var(--cream)"><span>Partner logo directory — awaiting written permissions</span></div>
+  <p class="body-lg mb-l" style="max-width:70ch">No organisation is listed as a partner without written authorization. Further logos will appear here as permissions are confirmed.</p>
+  <ul class="logo-wall" data-stagger>
+    <li class="logo-wall__item logo-wall__item--dark"><a href="gaisb-ai.html"><img src="${IMG('partners/gaisb-ai-world-summit-2027.svg')}" alt="GAISB AI World Summit 2027" width="576" height="120" loading="lazy"></a></li>
+    <li class="logo-wall__item logo-wall__item--pending"><span>More partners to be announced</span></li>
+  </ul>
 </section>
 <section class="wrap" data-el="partners.disclaimer" data-el-build="elementor">
   <div class="callout" role="note"><span class="eyebrow">Investor information</span><p style="font-size:15.5px;line-height:1.66">All investment information is high level and informational. AFSV VRC does not publish returns, offering terms, securities availability, valuations or solicitations. Nothing on this page constitutes an offer to sell or a solicitation to buy securities in any jurisdiction.</p></div>
