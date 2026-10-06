@@ -2676,8 +2676,7 @@
     {
       "name": "Natalie Sutherland-Lashley",
       "role": "Co-Chairperson & Corporate Secretary",
-      "img": null,
-      "noImg": true,
+      "img": "assets/img/leaders/natalie-sutherland-lashley.jpg",
       "bio": [
         "Natalie Sutherland-Lashley serves as Co-Chairperson and Corporate Secretary of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL), where she plays a critical role in the governance, strategic development, and international positioning of the organization.",
         "With a strong background in business administration, organizational leadership, and corporate governance, Natalie helps guide the operational structure and long-term strategy behind the Athletes & Fans Sports Village vision. Her work supports the company's mission of building a next-generation global sports ecosystem that integrates elite athletic development, education, wellness, esports, and community inclusion.",
@@ -2704,13 +2703,13 @@
           "t": "Social Impact",
           "d": "Opportunities for youth, families and learners with differences."
         }
-      ]
+      ],
+      "alt": "Portrait of Natalie Sutherland-Lashley, smiling, in a black turtleneck."
     },
     {
       "name": "Michelle Lashley",
       "role": "Chief Operating Officer (COO)",
-      "img": null,
-      "noImg": true,
+      "img": "assets/img/leaders/michelle-lashley.jpg",
       "bio": [
         "Michelle Lashley serves as the Chief Operating Officer of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL), where she oversees the operational execution of the company's global sports, education, and community development initiatives.",
         "With extensive experience in organizational management, program development, and strategic implementation, Michelle plays a pivotal role in transforming the Athletes & Fans Sports Village vision into a fully operational ecosystem. She leads the coordination of internal operations, strategic partnerships, and program delivery across the company's expanding initiatives in Canada, the Caribbean, and the United States.",
@@ -2746,17 +2745,26 @@
         "d": "Driving operational excellence and program implementation across a global sports and education ecosystem."
       },
       "strengths": [
-        "Strategic leadership",
-        "Operational excellence",
-        "Program execution"
+        {
+          "t": "Strategic leadership",
+          "img": "assets/img/leaders/michelle-lashley-1.jpg"
+        },
+        {
+          "t": "Operational excellence",
+          "img": "assets/img/leaders/michelle-lashley-2.jpg"
+        },
+        {
+          "t": "Program execution",
+          "img": "assets/img/leaders/michelle-lashley-3.jpg"
+        }
       ],
-      "mission": "Building a next-generation global sports ecosystem that empowers athletes, inspires communities, and transforms lives through sports, education, and innovation."
+      "mission": "Building a next-generation global sports ecosystem that empowers athletes, inspires communities, and transforms lives through sports, education, and innovation.",
+      "alt": "Portrait of Michelle Lashley in a navy blazer in an office."
     },
     {
       "name": "Vinai Charran",
       "role": "Chief Investor, AFSVHCL · Founder & CEO, Charran's Group of Companies",
-      "img": null,
-      "noImg": true,
+      "img": "assets/img/leaders/vinai-charran.jpg",
       "bio": [
         "Vinai Charran serves as Chief Investor for Athletes & Fans Sports Village Holding Company Limited (AFSVHCL) and plays a central role in supporting the organization's strategic growth and capital development initiatives.",
         "A successful entrepreneur and international businessman, Vinai brings extensive experience in investment strategy, business development, and global commercial operations. His leadership and financial support help advance the Athletes & Fans Sports Village vision of building a next-generation global sports, education, and community development ecosystem.",
@@ -2792,7 +2800,8 @@
         "name": "Charran's Group of Companies",
         "desc": "A diversified business enterprise with operations across retail, education, publishing, and international trade."
       },
-      "tagline": "Building a legacy. Inspiring generations."
+      "tagline": "Building a legacy. Inspiring generations.",
+      "alt": "Portrait of Vinai Charran in a charcoal suit and red tie."
     }
   ],
   "pillars4": [

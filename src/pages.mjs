@@ -521,7 +521,7 @@ ${d.leadership.map((p, i) => html`
       ${p.venture || p.motto || p.mission ? html`
       <div class="profile__panel reveal">
         ${p.motto ? html`<div class="profile__motto"><b>${p.motto.t}</b><span>${p.motto.d}</span></div>` : ''}
-        ${p.strengths ? html`<ul class="profile__strengths">${p.strengths.map((t) => html`<li>${t}</li>`)}</ul>` : ''}
+        ${p.strengths ? html`<ul class="profile__strengths">${p.strengths.map((t) => html`<li><img src="${t.img}" alt="" width="400" height="600" loading="lazy"><span>${t.t}</span></li>`)}</ul>` : ''}
         ${p.venture ? html`<div class="profile__venture"><span class="profile__venture-mark" aria-hidden="true">${p.venture.name.charAt(0)}</span><div><small>${p.venture.kicker}</small><b>${p.venture.name}</b><span>${p.venture.desc}</span></div></div>` : ''}
         ${p.mission ? html`<div class="profile__mission"><small>Our mission</small><p>${p.mission}</p></div>` : ''}
         ${p.tagline ? html`<p class="profile__tagline">${p.tagline}</p>` : ''}
@@ -529,8 +529,6 @@ ${d.leadership.map((p, i) => html`
     </div>
   </div>
 </section>`)}
-
-<section class="wrap" style="padding-bottom:72px"><p class="small muted">Portraits for Natalie Sutherland-Lashley, Michelle Lashley and Vinai Charran will appear once approved images are supplied.</p></section>
 
 ${ctaBand('Work with the team building AFSV VRC.', [{ label: 'Partner with us', route: '/partners' }, { label: 'Contact us', route: '/contact' }])}`,
   };

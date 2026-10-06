@@ -1763,3 +1763,6 @@ svg[hidden] { display: none; }
 @media (max-width: 560px) { .profile__strengths { grid-template-columns: 1fr; } }
 .profile__venture-mark { font-size: 34px !important; line-height: 1; }
 .profile__venture b { line-height: 1.2; }
+.profile__strengths li { padding: 0; overflow: hidden; display: grid; text-align: left; }
+.profile__strengths img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top; display: block; }
+.profile__strengths span { padding: 12px 14px; }
