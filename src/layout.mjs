@@ -85,6 +85,25 @@ function marketBar(current) {
 </div>`;
 }
 
+// Floating dock: replaces the top header once the visitor scrolls past the first screen.
+const DOCK = [
+  { label: 'About', route: '/about' },
+  { label: 'Smart Sports Village', route: '/whitby-smart-sports-village' },
+  { label: 'Programs', route: '/programs' },
+  { label: 'Neurodiversity', route: '/neurodiversity' },
+  { label: 'Membership', route: '/membership' },
+  { label: 'Marketplace', route: '/marketplace' },
+];
+function dock(current) {
+  return html`
+<nav class="dock" aria-label="Quick navigation" data-dock data-el="site.dock" data-el-build="theme-builder">
+  <a class="dock__top" href="#main" aria-label="Back to top">${icon('up')}</a>
+  <ul class="dock__links">${DOCK.map((d) => html`<li><a href="${href(d.route)}"${d.route === current ? raw(' aria-current="page"') : ''}>${d.label}</a></li>`)}</ul>
+  <button type="button" class="dock__menu" data-drawer-open aria-controls="site-drawer" aria-expanded="false"><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu</button>
+  <a class="btn btn--gold btn--sm dock__cta" href="${SITE.booking}" target="_blank" rel="noopener noreferrer">Book Now<span class="sr-only"> (opens in a new tab)</span></a>
+</nav>`;
+}
+
 function footer(cols) {
   return html`
 <footer class="site-footer" data-el="site.footer" data-el-build="theme-builder">
@@ -149,6 +168,7 @@ ${overlay ? '<div class="masthead masthead--overlay">' : ''}
 </div>
 ${header(data.nav, route, overlay)}
 ${overlay ? '</div>' : ''}
+${dock(route)}
 ${inMarket ? marketBar(route) : ''}
 ${drawer(data.nav, route)}
 <main id="main" tabindex="-1">
@@ -159,6 +179,7 @@ ${footer(data.footerCols)}
 ${scripts}
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/motion.js" defer></script>
+<script src="assets/js/flow.js" defer></script>
 </body>
 </html>
 `;

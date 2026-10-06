@@ -135,24 +135,55 @@ export function home(d) {
   ${eventFeature(d.events[0])}
 </section>
 
-<section class="wrap section" id="ecosystem" data-el="home.ecosystem" data-el-build="elementor">
-  <div class="statement reveal">
-    <p class="eyebrow">One connected ecosystem</p>
-    <p class="statement__text"><strong>Sport is only the beginning.</strong> AFSV VRC brings together athlete development, academic success, neurodivergent support and inclusive education, life skills, technology, community programming and commercial opportunity in one connected platform.</p>
+<section class="flow-stack" id="ecosystem" data-el="home.ecosystem" data-el-build="custom-widget">
+  <div class="wrap">
+    <div class="statement reveal">
+      <p class="eyebrow">One connected ecosystem</p>
+      <p class="statement__text"><strong>Sport is only the beginning.</strong> AFSV VRC brings together athlete development, academic success, neurodivergent support and inclusive education, life skills, technology, community programming and commercial opportunity in one connected platform.</p>
+    </div>
+    <div class="stack" data-stack>
+      <nav class="stack__tabs" aria-label="Strategic pillars">
+        ${d.pillars4.map((p, i) => html`<a href="#pillar-${p.num}"${i === 0 ? raw(' class="is-active" aria-current="true"') : ''}><span>${p.num}</span>${d.pillars[i].title}</a>`)}
+      </nav>
+      <div class="stack__list">
+        ${d.pillars4.map((p, i) => html`
+        <article class="stack-card" id="pillar-${p.num}" style="--i:${i}" aria-labelledby="pillar-${p.num}-t">
+          <div class="stack-card__copy">
+            <span class="stack-card__num">${p.num} <small>/ 0${d.pillars4.length}</small></span>
+            <h3 class="stack-card__title" id="pillar-${p.num}-t">${p.title}</h3>
+            <p class="stack-card__body">${p.body}</p>
+            ${p.caveat ? html`<p class="stack-card__caveat">${p.caveat}</p>` : ''}
+            ${btn('Explore ' + p.linkLabel, p.href, 'gold')}
+          </div>
+          <figure class="stack-card__media"><img src="${IMG(pillarImgs[i][0])}" alt="${pillarImgs[i][1]}" width="1344" height="752" loading="lazy"></figure>
+        </article>`)}
+      </div>
+    </div>
   </div>
-  <div class="panels" data-panels>
-    ${d.pillars.map((p, i) => html`
-    <a class="panel-card${i === 0 ? ' is-active' : ''}" href="${href(p.href)}">
-      <img src="${IMG(pillarImgs[i][0])}" alt="" width="1344" height="752" loading="lazy">
-      <span class="panel-card__shade" aria-hidden="true"></span>
-      <span class="panel-card__num">${p.num}</span>
-      <span class="panel-card__body">
-        <span class="panel-card__title">${p.title}</span>
-        <span class="panel-card__desc">${p.desc}</span>
-        <span class="panel-card__go">Explore ${arrow()}</span>
-      </span>
-    </a>`)}
+</section>
+
+<section class="draw" data-draw data-el="home.whitby-intro" data-el-build="custom-widget">
+  <div class="wrap draw__head reveal">
+    <p class="eyebrow">Proposed pilot · Whitby, Ontario</p>
+    <h2 class="draw__title" data-sweep>A year-round home for sport, learning and community.</h2>
   </div>
+  <svg class="draw__art" viewBox="0 0 1200 360" role="img" aria-label="Line drawing of the proposed Whitby Smart Sports Village: a multi-sport dome beside low pavilions with solar canopies, a running track in front." focusable="false">
+    <circle class="draw__line draw__line--gold" pathLength="1" cx="1060" cy="104" r="34"/>
+    <path class="draw__line" pathLength="1" d="M0 300 H1200"/>
+    <path class="draw__line" pathLength="1" d="M170 300 C 170 115, 770 115, 770 300"/>
+    <path class="draw__line" pathLength="1" d="M250 300 C 255 165, 685 165, 690 300"/>
+    <path class="draw__line" pathLength="1" d="M335 300 C 340 205, 600 205, 605 300"/>
+    <path class="draw__line" pathLength="1" d="M470 161 V300 M370 182 L330 300 M570 182 L610 300 M290 225 L240 300 M650 225 L700 300"/>
+    <path class="draw__line" pathLength="1" d="M420 300 V262 H520 V300"/>
+    <path class="draw__line" pathLength="1" d="M810 300 V232 H990 V300 M840 300 V258 H880 V300 M920 258 H960"/>
+    <path class="draw__line draw__line--gold" pathLength="1" d="M796 236 L1004 210 M820 233 V242 M900 223 V232 M980 213 V222"/>
+    <path class="draw__line" pathLength="1" d="M1010 300 V252 H1130 V300"/>
+    <path class="draw__line draw__line--gold" pathLength="1" d="M1002 256 L1138 238"/>
+    <path class="draw__line" pathLength="1" d="M70 300 V262 M70 262 m-22 0 a22 22 0 1 0 44 0 a22 22 0 1 0 -44 0 M118 300 V272 M118 272 m-15 0 a15 15 0 1 0 30 0 a15 15 0 1 0 -30 0"/>
+    <path class="draw__line" pathLength="1" d="M1172 300 V266 M1172 266 m-18 0 a18 18 0 1 0 36 0 a18 18 0 1 0 -36 0"/>
+    <path class="draw__line draw__line--gold" pathLength="1" d="M120 330 H1080 M150 346 H1050"/>
+    <path class="draw__line" pathLength="1" d="M760 300 V150 M752 150 H768 M1150 300 V170 M1142 170 H1158"/>
+  </svg>
 </section>
 
 <section class="expand" data-el="home.whitby" data-el-build="elementor" data-expand>
@@ -172,34 +203,53 @@ export function home(d) {
   </div>
 </section>
 
-<section class="band--navy" data-el="home.stats" data-el-build="elementor">
-  <div class="wrap" style="padding-top:clamp(56px,7vw,88px);padding-bottom:clamp(56px,7vw,88px)">
-    <div class="section-head reveal"><h2 class="h2">The model, in numbers.</h2><p class="body-lg" style="color:var(--on-navy-soft)">Planned scope for the first phase. Figures are proposals, not results, and stay labelled that way.</p></div>
-    <div class="stats" data-stagger>
-      <div class="stat"><span class="stat__value"><span data-count="4">4</span></span><span class="stat__label">Strategic pillars connecting sport, learning, inclusion and life skills</span></div>
-      <div class="stat"><span class="stat__value"><span data-count="10">10</span></span><span class="stat__label">Program categories planned for the first cycle</span></div>
-      <div class="stat"><span class="stat__value"><span data-count="150000">150,000</span><small>sq ft</small></span><span class="stat__label">Approximate Phase 1 floor area, subject to site, design, approvals and financing</span><span class="pill pill--gold">Proposed</span></div>
-      <div class="stat"><span class="stat__value"><span data-count="6">6</span></span><span class="stat__label">Facility zones, from the multi-sport dome to media and broadcast</span></div>
+<section class="hscroll" data-hscroll data-el="home.stats" data-el-build="custom-widget" aria-labelledby="numbers-h">
+  <div class="hscroll__pin">
+    <div class="hscroll__glow" aria-hidden="true"></div>
+    <div class="wrap hscroll__head">
+      <p class="eyebrow">Planned scope</p>
+      <h2 class="hscroll__title" id="numbers-h" data-sweep>The model, in numbers.</h2>
+      <p class="body-lg">Planned scope for the first phase. Figures are proposals, not results, and stay labelled that way.</p>
+    </div>
+    <div class="hscroll__viewport">
+      <ul class="hscroll__track">
+        ${[
+          ['4', '', 'Strategic pillars', 'Connecting sport, learning, inclusion and life skills', ''],
+          ['10', '', 'Program categories', 'Planned for the first cycle', ''],
+          ['150000', 'sq ft', 'Phase 1 floor area', 'Approximate, subject to site, design, approvals and financing', 'Proposed'],
+          ['6', '', 'Facility zones', 'From the multi-sport dome to media and broadcast', ''],
+          ['3', '', 'Regions', 'Canada, the Caribbean and global partnerships', 'Planned'],
+        ].map(([n, unit, k, label, pill], i) => html`
+        <li class="num-card" style="--i:${i}">
+          <span class="num-card__value"><span data-count="${n}">${Number(n).toLocaleString('en-CA')}</span>${unit ? html`<small>${unit}</small>` : ''}</span>
+          <span class="num-card__k">${k}</span>
+          <span class="num-card__label">${label}</span>
+          ${pill ? html`<span class="pill pill--gold">${pill}</span>` : ''}
+        </li>`)}
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="wrap section" data-el="home.pathways" data-el-build="elementor">
-  <div class="section-head reveal">
-    <h2 class="h2">Choose your pathway.</h2>
-    <p class="body-lg muted">Four ways in. Each route reaches the team responsible for it.</p>
-  </div>
-  <div class="path-grid" data-stagger>
-    ${pathways.map((w) => html`
-    <a class="path-card" href="${href(w.href)}">
-      <span class="path-card__img"><img src="${IMG(w.img)}" alt="" width="1344" height="752" loading="lazy"></span>
-      <span class="path-card__body">
-        <span class="eyebrow">${w.kicker}</span>
-        <span class="path-card__title">${w.title}</span>
-        <span class="path-card__desc">${w.desc}</span>
-      </span>
-      <span class="path-card__go" aria-hidden="true">${icon('arrow')}</span>
-    </a>`)}
+<section class="float-paths" data-el="home.pathways" data-el-build="elementor">
+  <div class="float-paths__glow" aria-hidden="true"></div>
+  <div class="wrap section">
+    <div class="section-head reveal">
+      <h2 class="h2">Choose your pathway.</h2>
+      <p class="body-lg muted">Four ways in. Each route reaches the team responsible for it.</p>
+    </div>
+    <div class="path-grid path-grid--float" data-stagger>
+      ${pathways.map((w) => html`
+      <a class="path-card" href="${href(w.href)}">
+        <span class="path-card__img"><img src="${IMG(w.img)}" alt="" width="1344" height="752" loading="lazy"></span>
+        <span class="path-card__body">
+          <span class="eyebrow">${w.kicker}</span>
+          <span class="path-card__title">${w.title}</span>
+          <span class="path-card__desc">${w.desc}</span>
+        </span>
+        <span class="path-card__go" aria-hidden="true">${icon('arrow')}</span>
+      </a>`)}
+    </div>
   </div>
 </section>
 

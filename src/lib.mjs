@@ -82,10 +82,13 @@ export function breadcrumb(trail) {
 
 export function ctaBand(heading, buttons, el = 'cta.band') {
   return html`
-<section class="cta-band band--navy" data-el="${el}" data-el-build="elementor">
-  <div class="wrap cta-band__inner">
-    <h2 class="reveal">${heading}</h2>
-    <div class="btn-row btn-row--stack">${buttons.map((b, i) => btn(b.label, b.route, b.variant || (i === 0 ? 'gold' : 'line-light')))}</div>
+<section class="cta-band" data-el="${el}" data-el-build="elementor">
+  <div class="wrap">
+    <div class="cta-band__inner band--navy">
+      <span class="cta-band__glow" aria-hidden="true"></span>
+      <h2 class="reveal">${heading}</h2>
+      <div class="btn-row btn-row--stack">${buttons.map((b, i) => btn(b.label, b.route, b.variant || (i === 0 ? 'gold' : 'line-light')))}</div>
+    </div>
   </div>
 </section>`;
 }
