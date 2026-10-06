@@ -102,20 +102,9 @@ export function home(d) {
     <video data-film-video poster="${IMG('village/film-poster.jpg')}" muted loop playsinline preload="metadata" tabindex="-1"><source src="assets/video/village-flythrough.webm" type="video/webm"><source src="assets/video/village-flythrough.mp4" type="video/mp4"></video>
   </div>
   <div class="hero__scrim" aria-hidden="true"></div>
-  <div class="wrap hero__content">
-    <div class="hero__copy">
-      <p class="eyebrow eyebrow-rule">Whitby Smart Sports Village · Proposed</p>
-      <h1 class="display split-words" aria-label="Building Athletes. Empowering Minds. Strengthening Communities."><span aria-hidden="true">${splitWords(['Building Athletes.', 'Empowering Minds.', 'Strengthening Communities.'], ['Communities.'])}</span></h1>
-      <p class="lead">One connected village for sport, high performance, esports, education, mentorship and inclusion — where athletes, families and communities can train, learn, connect and grow.</p>
-      <div class="btn-row btn-row--stack">
-        ${btn('Explore the Smart Sports Village', '/whitby-smart-sports-village', 'gold')}
-        ${btn('Join the Movement', '/membership', 'line-light')}
-      </div>
-    </div>
-    <div class="reel__caption" aria-live="polite" data-reel-caption>
-      <span class="pill pill--gold">Concept flythrough</span>
-      <p><b data-reel-title>${FILM[0].label}</b><span data-reel-line>${FILM[0].line}</span></p>
-    </div>
+  <div class="wrap hero__content hero__content--film">
+    <p class="film__tag"><span class="pill pill--gold">Proposed</span> Whitby, Ontario</p>
+    <h1 class="film__title split-words" aria-label="Canada's new year-round sports village"><span aria-hidden="true">${splitWords(["Canada's new", 'year-round', 'sports village'])}</span></h1>
   </div>
   <div class="reel__bar">
     <div class="wrap reel__bar-inner">
@@ -123,6 +112,28 @@ export function home(d) {
         ${FILM.map((r, i) => html`<button type="button" class="reel__chip" data-reel-go="${i}" data-t="${r.t}" data-title="${r.label}" data-line="${r.line}" aria-pressed="${i === 0 ? 'true' : 'false'}"><span class="reel__num">${String(i + 1).padStart(2, '0')}</span>${r.label}<i class="reel__prog" aria-hidden="true"></i></button>`)}
       </div>
       <button type="button" class="reel__pause" aria-pressed="false" data-reel-pause>${icon('pause', 'ico-pause')}${icon('play', 'ico-play')}<span class="sr-only">Pause the background film</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="home-intro" data-el="home.intro" data-el-build="elementor">
+  <div class="wrap section home-intro__grid">
+    <div class="reveal">
+      <p class="eyebrow eyebrow-rule mb-s">AFSV VRC Global Development Group</p>
+      <h2 class="home-intro__title">Building Athletes. Empowering Minds. <em>Strengthening Communities.</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="lead mb-m">One connected village for sport, high performance, esports, education, mentorship and inclusion — where athletes, families and communities can train, learn, connect and grow.</p>
+      <div class="btn-row mb-l">
+        ${btn('Explore the Smart Sports Village', '/whitby-smart-sports-village', 'navy')}
+        ${btn('Join the Movement', '/membership', 'line-dark')}
+      </div>
+      <ul class="home-intro__facts">
+        <li><span>Pilot</span><b>Whitby, Ontario</b></li>
+        <li><span>Model</span><b>4 strategic pillars</b></li>
+        <li><span>Reach</span><b>Canada · Caribbean · Global</b></li>
+        <li><span>Book. Train. Perform.</span><a href="${SITE.booking}" target="_blank" rel="noopener noreferrer">Book a session ${icon('external')}<span class="sr-only"> (opens in a new tab)</span></a></li>
+      </ul>
     </div>
   </div>
 </section>
