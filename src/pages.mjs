@@ -104,7 +104,8 @@ export function home(d) {
   <div class="hero__scrim" aria-hidden="true"></div>
   <div class="wrap hero__content hero__content--film">
     <p class="film__tag"><span class="pill pill--gold">Proposed</span> Whitby, Ontario</p>
-    <h1 class="film__title split-words" aria-label="Canada's new year-round sports village"><span aria-hidden="true">${splitWords(["Canada's new", 'year-round', 'sports village'])}</span></h1>
+    <h1 class="film__title split-words" aria-label="Canada's new year-round sports village"><span aria-hidden="true">${splitWords(["Canada's new year-round", 'sports village'])}</span></h1>
+    <a class="film__cta" href="whitby-smart-sports-village.html">Explore the village</a>
   </div>
   <div class="reel__bar">
     <div class="wrap reel__bar-inner">
