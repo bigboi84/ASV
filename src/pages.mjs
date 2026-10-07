@@ -503,7 +503,7 @@ export function leadership(d) {
 ${d.leadership.map((p, i) => html`
 <section class="profile${i % 2 ? ' profile--alt' : ''}" id="${p.slug}" data-el="leadership.profile" data-el-build="elementor" aria-labelledby="${p.slug}-name">
   <div class="wrap section profile__grid">
-    <div class="profile__aside">
+    <div class="profile__aside${p.focus || p.venture || p.motto ? ' profile__aside--stack' : ''}">
       <div class="profile__sticky">
         ${portrait(p, 'profile__photo wipe')}
         <div class="profile__id">
@@ -512,11 +512,6 @@ ${d.leadership.map((p, i) => html`
           <p class="profile__role">${p.role}</p>
         </div>
       </div>
-    </div>
-    <div class="profile__main">
-      <p class="profile__short reveal">${p.short}</p>
-      ${p.quote ? html`<figure class="profile__quote reveal"><blockquote>${p.quote}</blockquote><figcaption>${p.quoteBy}</figcaption></figure>` : ''}
-      <div class="profile__bio reveal">${(p.story || p.bio).map((para) => html`<p>${para}</p>`)}${p.story ? p.bio.map((para) => html`<p>${para}</p>`) : ''}</div>
       ${p.focus ? html`<div class="profile__focus" data-stagger>${p.focus.map((f) => html`<div><b>${f.t}</b><span>${f.d}</span></div>`)}</div>` : ''}
       ${p.venture || p.motto || p.mission ? html`
       <div class="profile__panel reveal">
@@ -526,6 +521,11 @@ ${d.leadership.map((p, i) => html`
         ${p.mission ? html`<div class="profile__mission"><small>Our mission</small><p>${p.mission}</p></div>` : ''}
         ${p.tagline ? html`<p class="profile__tagline">${p.tagline}</p>` : ''}
       </div>` : ''}
+    </div>
+    <div class="profile__main">
+      <p class="profile__short reveal">${p.short}</p>
+      ${p.quote ? html`<figure class="profile__quote reveal"><blockquote>${p.quote}</blockquote><figcaption>${p.quoteBy}</figcaption></figure>` : ''}
+      <div class="profile__bio reveal">${(p.story || p.bio).map((para) => html`<p>${para}</p>`)}${p.story ? p.bio.map((para) => html`<p>${para}</p>`) : ''}</div>
     </div>
   </div>
 </section>`)}

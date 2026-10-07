@@ -1766,3 +1766,11 @@ svg[hidden] { display: none; }
 .profile__strengths li { padding: 0; overflow: hidden; display: grid; text-align: left; }
 .profile__strengths img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top; display: block; }
 .profile__strengths span { padding: 12px 14px; }
+/* Profile aside: stretch so the portrait can stay pinned through the section;
+   when the leader has focus areas / a feature panel they stack under the portrait instead. */
+.profile__aside { align-self: stretch; display: flex; flex-direction: column; gap: 28px; }
+.profile__aside--stack .profile__sticky { position: static; }
+.profile__aside .profile__focus { grid-template-columns: minmax(0, 1fr); }
+.profile__aside .profile__panel { margin-top: 0; }
+.profile__aside .profile__strengths { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.profile__strengths img { height: auto; aspect-ratio: 1 / 1; }
