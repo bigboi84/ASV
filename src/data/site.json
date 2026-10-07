@@ -1,11 +1,6 @@
 {
   "nav": [
     {
-      "label": "Home",
-      "href": "/",
-      "page": "home"
-    },
-    {
       "label": "About",
       "kids": [
         {
@@ -21,7 +16,11 @@
           "href": "/strategic-pillars"
         },
         {
-          "label": "News, Stories & Impact",
+          "label": "Impact",
+          "href": "/impact"
+        },
+        {
+          "label": "News & Stories",
           "href": "/news-impact"
         }
       ]
@@ -55,12 +54,21 @@
           "href": "/life-skills"
         },
         {
-          "label": "Esports, Technology, Media & Innovation",
+          "label": "GAISB AI Education & Responsible Innovation",
+          "href": "/gaisb-ai"
+        }
+      ]
+    },
+    {
+      "label": "Esports & Digital",
+      "kids": [
+        {
+          "label": "EFN – Esports & Fans Network",
           "href": "/technology-media"
         },
         {
-          "label": "GAISB AI Education & Responsible Innovation",
-          "href": "/gaisb-ai"
+          "label": "FanZone™ & Global Diaspora Network",
+          "href": "/fanzone"
         }
       ]
     },
@@ -87,7 +95,16 @@
     },
     {
       "label": "Membership",
-      "href": "/membership"
+      "kids": [
+        {
+          "label": "Community Membership",
+          "href": "/membership"
+        },
+        {
+          "label": "Ambassadors",
+          "href": "/ambassadors"
+        }
+      ]
     },
     {
       "label": "Marketplace",
@@ -360,8 +377,8 @@
       "kicker": "Programs & Athlete Development",
       "h1": "Develop the Athlete. Strengthen the Whole Person.",
       "lead": "AFSV VRC is developing inclusive pathways intended to support participation, skill development, performance, confidence and opportunity.",
-      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215610_89595cab-2486-4027-97ba-f600820a034b.png",
-      "alt": "A coach crouching to talk with two teenage athletes during a session in an indoor fieldhouse, other participants of mixed ages and abilities training behind them, one using a sport wheelchair.",
+      "img": "assets/img/life/academy.jpg",
+      "alt": "Concept rendering: racially diverse boys and girls doing passing drills at night inside the dome while parents watch.",
       "ctas": [
         {
           "label": "Explore Program Interest",
@@ -517,16 +534,15 @@
       },
       "ctaHead": "Coaches and providers register through a separate route.",
       "ctaLabel": "Coach or provider inquiry",
-      "ctaHref": "/contact",
-      "video": "programs"
+      "ctaHref": "/contact"
     },
     "/education": {
       "group": "Programs",
       "kicker": "Education & Academic Success",
       "h1": "Learning That Builds Confidence and Capability",
       "lead": "AFSV VRC is developing academic support intended to help young people develop academically as well as physically and socially.",
-      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215612_dc47d344-c27f-4406-8274-05f9054c2108.png",
-      "alt": "Two teenagers working at a table with notebooks and a laptop in a study space beside a training hall, an adult tutor leaning in to help.",
+      "img": "assets/img/whitby/learn.jpg",
+      "alt": "Concept rendering: students and mentors working together in a warm learning centre with floodlit fields outside.",
       "ctas": [
         {
           "label": "Register Learning Interest",
@@ -680,16 +696,15 @@
       },
       "ctaHead": "Schools, colleges and tutors have their own route.",
       "ctaLabel": "Talk about a partnership",
-      "ctaHref": "/contact",
-      "video": "education"
+      "ctaHref": "/contact"
     },
     "/life-skills": {
       "group": "Programs",
       "kicker": "Life Skills",
       "h1": "Skills for Life Beyond Sport",
       "lead": "Life-skills programming is intended to prepare participants for independence, leadership, careers and entrepreneurship.",
-      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215614_9a3de3a4-8e4a-416b-9834-1fd1818b7adb.png",
-      "alt": "A small-group life skills workshop: five young adults around a table in a bright community room with a facilitator standing and explaining.",
+      "img": "assets/img/life/lifeskills.jpg",
+      "alt": "Concept rendering: racially diverse teens cooking a healthy meal with a chef mentor while others work on budgeting with a coach.",
       "ctas": [
         {
           "label": "Register Interest",
@@ -850,8 +865,7 @@
       },
       "ctaHead": "Sponsors fund whole blocks of life-skills programming.",
       "ctaLabel": "Talk to the partnerships team",
-      "ctaHref": "/partners",
-      "video": "lifeSkills"
+      "ctaHref": "/partners"
     },
     "/technology-media": {
       "group": "Programs",
@@ -3061,159 +3075,94 @@
       "title": "Explore",
       "links": [
         {
-          "label": "About Us",
-          "href": "/about",
-          "ext": false
+          "label": "About AFSVHCL™",
+          "href": "/about"
         },
         {
           "label": "Leadership",
-          "href": "/leadership",
-          "ext": false
+          "href": "/leadership"
         },
         {
-          "label": "Strategic Pillars",
-          "href": "/strategic-pillars",
-          "ext": false
+          "label": "Smart Sports Village",
+          "href": "/whitby-smart-sports-village"
         },
         {
-          "label": "Whitby Smart Sports Village",
-          "href": "/whitby-smart-sports-village",
-          "ext": false
+          "label": "Athlete Development",
+          "href": "/programs"
         },
         {
-          "label": "Facilities",
-          "href": "/facilities",
-          "ext": false
+          "label": "Education & Inclusion",
+          "href": "/education"
         },
         {
-          "label": "Membership",
-          "href": "/membership",
-          "ext": false
+          "label": "Impact",
+          "href": "/impact"
+        }
+      ]
+    },
+    {
+      "title": "Community",
+      "links": [
+        {
+          "label": "Community Membership",
+          "href": "/membership"
+        },
+        {
+          "label": "FanZone™",
+          "href": "/fanzone"
+        },
+        {
+          "label": "Esports & Digital (EFN)",
+          "href": "/technology-media"
+        },
+        {
+          "label": "Ambassadors",
+          "href": "/ambassadors"
         },
         {
           "label": "Marketplace",
-          "href": "/marketplace",
-          "ext": false
+          "href": "/marketplace"
+        },
+        {
+          "label": "Ecosystem Partners",
+          "href": "/partners"
+        },
+        {
+          "label": "Events",
+          "href": "/events"
         }
       ]
     },
     {
-      "title": "Programs",
+      "title": "Legal",
       "links": [
         {
-          "label": "Programs & Athlete Development",
-          "href": "/programs",
-          "ext": false
+          "label": "Compliance & Legal",
+          "href": "/compliance"
         },
         {
-          "label": "Education & Academic Success",
-          "href": "/education",
-          "ext": false
+          "label": "Privacy Policy",
+          "href": "/privacy"
         },
         {
-          "label": "Life Skills",
-          "href": "/life-skills",
-          "ext": false
+          "label": "Terms of Use",
+          "href": "/terms"
         },
         {
-          "label": "Esports, Technology, Media & Innovation",
-          "href": "/technology-media",
-          "ext": false
+          "label": "Refund Policy",
+          "href": "/refund-policy"
         },
         {
-          "label": "GAISB AI Education",
-          "href": "/gaisb-ai",
-          "ext": false
-        }
-      ]
-    },
-    {
-      "title": "Events",
-      "links": [
-        {
-          "label": "GAISB AI World Summit 2027",
-          "href": "/events",
-          "ext": false
+          "label": "Shipping Policy",
+          "href": "/shipping-policy"
         },
         {
-          "label": "Summit website",
-          "href": "https://gaisb.ai/port-of-spain.html",
-          "ext": true
+          "label": "Accessibility",
+          "href": "/accessibility"
         },
-        {
-          "label": "All events",
-          "href": "/events",
-          "ext": false
-        }
-      ]
-    },
-    {
-      "title": "Inclusion & impact",
-      "links": [
-        {
-          "label": "Neurodiversity Access & Opportunity",
-          "href": "/neurodiversity",
-          "ext": false
-        },
-        {
-          "label": "Business for Inclusion",
-          "href": "/business-for-inclusion",
-          "ext": false
-        },
-        {
-          "label": "Service Provider Network",
-          "href": "/service-provider-network",
-          "ext": false
-        },
-        {
-          "label": "Neurodiversity Access Fund",
-          "href": "/neurodiversity-access-fund",
-          "ext": false
-        },
-        {
-          "label": "News, Stories & Impact",
-          "href": "/news-impact",
-          "ext": false
-        },
-        {
-          "label": "Accessibility, Privacy & Safeguarding",
-          "href": "/accessibility-privacy",
-          "ext": false
-        },
-        {
-          "label": "Legal & Policy Pages",
-          "href": "/legal",
-          "ext": false
-        }
-      ]
-    },
-    {
-      "title": "Get in touch",
-      "links": [
         {
           "label": "Contact Us",
-          "href": "/contact",
-          "ext": false
-        },
-        {
-          "label": "Book Now",
-          "href": "https://book.afsvvrc.com",
-          "ext": true
-        },
-        {
-          "label": "Partners & Sponsors",
-          "href": "/partners",
-          "ext": false
-        },
-        {
-          "label": "Become a Vendor",
-          "href": "/marketplace",
-          "ext": false
-        },
-        {
-          "label": "Service Provider Network",
-          "href": "/service-provider-network",
-          "ext": false
+          "href": "/contact"
         }
       ]
     }

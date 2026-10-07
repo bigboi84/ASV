@@ -237,6 +237,17 @@
     triSteps.forEach(function (s, i) { s.classList.toggle('is-on', i === active); });
   }
 
+  /* ───────── Whitby roadmap: the gold line fills as you scroll through it ───────── */
+  var road = $('[data-roadmap]');
+  var roadSteps = road ? $$('.roadmap__step', road) : [];
+  function paintRoad() {
+    if (!road) return;
+    var r = road.getBoundingClientRect();
+    var p = reduce ? 1 : clamp((vh() * 0.75 - r.top) / (r.height * 0.8));
+    road.style.setProperty('--rp', p.toFixed(3));
+    roadSteps.forEach(function (s, i) { s.classList.toggle('is-on', p >= i / roadSteps.length); });
+  }
+
   /* ───────── Neurodiversity cards swap the image above ───────── */
   var swapStage = $('[data-swap-stage]');
   if (swapStage) {
@@ -303,7 +314,7 @@
   function frame() {
     ticking = false;
     setDock(window.scrollY > dockThreshold());
-    paintStack(); paintDraw(); paintHscroll(); paintFloats(); paintSweeps(); paintTri();
+    paintStack(); paintDraw(); paintHscroll(); paintFloats(); paintSweeps(); paintTri(); paintRoad();
   }
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
   window.addEventListener('scroll', onScroll, { passive: true });

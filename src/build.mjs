@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { page } from './layout.mjs';
 import * as P from './pages.mjs';
 import * as MK from './marketplace.mjs';
+import * as P2 from './pages2.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const out = path.join(root, 'site');
@@ -26,11 +27,18 @@ const pages = [
   ['/marketplace', MK.marketplace(data, merch)],
   ['/contact', P.contact(data)],
   ['/partners', P.partners(data)],
-  ...Object.keys(data.content).map((r) => [r, P.contentPage(data, r)]),
+  ...Object.keys(data.content).map((r) => [r, r === '/technology-media' ? P2.efn(data) : P.contentPage(data, r)]),
+  ['/impact', P2.impact(data)],
+  ['/fanzone', P2.fanzone(data)],
+  ['/ambassadors', P2.ambassadors(data)],
+  ['/compliance', P2.compliance(data)],
+  ['/privacy', P2.privacy(data)],
+  ['/terms', P2.terms(data)],
+  ['/refund-policy', P2.refund(data)],
+  ['/shipping-policy', P2.shipping(data)],
+  ['/accessibility', P2.accessibility(data)],
   ['/events', P.events(data)],
   ['/news-impact', P.news(data)],
-  ['/accessibility-privacy', P.access(data)],
-  ['/legal', P.legal(data)],
   ['/shop', MK.shop(data, merch)],
   ...merch.products.map((p) => [`/product/${p.slug}`, MK.merchProduct(data, merch, p)]),
   ['/404', P.notFound(data)],

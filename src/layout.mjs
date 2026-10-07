@@ -127,17 +127,26 @@ function dock(current) {
 </nav>`;
 }
 
+const ECOSYSTEM = [
+  ['AFSV VRC™ Development Group Ltd.', 'Infrastructure development'],
+  ['MLMSR Mentorship LLC', 'Education & inclusion programming'],
+  ['EFN – Esports & Fans Network', 'Digital & esports division'],
+];
+const MARKS = ['AFSVHCL™', 'Athletes & Fans Sports Village™', 'FanZone™', 'AFSV VRC™', 'AFSVHCL Marketplace™', 'AFSVHCL Executive Collection™', 'AFSVHCL Founder Series™', 'AFSVHCL Legacy Collection™'];
+
 function footer(cols) {
   return html`
 <footer class="site-footer" data-el="site.footer" data-el-build="theme-builder">
   <div class="wrap site-footer__grid">
     <div class="site-footer__brand">
       <img src="assets/img/logo-reverse.png" alt="${SITE.legal}" width="600" height="160" loading="lazy">
-      <p class="site-footer__tag">${SITE.tagline}</p>
-      <div class="site-footer__contact">
-        <p>A public inquiry mailbox will be published once routing is confirmed. Until then, the contact form reaches the right team.</p>
-        <a class="text-link text-link--light" href="contact.html">Contact AFSV VRC ${raw('<span class="arrow" aria-hidden="true">')}${icon('arrow')}${raw('</span>')}</a>
-      </div>
+      <p class="site-footer__tag">Building Futures. Inspiring Potential. Strengthening Communities. A Canadian vision with global impact.</p>
+      <ul class="site-footer__contact">
+        <li><span>Location</span>Whitby, Ontario, Canada</li>
+        <li><span>Email</span><a href="mailto:afsvhcl@gmail.com">afsvhcl@gmail.com</a></li>
+        <li><span>Leadership</span>Martin Lashley – Chairman &amp; CEO</li>
+      </ul>
+      <div class="btn-row"><a class="btn btn--gold btn--sm" href="membership.html">Community membership</a><a class="btn btn--line-light btn--sm" href="partners.html">Ecosystem partners</a></div>
     </div>
     ${cols.map((col) => html`
     <div>
@@ -145,10 +154,24 @@ function footer(cols) {
       <ul>${col.links.map((l) => html`<li><a href="${href(l.href)}"${extAttrs(l.href)}>${l.label}${isExternal(l.href) ? raw('<span class="sr-only"> (opens in a new tab)</span>') : ''}</a></li>`)}</ul>
     </div>`)}
   </div>
+  <div class="wrap site-footer__eco">
+    <div>
+      <h2>AFSVHCL™ ecosystem</h2>
+      <ul class="site-footer__entities">${ECOSYSTEM.map(([n, r]) => html`<li><b>${n}</b><span>${r}</span></li>`)}</ul>
+    </div>
+    <div>
+      <h2>Trademark notices</h2>
+      <ul class="site-footer__marks">${MARKS.map((m) => html`<li>${m}</li>`)}</ul>
+      <p class="site-footer__fine">™ indicates an unregistered trademark.</p>
+    </div>
+  </div>
+  <div class="wrap site-footer__disclaimer">
+    <p><b>Development-stage disclaimer.</b> AFSVHCL™ is a development-stage company. The Smart Sports Village and all related facilities, programs, services and initiatives described on this website are proposed concepts only — they do not currently exist as operational facilities or active programs. All concepts, timelines, projections, partnerships and proposed activities are for informational and exploratory discussion purposes only and remain subject to financing, regulatory approvals, due diligence, feasibility analysis and execution capacity. No memberships, programs or services are currently available for purchase. No securities are being offered. See our <a href="compliance.html">Compliance &amp; Legal</a> page for full disclosures.</p>
+  </div>
   <div class="site-footer__bar">
     <div class="wrap">
-      <p>© ${new Date().getFullYear()} ${SITE.legal} Proposed and planned items are future-state and not yet operational.</p>
-      <nav aria-label="Legal"><a href="legal.html">Legal &amp; policies</a><a href="accessibility-privacy.html">Accessibility</a><a href="accessibility-privacy.html#support">Report an issue</a></nav>
+      <p>© ${new Date().getFullYear()} Athletes &amp; Fans Sports Village Holding Company Limited (AFSVHCL). All rights reserved.</p>
+      <nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refund-policy.html">Refunds</a><a href="shipping-policy.html">Shipping</a><a href="accessibility.html">Accessibility</a><a href="compliance.html">Compliance</a></nav>
     </div>
   </div>
 </footer>`;

@@ -3,6 +3,8 @@ import {
   previewForm, fromDesignFields, formSection, numberedCells, numberedRows, pad2, money, initials,
 } from './lib.mjs';
 
+import { aboutExtra, whitbyOverview, whitbyRoadmap, membershipExtra, partnersExtra, contactExtra, EXTRAS } from './pages2.mjs';
+
 const IMG = (f) => `assets/img/${f}`;
 let V = {};
 export const setVideos = (v) => { V = v; };
@@ -30,7 +32,7 @@ Object.assign(SKETCH, {
   Handshake: '<path d="M2.6 12.4l3.6-4.2 3.6 1.4 2.4-1.4 3.2.4 3.8 3.6"/><path d="M2.6 12.4l3.4 3.2M21.4 12.2l-3.2 3.4"/><path d="M8.6 14.6l1.6 1.6a1.2 1.2 0 0 0 1.7 0l.2-.2M11 13.4l2.4 2.4a1.2 1.2 0 0 0 1.7 0l.6-.6-3.6-3.8"/>',
   Globe: '<circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.4 2.4 3.6 5.2 3.6 8.6s-1.2 6.2-3.6 8.6c-2.4-2.4-3.6-5.2-3.6-8.6s1.2-6.2 3.6-8.6z"/>',
 });
-const sketchIcon = (name) => raw(`<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${SKETCH[name]}</svg>`);
+export const sketchIcon = (name) => raw(`<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${SKETCH[name]}</svg>`);
 const PREVIEW = 'Development preview — this form is not connected yet.';
 
 
@@ -140,16 +142,16 @@ const OPPS = [
 
 export function home(d) {
   const pillarImgs = [
-    ['pillars-hall.jpg', 'A coach demonstrating a movement to two athletes on an indoor court.'],
+    ['life/hall.jpg', 'Concept rendering: racially diverse youth athletes training basketball, sprints and futsal in a busy multi-sport hall at night, with coaches cheering them on.'],
     ['ai-education-studio.jpg', 'Adult learners at a long desk with large data displays while an instructor explains.'],
-    ['accessible-entrance.jpg', 'A step-free facility entrance where a staff member helps a visitor who uses a mobility aid.'],
-    ['about-team.jpg', 'Four adults collaborating around a table with notebooks and a wall of notes.'],
+    ['life/entrance.jpg', 'Concept rendering: a step-free entrance at dusk where staff welcome a young athlete using a sports wheelchair and a visitor with a guide dog.'],
+    ['life/plaza.jpg', 'Concept rendering: racially diverse families and teen athletes arriving at the village plaza at dusk, the dome glowing behind them.'],
   ];
   const pathways = [
-    { ...d.pathways[0], desc: 'Athlete pathways, coaching and multi-sport training.', img: 'news-courtside.jpg' },
-    { ...d.pathways[1], desc: 'Register interest in the five proposed membership pathways.', img: 'membership-community.jpg' },
+    { ...d.pathways[0], desc: 'Athlete pathways, coaching and multi-sport training.', img: 'life/academy.jpg' },
+    { ...d.pathways[1], desc: 'Register interest in the five proposed membership pathways.', img: 'life/lounge.jpg' },
     { ...d.pathways[2], desc: 'Executive and Everyday & Sport apparel and accessories.', img: 'merch/regular-varsity-jacket-navy.jpg' },
-    { ...d.pathways[3], desc: 'Sponsorship, education, technology and development routes.', img: 'partners-boardroom.jpg' },
+    { ...d.pathways[3], desc: 'Sponsorship, education, technology and development routes.', img: 'life/suite.jpg' },
   ];
   return {
     title: 'Home',
@@ -519,7 +521,7 @@ export function about(d) {
     title: 'About Us',
     overlay: true,
     description: 'AFSV VRC Global Development Group Ltd. develops a connected ecosystem that expands opportunity through sport, education, technology and inclusive community programming.',
-    ogImage: IMG('about-team.jpg'),
+    ogImage: IMG('life/plaza.jpg'),
     body: html`
 <section class="about-hero" data-el="about.hero" data-el-build="elementor">
   <div class="wrap about-hero__grid">
@@ -530,9 +532,9 @@ export function about(d) {
       <div class="btn-row btn-row--stack">${btn('Meet the leadership', '/leadership', 'gold')}${btn('Our strategic pillars', '/strategic-pillars', 'line-light')}</div>
     </div>
     <div class="collage" aria-hidden="true">
-      <div class="collage__a"><div class="pmedia" data-parallax="0.05"><img src="${IMG('about-team.jpg')}" alt="" width="1344" height="752" fetchpriority="high"></div></div>
-      <div class="collage__b"><div class="pmedia" data-parallax="0.12"><img src="${IMG('pillars-hall.jpg')}" alt="" width="1344" height="752"></div></div>
-      <div class="collage__c"><div class="pmedia" data-parallax="0.18"><img src="${IMG('membership-community.jpg')}" alt="" width="1344" height="752"></div></div>
+      <div class="collage__a"><div class="pmedia" data-parallax="0.05"><img src="${IMG('life/plaza.jpg')}" alt="" width="1344" height="752" fetchpriority="high"></div></div>
+      <div class="collage__b"><div class="pmedia" data-parallax="0.12"><img src="${IMG('life/hall.jpg')}" alt="" width="1344" height="752"></div></div>
+      <div class="collage__c"><div class="pmedia" data-parallax="0.18"><img src="${IMG('life/lounge.jpg')}" alt="" width="1344" height="752"></div></div>
       <span class="collage__ring"></span>
     </div>
   </div>
@@ -577,6 +579,8 @@ export function about(d) {
     </div>`)}
   </div>
 </section>
+
+${aboutExtra()}
 
 <section class="founder" data-el="about.founder" data-el-build="elementor">
   <div class="wrap section founder__grid">
@@ -672,13 +676,13 @@ export function pillars(d) {
   return {
     title: 'Strategic Pillars',
     description: 'Four pillars, one purpose: sports development, education and academic success, neurodivergent support and inclusive education, and life skills.',
-    ogImage: IMG('pillars-hall.jpg'),
+    ogImage: IMG('life/hall.jpg'),
     body: html`
 ${breadcrumb([{ label: 'About', route: '/about' }, { label: 'Strategic Pillars' }])}
 <section class="wrap page-head" data-el="pillars.hero" data-el-build="elementor">
   <p class="eyebrow">Strategic Pillars</p>
   <h1 class="h1 split-words" style="max-width:20ch;margin-bottom:44px" aria-label="Four pillars. One purpose: helping people thrive."><span aria-hidden="true">${splitWords('Four pillars. One purpose: helping people thrive.')}</span></h1>
-  <figure class="figure figure--21x9 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('pillars-hall.jpg'), alt: 'Wide interior of a multi-purpose sports and learning building: a coach demonstrating a movement to two adult athletes on a court, with adults studying at tables visible through a glass partition beyond.', video: V.pillars, w: 1344, h: 752 })}</figure>
+  <figure class="figure figure--21x9 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('life/hall.jpg'), alt: 'Concept rendering: racially diverse youth athletes training basketball, sprints and futsal in a busy multi-sport hall at night, with coaches cheering them on.', w: 1344, h: 752 })}</figure>
 </section>
 <section class="wrap section section--flush-top" data-el="pillars.grid" data-el-build="elementor">
   <div class="hairline" style="--min:330px" data-stagger>
@@ -707,14 +711,16 @@ ${breadcrumb([{ label: 'About', route: '/about' }, { label: 'Strategic Pillars' 
 // ════════════════════════ WHITBY ════════════════════════
 // Whitby facilities, from the AFSV VRC Whitby Smart Sports Village facility mockup.
 const WH_FACILITIES = [
-  { img: 'dome', name: 'Multi-Sport Inflatable Dome', line: 'Year-round training under one roof.', items: ['Soccer fields', 'Cricket nets', 'Multi-sport courts', 'Year-round training'] },
+  { img: 'dome', name: 'Multi-Sport Inflatable Dome', line: 'A proposed 150,000 sq ft dome for year-round training under one roof.', items: ['Full-size, competition-quality soccer field', 'Indoor track', 'Cricket nets', 'Multi-sport courts'] },
   { img: 'soccer', name: 'Soccer Fields', line: 'Outdoor pitches for training and match play.', items: ['Outdoor training fields'] },
   { img: 'cricket', name: 'Cricket Facility', line: 'Dedicated nets and turf for the cricket pathway.', items: ['Practice nets', 'Turf training pitches'] },
   { img: 'track', name: 'Track & Field', line: 'A full athletics venue for sprint, jump and throw.', items: ['400m track', 'Sprint lanes', 'Long jump / triple jump', 'Shot put / discus'] },
   { img: 'basketball', name: 'Basketball Courts', line: 'Indoor and outdoor courts for play and development.', items: ['Indoor & outdoor courts', 'Skill development programs'] },
   { img: 'hp', name: 'High Performance Training Centre', line: 'Elite training for peak performance.', items: ['Strength & conditioning', 'Sports science lab', 'Recovery & rehab', 'Athlete development programs'] },
-  { img: 'esports', name: 'Esports Competition Studio', line: 'Compete. Stream. Connect. The future is digital.', items: ['Competitive gaming arena', 'Streaming & broadcasting', 'Content creation lab', 'Esports & Digital Hub'] },
+  { img: 'esports', name: 'Esports Competition Studio', line: 'Compete. Stream. Connect. The future is digital.', items: ['80–120 gaming stations (proposed)', 'Tournament stage', 'Streaming control centre', 'Content creation lab'] },
   { img: 'learn', name: 'Learning & Mentorship Centre', line: 'Education today. Leaders tomorrow.', items: ['Classrooms', 'Tutoring & mentorship', 'Special needs support programs', 'Life skills development'] },
+  { img: 'media', name: 'Media & Broadcasting Studio', line: 'Where athlete stories are told.', items: ['Podcast & livestream studios', 'Sports Village Podcast Network', 'Athlete media content hub'] },
+  { img: 'spectators', name: 'Spectator Seating & Events', line: 'A community venue for big nights.', items: ['Competitions & showcases', 'Public programming', 'Community events'] },
   { img: 'lounge', name: 'Community Lounge', line: 'A space for families, partners and communities.', items: ['Family & partner hospitality', 'Community gatherings'] },
 ];
 const WH_HIGHLIGHTS = ['Year-round training', 'State-of-the-art infrastructure', 'Multi-sport development', 'Education & mentorship', 'Special needs inclusion', 'Esports & innovation', 'Community engagement', 'Sustainable & green design'];
@@ -750,6 +756,7 @@ ${breadcrumb([{ label: 'Smart Sports Village' }, { label: 'Whitby Smart Sports V
     </div>`)}
   </div>
 </section>
+${whitbyOverview()}
 <section class="wh-plan" data-el="whitby.site-plan" data-el-build="elementor">
   <div class="wrap section">
     <div class="section-head reveal">
@@ -784,6 +791,7 @@ ${breadcrumb([{ label: 'Smart Sports Village' }, { label: 'Whitby Smart Sports V
     </div>
   </div>
 </section>
+${whitbyRoadmap()}
 <section class="band--navy" data-el="whitby.highlights" data-el-build="elementor">
   <div class="wrap section wh-hl">
     <div class="reveal">
@@ -817,7 +825,7 @@ ${breadcrumb([{ label: 'Smart Sports Village' }, { label: 'Whitby Smart Sports V
       <h2 class="h2 mb-m">Technology as infrastructure, not decoration.</h2>
       <p class="lead">Digital access, secure connectivity, facility sensors, automation, data-informed programming, modern signage and emerging technology—subject to privacy, security, design and procurement.</p>
     </div>
-    <figure class="figure figure--16x9 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('whitby-clay-cutaway.jpg'), alt: 'Conceptual clay-model rendering: cutaway interior of a proposed sports dome showing a long-span arched roof, abstracted field zones, mezzanine learning rooms and a media studio volume as untextured masses. Not an existing facility.', video: V.whitbyCutaway, w: 1344, h: 752 })}
+    <figure class="figure figure--16x9 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('life/cutaway.jpg'), alt: 'Concept rendering: a cutaway of the proposed dome at blue hour showing the floodlit pitch, running track, courts, a learning mezzanine and an esports studio, with crowds inside. Not an existing facility.', w: 1344, h: 752 })}
       <figcaption class="caption-bar">Conceptual Rendering — Not an Existing Facility</figcaption>
     </figure>
   </div>
@@ -868,7 +876,7 @@ export function facilities(d) {
   return {
     title: 'Facilities',
     description: 'The proposed Smart Sports Village is being designed around adaptable spaces for sport, education, innovation, inclusion and community use.',
-    ogImage: IMG('facilities-clay-hall.jpg'),
+    ogImage: IMG('life/cutaway.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Smart Sports Village', route: '/whitby-smart-sports-village' }, { label: 'Facilities' }])}
 <section class="wrap page-head" data-el="facilities.header" data-el-build="elementor">
@@ -878,7 +886,7 @@ ${breadcrumb([{ label: 'Smart Sports Village', route: '/whitby-smart-sports-vill
       <h1 class="h1 mb-m split-words" aria-label="Flexible spaces for performance, learning and community."><span aria-hidden="true">${splitWords('Flexible spaces for performance, learning and community.')}</span></h1>
       <p class="lead measure">The proposed Smart Sports Village is being designed around adaptable spaces for sport, education, innovation, inclusion and community use. Final configuration is subject to design development, approvals and partner requirements.</p>
     </div>
-    <figure class="figure figure--16x10 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('facilities-clay-hall.jpg'), alt: 'Conceptual clay-model rendering: interior of a proposed flexible hall subdivided by movable partitions into a court zone, a workshop zone and a quiet sensory alcove, shown as untextured white and grey masses. Not an existing facility.', video: V.facilities, w: 1344, h: 752 })}
+    <figure class="figure figure--16x10 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('life/cutaway.jpg'), alt: 'Concept rendering: a cutaway of the proposed dome at blue hour showing the floodlit pitch, running track, courts, a learning mezzanine and an esports studio, with crowds inside. Not an existing facility.', w: 1344, h: 752 })}
       <figcaption class="caption-bar">Conceptual Rendering — Not an Existing Facility</figcaption>
     </figure>
   </div>
@@ -931,7 +939,7 @@ export function membership(d) {
   return {
     title: 'Membership',
     description: 'Register your interest in AFSV VRC membership — athlete, family, supporter, educator & coach, and corporate & community partner pathways.',
-    ogImage: IMG('membership-community.jpg'),
+    ogImage: IMG('life/lounge.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Membership' }])}
 <section class="wrap page-head" data-el="membership.hero" data-el-build="elementor">
@@ -942,7 +950,7 @@ ${breadcrumb([{ label: 'Membership' }])}
       <p class="lead measure mb-l">Membership will connect athletes, families, supporters, educators, partners and community members to AFSV VRC programs, experiences and opportunities. Register your interest to receive approved launch updates and help shape the experience.</p>
       ${btn('Register Your Interest', '#membership-form', 'navy')}
     </div>
-    <figure class="figure figure--4x3 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('membership-community.jpg'), alt: 'A diverse group of adults talking together outside a sports facility entrance after a session, holding kit bags and water bottles in late afternoon light.', video: V.membership, w: 1344, h: 752 })}</figure>
+    <figure class="figure figure--4x3 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('life/lounge.jpg'), alt: 'Concept rendering: racially diverse members cheering together in a fan lounge overlooking a floodlit pitch inside the dome.', w: 1344, h: 752 })}</figure>
   </div>
 </section>
 <section class="band--cream" data-el="membership.pathways" data-el-build="elementor">
@@ -958,6 +966,7 @@ ${breadcrumb([{ label: 'Membership' }])}
     </div>
   </div>
 </section>
+${membershipExtra()}
 ${formSection({
   id: 'membership-form', el: 'membership.form',
   title: 'Register your interest.',
@@ -998,6 +1007,7 @@ ${breadcrumb([{ label: 'Contact' }])}
   <h1 class="h1 split-words" aria-label="Let’s build what comes next."><span aria-hidden="true">${splitWords('Let’s build what comes next.')}</span></h1>
   <p class="lead" style="max-width:68ch">Whether you are an athlete, family, educator, coach, sponsor, investor, vendor or community organization, we welcome the opportunity to explore how you can take part.</p>
 </section>
+${contactExtra()}
 <section class="wrap section section--flush-top" data-el="contact.form" data-el-build="plugin">
   <div class="split split--contact">
     ${previewForm({
@@ -1030,7 +1040,7 @@ ${breadcrumb([{ label: 'Contact' }])}
           <li><a href="partners.html#partner-form">Partnership, sponsorship or investor inquiry</a></li>
           <li><a href="marketplace.html#vendor-form">Become a marketplace vendor</a></li>
           <li><a href="service-provider-network.html#interest">Join the service provider network</a></li>
-          <li><a href="accessibility-privacy.html#support">Accessibility or privacy request</a></li>
+          <li><a href="accessibility.html">Accessibility or privacy request</a></li>
         </ul>
       </div>
     </aside>
@@ -1045,7 +1055,7 @@ export function partners(d) {
   return {
     title: 'Partners, Sponsors & Investors',
     description: 'Build the future with AFSV VRC — partnership routes for municipalities, education, sport, inclusion, technology, corporate sponsorship, community development and capital.',
-    ogImage: IMG('partners-boardroom.jpg'),
+    ogImage: IMG('life/suite.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Partners, Sponsors & Investors' }])}
 <section class="wrap page-head" data-el="partners.hero" data-el-build="elementor">
@@ -1058,7 +1068,7 @@ ${breadcrumb([{ label: 'Partners, Sponsors & Investors' }])}
     ${btn('Request Project Brief', '#partner-form', 'line-dark', 'data-preselect="partner-type=Development and infrastructure"')}
     ${btn('Investor Inquiry', '#partner-form', 'line-dark', 'data-preselect="partner-type=Investor inquiry"')}
   </div>
-  <figure class="figure figure--21x9 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('partners-boardroom.jpg'), alt: 'Five adults in business attire in discussion around a dark boardroom table with printed plans and a site model, a large window behind them.', video: V.partners, w: 1344, h: 752 })}</figure>
+  <figure class="figure figure--21x9 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('life/suite.jpg'), alt: 'Concept rendering: racially diverse partners shaking hands in a glass suite overlooking a packed pitch on match night.', w: 1344, h: 752 })}</figure>
 </section>
 <section class="wrap section section--flush-top" data-el="partners.sections" data-el-build="elementor">
   <div class="hairline" style="--min:300px" data-stagger>
@@ -1071,6 +1081,7 @@ ${breadcrumb([{ label: 'Partners, Sponsors & Investors' }])}
     ${numberedRows(types)}
   </div>
 </section>
+${partnersExtra()}
 <section class="wrap section" data-el="partners.directory" data-el-build="elementor">
   <h2 class="h2 mb-s reveal">Approved partners</h2>
   <p class="body-lg mb-l" style="max-width:70ch">No organisation is listed as a partner without written authorization. Further logos will appear here as permissions are confirmed.</p>
@@ -1145,6 +1156,7 @@ ${c.list3Title ? html`
   <h2 class="h2 h2--sm mb-m reveal">${c.list3Title}</h2>
   <ul class="tags">${c.list3.map((l) => html`<li>${l}</li>`)}</ul>
 </section>` : ''}
+${EXTRAS[route] ? EXTRAS[route](d) : ''}
 ${formSection({
   id: 'interest', title: c.form.title, lead: c.form.lead, note: c.form.note,
   form: previewForm({
@@ -1164,14 +1176,14 @@ export function news(d) {
   return {
     title: 'News, Stories & Impact',
     description: 'A controlled publishing framework for AFSV VRC updates, stories, approved milestones and verified impact.',
-    ogImage: IMG('news-courtside.jpg'),
+    ogImage: IMG('life/academy.jpg'),
     body: html`
 ${breadcrumb([{ label: 'About', route: '/about' }, { label: 'News, Stories & Impact' }])}
 ${pageHero({
   kicker: 'News, Stories & Impact', h1: 'Progress, People and Community Impact',
   lead: 'A controlled publishing framework for updates, stories, approved milestones and verified impact. Nothing is published without editorial approval, and nothing about a person is published without their documented consent.',
   ctas: [{ label: 'Read Updates', href: '#updates' }, { label: 'Share a Story', href: '#story' }, { label: 'Partner With Us', href: '/partners' }],
-  video: V.news, img: IMG('news-courtside.jpg'), alt: 'A young adult athlete and an older family member sitting side by side on a bench at the edge of an indoor court, mid-conversation in warm late light.',
+  img: IMG('life/academy.jpg'), alt: 'Concept rendering: racially diverse boys and girls doing passing drills at night inside the dome while parents watch.',
 })}
 ${note('Consent is mandatory for stories, photographs, testimonials and identifying information, with enhanced safeguards for minors and vulnerable people. Sharing a story below is an expression of interest and a consent to be contacted — it is not publication consent. Editorial approval and formal media releases happen separately.')}
 <section class="wrap section" id="updates" data-el="news.types" data-el-build="custom-widget">
@@ -1214,14 +1226,14 @@ export function access(d) {
   return {
     title: 'Accessibility, Privacy & Safeguarding',
     description: 'What AFSV VRC commits to on accessibility, privacy and safeguarding, and how to request support or report an issue.',
-    ogImage: IMG('accessible-entrance.jpg'),
+    ogImage: IMG('life/entrance.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Accessibility, Privacy & Safeguarding' }])}
 ${pageHero({
   kicker: 'Accessibility, Privacy & Safeguarding', h1: 'Access, Privacy and Safety by Design',
   lead: 'What we commit to on accessibility, privacy and safeguarding, and how it is implemented. This is a commitment statement — the final legal policies are pending authorized approval.',
   ctas: [{ label: 'Request Accessibility Support', href: '#support', preselect: 'issue-type=Accessibility support request' }, { label: 'Report an Accessibility Issue', href: '#support', preselect: 'issue-type=Report an accessibility issue' }, { label: 'Privacy Inquiry', href: '#support', preselect: 'issue-type=Privacy inquiry' }],
-  img: IMG('accessible-entrance.jpg'), alt: 'An accessible facility entrance with a step-free doorway and tactile floor strip, a member of staff at a low reception counter helping a visitor who uses a mobility aid.',
+  img: IMG('life/entrance.jpg'), alt: 'Concept rendering: a step-free entrance at dusk where staff welcome a young athlete using a sports wheelchair and a visitor with a guide dog.',
 })}
 ${note('Publication state: this page carries a commitment statement. The full Privacy Policy and Accessibility Statement require counsel and authorized approval before publication, and are listed as pending on the Legal and Policy page. General forms never ask for diagnoses or medical records.')}
 <section class="wrap section" data-el="access.commitments" data-el-build="elementor">

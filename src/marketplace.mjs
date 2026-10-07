@@ -170,6 +170,26 @@ ${breadcrumb([{ label: 'Marketplace' }])}
   </div>
 </section>
 
+<section class="wrap section" data-el="marketplace.proposed-collections" data-el-build="elementor">
+  <div class="section-head reveal"><p class="eyebrow mb-s">Proposed collections</p><h2 class="h2">What's coming to the marketplace.</h2><p class="body-lg muted">The official e-commerce platform for AFSVHCL and AFSV VRC Development Group Ltd. Every purchase is intended to support neurodivergent inclusion programs.</p></div>
+  <div class="pcols" data-stagger>
+    ${[
+      ['executive-aviator-jacket-black.jpg', 'AFSVHCL Executive Collection™', 'Premium branded apparel and accessories for corporate partners and leadership.'],
+      ['executive-polo-black.jpg', 'AFSVHCL Founder Series™', 'Exclusive limited-edition merchandise for founding members and early supporters.'],
+      ['regular-varsity-jacket-navy.jpg', 'AFSVHCL Legacy Collection™', 'Heritage-inspired apparel celebrating the AFSVHCL™ mission and community.'],
+      ['regular-tee-navy.jpg', 'Athlete Performance Gear', 'Proposed branded training kits, apparel and equipment for AFSVHCL™ athletes.'],
+      ['regular-cap-navy.jpg', 'FanZone™ Member Merchandise', 'Exclusive merchandise available to FanZone™ community members.'],
+      ['regular-hoodie-navy.jpg', 'Diaspora Heritage Collection', 'Branded hoodies and apparel featuring cultural heritage flags for diaspora members.'],
+    ].map(([img, t, b]) => html`<article class="pcol"><figure><img src="${M(img)}" alt="" width="960" height="1200" loading="lazy"></figure><div><h3>${t}</h3><p>${b}</p></div></article>`)}
+  </div>
+</section>
+<section class="wrap section section--flush-top" data-el="marketplace.member-pricing" data-el-build="elementor">
+  <div class="mprice reveal">
+    <div><p class="eyebrow mb-s">Member exclusive pricing</p><h2 class="h2">Unlock 10–15% off every purchase.</h2><p class="lead">Proposed AFSVHCL Community Membership ($250 USD / $350 CAD per year) unlocks member pricing, early access to drops and member-only sales.</p></div>
+    <div class="btn-row">${btn('See membership', '/membership#tiers', 'gold')}</div>
+  </div>
+</section>
+
 <section class="band--cream" data-el="marketplace.categories" data-el-build="elementor">
   <div class="wrap section">
     <div class="section-head reveal"><h2 class="h2">Launch categories.</h2><p class="body-lg muted">Beyond the AFSV VRC collection, the marketplace is planned to bring together partner and community offers.</p></div>
