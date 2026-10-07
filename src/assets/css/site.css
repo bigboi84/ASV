@@ -2429,3 +2429,13 @@ a.efn-site:hover .efn-site__btn { background: var(--gold); }
   .site-header__inner .brand { justify-self: start; }
   .site-header__inner .primary-nav { justify-content: center; }
 }
+.header-cta { display: none; min-height: 42px; padding: 10px 20px; white-space: nowrap; }
+@media (min-width: 1200px) {
+  .site-header__inner { grid-template-columns: minmax(max-content, 1fr) auto minmax(max-content, 1fr); }
+  .header-cta { display: inline-flex; justify-self: end; }
+}
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .site-header__inner { gap: 14px; }
+  .site-header__inner .nav-link { padding: 8px 8px; font-size: 13px; gap: 4px; }
+  .header-cta { padding: 9px 16px; }
+}

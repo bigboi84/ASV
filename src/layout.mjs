@@ -27,6 +27,7 @@ function header(nav, current, overlay = false) {
   <div class="wrap site-header__inner">
     <a class="brand" href="index.html" aria-label="${SITE.name} home"><img class="brand__dark" src="assets/img/logo.png" alt="${SITE.legal}" width="600" height="160">${overlay ? raw('<img class="brand__light" src="assets/img/logo-reverse.png" alt="" width="600" height="160">') : ''}</a>
     <nav class="primary-nav" aria-label="Primary"><ul>${items}</ul></nav>
+    <a class="btn btn--gold btn--sm header-cta" href="contact.html"${current === '/contact' ? raw(' aria-current="page"') : ''}>Get in touch</a>
     <button type="button" class="menu-toggle" data-drawer-open aria-controls="site-drawer" aria-expanded="false">
       <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu
     </button>
@@ -124,7 +125,7 @@ function dock(nav, current) {
   <a class="dock__top" href="#main" aria-label="Back to top">${icon('up')}</a>
   <ul class="dock__links">${items}</ul>
   <button type="button" class="dock__menu" data-drawer-open aria-controls="site-drawer" aria-expanded="false"><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu</button>
-  <a class="btn btn--gold btn--sm dock__cta" href="contact.html">Contact us</a>
+  <a class="btn btn--gold btn--sm dock__cta" href="contact.html">Get in touch</a>
 </nav>`;
 }
 
