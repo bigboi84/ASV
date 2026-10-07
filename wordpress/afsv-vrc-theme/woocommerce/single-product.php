@@ -19,7 +19,7 @@ while ( have_posts() ) :
 	$name    = $product->get_name();
 	$desc    = wp_strip_all_tags( $product->get_short_description() ? $product->get_short_description() : $product->get_description() );
 	$stage   = $first['img'] ? afsv_merch_img( $first['img'] ) : wp_get_attachment_image_url( $product->get_image_id(), 'large' );
-	echo afsv_breadcrumb( array( array( 'Marketplace', home_url( '/marketplace/' ) ), array( 'The Collection', get_permalink( wc_get_page_id( 'shop' ) ) ), array( $name, '' ) ) ); // phpcs:ignore
+	echo afsv_shop_breadcrumb( array( array( 'Marketplace', home_url( '/marketplace/' ) ), array( 'The Collection', get_permalink( wc_get_page_id( 'shop' ) ) ), array( $name, '' ) ) ); // phpcs:ignore
 	?>
 <section class="wrap section section--flush-top mk-product" data-el="product.main" data-merch-product>
   <div class="mk-product__gallery">
@@ -61,7 +61,7 @@ while ( have_posts() ) :
       <div><dt>Pricing</dt><dd>To be confirmed</dd></div>
     </dl>
     <div class="btn-row btn-row--stack">
-		<?php echo afsv_btn( 'Keep up to date on this piece', home_url( '/marketplace/#buyer-form' ), 'navy' ) . afsv_btn( 'Back to the collection', get_permalink( wc_get_page_id( 'shop' ) ), 'line-dark' ); // phpcs:ignore ?>
+		<?php echo afsv_shop_btn( 'Keep up to date on this piece', home_url( '/marketplace/#buyer-form' ), 'navy' ) . afsv_shop_btn( 'Back to the collection', get_permalink( wc_get_page_id( 'shop' ) ), 'line-dark' ); // phpcs:ignore ?>
     </div>
     <p class="small muted mt-m"><?php echo esc_html( AFSV_CONCEPT_NOTE ); ?> Front and back views, detail shots and a product video will be added for each piece.</p>
   </div>

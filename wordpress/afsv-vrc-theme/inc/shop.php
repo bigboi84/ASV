@@ -55,13 +55,13 @@ function afsv_product_colours( $product ) {
 	return array( array( 'name' => '', 'hex' => '#ddd', 'img' => '' ) );
 }
 
-function afsv_arrow() {
+function afsv_shop_arrow() {
 	return '<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>';
 }
-function afsv_btn( $label, $url, $variant = 'navy' ) {
-	return sprintf( '<a class="btn btn--%s" href="%s">%s%s</a>', esc_attr( $variant ), esc_url( $url ), esc_html( $label ), afsv_arrow() );
+function afsv_shop_btn( $label, $url, $variant = 'navy' ) {
+	return sprintf( '<a class="btn btn--%s" href="%s">%s%s</a>', esc_attr( $variant ), esc_url( $url ), esc_html( $label ), afsv_shop_arrow() );
 }
-function afsv_breadcrumb( $trail ) {
+function afsv_shop_breadcrumb( $trail ) {
 	$items = array_merge( array( array( __( 'Home', 'afsv-vrc' ), home_url( '/' ) ) ), $trail );
 	$out   = array();
 	foreach ( $items as $i => $it ) {
@@ -123,7 +123,7 @@ function afsv_collection_products( $args = array() ) {
 }
 
 /** A design section shipped with the theme (generated from the design build). */
-function afsv_part( $name ) {
+function afsv_shop_part( $name ) {
 	$file = get_stylesheet_directory() . '/chrome/part-' . $name . '.html';
 	if ( file_exists( $file ) ) {
 		echo afsv_fill( file_get_contents( $file ) ); // phpcs:ignore -- generated design markup.

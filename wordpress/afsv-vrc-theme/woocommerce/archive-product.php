@@ -17,7 +17,7 @@ foreach ( $products as $p ) {
 	}
 }
 $active = is_product_category() ? get_queried_object()->slug : 'all';
-echo afsv_breadcrumb( array( array( 'Marketplace', home_url( '/marketplace/' ) ), array( 'The Collection', '' ) ) ); // phpcs:ignore
+echo afsv_shop_breadcrumb( array( array( 'Marketplace', home_url( '/marketplace/' ) ), array( 'The Collection', '' ) ) ); // phpcs:ignore
 ?>
 <section class="wrap page-head" data-el="shop.header">
   <p class="eyebrow">The AFSV VRC Collection</p>
@@ -47,5 +47,5 @@ echo afsv_breadcrumb( array( array( 'Marketplace', home_url( '/marketplace/' ) )
   </div>
 </section>
 <?php
-afsv_part( 'launch-form' );
+afsv_shop_part( 'launch-form' );
 get_footer();
