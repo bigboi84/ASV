@@ -165,7 +165,7 @@ export function home(d) {
   </div>
   <div class="hero__scrim" aria-hidden="true"></div>
   <div class="wrap hero__content hero__content--film">
-    <p class="film__tag"><span class="pill pill--gold">Proposed</span> Whitby, Ontario</p>
+    <p class="film__tag">Whitby, Ontario</p>
     <h1 class="film__title split-words" aria-label="Canada's new year-round sports village"><span aria-hidden="true">${splitWords(["Canada's new year-round", 'sports village'])}</span></h1>
     <a class="film__cta" href="whitby-smart-sports-village.html">Explore the village</a>
   </div>
@@ -312,7 +312,6 @@ export function home(d) {
     <span class="expand__shade" aria-hidden="true"></span>
     <div class="wrap expand__content">
       <div class="expand__card reveal">
-        <span class="pill pill--gold">Proposed</span>
         <h2 class="h2">Whitby Smart Sports Village</h2>
         <p class="lead">Our proposed Whitby pilot is envisioned as a technology-enabled, multi-sport destination serving athletes, students, families, clubs, educators and community partners.</p>
         <ul class="expand__tags">${['Multi-sport dome', 'Performance & recovery', 'Learning & life skills', 'Sensory-aware spaces', 'Esports & broadcast'].map((t) => html`<li>${t}</li>`)}</ul>
@@ -336,9 +335,9 @@ export function home(d) {
         ${[
           ['4', '', 'Strategic pillars', 'Connecting sport, learning, inclusion and life skills', ''],
           ['10', '', 'Program categories', 'Planned for the first cycle', ''],
-          ['150000', 'sq ft', 'Phase 1 floor area', 'Approximate, subject to site, design, approvals and financing', 'Proposed'],
+          ['150000', 'sq ft', 'Phase 1 floor area', 'Approximate, subject to site, design, approvals and financing', ''],
           ['6', '', 'Facility zones', 'From the multi-sport dome to media and broadcast', ''],
-          ['3', '', 'Regions', 'Canada, the Caribbean and global partnerships', 'Planned'],
+          ['3', '', 'Regions', 'Canada, the Caribbean and global partnerships', ''],
         ].map(([n, unit, k, label, pill], i) => html`
         <li class="num-card" style="--i:${i}">
           <span class="num-card__value"><span data-count="${n}">${Number(n).toLocaleString('en-CA')}</span>${unit ? html`<small>${unit}</small>` : ''}</span>
@@ -514,8 +513,8 @@ export function about(d) {
   const story = [
     { k: 'The belief', t: 'Sport can transform communities', b: 'when it is combined with education, technology and opportunity.' },
     { k: 'The ecosystem', t: 'AFSVHCL™', b: 'An integrated platform combining sports science, education programs, esports engagement and community participation.' },
-    { k: 'The pilot', t: 'Whitby Smart Sports Village', b: 'A proposed year-round, technology-enabled destination in Whitby, Ontario.', tag: 'Proposed' },
-    { k: 'The network', t: 'Canada, the Caribbean and beyond', b: 'A national network of multi-sport dome facilities and scalable initiatives in global markets.', tag: 'Planned' },
+    { k: 'The pilot', t: 'Whitby Smart Sports Village', b: 'A proposed year-round, technology-enabled destination in Whitby, Ontario.' },
+    { k: 'The network', t: 'Canada, the Caribbean and beyond', b: 'A national network of multi-sport dome facilities and scalable initiatives in global markets.' },
   ];
   return {
     title: 'About Us',
@@ -782,7 +781,7 @@ ${whitbyOverview()}
       <article class="wh-fac__card">
         <figure><img src="${IMG(`whitby/${f.img}.jpg`)}" alt="Conceptual rendering of the proposed ${f.name.toLowerCase()}. Not an existing facility." width="1200" height="800" loading="lazy"></figure>
         <div class="wh-fac__body">
-          <div class="wh-fac__top"><span class="num">${String(i + 1).padStart(2, '0')}</span><span class="pill pill--soft">Proposed</span></div>
+          <div class="wh-fac__top"><span class="num">${String(i + 1).padStart(2, '0')}</span></div>
           <h3 class="h3">${f.name}</h3>
           <p class="muted">${f.line}</p>
           <ul>${f.items.map((x) => html`<li>${x}</li>`)}</ul>
@@ -959,7 +958,7 @@ ${breadcrumb([{ label: 'Membership' }])}
     <div class="hairline" style="--min:220px" data-stagger>
       ${d.memberPathways.map((m) => html`
       <div class="cell" style="min-height:196px">
-        <div class="cell__top"><span class="num">${m.num}</span><span class="pill pill--soft">Proposed</span></div>
+        <div class="cell__top"><span class="num">${m.num}</span></div>
         <h3 class="h3" style="font-size:20px;margin-bottom:auto">${m.label}</h3>
         <p class="small muted">Benefits and pricing pending approval.</p>
       </div>`)}

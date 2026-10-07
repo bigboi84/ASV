@@ -2406,3 +2406,19 @@ a.efn-site:hover .efn-site__btn { background: var(--gold); }
 .merch-card:hover .merch-card__vid, .merch-card:focus-visible .merch-card__vid { opacity: 1; }
 .mk-product__vid { z-index: 1; }
 @media (hover: none) { .merch-card__vid { display: none; } }
+
+/* Compact header (matches the floating dock): smaller logo, title-case links, pill hover */
+.brand img, .site-header--overlay.is-stuck .brand img { height: 38px; }
+.site-header--overlay .brand img { height: 42px; }
+.primary-nav > ul { gap: 0; }
+.nav-link { padding: 9px 12px; font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; border-radius: var(--r-pill); border-bottom: 0; transition: background-color .2s, color .2s; }
+.nav-link .caret { font-size: 7px; }
+.nav-link:hover, .nav-item:hover > .nav-link, .nav-link[aria-expanded="true"] { background: var(--cream); color: var(--navy); }
+.nav-link[aria-current="page"], .nav-item.is-current > .nav-link { color: var(--gold-ink); }
+.site-header--overlay .nav-link:hover, .site-header--overlay .nav-item:hover > .nav-link,
+.site-header--overlay .nav-link[aria-expanded="true"] { background: rgba(245,243,238,.14); color: var(--on-navy); }
+.site-header--overlay .nav-link[aria-current="page"], .site-header--overlay .nav-item.is-current > .nav-link { color: var(--gold); }
+.site-header--overlay.is-stuck .nav-link:hover, .site-header--overlay.is-stuck .nav-item:hover > .nav-link,
+.site-header--overlay.is-stuck .nav-link[aria-expanded="true"] { background: var(--cream); color: var(--navy); }
+.site-header--overlay.is-stuck .nav-link[aria-current="page"], .site-header--overlay.is-stuck .nav-item.is-current > .nav-link { color: var(--gold-ink); }
+@media (max-width: 720px) { .brand img, .site-header--overlay .brand img, .site-header--overlay.is-stuck .brand img { height: 32px; } }

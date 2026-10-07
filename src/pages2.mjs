@@ -632,7 +632,7 @@ export const whitbyOverview = () => html`
       <p class="lead mb-m">The Smart Sports Village is the proposed flagship pilot of AFSVHCL™ — designed as the model for a national network of integrated sports and education campuses across Canada.</p>
       <p class="muted">The proposed dome would integrate elite athletic development, applied learning, neurodivergent support pathways, esports and digital media, and measurable community impact — all under one roof, year-round. It is proposed for a 12–15 acre Smart Sports &amp; Education Campus in partnership with municipal and post-secondary institutions, subject to financing, approvals and feasibility analysis.</p>
     </div>
-    ${stats([['150', 'K sq ft', 'Proposed dome', 'Proposed'], ['12–15', ' acres', 'Sports & education campus', 'Proposed'], ['10', '', 'Domes — 5-year vision', 'Planned']])}
+    ${stats([['150', 'K sq ft', 'Dome', ''], ['12–15', ' acres', 'Sports & education campus', ''], ['10', '', 'Domes — 5-year vision', '']])}
   </div>
 </section>`;
 export const whitbyRoadmap = () => html`
