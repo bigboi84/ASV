@@ -6,6 +6,7 @@ import { page } from './layout.mjs';
 import * as P from './pages.mjs';
 import * as MK from './marketplace.mjs';
 import * as P2 from './pages2.mjs';
+import * as P3 from './pages3.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const out = path.join(root, 'site');
@@ -29,6 +30,9 @@ const pages = [
   ['/partners', P.partners(data)],
   ...Object.keys(data.content).map((r) => [r, r === '/technology-media' ? P2.efn(data) : P.contentPage(data, r)]),
   ['/impact', P2.impact(data)],
+  ['/become-a-member', P3.becomeMember(data)],
+  ['/education-partnerships', P3.eduPartners(data)],
+  ['/become-a-vendor', P3.becomeVendor(data)],
   ['/fanzone', P2.fanzone(data)],
   ['/ambassadors', P2.ambassadors(data)],
   ['/compliance', P2.compliance(data)],

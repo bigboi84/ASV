@@ -76,29 +76,11 @@ function launchForm() {
 
 function vendorForm() {
   return html`
-<section class="wrap section section--flush-top" id="vendor-form" data-el="marketplace.vendor-form" data-el-build="plugin">
+<section class="wrap section section--flush-top" id="vendor-form" data-el="marketplace.vendor-cta" data-el-build="elementor">
   <div class="panel panel--dark">
-    <span class="pill mb-m">Interest only — not approval</span>
     <h2 class="h2 h2--sm mb-s">Become a marketplace vendor</h2>
-    <p class="body-lg mb-l measure">Qualified brands, creators, service providers and community businesses can register interest. Final onboarding depends on commercial, brand, quality, insurance, payment, tax, fulfilment and policy approval. Submitting this form does not create a vendor account.</p>
-    ${previewForm({
-      fields: [
-        { label: 'Legal or brand name', req: true, auto: 'organization' },
-        { label: 'Contact name', req: true, auto: 'name' },
-        { label: 'Email', type: 'email', req: true, auto: 'email' },
-        { label: 'Phone', type: 'tel', auto: 'tel' },
-        { label: 'Website', type: 'url', ph: 'https://', auto: 'url' },
-        { label: 'Category', type: 'select', req: true, ph: 'Select a category', options: ['Apparel and fanwear', 'Training and performance', 'Education and life-skills resources', 'Partner and sponsor offers', 'Community and vendor products'] },
-        { label: 'Regions served' },
-        { label: 'Insurance status', type: 'select', ph: 'Select a status', options: ['Current cover in place', 'Application in progress', 'Not yet arranged'] },
-        { label: 'Product or service description', type: 'textarea', req: true, rows: 3, full: true },
-        { label: 'Fulfilment capability', type: 'textarea', rows: 2, full: true },
-        { label: 'Comments', type: 'textarea', rows: 2, full: true },
-      ],
-      consent: 'I agree to be contacted about marketplace vendor opportunities and understand this submission is not an approval.',
-      submit: 'Register vendor interest',
-      status: `${PREVIEW} Vendor submissions will route to a manual review queue; no vendor account is created automatically.`,
-    })}
+    <p class="body-lg mb-l measure">Brands, makers and community businesses can apply to sell alongside the AFSV VRC collection. Tell us about your company and products — our team reviews every application.</p>
+    ${btn('Apply to sell', '/become-a-vendor', 'gold')}
   </div>
 </section>`;
 }
@@ -221,8 +203,8 @@ ${breadcrumb([{ label: 'Marketplace' }])}
 </section>
 <section class="wrap section section--flush-top" data-el="marketplace.member-pricing" data-el-build="elementor">
   <div class="mprice reveal">
-    <div><p class="eyebrow mb-s">Member exclusive pricing</p><h2 class="h2">Unlock 10–15% off every purchase.</h2><p class="lead">Proposed AFSVHCL Community Membership ($250 USD / $350 CAD per year) unlocks member pricing, early access to drops and member-only sales.</p></div>
-    <div class="btn-row">${btn('See membership', '/membership#tiers', 'gold')}</div>
+    <div><p class="eyebrow mb-s">Member exclusive pricing</p><h2 class="h2">Unlock 10–15% off every purchase.</h2><p class="lead">AFSV VRC membership is proposed to unlock member pricing, early access to drops and member-only sales. Pre-register and we’ll email you when it opens.</p></div>
+    <div class="btn-row">${btn('Become a member', '/become-a-member', 'gold')}</div>
   </div>
 </section>
 
@@ -298,7 +280,7 @@ ${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'The Col
       <div><dt>Pricing</dt><dd>To be confirmed</dd></div>
     </dl>
     <div class="btn-row btn-row--stack">
-      ${btn('Register interest in this piece', '/marketplace#buyer-form', 'navy')}
+      ${btn('Keep up to date on this piece', '/marketplace#buyer-form', 'navy')}
       ${btn('Back to the collection', '/shop', 'line-dark')}
     </div>
     <p class="small muted mt-m">${CONCEPT_NOTE} Front and back views, detail shots and a product video will be added for each piece.</p>

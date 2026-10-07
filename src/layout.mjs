@@ -3,7 +3,7 @@ import { SITE, html, raw, esc, href, extAttrs, isExternal, icon } from './lib.mj
 
 const MERCH = JSON.parse(fs.readFileSync(new URL('./data/merch.json', import.meta.url), 'utf8'));
 
-const MARKET_ROUTES = ['/marketplace', '/shop'];
+const MARKET_ROUTES = ['/marketplace', '/shop', '/become-a-vendor'];
 
 function isCurrent(route, current) {
   return route === current;
@@ -27,7 +27,7 @@ function header(nav, current, overlay = false) {
   <div class="wrap site-header__inner">
     <a class="brand" href="index.html" aria-label="${SITE.name} home"><img class="brand__dark" src="assets/img/logo.png" alt="${SITE.legal}" width="600" height="160">${overlay ? raw('<img class="brand__light" src="assets/img/logo-reverse.png" alt="" width="600" height="160">') : ''}</a>
     <nav class="primary-nav" aria-label="Primary"><ul>${items}</ul></nav>
-    <a class="btn btn--gold btn--sm header-cta" href="contact.html"${current === '/contact' ? raw(' aria-current="page"') : ''}>Get in touch</a>
+    <a class="btn btn--gold btn--sm header-cta" href="become-a-member.html"${current === '/become-a-member' ? raw(' aria-current="page"') : ''}>Become a member</a>
     <button type="button" class="menu-toggle" data-drawer-open aria-controls="site-drawer" aria-expanded="false">
       <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu
     </button>
@@ -59,9 +59,9 @@ function drawer(nav, current, inMarket = false) {
       ${inMarket ? html`<p class="drawer__note">Explore the rest of AFSV VRC</p>` : ''}
       ${groups}
       <div class="drawer__ctas">
-        ${inMarket ? html`<a class="btn btn--line-light" href="marketplace.html#buyer-form">Join the launch list</a><a class="btn btn--line-light" href="marketplace.html#vendor-form">Sell with us</a>` : ''}
-        <a class="btn btn--gold" href="${SITE.booking}" target="_blank" rel="noopener noreferrer">Book Now<span class="sr-only"> (opens in a new tab)</span>${icon('external')}</a>
-        <a class="btn btn--line-light" href="contact.html">Contact</a>
+        ${inMarket ? html`<a class="btn btn--line-light" href="marketplace.html#buyer-form">Join the launch list</a><a class="btn btn--line-light" href="become-a-vendor.html">Sell with us</a>` : ''}
+        <a class="btn btn--gold" href="become-a-member.html">Become a member</a>
+        <a class="btn btn--line-light" href="contact.html">Contact us</a>
       </div>
     </nav>
   </div>
@@ -99,7 +99,7 @@ function shopHeader(current) {
       </ul>
     </nav>
     <div class="shop-header__actions">
-      <a class="btn btn--line-dark btn--sm shop-header__sell" href="marketplace.html#vendor-form">Sell with us</a>
+      <a class="btn btn--line-dark btn--sm shop-header__sell" href="become-a-vendor.html">Sell with us</a>
       <a class="btn btn--gold btn--sm shop-header__join" href="marketplace.html#buyer-form">Join the launch list</a>
       <button type="button" class="menu-toggle shop-header__menu" data-drawer-open aria-controls="site-drawer" aria-expanded="false">
         <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu
@@ -125,7 +125,7 @@ function dock(nav, current) {
   <a class="dock__top" href="#main" aria-label="Back to top">${icon('up')}</a>
   <ul class="dock__links">${items}</ul>
   <button type="button" class="dock__menu" data-drawer-open aria-controls="site-drawer" aria-expanded="false"><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu</button>
-  <a class="btn btn--gold btn--sm dock__cta" href="contact.html">Get in touch</a>
+  <a class="btn btn--gold btn--sm dock__cta" href="become-a-member.html">Become a member</a>
 </nav>`;
 }
 
@@ -145,7 +145,7 @@ function footer(cols) {
       <p class="site-footer__tag">Building Futures. Inspiring Potential. Strengthening Communities. A Canadian vision with global impact.</p>
       <ul class="site-footer__contact">
         <li><span>Location</span>Whitby, Ontario, Canada</li>
-        <li><span>Email</span><a href="mailto:afsvhcl@gmail.com">afsvhcl@gmail.com</a></li>
+        <li><span>Email</span><a href="mailto:info@afsvhcl.com">info@afsvhcl.com</a></li>
         <li><span>Leadership</span>Martin Lashley – Chairman &amp; CEO</li>
       </ul>
       <div class="btn-row"><a class="btn btn--gold btn--sm" href="membership.html">Community membership</a><a class="btn btn--line-light btn--sm" href="partners.html">Ecosystem partners</a></div>

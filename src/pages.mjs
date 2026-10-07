@@ -131,11 +131,11 @@ const EDU_CATS = [
   ['Family support resources', 'Resources and counselling for families navigating neurodivergent challenges.', 'neuro/family.jpg'],
 ];
 const TIERS = [
-  { name: 'Individual', usd: '$250 USD', cad: '$350 CAD', items: ['Community platform access', '10–15% marketplace pricing', 'Education & wellness resources', 'Welcome package with branded hoodie'], fund: '$25 USD to the Neurodivergent Inclusion Fund' },
-  { name: 'Business', usd: '$1,000 USD', cad: '$1,400 CAD', items: ['Marketplace directory listing', 'Business profile & spotlight features', 'Sponsorship opportunities', 'Inclusion Champion designation'], fund: '$100 USD to the Neurodivergent Inclusion Fund' },
+  { name: 'Individual', items: ['Community platform access', '10–15% marketplace pricing', 'Education & wellness resources', 'Welcome package with branded hoodie'], fund: 'Part of every membership supports the Neurodivergent Inclusion Fund' },
+  { name: 'Business', items: ['Marketplace directory listing', 'Business profile & spotlight features', 'Sponsorship opportunities', 'Inclusion Champion designation'], fund: 'Part of every membership supports the Neurodivergent Inclusion Fund' },
 ];
 const OPPS = [
-  ['Multi-sport development', 'Athletes & Families', 'Register your interest for proposed year-round training programs and be among the first to know when programs launch.', 'Register interest', '#register'],
+  ['Multi-sport development', 'Athletes & Families', 'Keep up to date on proposed year-round training programs and be among the first to know when programs launch.', 'Keep up to date', '#register'],
   ['Handshake', 'Partners & Sponsors', 'Corporate brands, institutions and community organizations aligned with our mission are welcome to express interest.', 'Express interest', 'partners.html'],
   ['Globe', 'Global Community', 'Express your interest in the proposed Global Diaspora Network — support youth sport and represent your heritage.', 'Learn more', 'about.html'],
 ];
@@ -149,11 +149,11 @@ export function home(d) {
   ];
   const pathways = [
     { ...d.pathways[0], desc: 'Athlete pathways, coaching and multi-sport training.', img: 'life/academy.jpg' },
-    { ...d.pathways[1], desc: 'Register interest in the five proposed membership pathways.', img: 'life/lounge.jpg' },
+    { ...d.pathways[1], desc: 'Keep up to date on the five proposed membership pathways.', img: 'life/lounge.jpg' },
     { ...d.pathways[2], desc: 'Executive and Everyday & Sport apparel and accessories.', img: 'merch/regular-varsity-jacket-navy.jpg' },
     { ...d.pathways[3], desc: 'Sponsorship, education, technology and development routes.', img: 'life/suite.jpg' },
   ];
-  const INTRO_IMGS = ['whitby/site-aerial.jpg', 'whitby/hp.jpg', 'whitby/esports.jpg', 'life/plaza.jpg'];
+  const INTRO_IMGS = ['whitby/site-aerial.jpg', 'whitby/hp.jpg', 'whitby/esports.jpg', 'life/plaza.jpg', 'whitby/basketball.jpg', 'whitby/soccer.jpg', 'life/academy.jpg']; // one per letter of AFSV VRC
   return {
     title: 'Home',
     overlay: true,
@@ -163,23 +163,23 @@ export function home(d) {
   <script>(function(){var d=document.documentElement;if(matchMedia('(prefers-reduced-motion: reduce)').matches||/[?&]nointro/.test(location.search)){var e=document.currentScript.parentNode;e.parentNode.removeChild(e);return;}d.classList.add('intro-on');})();</script>
   <svg class="intro__svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet">
     <defs>
-      <clipPath id="introWord"><text class="intro__word" x="800" y="610" text-anchor="middle" textLength="1180" lengthAdjust="spacing">AFSV</text></clipPath>
+      <clipPath id="introWord"><text class="intro__word" data-intro-text></text></clipPath>
       <mask id="introHole" maskUnits="userSpaceOnUse" x="-6000" y="-6000" width="13600" height="12900">
         <rect x="-6000" y="-6000" width="13600" height="12900" fill="#fff"/>
-        ${[0, 1, 2, 3].map(() => html`<rect x="800" y="450" width="0" height="0" fill="#000" data-intro-col/>`)}
-        <g data-intro-hole><text class="intro__word" x="800" y="610" text-anchor="middle" textLength="1180" lengthAdjust="spacing" fill="#fff" data-intro-holetext>AFSV</text></g>
+        ${INTRO_IMGS.map(() => html`<rect x="800" y="450" width="0" height="0" fill="#000" data-intro-col/>`)}
+        <g data-intro-hole><text class="intro__word" fill="#fff" data-intro-text data-intro-holetext></text></g>
       </mask>
     </defs>
     <rect class="intro__veil" x="-6000" y="-6000" width="13600" height="12900" mask="url(#introHole)"/>
     <g data-intro-fill>
-      <text class="intro__word intro__ghost" x="800" y="610" text-anchor="middle" textLength="1180" lengthAdjust="spacing" data-intro-measure>AFSV</text>
+      <text class="intro__word intro__ghost" data-intro-text data-intro-measure></text>
       <g clip-path="url(#introWord)">
         ${INTRO_IMGS.map((f) => html`<image href="${IMG(f)}" x="0" y="0" width="300" height="440" preserveAspectRatio="xMidYMid slice" data-intro-img/>`)}
       </g>
     </g>
     <g class="intro__meta" data-intro-meta>
-      <text x="800" y="700" text-anchor="middle" class="intro__cap">Whitby, Ontario · Smart Sports Village</text>
-      <rect x="650" y="730" width="300" height="2" class="intro__track"/>
+      <text x="800" y="700" text-anchor="middle" class="intro__cap" data-intro-cap>Whitby, Ontario · Smart Sports Village</text>
+      <rect x="650" y="730" width="300" height="2" class="intro__track" data-intro-track/>
       <rect x="650" y="730" width="0" height="2" class="intro__bar" data-intro-bar/>
     </g>
   </svg>
@@ -451,17 +451,17 @@ ${esportsBand()}
   <div class="section-head reveal">
     <p class="eyebrow mb-s">Join the community</p>
     <h2 class="h2">Become part of the AFSVHCL movement.</h2>
-    <p class="body-lg muted">Memberships are proposed to unlock exclusive benefits while funding neurodivergent inclusion programs. Not yet available for purchase.</p>
+    <p class="body-lg muted">Membership isn’t open yet — pre-register now and be first to know when it goes live. Every membership helps fund neurodivergent inclusion programs.</p>
   </div>
   <div class="tiers" data-stagger>
     ${TIERS.map((t) => html`<article class="tier">
-      <div class="tier__top"><h3>${t.name}</h3><span class="pill pill--soft">Proposed</span></div>
-      <p class="tier__price"><b>${t.usd}</b> / ${t.cad} <small>per year</small></p>
+      <div class="tier__top"><h3>${t.name}</h3><span class="pill pill--soft">Opening soon</span></div>
+      <p class="tier__price tier__price--soon"><b>Pre-register</b> <small>We’ll email you when it opens</small></p>
       <ul class="check-list">${t.items.map((x) => html`<li>${x}</li>`)}</ul>
       <p class="tier__fund">${t.fund}</p>
     </article>`)}
   </div>
-  <div class="btn-row mt-l">${btn('Explore membership', '/membership', 'navy')}</div>
+  <div class="btn-row mt-l">${btn('Become a member', '/become-a-member', 'gold')}${btn('Explore membership', '/membership', 'line-dark')}</div>
 </section>
 
 <section class="band--cream" data-el="home.opportunity" data-el-build="elementor">
@@ -479,7 +479,7 @@ ${esportsBand()}
 
 ${formSection({
   id: 'register', el: 'home.register-interest',
-  title: 'Register your interest.',
+  title: 'Keep up to date.',
   lead: 'Tell us which pathway matters to you and we will be in touch as programs, membership and facilities are confirmed.',
   note: 'We ask only for what we need to reply. Please do not include diagnoses, medical records or details about a child in this form.',
   form: previewForm({
@@ -489,7 +489,7 @@ ${formSection({
       { label: 'Interest pathway', type: 'select', req: true, ph: 'Select a pathway', full: true, options: ['Train and develop', 'Become a member', 'Shop the movement', 'Partner with us', 'Neurodiversity access and opportunity', 'Join the service provider network'] },
     ],
     consent: 'I agree to receive occasional updates from AFSV VRC. You can unsubscribe at any time.', consentReq: false,
-    submit: 'Register interest',
+    submit: 'Keep up to date',
     status: `${PREVIEW} Submissions will route once mailbox and CRM routing is confirmed.`,
   }),
 })}
@@ -935,7 +935,7 @@ ${breadcrumb([{ label: 'Smart Sports Village', route: '/whitby-smart-sports-vill
 </section>
 ${formSection({
   id: 'facility-updates', el: 'facilities.form',
-  title: 'Register for facility updates.',
+  title: 'Keep up to date on the facility.',
   lead: 'We will let you know as spaces, schedules and availability are confirmed.',
   note: 'Tell us only what helps us plan. Please do not include diagnoses, medical records or details about a child.',
   form: previewForm({
@@ -951,7 +951,7 @@ ${formSection({
       { label: 'Accessibility needs', type: 'textarea', rows: 3, full: true, hint: 'Tell us what would make a space work for you. No diagnosis or medical detail is needed.' },
     ],
     consent: 'I agree to receive facility updates from AFSV VRC. You can unsubscribe at any time.',
-    submit: 'Register for Facility Updates',
+    submit: 'Keep Up to Date',
     status: `${PREVIEW} Submissions will route once inventory and mailbox routing are confirmed.`,
   }),
 })}`,
@@ -963,7 +963,7 @@ export function membership(d) {
   const paths = d.memberPathways.map((m) => m.label);
   return {
     title: 'Membership',
-    description: 'Register your interest in AFSV VRC membership — athlete, family, supporter, educator & coach, and corporate & community partner pathways.',
+    description: 'Keep up to date on AFSV VRC membership — athlete, family, supporter, educator & coach, and corporate & community partner pathways.',
     ogImage: IMG('life/lounge.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Membership' }])}
@@ -972,8 +972,8 @@ ${breadcrumb([{ label: 'Membership' }])}
     <div>
       <span class="pill mb-m">Registration of interest only</span>
       <h1 class="h1 split-words" aria-label="Join the AFSV VRC community."><span aria-hidden="true">${splitWords('Join the AFSV VRC community.')}</span></h1>
-      <p class="lead measure mb-l">Membership will connect athletes, families, supporters, educators, partners and community members to AFSV VRC programs, experiences and opportunities. Register your interest to receive approved launch updates and help shape the experience.</p>
-      ${btn('Register Your Interest', '#membership-form', 'navy')}
+      <p class="lead measure mb-l">Membership will connect athletes, families, supporters, educators, partners and community members to AFSV VRC programs, experiences and opportunities. Keep up to date to receive approved launch updates and help shape the experience.</p>
+      ${btn('Keep Up to Date', '#membership-form', 'navy')}
     </div>
     <figure class="figure figure--4x3 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('life/lounge.jpg'), alt: 'Concept rendering: racially diverse members cheering together in a fan lounge overlooking a floodlit pitch inside the dome.', w: 1344, h: 752 })}</figure>
   </div>
@@ -994,7 +994,7 @@ ${breadcrumb([{ label: 'Membership' }])}
 ${membershipExtra()}
 ${formSection({
   id: 'membership-form', el: 'membership.form',
-  title: 'Register your interest.',
+  title: 'Keep up to date.',
   lead: 'This is not a purchase. Membership details, benefits and launch timing will be shared as they are approved.',
   note: 'Accommodation requests are optional and free-text. Please do not include a diagnosis or medical records.',
   form: previewForm({
@@ -1012,7 +1012,7 @@ ${formSection({
       { label: 'Accessibility or accommodation request', type: 'textarea', rows: 3, full: true },
     ],
     consent: 'I agree to receive membership updates from AFSV VRC. You can unsubscribe at any time.',
-    submit: 'Register Your Interest',
+    submit: 'Keep Up to Date',
     statusTitle: 'Thank you for joining the AFSV VRC interest list.',
     status: 'We will share membership details, benefits and launch timing as they are approved.',
   }),
@@ -1120,7 +1120,7 @@ ${partnersExtra()}
 </section>
 ${formSection({
   id: 'partner-form', el: 'partners.form',
-  title: 'Request materials.',
+  title: 'Become a partner.',
   lead: 'Tell us how your organisation would work with AFSV VRC and we will route your inquiry to the right team.',
   note: 'Investor inquiries are directed to restricted internal recipients. No offering documents are distributed from this form.',
   form: previewForm({

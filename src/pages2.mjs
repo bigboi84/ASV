@@ -1,5 +1,6 @@
 // New pages carried over from the AFSVHCL (Sintra) site, plus the extra sections added to
 // existing pages. Everything here uses the rounded "x-" component set styled in site.css.
+import { eduPartnerCta, partnerLogos } from './pages3.mjs';
 import {
   html, raw, href, btn, breadcrumb, ctaBand, splitWords, pad2, arrow, formSection, previewForm,
 } from './lib.mjs';
@@ -56,7 +57,7 @@ export function xhero({ kicker, title, lead, img, alt, ctas = [], badge = 'Propo
 </section>`;
 }
 
-const head = (eyebrow, title, lead, cls = '') => html`
+export const head = (eyebrow, title, lead, cls = '') => html`
   <div class="section-head reveal ${cls}">
     <p class="eyebrow mb-s">${eyebrow}</p>
     <h2 class="h2">${title}</h2>
@@ -64,7 +65,7 @@ const head = (eyebrow, title, lead, cls = '') => html`
   </div>`;
 
 // Rounded icon cards. items: [icon, title, body, list?]
-const kgrid = (items, { dark = false, cols = 3 } = {}) => html`
+export const kgrid = (items, { dark = false, cols = 3 } = {}) => html`
   <div class="kgrid kgrid--${cols}${dark ? ' kgrid--dark' : ''}" data-stagger>
     ${items.map(([ic, t, b, list]) => html`<article class="kcard">
       <span class="kcard__ico">${ico(ic)}</span>
@@ -166,10 +167,10 @@ ${xhero({ kicker: 'Community impact', title: 'Measuring what matters.', img: 'li
       <div class="reveal">
         <p class="eyebrow mb-s">Neurodivergent Inclusion Fund</p>
         <h2 class="h2 mb-m">Every membership changes a life.</h2>
-        <p class="lead mb-l">AFSVHCL commits a fixed amount from every membership into a dedicated Neurodivergent Inclusion Fund — supporting real families, real youth and real outcomes.</p>
+        <p class="lead mb-l">AFSVHCL commits a share of every membership to a dedicated Neurodivergent Inclusion Fund — supporting real families, real youth and real outcomes.</p>
         <div class="coins">
-          <div class="coin"><b>$25 <small>USD</small></b><span>per individual membership</span><em>$35 CAD</em></div>
-          <div class="coin coin--gold"><b>$100 <small>USD</small></b><span>per business membership</span><em>$140 CAD</em></div>
+          <div class="coin"><b>Every</b><span>individual membership</span><em>gives back</em></div>
+          <div class="coin coin--gold"><b>Every</b><span>business membership</span><em>gives more</em></div>
         </div>
         <p class="fund__fine">Proposed commitments — subject to program launch and partner capacity.</p>
       </div>
@@ -230,7 +231,7 @@ export function fanzone() {
     ogImage: IMG('life/flags.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Esports & Digital' }, { label: 'FanZone™' }])}
-${xhero({ kicker: 'FanZone™ · Global Diaspora Network', title: 'Your roots. Our community.', img: 'life/flags.jpg', alt: 'Concept rendering: a racially and culturally diverse crowd waving flags from Jamaica, India, Nigeria, the Philippines, Brazil, Canada, Trinidad, Ghana and Mexico alongside navy and gold scarves at a match inside the dome.', lead: 'The proposed AFSVHCL FanZone™ membership connects Canada’s multicultural communities worldwide through shared purpose: youth development, inclusion and community empowerment.', badge: 'Proposed program — not yet available', ctas: [{ label: 'Register your interest', href: '/membership#membership-form' }, { label: 'See membership tiers', href: '/membership#tiers' }] })}
+${xhero({ kicker: 'FanZone™ · Global Diaspora Network', title: 'Your roots. Our community.', img: 'life/flags.jpg', alt: 'Concept rendering: a racially and culturally diverse crowd waving flags from Jamaica, India, Nigeria, the Philippines, Brazil, Canada, Trinidad, Ghana and Mexico alongside navy and gold scarves at a match inside the dome.', lead: 'The proposed AFSVHCL FanZone™ membership connects Canada’s multicultural communities worldwide through shared purpose: youth development, inclusion and community empowerment.', badge: 'Proposed program — not yet available', ctas: [{ label: 'Keep up to date', href: '/membership#membership-form' }, { label: 'See membership tiers', href: '/membership#tiers' }] })}
 <section class="wrap section" data-el="fanzone.perks" data-el-build="elementor">
   ${head('Proposed member benefits', 'More than a membership — a community economy.', 'Designed to give back, with community discounts and rewards alongside the mission of supporting youth development.')}
   ${kgrid(perks)}
@@ -265,7 +266,7 @@ ${xhero({ kicker: 'FanZone™ · Global Diaspora Network', title: 'Your roots. O
       <p class="eyebrow mb-s">Proposed welcome package</p>
       <h2 class="h2 mb-m">Wear your heritage.</h2>
       <ul class="check-list mb-l">${['Premium AFSVHCL branded hoodie with your heritage flag', 'Official membership certificate', 'Exclusive community merchandise', 'Networking opportunities & community initiatives'].map((t) => html`<li>${t}</li>`)}</ul>
-      ${btn('Register your interest', '/membership#membership-form', 'navy')}
+      ${btn('Keep up to date', '/membership#membership-form', 'navy')}
     </div>
     <figure class="welcome-kit__img reveal"><img src="${IMG('merch/regular-hoodie-navy.jpg')}" alt="Concept mockup of the navy AFSVHCL hoodie with the colour crest." width="960" height="1200" loading="lazy"><figcaption>Concept — subject to change</figcaption></figure>
   </div>
@@ -289,7 +290,7 @@ export function ambassadors() {
     ogImage: IMG('life/ambassadors.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Membership', route: '/membership' }, { label: 'Ambassadors' }])}
-${xhero({ kicker: 'Ambassadors & community champions', title: 'Be the voice of the movement.', img: 'life/ambassadors.jpg', alt: 'Concept rendering: racially diverse athlete ambassadors and a content creator signing autographs and taking selfies with excited kids outside the dome at dusk.', lead: 'AFSVHCL™ is building a proposed national ecosystem — and we’re inviting community leaders, athletes and creators to express interest in supporting the vision.', badge: 'Proposed program — not yet active', ctas: [{ label: 'Register interest', href: '#ambassador-form' }, { label: 'Explore membership', href: '/membership' }] })}
+${xhero({ kicker: 'Ambassadors & community champions', title: 'Be the voice of the movement.', img: 'life/ambassadors.jpg', alt: 'Concept rendering: racially diverse athlete ambassadors and a content creator signing autographs and taking selfies with excited kids outside the dome at dusk.', lead: 'AFSVHCL™ is building a proposed national ecosystem — and we’re inviting community leaders, athletes and creators to express interest in supporting the vision.', badge: 'Proposed program — not yet active', ctas: [{ label: 'Keep up to date', href: '#ambassador-form' }, { label: 'Explore membership', href: '/membership' }] })}
 <section class="wrap section" data-el="ambassadors.types" data-el-build="elementor">
   ${head('Who this is for', 'Community-led growth, done responsibly.', 'The ambassador initiative builds awareness and community alignment. Any formal program will launch only after legal review, with clear terms, privacy notices and participation guidelines.')}
   <div class="amb" data-stagger>
@@ -309,7 +310,7 @@ ${xhero({ kicker: 'Ambassadors & community champions', title: 'Be the voice of t
 <section class="wrap section section--flush-bottom">${flag('This page is for informational purposes only. It does not constitute an offer, solicitation or binding commitment. Any future ambassador program will be subject to legal review, documented terms and appropriate safeguards.')}</section>
 ${formSection({
   id: 'ambassador-form', el: 'ambassadors.form',
-  title: 'Register your interest.',
+  title: 'Keep up to date.',
   lead: 'Tell us how you’d like to support the movement and we’ll be in touch when the program is ready.',
   note: 'Ambassadors under 18 will need a parent or guardian to register on their behalf.',
   form: previewForm({
@@ -322,7 +323,7 @@ ${formSection({
       { label: 'Tell us about yourself', type: 'textarea', full: true },
     ],
     consent: 'I agree to be contacted about the AFSVHCL™ ambassador initiative.',
-    submit: 'Register interest',
+    submit: 'Keep up to date',
     status: `${PREVIEW} Submissions will route to the community team once confirmed.`,
   }),
 })}`,
@@ -402,7 +403,7 @@ ${formSection({
 
 // ════════════════════════ LEGAL & POLICY PAGES ════════════════════════
 const MARKS = ['AFSVHCL™', 'Athletes & Fans Sports Village™', 'AFSV VRC™', 'FanZone™', 'AFSVHCL Marketplace™', 'AFSVHCL Executive Collection™', 'AFSVHCL Founder Series™', 'AFSVHCL Legacy Collection™'];
-const LEGAL_MAIL = 'afsvhcl@gmail.com';
+const LEGAL_MAIL = 'info@afsvhcl.com';
 
 export function compliance(d) {
   return {
@@ -517,8 +518,8 @@ export function accessibility() {
 
 // ════════════════════════ EXTRA SECTIONS FOR EXISTING PAGES ════════════════════════
 const AFFILIATE = [
-  { name: 'Community Affiliate', price: '$150 CAD', per: 'per athlete / year', body: 'Dome access and basic programming.' },
-  { name: 'Performance Affiliate', price: '$250 USD', per: 'per athlete / year', body: 'Full sports science, media and neurodivergent support.', hot: true },
+  { name: 'Community Affiliate', body: 'Dome access and basic programming.' },
+  { name: 'Performance Affiliate', body: 'Full sports science, media and neurodivergent support.', hot: true },
   { name: 'Elite Academy Partner', price: 'Custom', per: 'partnership', body: 'Co-branded programs, recruitment and sponsorship.' },
 ];
 export const affiliateNetwork = () => html`
@@ -530,13 +531,17 @@ export const affiliateNetwork = () => html`
       <p class="body-lg">AFSVHCL™ is not a competitor to existing clubs — it is the infrastructure and services layer that makes every club, academy and institution better.</p>
     </div>
     <div class="aff" data-stagger>
-      ${AFFILIATE.map((t) => html`<article class="aff__card${t.hot ? ' aff__card--hot' : ''}"><h3>${t.name}</h3><p class="aff__price"><b>${t.price}</b><small>${t.per}</small></p><p>${t.body}</p><span class="pill pill--soft">Proposed</span></article>`)}
+      ${AFFILIATE.map((t) => html`<article class="aff__card${t.hot ? ' aff__card--hot' : ''}"><h3>${t.name}</h3><p>${t.body}</p><a class="aff__go" href="become-a-member.html?interest=partnership">Keep up to date ${raw('&rarr;')}</a></article>`)}
     </div>
-    <p class="aff__fine">Affiliate fees and tiers are proposed and subject to change. Expressions of interest do not constitute binding commitments.</p>
+    <p class="aff__fine">Affiliate details will be shared with clubs and academies as the network opens. Expressions of interest do not constitute binding commitments.</p>
   </div>
 </section>`;
 
 export const EXTRAS = {
+  '/neurodiversity': () => eduPartnerCta(),
+  '/business-for-inclusion': () => eduPartnerCta(),
+  '/service-provider-network': () => eduPartnerCta(),
+  '/neurodiversity-access-fund': () => eduPartnerCta(),
   '/gaisb-ai': (d) => html`
 <section class="wrap section event-section" data-el="gaisb.event" data-el-build="custom-widget">
   <div class="section-head reveal"><p class="eyebrow mb-s">GAISB event</p><h2 class="h2">GAISB AI World Summit 2027.</h2><p class="body-lg muted">Hosted in Port of Spain by AFSV VRC with the Global AI Standards Body. <a class="text-link" href="events.html">All events ${arrow()}</a></p></div>
@@ -647,14 +652,14 @@ export const whitbyRoadmap = () => html`
 
 // Membership — pillars, detailed tiers, premium benefits, fund, diaspora, targets, FAQ.
 const TIER_DETAIL = [
-  { name: 'Community Membership', usd: '$250', cad: '$350 CAD', for: 'For individuals', groups: [
+  { name: 'Community Membership', for: 'For individuals', groups: [
     ['Community', ['Digital membership card + member badge (in-app)', 'Welcome certificate', 'Access to member community platform', 'Local chapter events (as available)', 'Volunteer and opportunity board']],
     ['Marketplace', ['10–15% member pricing on purchases', 'Early access to new merchandise drops', 'Exclusive limited edition access', 'Member-only flash sales']],
     ['Education & neurodivergent support', ['Family Learning Hub (virtual): resource library, parent webinars', 'Career readiness, financial literacy, entrepreneurship', 'Mental wellness resources', 'Virtual fitness & community challenges', 'Sports development & nutrition content', 'Youth athlete resources']],
     ['Impact & recognition', ['Annual member-facing Impact Report', 'Founding member recognition window (time-limited)']],
     ['Welcome package', ['Premium AFSVHCL branded hoodie', 'Digital membership card', 'Welcome certificate', 'Exclusive member badge in app']],
   ] },
-  { name: 'Community Business Membership', usd: '$1,000', cad: '$1,400 CAD', for: 'For businesses, professional firms and community organizations', hot: true, groups: [
+  { name: 'Community Business Membership', for: 'For businesses, professional firms and community organizations', hot: true, groups: [
     ['Marketplace & distribution', ['Preferred listing in the AFSVHCL Marketplace Directory (web + app)', 'Member exposure across Canada, USA, the Caribbean and the global diaspora']],
     ['Marketing', ['Business profile page', 'Member spotlight features', 'Marketplace promotion opportunities']],
     ['Recruitment & inclusion', ['Access to neurodivergent employment initiatives', 'Internship opportunities', 'Student placement programs', 'Volunteer recruitment channel']],
@@ -674,14 +679,14 @@ export const membershipExtra = () => html`
 </section>
 <section class="band--cream" id="tiers" data-el="membership.tiers" data-el-build="elementor">
   <div class="wrap section">
-    ${head('Membership tiers', 'Choose your membership.', 'Proposed pricing — no memberships are currently available for purchase and no payments are accepted. Members would choose USD or CAD at checkout.')}
+    ${head('Membership', 'Become an AFSV VRC member.', 'Membership isn’t open yet. Pre-register now and we’ll email you the moment it goes live — no payment, no commitment.')}
     <div class="tiers2" data-stagger>
       ${TIER_DETAIL.map((t) => html`<article class="tier2${t.hot ? ' tier2--hot' : ''}">
-        <div class="tier2__top"><h3>${t.name}</h3><span class="pill pill--soft">Proposed</span></div>
+        <div class="tier2__top"><h3>${t.name}</h3><span class="pill pill--soft">Opening soon</span></div>
         <p class="tier2__for">${t.for}</p>
-        <p class="tier2__price"><b>${t.usd}</b> USD <span>/ ${t.cad} per year</span></p>
+        <p class="tier2__price tier2__price--soon"><b>Pre-register</b> <span>We’ll email you when it opens</span></p>
         ${t.groups.map(([g, items], i) => html`<details class="tier2__group"${i === 0 ? raw(' open') : ''}><summary>${g}<span aria-hidden="true">+</span></summary><ul class="check-list">${items.map((x) => html`<li>${x}</li>`)}</ul></details>`)}
-        <a class="btn btn--${t.hot ? 'gold' : 'navy'}" href="#membership-form">Register interest</a>
+        <a class="btn btn--${t.hot ? 'gold' : 'navy'}" href="become-a-member.html">Become a member</a>
       </article>`)}
     </div>
   </div>
@@ -702,8 +707,8 @@ export const membershipExtra = () => html`
         <h2 class="h2 mb-m">Every membership changes a life.</h2>
         <p class="lead mb-l">A fixed amount from every membership is proposed for a dedicated Neurodivergent Inclusion Fund — measured and reported annually.</p>
         <div class="coins">
-          <div class="coin"><b>$25 <small>USD</small></b><span>per individual membership</span><em>$35 CAD</em></div>
-          <div class="coin coin--gold"><b>$100 <small>USD</small></b><span>per business membership</span><em>$140 CAD</em></div>
+          <div class="coin"><b>Every</b><span>individual membership</span><em>gives back</em></div>
+          <div class="coin coin--gold"><b>Every</b><span>business membership</span><em>gives more</em></div>
         </div>
         <p class="fund__fine">Fund allocation will be published in the Annual Impact Report. <a href="impact.html">See our impact framework →</a></p>
       </div>
@@ -723,10 +728,10 @@ export const membershipExtra = () => html`
   <div class="wrap section faqwrap">
     <div class="reveal"><p class="eyebrow mb-s">Frequently asked questions</p><h2 class="h2">Membership FAQ.</h2></div>
     ${faq([
-      ['Why $250 USD / $350 CAD?', 'The proposed fee is structured to deliver real value — a premium welcome package, year-round community benefits, marketplace discounts, education resources and a direct contribution to the Neurodivergent Inclusion Fund. It is designed to be accessible while funding measurable impact.'],
-      ['What happens to the Inclusion Fund?', 'AFSVHCL proposes to commit $25 USD / $35 CAD from every individual membership and $100 USD / $140 CAD from every business membership to a dedicated Neurodivergent Inclusion Fund supporting assessments, tutoring, employment readiness, assistive technology, family support services and scholarships. Allocation would be measured and reported annually.'],
+      ['When can I join?', 'Membership isn’t open yet. Pre-register on the Become a Member page and we’ll email you as soon as it goes live, with everything you need to join. Pre-registering is free and there’s no commitment.'],
+      ['What happens to the Inclusion Fund?', 'AFSVHCL proposes to commit a share of every individual and business membership to a dedicated Neurodivergent Inclusion Fund supporting assessments, tutoring, employment readiness, assistive technology, family support services and scholarships. Allocation would be measured and reported annually.'],
       ['How do I redeem rewards?', 'The proposed Community Rewards Program lets members earn points for referrals, volunteering, purchases and event participation, redeemable for merchandise, event tickets, membership renewals and partner discounts. Full details will be shared at program launch.'],
-      ['Can I upgrade from Individual to Business?', 'Yes. When the program launches, individual members will be able to upgrade to a business membership, with the price difference prorated over the remaining membership period.'],
+      ['Can I upgrade from Individual to Business?', 'Yes. When the program launches, individual members will be able to upgrade to a business membership.'],
       ['What if I’m outside Canada?', 'Membership is planned to be open to individuals and businesses worldwide. Digital benefits, the learning hub, virtual events and the community platform are accessible globally; physical benefits such as local chapter events and merchandise shipping may vary by location.'],
       ['Which currency should I choose?', 'Whichever works best for you. USD and CAD pricing are planned to be equivalent based on current exchange rates, and you would choose your currency at checkout.'],
     ])}
@@ -735,6 +740,7 @@ export const membershipExtra = () => html`
 
 // Partners — pathways, sponsorship opportunities, affiliate network.
 export const partnersExtra = () => html`
+${partnerLogos()}
 <section class="wrap section" data-el="partners.pathways" data-el-build="elementor">
   ${head('Who we partner with', 'Partnership pathways.')}
   ${kgrid([
@@ -761,7 +767,7 @@ ${affiliateNetwork()}`;
 export const contactExtra = () => html`
 <section class="wrap section" data-el="contact.details" data-el-build="elementor">
   <div class="cdetails" data-stagger>
-    <article class="cdetail"><span class="kcard__ico">${ico('Doc')}</span><small>Email</small><a href="mailto:afsvhcl@gmail.com">afsvhcl@gmail.com</a></article>
+    <article class="cdetail"><span class="kcard__ico">${ico('Doc')}</span><small>Email</small><a href="mailto:info@afsvhcl.com">info@afsvhcl.com</a></article>
     <article class="cdetail"><span class="kcard__ico">${ico('Dome')}</span><small>Location</small><b>Whitby, Ontario, Canada</b></article>
     <article class="cdetail"><span class="kcard__ico">${ico('Mentorship')}</span><small>Primary contact</small><b>Martin Lashley</b><span>Chairman &amp; CEO, AFSVHCL™</span></article>
   </div>
@@ -774,7 +780,7 @@ export const contactExtra = () => html`
       <ul class="check-list">${['We respond to all inquiries within 2–3 business days', 'Initial conversations are exploratory and non-binding', 'No sales pressure — we’re building relationships', 'All discussions are confidential'].map((t) => html`<li>${t}</li>`)}</ul>
     </div>
     <div class="itypes" data-stagger>
-      ${[['Handshake', 'Partnership & sponsorship', 'Corporate partnerships and institutional collaborations.'], ['Building', 'Community & municipal stakeholders', 'Municipalities, school boards and community organizations.'], ['Soccer', 'Athlete & program interest', 'Register interest in proposed athlete programs.'], ['Globe', 'Diaspora network interest', 'The proposed Global Diaspora Network.'], ['Signal', 'Media & press', 'Information requests from media organizations.']].map(([i, t, b]) => html`<div class="itype"><span>${ico(i)}</span><div><b>${t}</b><small>${b}</small></div></div>`)}
+      ${[['Handshake', 'Partnership & sponsorship', 'Corporate partnerships and institutional collaborations.'], ['Building', 'Community & municipal stakeholders', 'Municipalities, school boards and community organizations.'], ['Soccer', 'Athlete & program interest', 'Keep up to date on proposed athlete programs.'], ['Globe', 'Diaspora network interest', 'The proposed Global Diaspora Network.'], ['Signal', 'Media & press', 'Information requests from media organizations.']].map(([i, t, b]) => html`<div class="itype"><span>${ico(i)}</span><div><b>${t}</b><small>${b}</small></div></div>`)}
     </div>
   </div>
 </section>`;
@@ -787,7 +793,7 @@ export function contactPage(d) {
     ogImage: IMG('life/welcome.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Contact Us' }])}
-${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'life/welcome.jpg', alt: 'Concept rendering: a racially diverse welcome team greeting families, a teen athlete and a child in a wheelchair at the curved front desk of the village concourse at dusk.', lead: 'We welcome exploratory conversations with potential partners, sponsors, community stakeholders and supporters of the AFSVHCL™ vision.', badge: 'No memberships, programs or services are currently available for purchase', ctas: [{ label: 'Send a message', href: '#contact-form' }, { label: 'Email us', href: 'mailto:afsvhcl@gmail.com' }] })}
+${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'life/welcome.jpg', alt: 'Concept rendering: a racially diverse welcome team greeting families, a teen athlete and a child in a wheelchair at the curved front desk of the village concourse at dusk.', lead: 'We welcome exploratory conversations with potential partners, sponsors, community stakeholders and supporters of the AFSVHCL™ vision.', badge: 'No memberships, programs or services are currently available for purchase', ctas: [{ label: 'Send a message', href: '#contact-form' }, { label: 'Email us', href: 'mailto:info@afsvhcl.com' }] })}
 <section class="wrap section" id="contact-form" data-el="contact.form" data-el-build="plugin">
   <div class="cgrid">
     <div class="cgrid__form">
@@ -815,7 +821,7 @@ ${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'l
       <div class="cside">
         <p class="eyebrow">Contact information</p>
         <ul class="cside__list">
-          <li><span>${ico('Doc')}</span><div><small>Email</small><a href="mailto:afsvhcl@gmail.com">afsvhcl@gmail.com</a></div></li>
+          <li><span>${ico('Doc')}</span><div><small>Email</small><a href="mailto:info@afsvhcl.com">info@afsvhcl.com</a></div></li>
           <li><span>${ico('Dome')}</span><div><small>Location</small><b>Whitby, Ontario, Canada</b></div></li>
           <li><span>${ico('Mentorship')}</span><div><small>Primary contact</small><b>Martin Lashley</b><em>Chairman &amp; CEO, AFSVHCL™</em></div></li>
         </ul>
@@ -840,7 +846,7 @@ ${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'l
   <div class="wrap section">
     ${head('Types of inquiries', 'Who we talk to.')}
     <div class="ctypes" data-stagger>
-      ${[['Handshake', 'Partnership & sponsorship', 'Exploratory discussions about corporate partnerships and institutional collaborations.'], ['Building', 'Community & municipal stakeholders', 'Conversations with municipalities, school boards and community organizations.'], ['Soccer', 'Athlete & program interest', 'Register your interest in proposed future athlete development programs.'], ['Globe', 'Diaspora network interest', 'Express interest in the proposed Global Diaspora Network.'], ['Signal', 'Media & press', 'Media organizations seeking information about AFSVHCL™.']].map(([i, t, b], n) => html`<article class="ctype"><span class="ctype__n">${pad2(n + 1)}</span><span class="kcard__ico">${ico(i)}</span><h3>${t}</h3><p>${b}</p></article>`)}
+      ${[['Handshake', 'Partnership & sponsorship', 'Exploratory discussions about corporate partnerships and institutional collaborations.'], ['Building', 'Community & municipal stakeholders', 'Conversations with municipalities, school boards and community organizations.'], ['Soccer', 'Athlete & program interest', 'Keep up to date on proposed future athlete development programs.'], ['Globe', 'Diaspora network interest', 'Express interest in the proposed Global Diaspora Network.'], ['Signal', 'Media & press', 'Media organizations seeking information about AFSVHCL™.']].map(([i, t, b], n) => html`<article class="ctype"><span class="ctype__n">${pad2(n + 1)}</span><span class="kcard__ico">${ico(i)}</span><h3>${t}</h3><p>${b}</p></article>`)}
     </div>
   </div>
 </section>

@@ -342,3 +342,11 @@
   layoutHscroll(); layoutTri();
   frame();
 })();
+
+/* Become a Member: preselect "I am interested in" from ?interest=… links */
+(function () {
+  var sel = document.querySelector('select[name="i-am-interested-in"]');
+  if (!sel) return;
+  var m = /[?&]interest=([a-z-]+)/.exec(location.search);
+  if (m && sel.querySelector('option[value="' + m[1] + '"]')) sel.value = m[1];
+})();

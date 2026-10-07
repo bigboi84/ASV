@@ -94,12 +94,20 @@
         {
           "label": "Neurodiversity Access Fund",
           "href": "/neurodiversity-access-fund"
+        },
+        {
+          "label": "Education Partnerships",
+          "href": "/education-partnerships"
         }
       ]
     },
     {
       "label": "Membership",
       "kids": [
+        {
+          "label": "Become a Member",
+          "href": "/become-a-member"
+        },
         {
           "label": "Community Membership",
           "href": "/membership"
@@ -437,7 +445,7 @@
       ],
       "form": {
         "id": "interest",
-        "title": "Register program interest.",
+        "title": "Keep up to date on programs.",
         "lead": "Tell us who the participant is and what they are interested in. We collect only what is needed for a first conversation.",
         "note": "Do not include diagnoses or medical records. Accessibility needs are optional and free-text.",
         "fields": [
@@ -549,7 +557,7 @@
       "alt": "Concept rendering: students and mentors working together in a warm learning centre with floodlit fields outside.",
       "ctas": [
         {
-          "label": "Register Learning Interest",
+          "label": "Keep Up to Date",
           "href": "#interest"
         },
         {
@@ -612,7 +620,7 @@
       ],
       "form": {
         "id": "interest",
-        "title": "Register learning interest.",
+        "title": "Keep up to date on learning programs.",
         "lead": "For families, learners, educators and institutions. Tell us which route applies.",
         "note": "We do not ask for diagnoses, assessments or medical records. Accommodation requests are optional.",
         "fields": [
@@ -711,7 +719,7 @@
       "alt": "Concept rendering: racially diverse teens cooking a healthy meal with a chef mentor while others work on budgeting with a coach.",
       "ctas": [
         {
-          "label": "Register Interest",
+          "label": "Keep Up to Date",
           "href": "#interest"
         },
         {
@@ -771,7 +779,7 @@
       ],
       "form": {
         "id": "interest",
-        "title": "Register interest.",
+        "title": "Keep up to date.",
         "lead": "For participants, families, and anyone offering to mentor or deliver.",
         "note": "Safeguarding screening applies to every mentor and delivery partner before contact with participants.",
         "fields": [
@@ -880,7 +888,7 @@
       "alt": "A broadcast production desk with a mixing console in the foreground and a row of competition stations behind, a young adult in headphones working at the desk.",
       "ctas": [
         {
-          "label": "Register Program Interest",
+          "label": "Keep Up to Date",
           "href": "#interest"
         },
         {
@@ -933,7 +941,7 @@
       ],
       "form": {
         "id": "interest",
-        "title": "Register program interest.",
+        "title": "Keep up to date on programs.",
         "lead": "Separate routes for participants, technology partners and media collaboration.",
         "note": "Media and broadcast participation requires documented consent. For participants under 18, guardian consent and safeguarding checks apply before any recording.",
         "fields": [
@@ -1207,7 +1215,7 @@
       "alt": "Concept rendering: racially diverse neurodivergent kids and teens enjoying an adapted soccer session with patient coaches, one boy wearing ear defenders.",
       "ctas": [
         {
-          "label": "Get Support / Register Interest",
+          "label": "Get Support / Keep Up to Date",
           "href": "#interest"
         },
         {
@@ -1241,7 +1249,7 @@
         {
           "num": "01",
           "title": "Individuals",
-          "body": "Register interest in programs and support, and hear back from a named contact rather than a general inbox."
+          "body": "Ask about programs and support, and hear back from a named contact rather than a general inbox."
         },
         {
           "num": "02",
@@ -1273,7 +1281,7 @@
       ],
       "form": {
         "id": "interest",
-        "title": "Get support or register interest.",
+        "title": "Get support or keep up to date.",
         "lead": "An initial inquiry only. A named contact will respond by your preferred method.",
         "note": "We do not ask for a diagnosis or medical records. Accommodation information is optional and free-text, and anything sensitive moves to an approved secure process later.",
         "fields": [
@@ -1586,7 +1594,7 @@
       "alt": "Concept rendering: racially diverse therapists and psychologists working with children and teens in a bright sensory gym.",
       "ctas": [
         {
-          "label": "Register Provider Interest",
+          "label": "Join the Provider Network",
           "href": "#interest"
         }
       ],
@@ -1630,7 +1638,7 @@
       ],
       "form": {
         "id": "interest",
-        "title": "Register provider interest.",
+        "title": "Join the provider network.",
         "lead": "This is an application to be reviewed, not a listing request.",
         "note": "Licence and registration fields are conditional on regulated profession. Do not attach client records or identifying participant information.",
         "fields": [
