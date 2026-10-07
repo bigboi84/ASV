@@ -209,11 +209,33 @@
     paint();
   }
 
-  /* ───────── Three pillars rise when the section comes into view ───────── */
-  $$('[data-temple]').forEach(function (t) {
-    if (!('IntersectionObserver' in window)) { t.classList.add('is-up'); return; }
-    new IntersectionObserver(function (en, ob) { if (en[0].isIntersecting) { t.classList.add('is-up'); ob.disconnect(); } }, { threshold: 0.25 }).observe(t);
-  });
+  /* ───────── Three pillars: section pins and each card slides up over the last ───────── */
+  var tri = $('[data-tri]');
+  var triCards = tri ? $$('.tri-card', tri) : [];
+  var triSteps = tri ? $$('.tri__steps li', tri) : [];
+  var triOn = false;
+  function layoutTri() {
+    if (!tri) return;
+    triOn = !reduce;
+    tri.classList.toggle('is-scrub', triOn);
+    tri.style.height = triOn ? (vh() * (triCards.length + 0.6)) + 'px' : '';
+  }
+  function paintTri() {
+    if (!triOn) return;
+    var r = tri.getBoundingClientRect();
+    var p = clamp(-r.top / Math.max(1, r.height - vh()));
+    var n = triCards.length, seg = 1 / n, active = 0;
+    triCards.forEach(function (c, i) {
+      var e = i === 0 ? 1 : clamp((p - (i - 0.55) * seg) / (seg * 0.6));     // this card's arrival
+      var next = i + 1 < n ? clamp((p - (i + 0.45) * seg) / (seg * 0.6)) : 0; // the next card covering it
+      if (e > 0.5) active = i;
+      c.style.setProperty('--y', ((1 - e) * 110).toFixed(2) + '%');
+      c.style.setProperty('--s', (1 - next * 0.08).toFixed(4));
+      c.style.setProperty('--o', (1 - next * 0.55).toFixed(3));
+      c.style.setProperty('--r', ((1 - e) * 6 - next * 3).toFixed(2) + 'deg');
+    });
+    triSteps.forEach(function (s, i) { s.classList.toggle('is-on', i === active); });
+  }
 
   /* ───────── Neurodiversity cards swap the image above ───────── */
   var swapStage = $('[data-swap-stage]');
@@ -281,12 +303,12 @@
   function frame() {
     ticking = false;
     setDock(window.scrollY > dockThreshold());
-    paintStack(); paintDraw(); paintHscroll(); paintFloats(); paintSweeps();
+    paintStack(); paintDraw(); paintHscroll(); paintFloats(); paintSweeps(); paintTri();
   }
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', function () { layoutHscroll(); onScroll(); });
-  window.addEventListener('load', function () { layoutHscroll(); onScroll(); });
-  layoutHscroll();
+  window.addEventListener('resize', function () { layoutHscroll(); layoutTri(); onScroll(); });
+  window.addEventListener('load', function () { layoutHscroll(); layoutTri(); onScroll(); });
+  layoutHscroll(); layoutTri();
   frame();
 })();

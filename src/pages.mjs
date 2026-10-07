@@ -112,9 +112,9 @@ const MISSION = [
   ['Growth', 'Investment & Sustainable Growth', 'A scalable national infrastructure model with diversified revenue streams.'],
 ];
 const ECO3 = [
-  { tag: 'AFSV VRC', tone: 'gold', name: 'AFSV-VRC™ Development Group Ltd.', kicker: 'Infrastructure development', body: "Designing and building the infrastructure for Canada's Smart Sports Village network — planning, designing and delivering facilities across Canada.", route: '/whitby-smart-sports-village' },
-  { tag: 'EDU', tone: 'red', name: 'Education & Inclusion Programming', kicker: 'MLMSR Mentorship · Special needs support', body: 'Mentorship and education programs for youth and neurodivergent learners — leadership development, academic support and specialized programs.', route: '/education' },
-  { tag: 'EFN', tone: 'slate', name: 'EFN – Esports & Fans Network', kicker: 'Digital & esports division', body: 'A digital platform connecting athletes and fans through esports tournaments, live streaming, athlete media and global fan engagement. Home of FanZone™.', route: '/technology-media' },
+  { tag: 'AFSV VRC', tone: 'gold', name: 'AFSV-VRC™ Development Group Ltd.', kicker: 'Infrastructure development', img: 'whitby/site-aerial.jpg', body: "Designing and building the infrastructure for Canada's Smart Sports Village network — planning, designing and delivering facilities across Canada.", route: '/whitby-smart-sports-village' },
+  { tag: 'EDU', tone: 'red', name: 'Education & Inclusion Programming', kicker: 'MLMSR Mentorship · Special needs support', img: 'whitby/learn.jpg', body: 'Mentorship and education programs for youth and neurodivergent learners — leadership development, academic support and specialized programs.', route: '/education' },
+  { tag: 'EFN', tone: 'slate', name: 'EFN – Esports & Fans Network', kicker: 'Digital & esports division', img: 'village/efn-arena.jpg', body: 'A digital platform connecting athletes and fans through esports tournaments, live streaming, athlete media and global fan engagement. Home of FanZone™.', route: '/technology-media' },
 ];
 const EFN = [
   ['Esports tournaments', 'Competitive gaming events for amateur and professional players.'],
@@ -227,26 +227,29 @@ export function home(d) {
 </div>
 </section>
 
-<section class="temple" data-el="home.ecosystem-3" data-el-build="elementor" data-temple>
-  <div class="wrap section">
-    <div class="temple__roof reveal">
-      <p class="eyebrow">AFSVHCL™ ecosystem</p>
-      <h2 class="h2">Three pillars. One vision.</h2>
-    </div>
-    <div class="temple__cols">
-      ${ECO3.map((e, i) => html`<a class="pillar pillar--${e.tone}" href="${href(e.route)}" style="--i:${i}">
-        <span class="pillar__cap" aria-hidden="true"></span>
-        <span class="pillar__shaft">
-          <span class="pillar__tag">${e.tag}</span>
-          <span class="pillar__kicker">${e.kicker}</span>
+<section class="tri" data-el="home.ecosystem-3" data-el-build="elementor" data-tri>
+  <div class="tri__pin">
+    <span class="tri__shape" aria-hidden="true"></span>
+    <div class="wrap tri__grid">
+      <div class="tri__intro">
+        <p class="eyebrow mb-s">AFSVHCL™ ecosystem</p>
+        <h2 class="tri__title">Three pillars.<br><em>One vision.</em></h2>
+        <ol class="tri__steps">
+          ${ECO3.map((e, i) => html`<li${i === 0 ? raw(' class="is-on"') : ''}><span>${pad2(i + 1)}</span>${e.tag}</li>`)}
+        </ol>
+        <p class="tri__motto">Educate · Empower · Include · Inspire</p>
+      </div>
+      <div class="tri__stage">
+        ${ECO3.map((e, i) => html`<a class="tri-card tri-card--${e.tone}" href="${href(e.route)}" style="--i:${i}">
+          <span class="tri-card__top"><span class="tri-card__tag">${e.tag}</span><span class="tri-card__n">${pad2(i + 1)} / 03</span></span>
           <h3>${e.name}</h3>
+          <small>${e.kicker}</small>
           <p>${e.body}</p>
-          <span class="eco3__more">Learn more ${arrow()}</span>
-        </span>
-        <span class="pillar__base" aria-hidden="true"></span>
-      </a>`)}
+          <span class="tri-card__img"><img src="${IMG(e.img)}" alt="" width="1200" height="800" loading="lazy"></span>
+          <span class="tri-card__more">Learn more ${arrow()}</span>
+        </a>`)}
+      </div>
     </div>
-    <div class="temple__plinth"><span>Educate</span><span>Empower</span><span>Include</span><span>Inspire</span></div>
   </div>
 </section>
 
