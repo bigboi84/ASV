@@ -338,7 +338,7 @@ export function efn() {
     ['Globe', 'Global fan engagement', 'Digital memberships, live stats and interactive experiences.'],
   ];
   const platform = [
-    ['Esports', 'Esports Arena', 'Proposed 80–120 gaming stations, tournament stage and streaming control centre integrated into the Smart Sports Village.'],
+    ['Esports', 'Esports Arena', '80–120 gaming stations, tournament stage and streaming control centre integrated into the Smart Sports Village.'],
     ['Signal', 'Live Streaming & Broadcasting', 'Broadcast-quality production for sports competitions, esports tournaments and athlete media content.'],
     ['Mic', 'Sports Village Podcast Network', 'Podcast studio and storytelling platform amplifying athletes, coaches and community leaders.'],
     ['Chart', 'Athlete Data & Analytics', 'A digital athlete management platform tracking performance, development and recruitment data.'],
@@ -351,7 +351,7 @@ export function efn() {
     ogImage: IMG('village/efn-arena.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Esports & Digital' }, { label: 'EFN – Esports & Fans Network' }])}
-${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where sports meets digital.', img: 'village/efn-arena.jpg', alt: 'Concept rendering: a packed esports arena hosting a football video game tournament, with players on stage and giant screens showing soccer gameplay.', lead: 'EFN is the proposed digital and esports division of AFSVHCL™ — connecting athletes and fans through competitive gaming, live streaming and interactive media. Home of FanZone™.', badge: 'Proposed platform — in development', ctas: [{ label: 'Get connected', href: EFN_URL }, { label: 'Explore FanZone™', href: '/fanzone' }] })}
+${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where sports meets digital.', img: 'village/efn-arena.jpg', alt: 'Concept rendering: a packed esports arena hosting a football video game tournament, with players on stage and giant screens showing soccer gameplay.', lead: 'EFN is the proposed digital and esports division of AFSVHCL™ — connecting athletes and fans through competitive gaming, live streaming and interactive media. Home of FanZone™.', badge: '', ctas: [{ label: 'Get connected', href: EFN_URL }, { label: 'Explore FanZone™', href: '/fanzone' }] })}
 <section class="efn efn--page" data-el="efn.core" data-el-build="elementor">
   <div class="wrap section">
     ${head('The network', 'Four ways EFN connects.')}
@@ -361,12 +361,12 @@ ${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where spo
   </div>
 </section>
 <section class="wrap section" data-el="efn.platform" data-el-build="elementor">
-  ${head('EFN platform features', 'The proposed digital ecosystem.', 'A world-class esports arena, broadcasting studio and digital media hub — all integrated into the sports village ecosystem.')}
+  ${head('EFN platform features', 'The digital ecosystem.', 'A world-class esports arena, broadcasting studio and digital media hub — all integrated into the sports village ecosystem.')}
   ${kgrid(platform)}
 </section>
 <section class="band--cream" data-el="efn.scale" data-el-build="elementor">
   <div class="wrap section">
-    ${head('Proposed platform scale', 'The digital opportunity.')}
+    ${head('Platform scale', 'The digital opportunity.')}
     ${stats([['80–120', '', 'Gaming stations', 'Proposed'], ['6', '', 'Social platforms', ''], ['5K–12K', '', 'Annual members per dome', 'Projected']], 'Projections are proposals, not results, and are subject to financing, approvals and program launch.')}
   </div>
 </section>
@@ -380,7 +380,6 @@ ${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where spo
     <span class="efn-site__btn">Visit EFN ${arrow()}</span>
   </a>
 </section>
-<section class="wrap section section--flush-top">${flag('The EFN – Esports & Fans Network platform is a proposed concept in active development. No services are currently active.')}</section>
 ${formSection({
   id: 'efn-form', el: 'efn.form',
   title: 'Interested in the EFN platform?',

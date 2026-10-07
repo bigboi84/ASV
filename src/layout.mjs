@@ -109,19 +109,20 @@ function shopHeader(current) {
 }
 
 // Floating dock: replaces the top header once the visitor scrolls past the first screen.
-const DOCK = [
-  { label: 'About', route: '/about' },
-  { label: 'Smart Sports Village', route: '/whitby-smart-sports-village' },
-  { label: 'Programs', route: '/programs' },
-  { label: 'Neurodiversity', route: '/neurodiversity' },
-  { label: 'Membership', route: '/membership' },
-  { label: 'Marketplace', route: '/marketplace' },
-];
-function dock(current) {
+function dock(nav, current) {
+  // Same menu as the header (minus Home: the arrow returns to the top), with dropdowns that open below the bar.
+  const items = nav.filter((it) => it.href !== '/').map((it) => {
+    if (!it.kids) return html`<li><a class="dock__link" href="${href(it.href)}"${it.href === current ? raw(' aria-current="page"') : ''}>${it.label}</a></li>`;
+    const active = it.kids.some((k) => k.href === current);
+    return html`<li class="dock__item${active ? ' is-current' : ''}">
+    <a class="dock__link" href="${href(it.kids[0].href)}" aria-haspopup="true">${it.label}<span class="caret" aria-hidden="true">▼</span></a>
+    <ul class="dock__drop">${it.kids.map((k) => html`<li><a href="${href(k.href)}"${k.href === current ? raw(' aria-current="page"') : ''}>${k.label}</a></li>`)}</ul>
+  </li>`;
+  });
   return html`
 <nav class="dock" aria-label="Quick navigation" data-dock data-el="site.dock" data-el-build="theme-builder">
   <a class="dock__top" href="#main" aria-label="Back to top">${icon('up')}</a>
-  <ul class="dock__links">${DOCK.map((d) => html`<li><a href="${href(d.route)}"${d.route === current ? raw(' aria-current="page"') : ''}>${d.label}</a></li>`)}</ul>
+  <ul class="dock__links">${items}</ul>
   <button type="button" class="dock__menu" data-drawer-open aria-controls="site-drawer" aria-expanded="false"><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu</button>
   <a class="btn btn--gold btn--sm dock__cta" href="contact.html">Contact us</a>
 </nav>`;
@@ -215,7 +216,7 @@ ${overlay ? '<div class="masthead masthead--overlay">' : ''}
 </div>
 ${inMarket ? shopHeader(route) : header(data.nav, route, overlay)}
 ${overlay ? '</div>' : ''}
-${inMarket ? '' : dock(route)}
+${inMarket ? '' : dock(data.nav, route)}
 ${drawer(data.nav, route, inMarket)}
 <main id="main" tabindex="-1">
 ${body}

@@ -306,10 +306,27 @@
         thumbs.forEach(function (t, j) { t.classList.toggle('is-on', j === i); });
         if (stage) { stage.src = b.getAttribute('data-img'); stage.alt = b.getAttribute('data-alt'); }
         if (mstage) mstage.src = b.getAttribute('data-model');
+        var mv = $('[data-model-video]', prod);
+        if (mv) { mv.pause(); mv.removeAttribute('src'); mv.poster = b.getAttribute('data-model'); mv.setAttribute('data-vbase', b.getAttribute('data-vbase')); mv.load(); }
         if (cname) cname.textContent = b.getAttribute('data-name');
       });
     });
   }
+
+  /* ───────── On-model clips: play on hover, rest on the still ───────── */
+  var vext = document.createElement('video').canPlayType('video/webm; codecs="vp9"') ? '.webm' : '.mp4';
+  function hoverVideo(host, vid) {
+    if (!host || !vid || reduce) return;
+    host.addEventListener('mouseenter', function () {
+      var src = vid.getAttribute('data-vbase') + vext;
+      if (vid.getAttribute('src') !== src) vid.src = src;
+      var p = vid.play(); if (p && p.catch) p.catch(function () {});
+    });
+    host.addEventListener('mouseleave', function () { vid.pause(); });
+  }
+  $$('.merch-card').forEach(function (c) { hoverVideo(c, $('.merch-card__vid', c)); });
+  var pstage = $('.mk-product__stage');
+  if (pstage) hoverVideo(pstage, $('[data-model-video]', pstage));
 
   /* ───────── Frame loop ───────── */
   var ticking = false;

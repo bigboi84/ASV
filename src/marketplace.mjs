@@ -6,6 +6,7 @@ import { html, raw, btn, breadcrumb, ctaBand, previewForm, arrow, splitWords } f
 
 const M = (f) => `assets/img/merch/${f}`;
 const OM = (f) => `assets/img/merch/on-model/${f}`; // the same piece worn by a model (shown on hover)
+const OMV = (f) => `assets/video/on-model/${f.replace(/\.jpg$/, '')}`; // its 3s clip (extension picked in flow.js)
 const LOOKS = [
   ['executive-leather-jacket', 'executive-leather-jacket-black.jpg', 'Executive Leather Jacket'],
   ['hoodie', 'regular-hoodie-navy.jpg', 'Hoodie · Navy'],
@@ -35,6 +36,7 @@ export function merchCard(m, p, tag = 'h3') {
   <span class="merch-card__media">
     <img src="${M(a.img)}" alt="${p.name} in ${a.name.toLowerCase()} — concept image" width="960" height="1200" loading="lazy">
     <img class="merch-card__alt" src="${OM(a.img)}" alt="" width="960" height="1200" loading="lazy">
+    <video class="merch-card__vid" muted loop playsinline preload="none" poster="${OM(a.img)}" data-vbase="${OMV(a.img)}" aria-hidden="true"></video>
     <span class="merch-card__hint" aria-hidden="true">On model</span>
     <span class="merch-card__tag">Concept</span>
   </span>
@@ -135,7 +137,6 @@ ${breadcrumb([{ label: 'Marketplace' }])}
       <figure class="mk-collage__t mk-collage__t--b"><img src="${OM('regular-cap-white.jpg')}" alt="" width="960" height="1200"></figure>
       <figure class="mk-collage__t mk-collage__t--c"><img src="${OM('executive-polo-white.jpg')}" alt="" width="960" height="1200"></figure>
       <figure class="mk-collage__t mk-collage__t--d"><img src="${OM('regular-varsity-jacket-navy.jpg')}" alt="" width="960" height="1200"></figure>
-      <span class="mk-collage__sticker"><b>18</b> looks<br>on model</span>
     </div>
   </div>
 </section>
@@ -278,7 +279,7 @@ export function merchProduct(d, m, p) {
 ${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'The Collection', route: '/shop' }, { label: p.name }])}
 <section class="wrap section section--flush-top mk-product" data-el="product.main" data-el-build="plugin" data-merch-product>
   <div class="mk-product__gallery">
-    <figure class="mk-product__stage"><img src="${M(first.img)}" alt="${p.name} in ${first.name.toLowerCase()} — concept image" width="960" height="1200" fetchpriority="high" data-stage><img class="mk-product__model" src="${OM(first.img)}" alt="" width="960" height="1200" data-model-stage><span class="merch-card__hint" aria-hidden="true">Hover to see it worn</span></figure>
+    <figure class="mk-product__stage"><img src="${M(first.img)}" alt="${p.name} in ${first.name.toLowerCase()} — concept image" width="960" height="1200" fetchpriority="high" data-stage><img class="mk-product__model" src="${OM(first.img)}" alt="" width="960" height="1200" data-model-stage><video class="mk-product__model mk-product__vid" muted loop playsinline preload="none" poster="${OM(first.img)}" data-vbase="${OMV(first.img)}" data-model-video aria-hidden="true"></video><span class="merch-card__hint" aria-hidden="true">Hover to see it worn</span></figure>
     ${p.colours.length > 1 ? html`<div class="mk-product__thumbs" aria-hidden="true">${p.colours.map((x, i) => html`<span class="${i === 0 ? 'is-on' : ''}" data-thumb="${i}"><img src="${M(x.img)}" alt="" width="960" height="1200" loading="lazy"></span>`)}</div>` : ''}
   </div>
   <div class="mk-product__info">
@@ -288,7 +289,7 @@ ${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'The Col
     <p class="lead">${p.desc}</p>
     <fieldset class="mk-colours">
       <legend>Colour: <b data-colour-name>${first.name}</b></legend>
-      <div class="mk-colours__row">${p.colours.map((x, i) => html`<button type="button" class="mk-colour" style="--sw:${x.hex}" aria-pressed="${i === 0 ? 'true' : 'false'}" data-colour="${i}" data-img="${M(x.img)}" data-model="${OM(x.img)}" data-name="${x.name}" data-alt="${p.name} in ${x.name.toLowerCase()} — concept image"><span class="sr-only">${x.name}</span></button>`)}</div>
+      <div class="mk-colours__row">${p.colours.map((x, i) => html`<button type="button" class="mk-colour" style="--sw:${x.hex}" aria-pressed="${i === 0 ? 'true' : 'false'}" data-colour="${i}" data-img="${M(x.img)}" data-model="${OM(x.img)}" data-vbase="${OMV(x.img)}" data-name="${x.name}" data-alt="${p.name} in ${x.name.toLowerCase()} — concept image"><span class="sr-only">${x.name}</span></button>`)}</div>
     </fieldset>
     <dl class="mk-specs">
       <div><dt>Crest</dt><dd>${c.line === 'executive' ? 'Small gold crest' : "Small colour crest (designer's artwork)"}</dd></div>
