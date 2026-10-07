@@ -22,6 +22,14 @@ const SKETCH = {
   'Inclusive education': '<path d="M12 6.6C9.8 5 6.6 4.6 3.4 5v13.4c3.2-.4 6.4 0 8.6 1.6 2.2-1.6 5.4-2 8.6-1.6V5c-3.2-.4-6.4 0-8.6 1.6z"/><path d="M12 6.6v13.4"/><path d="M15.8 10.4c.6-1 2.4-.8 2.4.6 0 1.2-2.4 2.6-2.4 2.6s-2.4-1.4-2.4-2.6c0-1.4 1.8-1.6 2.4-.6z"/>',
   Community: '<circle cx="12" cy="6.4" r="2.4"/><circle cx="5.4" cy="9.4" r="2"/><circle cx="18.6" cy="9.4" r="2"/><path d="M7.6 20.4v-2.6a4.4 4.4 0 0 1 8.8 0v2.6"/><path d="M2.2 18.4v-1a3.2 3.2 0 0 1 4.8-2.8M21.8 18.4v-1a3.2 3.2 0 0 0-4.8-2.8"/>',
 };
+Object.assign(SKETCH, {
+  Dome: '<path d="M2.6 18.6h18.8"/><path d="M4 18.6C4 12 7.6 7.4 12 7.4S20 12 20 18.6"/><path d="M8.2 18.6c0-4.8 1.7-8.6 3.8-11.2M15.8 18.6c0-4.8-1.7-8.6-3.8-11.2"/><path d="M4.8 14.2h14.4"/><path d="M10.4 18.6v-2.8h3.2v2.8"/>',
+  Growth: '<path d="M3.4 20.4h17.2"/><path d="M5.6 20.4v-4.6M10 20.4v-7.4M14.4 20.4v-5.6M18.8 20.4V9.4"/><path d="M4.6 11.6l5-4.4 4 2.8 6.2-5.6"/><path d="M16.4 4.4h3.4v3.4"/>',
+  Mind: '<path d="M9.4 4.2a3.4 3.4 0 0 0-3.4 3.2 3.2 3.2 0 0 0-1.6 5.6 3.4 3.4 0 0 0 3 4.8 3 3 0 0 0 4.6 1.6V5.6a2.6 2.6 0 0 0-2.6-1.4z"/><path d="M14.6 4.2A3.4 3.4 0 0 1 18 7.4a3.2 3.2 0 0 1 1.6 5.6 3.4 3.4 0 0 1-3 4.8 3 3 0 0 1-4.6 1.6"/><path d="M9 10.2c1 .2 1.8.9 2.1 1.8M15 10.2c-1 .2-1.8.9-2.1 1.8"/>',
+  Kit: '<path d="M8.6 3.6L4 6l1.6 4.2 2-.8V20.4h8.8V9.4l2 .8L20 6l-4.6-2.4a3.4 3.4 0 0 1-6.8 0z"/>',
+  Handshake: '<path d="M2.6 12.4l3.6-4.2 3.6 1.4 2.4-1.4 3.2.4 3.8 3.6"/><path d="M2.6 12.4l3.4 3.2M21.4 12.2l-3.2 3.4"/><path d="M8.6 14.6l1.6 1.6a1.2 1.2 0 0 0 1.7 0l.2-.2M11 13.4l2.4 2.4a1.2 1.2 0 0 0 1.7 0l.6-.6-3.6-3.8"/>',
+  Globe: '<circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.4 2.4 3.6 5.2 3.6 8.6s-1.2 6.2-3.6 8.6c-2.4-2.4-3.6-5.2-3.6-8.6s1.2-6.2 3.6-8.6z"/>',
+});
 const sketchIcon = (name) => raw(`<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${SKETCH[name]}</svg>`);
 const PREVIEW = 'Development preview — this form is not connected yet.';
 
@@ -92,6 +100,44 @@ const FILM = [
   { t: 12.5, label: 'Esports Studio', line: 'Compete. Stream. Connect. The future is digital.' },
   { t: 16.67, label: 'Learning Centre', line: 'Classrooms, tutoring, mentorship and special needs support.' },
   { t: 20.83, label: 'Match Night', line: 'Through the tunnel and into the dome on match night.' },
+];
+
+// Home content carried over from the AFSVHCL (Sintra) home page.
+const MISSION = [
+  ['Multi-sport development', 'Sport Development', 'High-performance athlete development programs for youth and elite athletes across multiple sports.'],
+  ['Dome', 'Innovative Infrastructure', 'Inflatable dome facilities designed for year-round training and competition.'],
+  ['Community', 'Community Impact', 'Strengthening communities through sport, connecting diaspora networks and building lasting partnerships.'],
+  ['Inclusive education', 'Education & Youth Excellence', 'Academic support, mentorship and life skills development integrated with athletic training.'],
+  ['Mind', 'Special Needs & Neurodivergent Support', 'Inclusive programs for autism, ADHD, dyslexia and learning challenges through specialized mentorship and education support.'],
+  ['Growth', 'Investment & Sustainable Growth', 'A scalable national infrastructure model with diversified revenue streams.'],
+];
+const ECO3 = [
+  { tag: 'AFSV VRC', tone: 'gold', name: 'AFSV-VRC™ Development Group Ltd.', kicker: 'Infrastructure development', body: "Designing and building the infrastructure for Canada's Smart Sports Village network — planning, designing and delivering facilities across Canada.", route: '/whitby-smart-sports-village' },
+  { tag: 'EDU', tone: 'red', name: 'Education & Inclusion Programming', kicker: 'MLMSR Mentorship · Special needs support', body: 'Mentorship and education programs for youth and neurodivergent learners — leadership development, academic support and specialized programs.', route: '/education' },
+  { tag: 'EFN', tone: 'slate', name: 'EFN – Esports & Fans Network', kicker: 'Digital & esports division', body: 'A digital platform connecting athletes and fans through esports tournaments, live streaming, athlete media and global fan engagement. Home of FanZone™.', route: '/technology-media' },
+];
+const EFN = [
+  ['Esports tournaments', 'Competitive gaming events for amateur and professional players.'],
+  ['Live streaming events', 'Broadcast-quality production for sports and esports content.'],
+  ['Athlete media content', 'Podcast studio, interviews and athlete storytelling.'],
+  ['Global fan engagement', 'Digital memberships, live stats and interactive experiences.'],
+];
+const EDU_CATS = [
+  ['Autism spectrum support', 'Structured programs integrating physical activity with social skills development.'],
+  ['ADHD strategies', 'Focused training environments and mentorship approaches tailored for athletes with ADHD.'],
+  ['Dyslexia programs', 'Academic support and alternative learning methods for athletes with reading challenges.'],
+  ['Family support resources', 'Resources and counselling for families navigating neurodivergent challenges.'],
+];
+const KIT = ['Training jersey', 'Training shorts', 'Tracksuit', 'Running shoes', 'Winter jacket', 'Sports bag'];
+const SPORTS5 = ['Soccer', 'Cricket', 'Track and sprint', 'Basketball', 'Esports'];
+const TIERS = [
+  { name: 'Individual', usd: '$250 USD', cad: '$350 CAD', items: ['Community platform access', '10–15% marketplace pricing', 'Education & wellness resources', 'Welcome package with branded hoodie'], fund: '$25 USD to the Neurodivergent Inclusion Fund' },
+  { name: 'Business', usd: '$1,000 USD', cad: '$1,400 CAD', items: ['Marketplace directory listing', 'Business profile & spotlight features', 'Sponsorship opportunities', 'Inclusion Champion designation'], fund: '$100 USD to the Neurodivergent Inclusion Fund' },
+];
+const OPPS = [
+  ['Multi-sport development', 'Athletes & Families', 'Register your interest for proposed year-round training programs and be among the first to know when programs launch.', 'Register interest', '#register'],
+  ['Handshake', 'Partners & Sponsors', 'Corporate brands, institutions and community organizations aligned with our mission are welcome to express interest.', 'Express interest', 'partners.html'],
+  ['Globe', 'Global Community', 'Express your interest in the proposed Global Diaspora Network — support youth sport and represent your heritage.', 'Learn more', 'about.html'],
 ];
 
 export function home(d) {
@@ -167,6 +213,30 @@ export function home(d) {
     <p class="body-lg muted">The first event on the AFSV VRC calendar. <a class="text-link" href="events.html">All events ${arrow()}</a></p>
   </div>
   ${eventFeature(d.events[0])}
+</section>
+
+<section class="wrap section" data-el="home.mission" data-el-build="elementor">
+  <div class="section-head reveal">
+    <p class="eyebrow mb-s">Our mission</p>
+    <h2 class="h2">Creating opportunities through sport &amp; education.</h2>
+    <p class="body-lg muted">Our ecosystem integrates athlete development, education and mentorship, special needs inclusion, esports engagement, corporate partnerships and global diaspora participation.</p>
+  </div>
+  <div class="mission-grid" data-stagger>
+    ${MISSION.map(([ic, t, b]) => html`<article class="mission-card">${sketchIcon(ic)}<h3>${t}</h3><p>${b}</p></article>`)}
+  </div>
+</section>
+
+<section class="band--navy" data-el="home.ecosystem-3" data-el-build="elementor">
+  <div class="wrap section">
+    <div class="section-head reveal">
+      <p class="eyebrow mb-s">AFSVHCL™ ecosystem</p>
+      <h2 class="h2">Three pillars. One vision.</h2>
+    </div>
+    <div class="eco3" data-stagger>
+      ${ECO3.map((e) => html`<a class="eco3__card" href="${href(e.route)}"><span class="eco3__tag eco3__tag--${e.tone}">${e.tag}</span><h3>${e.name}</h3><small>${e.kicker}</small><p>${e.body}</p><span class="eco3__more">Learn more ${arrow()}</span></a>`)}
+    </div>
+    <p class="eco3__foot">Educate · Empower · Include · Inspire</p>
+  </div>
 </section>
 
 <section class="flow-stack" id="ecosystem" data-el="home.ecosystem" data-el-build="custom-widget">
@@ -265,6 +335,24 @@ export function home(d) {
   </div>
 </section>
 
+<section class="wrap section" data-el="home.athletes" data-el-build="elementor">
+  <div class="athletes">
+    <div class="reveal">
+      <p class="eyebrow mb-s">Athlete development programs</p>
+      <h2 class="h2 mb-m">Building champions across multiple sports.</h2>
+      <p class="lead mb-m">Athlete development opportunities across multiple sports. Each athlete is planned to receive a complete performance training kit featuring AFSVHCL branding, their national identity and corporate sponsor integration.</p>
+      <ul class="athletes__sports">${SPORTS5.map((t) => html`<li>${sketchIcon(t)}<span>${t === 'Track and sprint' ? 'Track & Field' : t}</span></li>`)}</ul>
+      ${btn('Explore programs', '/programs', 'navy')}
+    </div>
+    <div class="athletes__kit reveal">
+      ${sketchIcon('Kit')}
+      <p class="eyebrow">Performance kit</p>
+      <ul>${KIT.map((t) => html`<li>${t}</li>`)}</ul>
+      <span class="pill pill--gold">Planned</span>
+    </div>
+  </div>
+</section>
+
 <section class="float-paths" data-el="home.pathways" data-el-build="elementor">
   <div class="float-paths__glow" aria-hidden="true"></div>
   <div class="wrap section">
@@ -300,6 +388,25 @@ ${esportsBand()}
       ${btn('Explore Neurodiversity Access & Opportunity', '/neurodiversity', 'navy')}
     </div>
   </div>
+  <div class="wrap edu-cats">
+    <div class="edu-cats__stat reveal"><b>1 in 5</b><span>children in Canada are neurodivergent — millions of families need these services.</span></div>
+    ${EDU_CATS.map(([t, b]) => html`<div class="edu-cats__card reveal"><h3>${t}</h3><p>${b}</p></div>`)}
+  </div>
+</section>
+
+<section class="efn" data-el="home.efn" data-el-build="elementor">
+  <div class="wrap section split split--center">
+    <div class="reveal">
+      <p class="eyebrow mb-s">EFN · Esports &amp; Fans Network</p>
+      <h2 class="h2 mb-m">Where sports<br>meets digital.</h2>
+      <p class="lead mb-m">EFN connects athletes and fans through digital competitions and interactive media — a proposed esports arena, broadcasting studio and digital media hub, integrated into the sports village ecosystem. Home of FanZone™.</p>
+      <ul class="efn__list mb-l">${EFN.map(([t, b]) => html`<li><b>${t}</b><span>${b}</span></li>`)}</ul>
+      ${btn('Explore the digital platform', '/technology-media', 'gold')}
+    </div>
+    <figure class="figure figure--4x3 figure--motion wipe efn-figure">${pmedia({ img: IMG('village/efn-arena.jpg'), alt: 'Conceptual rendering: a packed esports arena with players on stage and giant screens showing colourful battle-royale gameplay. Not an existing facility.', w: 1200, h: 800 })}
+      <figcaption class="caption-bar">Conceptual Rendering — Not an Existing Facility</figcaption>
+    </figure>
+  </div>
 </section>
 
 <section class="band--navy ai-band" data-el="home.gaisb" data-el-build="elementor">
@@ -314,6 +421,36 @@ ${esportsBand()}
     <ul class="ai-band__list reveal">
       ${['AI literacy', 'Professional certification', 'Sport technology', 'Responsible-AI governance', 'Workforce readiness'].map((t, i) => html`<li><span class="num">${pad2(i + 1)}</span>${t}</li>`)}
     </ul>
+  </div>
+</section>
+
+<section class="wrap section" data-el="home.membership" data-el-build="elementor">
+  <div class="section-head reveal">
+    <p class="eyebrow mb-s">Join the community</p>
+    <h2 class="h2">Become part of the AFSVHCL movement.</h2>
+    <p class="body-lg muted">Memberships are proposed to unlock exclusive benefits while funding neurodivergent inclusion programs. Not yet available for purchase.</p>
+  </div>
+  <div class="tiers" data-stagger>
+    ${TIERS.map((t) => html`<article class="tier">
+      <div class="tier__top"><h3>${t.name}</h3><span class="pill pill--soft">Proposed</span></div>
+      <p class="tier__price"><b>${t.usd}</b> / ${t.cad} <small>per year</small></p>
+      <ul class="check-list">${t.items.map((x) => html`<li>${x}</li>`)}</ul>
+      <p class="tier__fund">${t.fund}</p>
+    </article>`)}
+  </div>
+  <div class="btn-row mt-l">${btn('Explore membership', '/membership', 'navy')}</div>
+</section>
+
+<section class="band--cream" data-el="home.opportunity" data-el-build="elementor">
+  <div class="wrap section">
+    <div class="section-head reveal">
+      <p class="eyebrow mb-s">Explore the opportunity</p>
+      <h2 class="h2">The future of Canadian sport starts with you.</h2>
+      <p class="body-lg muted">Whether you're an athlete, parent, potential partner or community leader, there may be a place for you in this ecosystem. We welcome exploratory conversations.</p>
+    </div>
+    <div class="opps" data-stagger>
+      ${OPPS.map(([ic, t, b, l, u]) => html`<a class="opp" href="${u}">${sketchIcon(ic)}<h3>${t}</h3><p>${b}</p><span class="eco3__more">${l} ${arrow()}</span></a>`)}
+    </div>
   </div>
 </section>
 
