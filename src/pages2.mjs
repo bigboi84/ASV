@@ -367,7 +367,7 @@ ${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where spo
 <section class="band--cream" data-el="efn.scale" data-el-build="elementor">
   <div class="wrap section">
     ${head('Platform scale', 'The digital opportunity.')}
-    ${stats([['80–120', '', 'Gaming stations', 'Proposed'], ['6', '', 'Social platforms', ''], ['5K–12K', '', 'Annual members per dome', 'Projected']], 'Projections are proposals, not results, and are subject to financing, approvals and program launch.')}
+    ${stats([['80–120', '', 'Gaming stations', ''], ['6', '', 'Social platforms', ''], ['5K–12K', '', 'Annual members per dome', '']])}
   </div>
 </section>
 <section class="wrap section" id="efn-connect" data-el="efn.connect" data-el-build="elementor">

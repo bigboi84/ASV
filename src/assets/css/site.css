@@ -904,6 +904,8 @@ h2.h2::after { content: ''; display: block; width: 56px; height: 3px; margin-top
 .site-header--overlay.is-stuck .brand__dark { display: block; }
 .site-header--overlay.is-stuck .brand img { height: 44px; }
 .site-header--overlay.is-stuck .nav-link { color: var(--navy); }
+.site-header--overlay.is-stuck .nav-link:hover, .site-header--overlay.is-stuck .nav-item:hover > .nav-link,
+.site-header--overlay.is-stuck .nav-link[aria-expanded="true"] { color: var(--navy); border-bottom-color: var(--gold); }
 .site-header--overlay.is-stuck .menu-toggle { background: var(--navy); border-color: var(--navy); }
 @keyframes slideDown { from { transform: translateY(-100%); } to { transform: none; } }
 @media (max-width: 720px) { .site-header--overlay .brand img, .site-header--overlay.is-stuck .brand img { height: 36px; } }
