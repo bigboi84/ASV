@@ -296,6 +296,7 @@
   var prod = $('[data-merch-product]');
   if (prod) {
     var stage = $('[data-stage]', prod);
+    var mstage = $('[data-model-stage]', prod);
     var cname = $('[data-colour-name]', prod);
     var thumbs = $$('[data-thumb]', prod);
     var swatches = $$('.mk-colour', prod);
@@ -304,6 +305,7 @@
         swatches.forEach(function (s) { s.setAttribute('aria-pressed', s === b ? 'true' : 'false'); });
         thumbs.forEach(function (t, j) { t.classList.toggle('is-on', j === i); });
         if (stage) { stage.src = b.getAttribute('data-img'); stage.alt = b.getAttribute('data-alt'); }
+        if (mstage) mstage.src = b.getAttribute('data-model');
         if (cname) cname.textContent = b.getAttribute('data-name');
       });
     });
