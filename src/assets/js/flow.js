@@ -209,6 +209,29 @@
     paint();
   }
 
+  /* ───────── Three pillars rise when the section comes into view ───────── */
+  $$('[data-temple]').forEach(function (t) {
+    if (!('IntersectionObserver' in window)) { t.classList.add('is-up'); return; }
+    new IntersectionObserver(function (en, ob) { if (en[0].isIntersecting) { t.classList.add('is-up'); ob.disconnect(); } }, { threshold: 0.25 }).observe(t);
+  });
+
+  /* ───────── Neurodiversity cards swap the image above ───────── */
+  var swapStage = $('[data-swap-stage]');
+  if (swapStage) {
+    var swapImgs = $$('[data-swap-img]', swapStage);
+    var swapCards = $$('[data-swap]');
+    var showSwap = function (i) {
+      swapImgs.forEach(function (im, j) { im.classList.toggle('is-on', j === i); });
+      swapCards.forEach(function (c) { c.classList.toggle('is-on', +c.getAttribute('data-swap') === i && i > -1); });
+    };
+    swapCards.forEach(function (c) {
+      var i = +c.getAttribute('data-swap');
+      c.addEventListener('mouseenter', function () { showSwap(i); });
+      c.addEventListener('focus', function () { showSwap(i); });
+      c.addEventListener('click', function () { showSwap(i); });
+    });
+  }
+
   /* ───────── Marketplace: collection filter (with #hash) ───────── */
   var merch = $('[data-merch]');
   if (merch) {

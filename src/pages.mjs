@@ -123,13 +123,11 @@ const EFN = [
   ['Global fan engagement', 'Digital memberships, live stats and interactive experiences.'],
 ];
 const EDU_CATS = [
-  ['Autism spectrum support', 'Structured programs integrating physical activity with social skills development.'],
-  ['ADHD strategies', 'Focused training environments and mentorship approaches tailored for athletes with ADHD.'],
-  ['Dyslexia programs', 'Academic support and alternative learning methods for athletes with reading challenges.'],
-  ['Family support resources', 'Resources and counselling for families navigating neurodivergent challenges.'],
+  ['Autism spectrum support', 'Structured programs integrating physical activity with social skills development.', 'neuro/autism.jpg'],
+  ['ADHD strategies', 'Focused training environments and mentorship approaches tailored for athletes with ADHD.', 'neuro/adhd.jpg'],
+  ['Dyslexia programs', 'Academic support and alternative learning methods for athletes with reading challenges.', 'neuro/dyslexia.jpg'],
+  ['Family support resources', 'Resources and counselling for families navigating neurodivergent challenges.', 'neuro/family.jpg'],
 ];
-const KIT = ['Training jersey', 'Training shorts', 'Tracksuit', 'Running shoes', 'Winter jacket', 'Sports bag'];
-const SPORTS5 = ['Soccer', 'Cricket', 'Track and sprint', 'Basketball', 'Esports'];
 const TIERS = [
   { name: 'Individual', usd: '$250 USD', cad: '$350 CAD', items: ['Community platform access', '10–15% marketplace pricing', 'Education & wellness resources', 'Welcome package with branded hoodie'], fund: '$25 USD to the Neurodivergent Inclusion Fund' },
   { name: 'Business', usd: '$1,000 USD', cad: '$1,400 CAD', items: ['Marketplace directory listing', 'Business profile & spotlight features', 'Sponsorship opportunities', 'Inclusion Champion designation'], fund: '$100 USD to the Neurodivergent Inclusion Fund' },
@@ -215,27 +213,40 @@ export function home(d) {
   ${eventFeature(d.events[0])}
 </section>
 
-<section class="wrap section" data-el="home.mission" data-el-build="elementor">
-  <div class="section-head reveal">
+<section class="section mission" data-el="home.mission" data-el-build="elementor">
+  <div class="wrap section-head reveal">
     <p class="eyebrow mb-s">Our mission</p>
     <h2 class="h2">Creating opportunities through sport &amp; education.</h2>
     <p class="body-lg muted">Our ecosystem integrates athlete development, education and mentorship, special needs inclusion, esports engagement, corporate partnerships and global diaspora participation.</p>
   </div>
-  <div class="mission-grid" data-stagger>
-    ${MISSION.map(([ic, t, b]) => html`<article class="mission-card">${sketchIcon(ic)}<h3>${t}</h3><p>${b}</p></article>`)}
+</div>
+<div class="mslide" aria-label="Our mission pillars">
+  <div class="mslide__track">
+    ${[0, 1].map((dup) => html`<ul${dup ? raw(' aria-hidden="true"') : ''}>${MISSION.map(([ic, t, b], i) => html`<li class="mcard"><span class="mcard__num">${pad2(i + 1)}</span><span class="mcard__ico">${sketchIcon(ic)}</span><h3>${t}</h3><p>${b}</p></li>`)}</ul>`)}
   </div>
+</div>
 </section>
 
-<section class="band--navy" data-el="home.ecosystem-3" data-el-build="elementor">
+<section class="temple" data-el="home.ecosystem-3" data-el-build="elementor" data-temple>
   <div class="wrap section">
-    <div class="section-head reveal">
-      <p class="eyebrow mb-s">AFSVHCL™ ecosystem</p>
+    <div class="temple__roof reveal">
+      <p class="eyebrow">AFSVHCL™ ecosystem</p>
       <h2 class="h2">Three pillars. One vision.</h2>
     </div>
-    <div class="eco3" data-stagger>
-      ${ECO3.map((e) => html`<a class="eco3__card" href="${href(e.route)}"><span class="eco3__tag eco3__tag--${e.tone}">${e.tag}</span><h3>${e.name}</h3><small>${e.kicker}</small><p>${e.body}</p><span class="eco3__more">Learn more ${arrow()}</span></a>`)}
+    <div class="temple__cols">
+      ${ECO3.map((e, i) => html`<a class="pillar pillar--${e.tone}" href="${href(e.route)}" style="--i:${i}">
+        <span class="pillar__cap" aria-hidden="true"></span>
+        <span class="pillar__shaft">
+          <span class="pillar__tag">${e.tag}</span>
+          <span class="pillar__kicker">${e.kicker}</span>
+          <h3>${e.name}</h3>
+          <p>${e.body}</p>
+          <span class="eco3__more">Learn more ${arrow()}</span>
+        </span>
+        <span class="pillar__base" aria-hidden="true"></span>
+      </a>`)}
     </div>
-    <p class="eco3__foot">Educate · Empower · Include · Inspire</p>
+    <div class="temple__plinth"><span>Educate</span><span>Empower</span><span>Include</span><span>Inspire</span></div>
   </div>
 </section>
 
@@ -335,24 +346,6 @@ export function home(d) {
   </div>
 </section>
 
-<section class="wrap section" data-el="home.athletes" data-el-build="elementor">
-  <div class="athletes">
-    <div class="reveal">
-      <p class="eyebrow mb-s">Athlete development programs</p>
-      <h2 class="h2 mb-m">Building champions across multiple sports.</h2>
-      <p class="lead mb-m">Athlete development opportunities across multiple sports. Each athlete is planned to receive a complete performance training kit featuring AFSVHCL branding, their national identity and corporate sponsor integration.</p>
-      <ul class="athletes__sports">${SPORTS5.map((t) => html`<li>${sketchIcon(t)}<span>${t === 'Track and sprint' ? 'Track & Field' : t}</span></li>`)}</ul>
-      ${btn('Explore programs', '/programs', 'navy')}
-    </div>
-    <div class="athletes__kit reveal">
-      ${sketchIcon('Kit')}
-      <p class="eyebrow">Performance kit</p>
-      <ul>${KIT.map((t) => html`<li>${t}</li>`)}</ul>
-      <span class="pill pill--gold">Planned</span>
-    </div>
-  </div>
-</section>
-
 <section class="float-paths" data-el="home.pathways" data-el-build="elementor">
   <div class="float-paths__glow" aria-hidden="true"></div>
   <div class="wrap section">
@@ -379,7 +372,7 @@ ${esportsBand()}
 
 <section class="band--cream" data-el="home.neurodiversity" data-el-build="elementor">
   <div class="wrap section split split--center">
-    <figure class="figure figure--4x3 figure--motion wipe neuro-figure" data-video-scope>${pmedia({ img: IMG('sensory-support-space.jpg'), alt: 'Two adults in relaxed conversation in a calm, sensory-considerate support space with soft acoustic wall panels, dimmable lighting and quiet soft seating.', video: V.sensory, w: 1168, h: 880 })}</figure>
+    <figure class="figure figure--4x3 figure--motion wipe neuro-figure" data-video-scope data-swap-stage>${EDU_CATS.map((c, i) => html`<img class="swap-img" data-swap-img="${i}" src="${IMG(c[2])}" alt="" width="1200" height="900" loading="lazy">`)}${pmedia({ img: IMG('sensory-support-space.jpg'), alt: 'Two adults in relaxed conversation in a calm, sensory-considerate support space with soft acoustic wall panels, dimmable lighting and quiet soft seating.', video: V.sensory, w: 1168, h: 880 })}</figure>
     <div class="reveal">
       <p class="eyebrow mb-s">Neurodiversity Access &amp; Opportunity</p>
       <h2 class="h2 mb-m">Different Minds.<br>Equal Opportunity.</h2>
@@ -389,8 +382,8 @@ ${esportsBand()}
     </div>
   </div>
   <div class="wrap edu-cats">
-    <div class="edu-cats__stat reveal"><b>1 in 5</b><span>children in Canada are neurodivergent — millions of families need these services.</span></div>
-    ${EDU_CATS.map(([t, b]) => html`<div class="edu-cats__card reveal"><h3>${t}</h3><p>${b}</p></div>`)}
+    <div class="edu-cats__stat reveal" tabindex="0" data-swap="-1"><b>1 in 5</b><span>children in Canada are neurodivergent — millions of families need these services.</span></div>
+    ${EDU_CATS.map(([t, b], i) => html`<div class="edu-cats__card reveal" tabindex="0" data-swap="${i}"><h3>${t}</h3><p>${b}</p></div>`)}
   </div>
 </section>
 
@@ -403,7 +396,7 @@ ${esportsBand()}
       <ul class="efn__list mb-l">${EFN.map(([t, b]) => html`<li><b>${t}</b><span>${b}</span></li>`)}</ul>
       ${btn('Explore the digital platform', '/technology-media', 'gold')}
     </div>
-    <figure class="figure figure--4x3 figure--motion wipe efn-figure">${pmedia({ img: IMG('village/efn-arena.jpg'), alt: 'Conceptual rendering: a packed esports arena with players on stage and giant screens showing colourful battle-royale gameplay. Not an existing facility.', w: 1200, h: 800 })}
+    <figure class="figure figure--4x3 figure--motion wipe efn-figure">${pmedia({ img: IMG('village/efn-arena.jpg'), alt: 'Conceptual rendering: a packed esports arena hosting a football video game tournament, with players on stage and giant screens showing soccer gameplay. Not an existing facility.', w: 1200, h: 800 })}
       <figcaption class="caption-bar">Conceptual Rendering — Not an Existing Facility</figcaption>
     </figure>
   </div>
