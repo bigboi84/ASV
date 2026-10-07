@@ -2422,3 +2422,10 @@ a.efn-site:hover .efn-site__btn { background: var(--gold); }
 .site-header--overlay.is-stuck .nav-link[aria-expanded="true"] { background: var(--cream); color: var(--navy); }
 .site-header--overlay.is-stuck .nav-link[aria-current="page"], .site-header--overlay.is-stuck .nav-item.is-current > .nav-link { color: var(--gold-ink); }
 @media (max-width: 720px) { .brand img, .site-header--overlay .brand img, .site-header--overlay.is-stuck .brand img { height: 32px; } }
+
+/* Centre the main menu between the logo and the right edge */
+@media (min-width: 1200px) {
+  .site-header__inner { display: grid; grid-template-columns: minmax(max-content, 1fr) auto minmax(0, 1fr); }
+  .site-header__inner .brand { justify-self: start; }
+  .site-header__inner .primary-nav { justify-content: center; }
+}
