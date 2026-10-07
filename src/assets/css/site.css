@@ -2439,3 +2439,24 @@ a.efn-site:hover .efn-site__btn { background: var(--gold); }
   .site-header__inner .nav-link { padding: 8px 8px; font-size: 13px; gap: 4px; }
   .header-cta { padding: 9px 16px; }
 }
+
+/* ───────── Home intro: A F S V letters filled with the village, then a zoom through into the hero ───────── */
+.intro { position: fixed; inset: 0; z-index: 300; pointer-events: auto; cursor: pointer; }
+.intro__svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.intro__word { font-family: 'Anton', var(--font-display); font-size: 520px; letter-spacing: 0; text-transform: uppercase; }
+.intro__veil { fill: var(--navy); }
+.intro__ghost { fill: none; stroke: rgba(201,162,74,.55); stroke-width: 1.6; stroke-dasharray: 2600; stroke-dashoffset: 2600; animation: introTrace 1.4s cubic-bezier(.6,0,.2,1) .1s forwards; }
+@keyframes introTrace { to { stroke-dashoffset: 0; } }
+.intro__cap { font-family: var(--font-body); font-size: 15px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; fill: rgba(245,243,238,.7); }
+.intro__track { fill: rgba(245,243,238,.15); }
+.intro__bar { fill: var(--gold); }
+/* Hold the hero's own entrance until the intro hands over */
+.intro-on .hero--reel .split-words .w > span { animation: none; transform: translateY(105%); }
+.intro-on .hero--reel .film__tag, .intro-on .hero--reel .film__cta, .intro-on .hero--reel .reel__bar { opacity: 0; transform: translateY(14px); }
+.hero--reel .film__tag, .hero--reel .film__cta, .hero--reel .reel__bar { transition: opacity .7s var(--ease), transform .8s var(--ease); }
+.hero--reel .film__cta { transition-delay: .35s; }
+.hero--reel .reel__bar { transition-delay: .5s; }
+.intro-on .site-header, .intro-on .announce { opacity: 0; }
+.intro-reveal .site-header, .intro-reveal .announce { animation: introFade .8s var(--ease) .25s both; }
+@keyframes introFade { from { opacity: 0; } to { opacity: 1; } }
+html.intro-on, .intro-on body { overflow: hidden; }

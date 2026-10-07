@@ -153,11 +153,36 @@ export function home(d) {
     { ...d.pathways[2], desc: 'Executive and Everyday & Sport apparel and accessories.', img: 'merch/regular-varsity-jacket-navy.jpg' },
     { ...d.pathways[3], desc: 'Sponsorship, education, technology and development routes.', img: 'life/suite.jpg' },
   ];
+  const INTRO_IMGS = ['whitby/site-aerial.jpg', 'whitby/hp.jpg', 'whitby/esports.jpg', 'life/plaza.jpg'];
   return {
     title: 'Home',
     overlay: true,
     description: 'AFSV VRC is creating a smarter, more inclusive sports and education ecosystem where athletes, families, educators, partners and communities can train, learn, connect and grow.',
     body: html`
+<div class="intro" data-intro aria-hidden="true">
+  <script>(function(){var d=document.documentElement;if(matchMedia('(prefers-reduced-motion: reduce)').matches||/[?&]nointro/.test(location.search)){var e=document.currentScript.parentNode;e.parentNode.removeChild(e);return;}d.classList.add('intro-on');})();</script>
+  <svg class="intro__svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <clipPath id="introWord"><text class="intro__word" x="800" y="610" text-anchor="middle" textLength="1180" lengthAdjust="spacing">AFSV</text></clipPath>
+      <mask id="introHole" maskUnits="userSpaceOnUse" x="-6000" y="-6000" width="13600" height="12900">
+        <rect x="-6000" y="-6000" width="13600" height="12900" fill="#fff"/>
+        <g data-intro-hole><text class="intro__word" x="800" y="610" text-anchor="middle" textLength="1180" lengthAdjust="spacing" fill="#fff" data-intro-holetext>AFSV</text></g>
+      </mask>
+    </defs>
+    <rect class="intro__veil" x="-6000" y="-6000" width="13600" height="12900" mask="url(#introHole)"/>
+    <g data-intro-fill>
+      <text class="intro__word intro__ghost" x="800" y="610" text-anchor="middle" textLength="1180" lengthAdjust="spacing" data-intro-measure>AFSV</text>
+      <g clip-path="url(#introWord)">
+        ${INTRO_IMGS.map((f) => html`<image href="${IMG(f)}" x="0" y="0" width="300" height="440" preserveAspectRatio="xMidYMid slice" data-intro-img/>`)}
+      </g>
+    </g>
+    <g class="intro__meta" data-intro-meta>
+      <text x="800" y="700" text-anchor="middle" class="intro__cap">Whitby, Ontario · Smart Sports Village</text>
+      <rect x="650" y="730" width="300" height="2" class="intro__track"/>
+      <rect x="650" y="730" width="0" height="2" class="intro__bar" data-intro-bar/>
+    </g>
+  </svg>
+</div>
 <section class="hero hero--full hero--reel" data-el="home.hero" data-el-build="elementor" data-film>
   <div class="hero__media reel" aria-hidden="true">
     <img src="${IMG('village/film-poster.jpg')}" alt="" width="1920" height="1080" fetchpriority="high">

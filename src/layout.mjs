@@ -227,7 +227,7 @@ ${footer(data.footerCols)}
 ${scripts}
 <script src="assets/js/site.js" defer></script>
 <script src="assets/js/motion.js" defer></script>
-<script src="assets/js/flow.js" defer></script>
+<script src="assets/js/flow.js" defer></script>${route === "/" ? raw('\n<script src="assets/js/intro.js" defer></script>') : ""}
 </body>
 </html>
 `;
