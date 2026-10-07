@@ -5,7 +5,7 @@ Build: `node src/build.mjs && node wordpress/build-site.mjs`, then zip `afsv-vrc
 - **Pages**: 33 Elementor pages generated from the static build — each design section is an Elementor HTML widget with the exact markup.
 - **Chrome**: the theme prints the notice bar, header, floating menu, mobile menu and footer from `afsv-vrc-theme/chrome/` (variants: overlay = Home/About/Leadership, market = Marketplace + WooCommerce, default).
 - **Shop**: WooCommerce is The Collection. The theme's `woocommerce/` templates render the shop grid and product pages in the design (on-model hover photo + clip, colour swatches, no price, no Add to cart). Products carry an `afsv_colours` JSON meta; categories are the four collections.
-- **Forms**: every form posts to `afsv/v1/forms/<form>`; submissions appear under Form submissions and are emailed to info@afsvhcl.com (option `afsv_form_recipient`).
+- **Forms**: every form posts to `afsv/v1/forms/<form>`; submissions appear under Form submissions. Form submissions → Settings sets recipients (default and per form), the From name/address and auto-replies (placeholders {name}, {email}, {form}, {site}, {answers}), and can send a test email. `content/forms.json` lists the site's forms.
 
 Update an existing install: Plugins/Themes → Upload → choose the zip → *Replace current with uploaded*, then Tools → AFSV VRC Setup → Build.
 

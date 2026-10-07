@@ -80,6 +80,7 @@ fs.rmSync(CORE, { recursive: true, force: true });
 fs.mkdirSync(CORE, { recursive: true });
 const files = fs.readdirSync(SITE).filter((f) => f.endsWith('.html') && f !== '404.html').map((f) => f.replace(/\.html$/, '')).filter((f) => !WOO(f));
 const pages = [];
+const forms = {};
 for (const file of files) {
   const html = fs.readFileSync(path.join(SITE, file + '.html'), 'utf8');
   const main = (html.match(/<main id="main"[^>]*>([\s\S]*?)<\/main>/) || [])[1];
@@ -87,13 +88,23 @@ for (const file of files) {
   const r = route(file);
   const title = decode((html.match(/<title>([^<]*)<\/title>/) || [])[1] || file).replace(/\s*\|\s*AFSV VRC.*$/, '').trim();
   const description = decode((html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '');
-  const blocks = topLevel(main);
+  // Generic "interest" forms appear on many pages: give each page's form its own id.
+  const blocks = topLevel(main).map((b) => (/^<section[^>]*\sid="interest"/.test(b) && b.includes('data-preview-form') ? b.replace(/^<section/, `<section data-form-id="${r.slug}-interest"`) : b));
+  for (const b of blocks.filter((x) => x.includes('data-preview-form'))) {
+    const sid = (b.match(/^<section[^>]*data-form-id="([^"]+)"/) || b.match(/^<section[^>]*\sid="([^"]+)"/) || [])[1];
+    const el = (b.match(/^<[^>]*data-el="([^"]+)"/) || [])[1];
+    const fid = (sid || el || 'interest').toLowerCase().replace(/[^a-z0-9-]+/g, '-');
+    const h = decode(((b.match(/<h2[^>]*>([\s\S]*?)<\/h2>/) || [])[1] || fid).replace(/<[^>]+>/g, '').trim());
+    (forms[fid] = forms[fid] || { id: fid, title: h, pages: [] }).pages.push(r.path);
+  }
   const elements = blocks.map((b, i) => htmlEl(wpLinks(b), sectionTitle(b, i)));
   const chrome = html.includes('masthead--overlay') ? 'overlay' : (MARKET.has(file) || file.startsWith('product-')) ? 'market' : 'default';
   const page = { slug: r.slug, parent: r.parent || '', title: file === 'index' ? 'Home' : title, description, chrome, front: file === 'index', elements };
   fs.writeFileSync(path.join(CORE, `page-${r.parent ? r.parent + '--' : ''}${r.slug}.json`), JSON.stringify(page));
   pages.push(`${r.path}  (${blocks.length} sections, ${chrome})`);
 }
+
+fs.writeFileSync(path.join(CORE, 'forms.json'), JSON.stringify(Object.values(forms), null, 1));
 
 // ───────── Chrome (everything around <main>) ─────────
 fs.mkdirSync(path.join(THEME, 'chrome'), { recursive: true });

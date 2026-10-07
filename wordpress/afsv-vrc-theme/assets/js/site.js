@@ -314,8 +314,8 @@
       }
       // On WordPress (AFSV VRC theme) the form posts to the AFSV VRC Core inbox; the static build only previews.
       if (!window.AFSV_FORMS) { done(true); return; }
-      var sec = form.closest('[id]'), el = form.closest('[data-el]');
-      var formId = ((sec && sec.id) || (el && el.getAttribute('data-el')) || 'interest').toLowerCase().replace(/[^a-z0-9-]+/g, '-');
+      var fx = form.closest('[data-form-id]'), sec = form.closest('section[id]'), el = form.closest('[data-el]');
+      var formId = ((fx && fx.getAttribute('data-form-id')) || (sec && sec.id) || (el && el.getAttribute('data-el')) || 'interest').toLowerCase().replace(/[^a-z0-9-]+/g, '-');
       var data = new FormData(form), labels = {};
       $$('.field', form).forEach(function (f) {
         var c = $('input, select, textarea', f), l = $('.field__label', f);
