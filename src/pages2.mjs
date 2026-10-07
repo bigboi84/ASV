@@ -3,7 +3,7 @@
 import {
   html, raw, href, btn, breadcrumb, ctaBand, splitWords, pad2, arrow, formSection, previewForm,
 } from './lib.mjs';
-import { sketchIcon } from './pages.mjs';
+import { sketchIcon, eventFeature } from './pages.mjs';
 
 const IMG = (f) => `assets/img/${f}`;
 const PREVIEW = 'Development preview — this form is not connected yet.';
@@ -538,6 +538,11 @@ export const affiliateNetwork = () => html`
 </section>`;
 
 export const EXTRAS = {
+  '/gaisb-ai': (d) => html`
+<section class="wrap section event-section" data-el="gaisb.event" data-el-build="custom-widget">
+  <div class="section-head reveal"><p class="eyebrow mb-s">GAISB event</p><h2 class="h2">GAISB AI World Summit 2027.</h2><p class="body-lg muted">Hosted in Port of Spain by AFSV VRC with the Global AI Standards Body. <a class="text-link" href="events.html">All events ${arrow()}</a></p></div>
+  ${eventFeature(d.events[0], 'gaisb.event-card')}
+</section>`,
   '/programs': () => html`
 <section class="wrap section" data-el="programs.areas" data-el-build="elementor">
   ${head('Proposed program areas', 'A multi-sport development ecosystem.')}

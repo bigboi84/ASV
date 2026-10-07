@@ -37,7 +37,7 @@ const PREVIEW = 'Development preview — this form is not connected yet.';
 
 
 // Featured event block (home + events page). WordPress: Events CPT single-card template.
-function eventFeature(e, el = 'home.event') {
+export function eventFeature(e, el = 'home.event') {
   return html`
 <article class="event${e.brand ? ' event--' + e.brand : ''}" data-el="${el}" data-el-build="custom-widget">
   <div class="event__date" aria-hidden="true">
@@ -1186,6 +1186,10 @@ ${pageHero({
   img: IMG('life/academy.jpg'), alt: 'Concept rendering: racially diverse boys and girls doing passing drills at night inside the dome while parents watch.',
 })}
 ${note('Consent is mandatory for stories, photographs, testimonials and identifying information, with enhanced safeguards for minors and vulnerable people. Sharing a story below is an expression of interest and a consent to be contacted — it is not publication consent. Editorial approval and formal media releases happen separately.')}
+<section class="wrap section event-section" data-el="news.event" data-el-build="custom-widget">
+  <div class="section-head reveal"><p class="eyebrow mb-s">Latest news</p><h2 class="h2">Upcoming event.</h2><p class="body-lg muted">The GAISB AI World Summit 2027, hosted in the Caribbean by AFSV VRC. <a class="text-link" href="events.html">All events ${arrow()}</a></p></div>
+  ${eventFeature(d.events[0], 'news.event-card')}
+</section>
 <section class="wrap section" id="updates" data-el="news.types" data-el-build="custom-widget">
   <div class="section-head reveal" style="align-items:start"><h2 class="h2">Content types.</h2><p class="body-lg muted">Ten types, each with its own review path. The archive is empty until the first entry is approved — no sample stories are published here.</p></div>
   <div class="hairline list-cells" data-stagger>
