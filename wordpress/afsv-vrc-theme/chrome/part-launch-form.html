@@ -1,0 +1,48 @@
+<section class="wrap section" id="buyer-form" data-el="marketplace.buyer-form" data-el-build="plugin">
+  <div class="split split--form">
+    <div class="form-intro reveal">
+      <p class="eyebrow mb-s">Launch list</p>
+      <h2 class="h2">Be first to the collection.</h2>
+      <p class="body-lg">Tell us which pieces interest you. We will be in touch when the range is approved and the marketplace opens.</p>
+      <p class="small muted">Concept visualisations for executive review. Final crest artwork, colours, sizing, pricing and product details are subject to approval.</p>
+    </div>
+    
+<form class="form" data-preview-form>
+  <p class="small muted">Fields marked <span aria-hidden="true" style="color:var(--danger)">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+  <div class="form__grid">
+<div class="field">
+  <label class="field__label" for="f210">Name<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f210" name="name" autocomplete="name" aria-describedby="f210-err" required aria-required="true">
+  
+  <span class="field__error" id="f210-err" aria-live="polite"></span>
+</div>
+<div class="field">
+  <label class="field__label" for="f211">Email<span class="req" aria-hidden="true">*</span></label>
+  <input type="email" id="f211" name="email" autocomplete="email" aria-describedby="f211-err" required aria-required="true">
+  
+  <span class="field__error" id="f211-err" aria-live="polite"></span>
+</div>
+<div class="field">
+  <label class="field__label" for="f212">Country<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f212" name="country" autocomplete="country-name" aria-describedby="f212-err" required aria-required="true">
+  
+  <span class="field__error" id="f212-err" aria-live="polite"></span>
+</div>
+<div class="field">
+  <label class="field__label" for="interest-collection">Collection of interest <span class="opt">(optional)</span></label>
+  <select id="interest-collection" name="collection-of-interest" aria-describedby="interest-collection-err"><option value="">Select a collection</option><option value="Executive Apparel">Executive Apparel</option><option value="Executive Accessories">Executive Accessories</option><option value="Everyday &amp; Sport Apparel">Everyday &amp; Sport Apparel</option><option value="Everyday &amp; Sport Accessories">Everyday &amp; Sport Accessories</option><option value="All of the collection">All of the collection</option></select>
+  
+  <span class="field__error" id="interest-collection-err" aria-live="polite"></span>
+</div>
+<div class="field field--full">
+  <label class="field__label" for="f213">Pieces you are interested in <span class="opt">(optional)</span></label>
+  <textarea id="f213" name="pieces-you-are-interested-in" aria-describedby="f213-err" rows="2" placeholder=""></textarea>
+  
+  <span class="field__error" id="f213-err" aria-live="polite"></span>
+</div></div>
+  <label class="check" for="f209"><input type="checkbox" id="f209" name="consent" required aria-describedby="f209-err"><span>I agree to receive marketplace launch updates from AFSV VRC.<span class="field__error" id="f209-err"></span></span></label>
+  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. Launch-list submissions will route once commerce approvals are complete.</div>
+  <div><button type="submit" class="btn btn--navy">Join the Launch List<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></button></div>
+</form>
+  </div>
+</section>

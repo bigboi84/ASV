@@ -10,11 +10,14 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'AFSV_THEME_VERSION', '1.1.0' );
+define( 'AFSV_THEME_VERSION', '1.2.0' );
 define( 'AFSV_BOOKING_URL', 'https://book.afsvvrc.com' );
 
 require_once get_stylesheet_directory() . '/inc/defaults.php';
 require_once get_stylesheet_directory() . '/inc/helpers.php';
+if ( class_exists( 'WooCommerce' ) || defined( 'WC_VERSION' ) ) {
+	require_once get_stylesheet_directory() . '/inc/shop.php';
+}
 
 /* ───────── Setup ───────── */
 add_action( 'after_setup_theme', function () {
@@ -61,6 +64,12 @@ add_action( 'wp_enqueue_scripts', function () {
 
 	wp_enqueue_script( 'afsv-site', $uri . '/js/site.js', array(), $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );
 	wp_enqueue_script( 'afsv-motion', $uri . '/js/motion.js', array( 'afsv-site' ), $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );
+	wp_enqueue_script( 'afsv-flow', $uri . '/js/flow.js', array( 'afsv-site' ), $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );
+	if ( is_front_page() ) {
+		wp_enqueue_script( 'afsv-intro', $uri . '/js/intro.js', array( 'afsv-site' ), $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );
+	}
+	// Forms post to the AFSV VRC Core inbox (REST: afsv/v1/forms/<form>).
+	wp_add_inline_script( 'afsv-site', 'window.AFSV_FORMS = ' . wp_json_encode( esc_url_raw( rest_url( 'afsv/v1/forms/' ) ) ) . ';', 'before' );
 }, 20 );
 
 /* Self-hosted fonts: preload the two used above the fold. */
@@ -86,6 +95,9 @@ add_filter( 'elementor/frontend/print_google_fonts', '__return_false' );
 add_filter( 'body_class', function ( $classes ) {
 	if ( afsv_header_overlay() ) {
 		$classes[] = 'has-overlay-header';
+	}
+	if ( 'market' === afsv_chrome_variant() ) {
+		$classes[] = 'is-market';
 	}
 	return $classes;
 } );

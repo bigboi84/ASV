@@ -9,11 +9,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 </main>
 <?php
-if ( has_action( 'afsv_site_footer' ) ) {
-	do_action( 'afsv_site_footer' );
-} else {
-	get_template_part( 'template-parts/site-footer' );
-}
+afsv_chrome( 'bottom' );
 wp_footer();
 ?>
 </body>

@@ -16,12 +16,8 @@ defined( 'ABSPATH' ) || exit;
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<a class="skip-link" href="#main"><?php esc_html_e( 'Skip to main content', 'afsv-vrc' ); ?></a>
 <?php
-if ( has_action( 'afsv_site_header' ) ) {
-	do_action( 'afsv_site_header' );
-} else {
-	get_template_part( 'template-parts/site-header' );
-}
+// Site chrome (notice, header, floating menu, mobile menu) generated from the design build.
+afsv_chrome( 'top' );
 ?>
 <main id="main" tabindex="-1">

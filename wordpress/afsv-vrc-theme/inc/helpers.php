@@ -173,3 +173,48 @@ function afsv_logo( $variant = 'dark' ) {
 function afsv_asset( $path ) {
 	return get_stylesheet_directory_uri() . '/assets/' . ltrim( $path, '/' );
 }
+
+/**
+ * Site chrome variant for the current request: "overlay" (header floats over the hero),
+ * "market" (Marketplace header, no floating menu) or "default". Set per page by the importer
+ * in the "afsv_chrome" field; WooCommerce pages use the Marketplace chrome.
+ */
+function afsv_chrome_variant() {
+	$v = '';
+	if ( is_singular() ) {
+		$v = (string) get_post_meta( get_queried_object_id(), 'afsv_chrome', true );
+	}
+	if ( ! $v && function_exists( 'is_woocommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) ) {
+		$v = 'market';
+	}
+	if ( ! $v ) {
+		$v = afsv_header_overlay() ? 'overlay' : 'default';
+	}
+	return in_array( $v, array( 'overlay', 'market', 'default' ), true ) ? $v : 'default';
+}
+
+/** Resolve {{asset:…}} and {{url:…}} placeholders in design markup. */
+function afsv_fill( $html ) {
+	return preg_replace_callback(
+		'/\{\{(asset|url):([^}]*)\}\}/',
+		function ( $m ) {
+			return esc_url( 'asset' === $m[1] ? afsv_asset( $m[2] ) : home_url( $m[2] ) );
+		},
+		$html
+	);
+}
+
+/** Print the "top" or "bottom" site chrome, marking the current page's links. */
+function afsv_chrome( $part ) {
+	$file = get_stylesheet_directory() . '/chrome/' . afsv_chrome_variant() . '-' . $part . '.html';
+	if ( ! file_exists( $file ) ) {
+		get_template_part( 'top' === $part ? 'template-parts/site-header' : 'template-parts/site-footer' );
+		return;
+	}
+	$html = afsv_fill( file_get_contents( $file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+	if ( is_singular() || is_front_page() ) {
+		$here = esc_url( trailingslashit( get_permalink( get_queried_object_id() ) ) );
+		$html = str_replace( 'href="' . $here . '"', 'href="' . $here . '" aria-current="page"', $html );
+	}
+	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput -- generated design markup.
+}

@@ -89,8 +89,12 @@ function afsv_core_handle_form( WP_REST_Request $req ) {
 		return new WP_Error( 'afsv_empty', __( 'The form was empty.', 'afsv-vrc-core' ), array( 'status' => 400 ) );
 	}
 
-	$title = sprintf( '%s — %s', ucwords( str_replace( '-', ' ', $form ) ), $name ? $name : $email );
-	$body  = implode( "\n", $lines );
+	$heading = ! empty( $params['afsv_title'] ) ? sanitize_text_field( wp_unslash( $params['afsv_title'] ) ) : ucwords( str_replace( '-', ' ', $form ) );
+	$title   = sprintf( '%s — %s', $heading, $name ? $name : $email );
+	if ( ! empty( $params['afsv_page'] ) ) {
+		$lines[] = 'Page: ' . esc_url_raw( wp_unslash( $params['afsv_page'] ) );
+	}
+	$body = implode( "\n", $lines );
 	wp_insert_post(
 		array(
 			'post_type'    => 'afsv_submission',
@@ -101,6 +105,7 @@ function afsv_core_handle_form( WP_REST_Request $req ) {
 	);
 
 	$to = get_option( 'afsv_form_recipient_' . $form );
+	$to = is_email( $to ) ? $to : get_option( 'afsv_form_recipient', 'info@afsvhcl.com' );
 	$to = is_email( $to ) ? $to : get_option( 'admin_email' );
 	$headers = $email ? array( 'Reply-To: ' . $email ) : array();
 	wp_mail( $to, '[AFSV VRC] ' . $title, $body . "\n\n" . home_url( '/' ), $headers );

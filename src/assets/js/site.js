@@ -303,12 +303,32 @@
         firstBad.focus();
         return;
       }
-      if (status) {
-        status.hidden = false;
-        status.focus();
-      }
       var btn = $('button[type="submit"]', form);
-      if (btn) { btn.disabled = true; btn.textContent = 'Received'; }
+      function done(ok, msg) {
+        if (status) {
+          if (msg) status.innerHTML = '<strong>' + (ok ? 'Thank you.' : 'Sorry —') + '</strong> ' + msg;
+          status.hidden = false;
+          status.focus();
+        }
+        if (btn) { btn.disabled = ok; if (ok) btn.textContent = 'Received'; }
+      }
+      // On WordPress (AFSV VRC theme) the form posts to the AFSV VRC Core inbox; the static build only previews.
+      if (!window.AFSV_FORMS) { done(true); return; }
+      var sec = form.closest('[id]'), el = form.closest('[data-el]');
+      var formId = ((sec && sec.id) || (el && el.getAttribute('data-el')) || 'interest').toLowerCase().replace(/[^a-z0-9-]+/g, '-');
+      var data = new FormData(form), labels = {};
+      $$('.field', form).forEach(function (f) {
+        var c = $('input, select, textarea', f), l = $('.field__label', f);
+        if (c && l) labels[c.name] = l.childNodes[0] ? l.childNodes[0].textContent.trim() : c.name;
+      });
+      var h = form.closest('section'), t = h && $('h2, h1', h);
+      data.append('afsv_labels', JSON.stringify(labels));
+      data.append('afsv_page', location.href);
+      data.append('afsv_title', t ? t.textContent.trim() : document.title);
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      fetch(window.AFSV_FORMS + formId, { method: 'POST', body: data, credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? done(true, 'We’ve received your submission and will be in touch soon.') : r.json().then(function (j) { throw new Error(j && j.message); }); })
+        .catch(function (err) { done(false, (err && err.message) || 'Something went wrong. Please email info@afsvhcl.com.'); if (btn) btn.textContent = 'Try again'; });
     });
   });
 

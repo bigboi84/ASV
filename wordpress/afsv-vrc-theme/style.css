@@ -4,7 +4,7 @@ Theme URI:    https://afsvvrc.com
 Description:  AFSV VRC design system as a Hello Elementor child theme: header, footer, design tokens, fonts and motion. Pair with the AFSV VRC Core plugin for the Elementor widgets, Events and Leadership.
 Author:       AFSV VRC Global Development Group Ltd.
 Template:     hello-elementor
-Version:      1.1.0
+Version:      1.2.0
 Requires at least: 6.5
 Requires PHP: 7.4
 License:      GPL-2.0-or-later
@@ -49,3 +49,8 @@ Text Domain:  afsv-vrc
 .elementor-editor-active .reveal,
 .elementor-editor-active .wipe,
 .elementor-editor-active [data-stagger] > * { opacity: 1; transform: none; clip-path: none; }
+
+/* v1.2: every design section is an Elementor HTML widget — keep its containers invisible. */
+.e-con:has(> .elementor-widget-html), .e-con:has(> .e-con-inner > .elementor-widget-html) { --padding-top: 0; --padding-bottom: 0; --padding-left: 0; --padding-right: 0; --gap: 0; --container-max-width: none; --content-width: 100%; padding: 0; gap: 0; max-width: none; }
+.elementor-widget-html, .elementor-widget-html > .elementor-widget-container { margin: 0; padding: 0; width: 100%; max-width: none; }
+.elementor-widget-html .elementor-widget-container { overflow: visible; }

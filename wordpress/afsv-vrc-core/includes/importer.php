@@ -55,6 +55,24 @@ function afsv_core_upsert( $type, $slug, $args ) {
 	return wp_insert_post( wp_slash( $args ), true );
 }
 
+/** Pages are matched by slug *and* parent, so product pages under /the-collection/ never collide. */
+function afsv_core_upsert_page( $slug, $parent, $args ) {
+	$found = get_posts(
+		array(
+			'post_type'      => 'page',
+			'name'           => $slug,
+			'post_parent'    => $parent,
+			'post_status'    => array( 'publish', 'draft', 'pending', 'private', 'future' ),
+			'posts_per_page' => 1,
+		)
+	);
+	$args = array_merge( array( 'post_type' => 'page', 'post_name' => $slug, 'post_parent' => $parent ), $args );
+	if ( $found ) {
+		$args['ID'] = $found[0]->ID;
+	}
+	return wp_insert_post( wp_slash( $args ), true );
+}
+
 function afsv_core_set_elementor( $post_id, $elements, $type ) {
 	$data = afsv_core_fill_placeholders( wp_json_encode( $elements, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) );
 	update_post_meta( $post_id, '_elementor_edit_mode', 'builder' );
@@ -78,7 +96,7 @@ function afsv_core_run_import( $opts ) {
 		return json_decode( file_get_contents( $file ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions
 	};
 
-	foreach ( $read( $dir . 'events.json' ) as $e ) {
+	foreach ( file_exists( $dir . 'events.json' ) ? $read( $dir . 'events.json' ) : array() as $e ) {
 		$id = afsv_core_upsert( 'afsv_event', $e['slug'], array( 'post_title' => $e['title'], 'post_excerpt' => $e['excerpt'], 'post_status' => 'publish' ) );
 		if ( ! is_wp_error( $id ) ) {
 			foreach ( $e['meta'] as $k => $v ) {
@@ -88,7 +106,7 @@ function afsv_core_run_import( $opts ) {
 		}
 	}
 
-	foreach ( $read( $dir . 'leaders.json' ) as $l ) {
+	foreach ( file_exists( $dir . 'leaders.json' ) ? $read( $dir . 'leaders.json' ) : array() as $l ) {
 		$id = afsv_core_upsert( 'afsv_leader', $l['slug'], array( 'post_title' => $l['title'], 'post_content' => $l['content'], 'menu_order' => (int) $l['order'], 'post_status' => 'publish' ) );
 		if ( is_wp_error( $id ) ) {
 			continue;
@@ -115,7 +133,12 @@ function afsv_core_run_import( $opts ) {
 		}
 	}
 
-	foreach ( glob( $dir . 'page-*.json' ) as $file ) {
+	// Parents first (e.g. "the-collection" before its product pages).
+	$files = glob( $dir . 'page-*.json' );
+	usort( $files, function ( $a, $b ) {
+		return substr_count( basename( $a ), '--' ) - substr_count( basename( $b ), '--' );
+	} );
+	foreach ( $files as $file ) {
 		$p    = $read( $file );
 		$args = array(
 			'post_title'    => $p['title'],
@@ -125,20 +148,26 @@ function afsv_core_run_import( $opts ) {
 		if ( ! empty( $p['description'] ) ) {
 			$args['post_excerpt'] = $p['description'];
 		}
-		$id = afsv_core_upsert( 'page', $p['slug'], $args );
+		if ( ! empty( $p['parent'] ) ) {
+			$parent = get_page_by_path( $p['parent'], OBJECT, 'page' );
+			if ( $parent ) {
+				$args['post_parent'] = $parent->ID;
+			}
+		}
+		$id = afsv_core_upsert_page( $p['slug'], ! empty( $args['post_parent'] ) ? $args['post_parent'] : 0, $args );
 		if ( is_wp_error( $id ) ) {
 			$log[] = sprintf( 'Page %s failed: %s', $p['slug'], $id->get_error_message() );
 			continue;
 		}
 		afsv_core_set_elementor( $id, $p['elements'], 'wp-page' );
-		update_post_meta( $id, 'afsv_header_overlay', ! empty( $p['overlay'] ) );
+		update_post_meta( $id, 'afsv_chrome', isset( $p['chrome'] ) ? $p['chrome'] : 'default' );
+		update_post_meta( $id, 'afsv_header_overlay', isset( $p['chrome'] ) && 'overlay' === $p['chrome'] );
 		if ( ! empty( $p['front'] ) && ! empty( $opts['front'] ) ) {
 			update_option( 'show_on_front', 'page' );
 			update_option( 'page_on_front', $id );
 		}
-		$log[] = sprintf( 'Page: %s (%s)', $p['title'], $status );
+		$log[] = sprintf( 'Page: %s%s (%s)', ! empty( $p['parent'] ) ? $p['parent'] . '/' : '', $p['title'], $status );
 	}
-
 	if ( class_exists( '\Elementor\Plugin' ) ) {
 		\Elementor\Plugin::instance()->files_manager->clear_cache();
 	}

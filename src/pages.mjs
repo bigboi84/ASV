@@ -247,7 +247,6 @@ export function home(d) {
     <h2 class="h2">Creating opportunities through sport &amp; education.</h2>
     <p class="body-lg muted">Our ecosystem integrates athlete development, education and mentorship, special needs inclusion, esports engagement, corporate partnerships and global diaspora participation.</p>
   </div>
-</div>
 <div class="mslide" aria-label="Our mission pillars">
   <div class="mslide__track">
     ${[0, 1].map((dup) => html`<ul${dup ? raw(' aria-hidden="true"') : ''}>${MISSION.map(([ic, t, b], i) => html`<li class="mcard"><span class="mcard__num">${pad2(i + 1)}</span><span class="mcard__ico">${sketchIcon(ic)}</span><h3>${t}</h3><p>${b}</p></li>`)}</ul>`)}
