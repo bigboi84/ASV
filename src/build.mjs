@@ -25,7 +25,7 @@ const pages = [
   ['/facilities', P.facilities(data)],
   ['/membership', P.membership(data)],
   ['/marketplace', MK.marketplace(data, merch)],
-  ['/contact', P.contact(data)],
+  ['/contact', P2.contactPage(data)],
   ['/partners', P.partners(data)],
   ...Object.keys(data.content).map((r) => [r, r === '/technology-media' ? P2.efn(data) : P.contentPage(data, r)]),
   ['/impact', P2.impact(data)],

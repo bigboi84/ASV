@@ -7,6 +7,8 @@ import { sketchIcon } from './pages.mjs';
 
 const IMG = (f) => `assets/img/${f}`;
 const PREVIEW = 'Development preview — this form is not connected yet.';
+// The EFN platform's own website. Set this once the URL is confirmed; '#efn-connect' until then.
+export const EFN_URL = '#efn-connect';
 
 // Extra sketch icons for the new pages (24×24, stroked; drawn by the shared #sketchy filter).
 const MORE = {
@@ -33,12 +35,12 @@ const MORE = {
 export const ico = (name) => (MORE[name] ? raw(`<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${MORE[name]}</svg>`) : sketchIcon(name));
 
 // ───────── Shared building blocks ─────────
-function xhero({ kicker, title, lead, img, alt, ctas = [], badge = 'Proposed concept — not an existing facility', dark = false }) {
+export function xhero({ kicker, title, lead, img, alt, ctas = [], badge = 'Proposed concept — not an existing facility', dark = false }) {
   return html`
 <section class="xhero${dark ? ' xhero--dark' : ''}" data-el="page.hero" data-el-build="elementor">
   <div class="wrap">
     <div class="xhero__frame">
-      <img src="${IMG(img)}" alt="${alt}" width="1600" height="900" fetchpriority="high">
+      <img src="${img.startsWith('assets/') ? img : IMG(img)}" alt="${alt}" width="1600" height="900" fetchpriority="high">
       <span class="xhero__shade" aria-hidden="true"></span>
       <div class="xhero__copy">
         <p class="xhero__kick">${kicker}</p>
@@ -48,7 +50,7 @@ function xhero({ kicker, title, lead, img, alt, ctas = [], badge = 'Proposed con
     </div>
     <div class="xhero__under">
       <p class="lead">${lead}</p>
-      ${ctas.length ? html`<div class="btn-row">${ctas.map((c, i) => btn(c.label, c.href, i === 0 ? 'navy' : 'line-dark'))}</div>` : ''}
+      ${ctas.length ? html`<div class="btn-row">${ctas.map((c, i) => btn(c.label, c.href || c.route, i === 0 ? 'navy' : 'line-dark'))}</div>` : ''}
     </div>
   </div>
 </section>`;
@@ -349,7 +351,7 @@ export function efn() {
     ogImage: IMG('village/efn-arena.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Esports & Digital' }, { label: 'EFN – Esports & Fans Network' }])}
-${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where sports meets digital.', img: 'village/efn-arena.jpg', alt: 'Concept rendering: a packed esports arena hosting a football video game tournament, with players on stage and giant screens showing soccer gameplay.', lead: 'EFN is the proposed digital and esports division of AFSVHCL™ — connecting athletes and fans through competitive gaming, live streaming and interactive media. Home of FanZone™.', badge: 'Proposed platform — in development', ctas: [{ label: 'Visit the EFN website', href: '#efn-site' }, { label: 'Explore FanZone™', href: '/fanzone' }] })}
+${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where sports meets digital.', img: 'village/efn-arena.jpg', alt: 'Concept rendering: a packed esports arena hosting a football video game tournament, with players on stage and giant screens showing soccer gameplay.', lead: 'EFN is the proposed digital and esports division of AFSVHCL™ — connecting athletes and fans through competitive gaming, live streaming and interactive media. Home of FanZone™.', badge: 'Proposed platform — in development', ctas: [{ label: 'Get connected', href: EFN_URL }, { label: 'Explore FanZone™', href: '/fanzone' }] })}
 <section class="efn efn--page" data-el="efn.core" data-el-build="elementor">
   <div class="wrap section">
     ${head('The network', 'Four ways EFN connects.')}
@@ -368,15 +370,15 @@ ${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where spo
     ${stats([['80–120', '', 'Gaming stations', 'Proposed'], ['6', '', 'Social platforms', ''], ['5K–12K', '', 'Annual members per dome', 'Projected']], 'Projections are proposals, not results, and are subject to financing, approvals and program launch.')}
   </div>
 </section>
-<section class="wrap section" id="efn-site" data-el="efn.site" data-el-build="elementor">
-  <div class="efn-site reveal">
+<section class="wrap section" id="efn-connect" data-el="efn.connect" data-el-build="elementor">
+  <a class="efn-site" href="${EFN_URL}">
     <div>
-      <p class="eyebrow mb-s">The EFN website</p>
-      <h2 class="h2 mb-m">EFN is getting its own home.</h2>
-      <p class="lead">The dedicated EFN platform is in development. The link will appear here as soon as it goes live.</p>
+      <p class="eyebrow mb-s">EFN – Esports &amp; Fans Network</p>
+      <h2 class="h2 mb-m">Get connected.</h2>
+      <p class="lead">Tournaments, live streams, athlete media and the fan community — all on the EFN platform.</p>
     </div>
-    <span class="efn-site__btn" aria-disabled="true">Coming soon</span>
-  </div>
+    <span class="efn-site__btn">Visit EFN ${arrow()}</span>
+  </a>
 </section>
 <section class="wrap section section--flush-top">${flag('The EFN – Esports & Fans Network platform is a proposed concept in active development. No services are currently active.')}</section>
 ${formSection({
@@ -772,3 +774,72 @@ export const contactExtra = () => html`
     </div>
   </div>
 </section>`;
+
+// ════════════════════════ CONTACT ════════════════════════
+export function contactPage(d) {
+  return {
+    title: 'Contact Us',
+    description: 'Contact AFSVHCL™ — partners, sponsors, community stakeholders, athletes, families, media and supporters.',
+    ogImage: IMG('life/welcome.jpg'),
+    body: html`
+${breadcrumb([{ label: 'Contact Us' }])}
+${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'life/welcome.jpg', alt: 'Concept rendering: a racially diverse welcome team greeting families, a teen athlete and a child in a wheelchair at the curved front desk of the village concourse at dusk.', lead: 'We welcome exploratory conversations with potential partners, sponsors, community stakeholders and supporters of the AFSVHCL™ vision.', badge: 'No memberships, programs or services are currently available for purchase', ctas: [{ label: 'Send a message', href: '#contact-form' }, { label: 'Email us', href: 'mailto:afsvhcl@gmail.com' }] })}
+<section class="wrap section" id="contact-form" data-el="contact.form" data-el-build="plugin">
+  <div class="cgrid">
+    <div class="cgrid__form">
+      <p class="eyebrow mb-s">Send us a message</p>
+      <h2 class="h2 mb-s">We reply within 2–3 business days.</h2>
+      <p class="muted mb-m">All inquiries are exploratory and non-binding.</p>
+      ${previewForm({
+        fields: [
+          { label: 'Name', req: true, auto: 'name' },
+          { label: 'Organisation', auto: 'organization' },
+          { label: 'Email', type: 'email', req: true, auto: 'email' },
+          { label: 'Phone', type: 'tel', auto: 'tel' },
+          { label: 'City and country', req: true },
+          { label: 'Preferred response method', type: 'select', req: true, ph: 'Select a method', options: ['Email', 'Phone call'] },
+          { label: 'Inquiry category', type: 'select', req: true, ph: 'Select a category', full: true, options: d.contactCategories },
+          { label: 'Message', type: 'textarea', req: true, rows: 5, full: true, hint: 'Please do not include health records or diagnoses.' },
+        ],
+        consent: 'I agree to AFSVHCL contacting me about this inquiry.',
+        submit: 'Send message',
+        statusTitle: 'Thank you for reaching out.',
+        status: 'Your inquiry has been received and will be directed to the appropriate team member.',
+      })}
+    </div>
+    <aside class="cgrid__side">
+      <div class="cside">
+        <p class="eyebrow">Contact information</p>
+        <ul class="cside__list">
+          <li><span>${ico('Doc')}</span><div><small>Email</small><a href="mailto:afsvhcl@gmail.com">afsvhcl@gmail.com</a></div></li>
+          <li><span>${ico('Dome')}</span><div><small>Location</small><b>Whitby, Ontario, Canada</b></div></li>
+          <li><span>${ico('Mentorship')}</span><div><small>Primary contact</small><b>Martin Lashley</b><em>Chairman &amp; CEO, AFSVHCL™</em></div></li>
+        </ul>
+        <p class="eyebrow">What to expect</p>
+        <ul class="check-list">${['A reply within 2–3 business days', 'Exploratory, non-binding conversations', 'No sales pressure — we’re building relationships', 'All discussions are confidential'].map((t) => html`<li>${t}</li>`)}</ul>
+      </div>
+      <div class="cside cside--light">
+        <p class="eyebrow">Looking for something specific?</p>
+        <ul class="cside__links">
+          <li><a href="partners.html#partner-form">Partnership &amp; sponsorship ${arrow()}</a></li>
+          <li><a href="membership.html#membership-form">Membership interest ${arrow()}</a></li>
+          <li><a href="marketplace.html#vendor-form">Become a marketplace vendor ${arrow()}</a></li>
+          <li><a href="service-provider-network.html#interest">Service provider network ${arrow()}</a></li>
+          <li><a href="ambassadors.html#ambassador-form">Ambassador program ${arrow()}</a></li>
+          <li><a href="accessibility.html">Accessibility feedback ${arrow()}</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+<section class="band--cream" data-el="contact.types" data-el-build="elementor">
+  <div class="wrap section">
+    ${head('Types of inquiries', 'Who we talk to.')}
+    <div class="ctypes" data-stagger>
+      ${[['Handshake', 'Partnership & sponsorship', 'Exploratory discussions about corporate partnerships and institutional collaborations.'], ['Building', 'Community & municipal stakeholders', 'Conversations with municipalities, school boards and community organizations.'], ['Soccer', 'Athlete & program interest', 'Register your interest in proposed future athlete development programs.'], ['Globe', 'Diaspora network interest', 'Express interest in the proposed Global Diaspora Network.'], ['Signal', 'Media & press', 'Media organizations seeking information about AFSVHCL™.']].map(([i, t, b], n) => html`<article class="ctype"><span class="ctype__n">${pad2(n + 1)}</span><span class="kcard__ico">${ico(i)}</span><h3>${t}</h3><p>${b}</p></article>`)}
+    </div>
+  </div>
+</section>
+<section class="wrap section">${flag('AFSVHCL™ is in active development. All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only. No securities are being offered. No memberships or programs are currently available for purchase.')}</section>`,
+  };
+}

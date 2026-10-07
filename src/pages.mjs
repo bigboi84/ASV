@@ -3,7 +3,7 @@ import {
   previewForm, fromDesignFields, formSection, numberedCells, numberedRows, pad2, money, initials,
 } from './lib.mjs';
 
-import { aboutExtra, whitbyOverview, whitbyRoadmap, membershipExtra, partnersExtra, contactExtra, EXTRAS } from './pages2.mjs';
+import { aboutExtra, whitbyOverview, whitbyRoadmap, membershipExtra, partnersExtra, contactExtra, EXTRAS, xhero } from './pages2.mjs';
 
 const IMG = (f) => `assets/img/${f}`;
 let V = {};
@@ -377,7 +377,7 @@ ${esportsBand()}
 
 <section class="band--cream" data-el="home.neurodiversity" data-el-build="elementor">
   <div class="wrap section split split--center">
-    <figure class="figure figure--4x3 figure--motion wipe neuro-figure" data-video-scope data-swap-stage>${EDU_CATS.map((c, i) => html`<img class="swap-img" data-swap-img="${i}" src="${IMG(c[2])}" alt="" width="1200" height="900" loading="lazy">`)}${pmedia({ img: IMG('sensory-support-space.jpg'), alt: 'Two adults in relaxed conversation in a calm, sensory-considerate support space with soft acoustic wall panels, dimmable lighting and quiet soft seating.', video: V.sensory, w: 1168, h: 880 })}</figure>
+    <figure class="figure figure--4x3 figure--motion wipe neuro-figure" data-video-scope data-swap-stage>${EDU_CATS.map((c, i) => html`<img class="swap-img" data-swap-img="${i}" src="${IMG(c[2])}" alt="" width="1200" height="900" loading="lazy">`)}${pmedia({ img: IMG('life/nd.jpg'), alt: 'Concept rendering: racially diverse neurodivergent kids and teens enjoying an adapted soccer session with patient coaches.', w: 1600, h: 900 })}</figure>
     <div class="reveal">
       <p class="eyebrow mb-s">Neurodiversity Access &amp; Opportunity</p>
       <h2 class="h2 mb-m">Different Minds.<br>Equal Opportunity.</h2>
@@ -1129,7 +1129,7 @@ export function contentPage(d, route) {
     ogImage: c.img,
     body: html`
 ${breadcrumb([{ label: c.group }, { label: c.kicker }])}
-${pageHero({ kicker: c.kicker, h1: c.h1, lead: c.lead, ctas: c.ctas, img: c.img, alt: c.alt, video: V[c.video] })}
+${xhero({ kicker: c.kicker, title: c.h1, lead: c.lead, ctas: c.ctas, img: c.img, alt: c.alt, badge: c.badge || '' })}
 ${c.note ? note(c.note) : ''}
 <section class="wrap section" data-el="page.list-primary" data-el-build="elementor">
   <div class="section-head reveal" style="align-items:start"><h2 class="h2">${c.listTitle}</h2><p class="body-lg muted">${c.listLead}</p></div>

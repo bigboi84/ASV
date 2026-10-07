@@ -1,6 +1,10 @@
 {
   "nav": [
     {
+      "label": "Home",
+      "href": "/"
+    },
+    {
       "label": "About",
       "kids": [
         {
@@ -103,16 +107,16 @@
         {
           "label": "Ambassadors",
           "href": "/ambassadors"
+        },
+        {
+          "label": "Partners & Sponsors",
+          "href": "/partners"
         }
       ]
     },
     {
       "label": "Marketplace",
       "href": "/marketplace"
-    },
-    {
-      "label": "Partners",
-      "href": "/partners"
     }
   ],
   "products": [
@@ -872,7 +876,7 @@
       "kicker": "Esports, Technology, Media & Innovation",
       "h1": "New Pathways to Create, Compete and Build",
       "lead": "Not every participant connects with traditional sport. These pathways are intended to support social connection, skills, confidence, storytelling and career exploration.",
-      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_215616_90815cca-2349-4ddd-9b38-b264231fdb9a.png",
+      "img": "assets/img/village/efn-arena.jpg",
       "alt": "A broadcast production desk with a mixing console in the foreground and a row of competition stations behind, a young adult in headphones working at the desk.",
       "ctas": [
         {
@@ -1199,8 +1203,8 @@
       "kicker": "Neurodiversity Access & Opportunity",
       "h1": "Different Minds. Equal Opportunity.",
       "lead": "AFSV VRC is developing an inclusive ecosystem intended to expand access to sport, education, developmental support, life skills, technology and employment for neurodivergent people. Through qualified professionals, community organizations, businesses, sponsors and employers, the program intends to reduce financial and accessibility barriers.",
-      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_033952_5bd97c4a-d10b-42a6-bbe7-7ac994157e58.png",
-      "alt": "Five adults of varied backgrounds in a loose circle doing a low-intensity warm-up led by a coach in a calm indoor hall; one participant wears noise-reducing earmuffs and another moves at their own pace, clearly included.",
+      "img": "assets/img/life/nd.jpg",
+      "alt": "Concept rendering: racially diverse neurodivergent kids and teens enjoying an adapted soccer session with patient coaches, one boy wearing ear defenders.",
       "ctas": [
         {
           "label": "Get Support / Register Interest",
@@ -1349,16 +1353,15 @@
       },
       "ctaHead": "Cost should not decide who takes part.",
       "ctaLabel": "Neurodiversity Access Fund",
-      "ctaHref": "/neurodiversity-access-fund",
-      "video": "inclusiveSport"
+      "ctaHref": "/neurodiversity-access-fund"
     },
     "/business-for-inclusion": {
       "group": "Neurodiversity",
       "kicker": "Business for Inclusion",
       "h1": "Your Business Can Help Remove Barriers",
       "lead": "AFSV VRC is developing a network of businesses committed to creating opportunities for neurodivergent individuals and families.",
-      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_033954_c90708e2-53f0-4d4d-9971-197031e7ae67.png",
-      "alt": "A mentor and a younger colleague working together at a desk in an inclusive modern office, with colleagues at nearby desks — one wearing over-ear headphones, one at a standing desk in a quieter corner.",
+      "img": "assets/img/life/bfi.jpg",
+      "alt": "Concept rendering: racially diverse neurodivergent young employees working confidently in the village cafe and team store with a supportive manager.",
       "ctas": [
         {
           "label": "Become a Corporate Partner",
@@ -1572,16 +1575,15 @@
       },
       "ctaHead": "Sponsorship values are set per agreement, never published in advance.",
       "ctaLabel": "Request partnership information",
-      "ctaHref": "/partners",
-      "video": "workplace"
+      "ctaHref": "/partners"
     },
     "/service-provider-network": {
       "group": "Neurodiversity",
       "kicker": "Service Provider Network",
       "h1": "Become an AFSV VRC Service Provider",
       "lead": "AFSV VRC intends to build a qualified network supporting sport, learning, development, wellbeing and inclusion.",
-      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_033957_d3468bc8-df31-4e66-ab86-dd97a564e0f3.png",
-      "alt": "Two professionals in smart casual clothing seated across a low table in a calm, non-clinical consulting room, reviewing printed materials and a tablet together.",
+      "img": "assets/img/life/spn.jpg",
+      "alt": "Concept rendering: racially diverse therapists and psychologists working with children and teens in a bright sensory gym.",
       "ctas": [
         {
           "label": "Register Provider Interest",
@@ -1787,16 +1789,15 @@
       },
       "ctaHead": "Families use the network. Providers apply to join it.",
       "ctaLabel": "Neurodiversity Access & Opportunity",
-      "ctaHref": "/neurodiversity",
-      "video": "practitioner"
+      "ctaHref": "/neurodiversity"
     },
     "/neurodiversity-access-fund": {
       "group": "Neurodiversity",
       "kicker": "Neurodiversity Access Fund",
       "h1": "Helping Remove the Cost Barrier",
       "lead": "AFSV VRC intends to develop a funding mechanism helping eligible individuals and families access selected programs and services regardless of financial circumstances.",
-      "img": "https://d8j0ntlcm91z4.cloudfront.net/user_3JOGRzagxf8GC6k15VlPoOU7fkd/hf_20260916_034001_add183b2-54d1-46ef-b05b-ee45a723c9e0.png",
-      "alt": "A quiet still-life on a long charcoal table: trainers, a notebook and pen, a tablet, a water bottle, a folded towel and keys, evenly spaced in soft side light — everyday things that access makes possible.",
+      "img": "assets/img/life/fund.jpg",
+      "alt": "Concept rendering: families from many backgrounds meeting support coordinators; a mother hugs her son holding an assistive tablet.",
       "ctas": [
         {
           "label": "Express Funding Interest",
@@ -1949,8 +1950,7 @@
       },
       "ctaHead": "Businesses fund access through Business for Inclusion.",
       "ctaLabel": "Business for Inclusion",
-      "ctaHref": "/business-for-inclusion",
-      "video": "accessStill"
+      "ctaHref": "/business-for-inclusion"
     }
   },
   "vendors": [
