@@ -314,7 +314,7 @@
   }
 
   /* ───────── On-model clips: play on hover, rest on the still ───────── */
-  var vext = document.createElement('video').canPlayType('video/webm; codecs="vp9"') ? '.webm' : '.mp4';
+  var vext = window.AFSV_VIDEO_EXT || (document.createElement('video').canPlayType('video/webm; codecs="vp9"') ? '.webm' : '.mp4');
   function hoverVideo(host, vid) {
     if (!host || !vid || reduce) return;
     host.addEventListener('mouseenter', function () {

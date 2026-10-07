@@ -69,7 +69,7 @@ add_action( 'wp_enqueue_scripts', function () {
 		wp_enqueue_script( 'afsv-intro', $uri . '/js/intro.js', array( 'afsv-site' ), $ver, array( 'strategy' => 'defer', 'in_footer' => true ) );
 	}
 	// Forms post to the AFSV VRC Core inbox (REST: afsv/v1/forms/<form>).
-	wp_add_inline_script( 'afsv-site', 'window.AFSV_FORMS = ' . wp_json_encode( esc_url_raw( rest_url( 'afsv/v1/forms/' ) ) ) . ';', 'before' );
+	wp_add_inline_script( 'afsv-site', 'window.AFSV_FORMS = ' . wp_json_encode( esc_url_raw( rest_url( 'afsv/v1/forms/' ) ) ) . '; window.AFSV_VIDEO_EXT = ".mp4";', 'before' );
 }, 20 );
 
 /* Self-hosted fonts: preload the two used above the fold. */

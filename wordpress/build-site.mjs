@@ -36,6 +36,7 @@ const route = (file) => {
 // Static links and asset paths → placeholders.
 function wpLinks(html) {
   return html
+    .replace(/<source src="assets\/[^"]+\.webm" type="video\/webm">/g, '') // WordPress ships MP4 only (smaller theme zip)
     .replace(/="assets\/([^"]+)"/g, (_, f) => `="{{asset:${f}}}"`)
     .replace(/url\((['"]?)assets\/([^)'"]+)\1\)/g, (_, q, f) => `url(${q}{{asset:${f}}}${q})`)
     .replace(/href="([a-z0-9-]+)\.html(\?[^"#]*)?(#[^"]*)?"/g, (_, f, q, h) => `href="{{url:${route(f).path}${q || ''}${h || ''}}}"`);
@@ -115,7 +116,8 @@ for (const [variant, file] of [['overlay', 'index'], ['default', 'membership'], 
 }
 
 // ───────── Assets ─────────
-fs.cpSync(path.join(SITE, 'assets'), path.join(THEME, 'assets'), { recursive: true });
+fs.cpSync(path.join(SITE, 'assets'), path.join(THEME, 'assets'), { recursive: true, filter: (src) => !src.endsWith('.webm') });
+for (const f of fs.readdirSync(path.join(THEME, 'assets/video'), { recursive: true })) if (String(f).endsWith('.webm')) fs.rmSync(path.join(THEME, 'assets/video', String(f)));
 
 console.log(`${pages.length} pages → wordpress/afsv-vrc-core/content`);
 console.log(pages.join('\n'));
