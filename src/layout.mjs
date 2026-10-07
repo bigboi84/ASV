@@ -123,7 +123,7 @@ function dock(current) {
   <a class="dock__top" href="#main" aria-label="Back to top">${icon('up')}</a>
   <ul class="dock__links">${DOCK.map((d) => html`<li><a href="${href(d.route)}"${d.route === current ? raw(' aria-current="page"') : ''}>${d.label}</a></li>`)}</ul>
   <button type="button" class="dock__menu" data-drawer-open aria-controls="site-drawer" aria-expanded="false"><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>Menu</button>
-  <a class="btn btn--gold btn--sm dock__cta" href="${SITE.booking}" target="_blank" rel="noopener noreferrer">Book Now<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="btn btn--gold btn--sm dock__cta" href="contact.html">Contact us</a>
 </nav>`;
 }
 
