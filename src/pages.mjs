@@ -1,5 +1,5 @@
 import {
-  SITE, html, raw, href, btn, pmedia, splitWords, arrow, icon, breadcrumb, ctaBand, note, pendingInputs, pageHero,
+  SITE, html, raw, esc, href, btn, pmedia, splitWords, arrow, icon, breadcrumb, ctaBand, note, pendingInputs, pageHero,
   previewForm, fromDesignFields, formSection, numberedCells, numberedRows, pad2, money, initials,
 } from './lib.mjs';
 
@@ -166,6 +166,7 @@ export function home(d) {
       <clipPath id="introWord"><text class="intro__word" x="800" y="610" text-anchor="middle" textLength="1180" lengthAdjust="spacing">AFSV</text></clipPath>
       <mask id="introHole" maskUnits="userSpaceOnUse" x="-6000" y="-6000" width="13600" height="12900">
         <rect x="-6000" y="-6000" width="13600" height="12900" fill="#fff"/>
+        ${[0, 1, 2, 3].map(() => html`<rect x="800" y="450" width="0" height="0" fill="#000" data-intro-col/>`)}
         <g data-intro-hole><text class="intro__word" x="800" y="610" text-anchor="middle" textLength="1180" lengthAdjust="spacing" fill="#fff" data-intro-holetext>AFSV</text></g>
       </mask>
     </defs>
@@ -191,7 +192,7 @@ export function home(d) {
   <div class="hero__scrim" aria-hidden="true"></div>
   <div class="wrap hero__content hero__content--film">
     <p class="film__tag">Whitby, Ontario</p>
-    <h1 class="film__title split-words" aria-label="Canada's new year-round sports village"><span aria-hidden="true">${splitWords(["Canada's new year-round", 'sports village'])}</span></h1>
+    <h1 class="film__title" aria-label="Canada's new year-round sports village"><span aria-hidden="true">${raw(["Canada's new year-round", 'sports village'].map((line, l) => `<span class="fl" style="--l:${l}">${line.split(' ').map((w, i) => `<span class="fw" style="--i:${i}">${esc(w)}</span>`).join(' ')}</span>`).join('<br>'))}</span></h1>
     <a class="film__cta" href="whitby-smart-sports-village.html">Explore the village</a>
   </div>
   <div class="reel__bar">

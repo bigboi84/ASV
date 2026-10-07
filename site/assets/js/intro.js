@@ -13,11 +13,14 @@
   var meta = root.querySelector('[data-intro-meta]');
   var bar = root.querySelector('[data-intro-bar]');
   var veil = root.querySelector('.intro__veil');
-  var done = false, revealed = false, t0 = 0, boxes = [], origin = [800, 450];
+  var cols = [].slice.call(root.querySelectorAll('[data-intro-col]'));
+  var view = { x: 0, y: 0, w: 1600, h: 900 };
+  var done = false, revealed = false, t0 = 0, boxes = [];
 
   var clamp = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
   var outCubic = function (t) { return 1 - Math.pow(1 - t, 3); };
   var inOutCubic = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+  var inOutQuart = function (t) { return t < .5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2; };
   var seg = function (t, a, b) { return clamp((t - a) / (b - a)); };
 
   function layout() {
@@ -31,9 +34,14 @@
       img.setAttribute('width', box.w); img.setAttribute('height', box.h);
       return box;
     });
-    // Zoom into the stem of the F, so the opening grows to fill the screen
-    var f = boxes[1] || { x: 750, y: 250, w: 100, h: 400 };
-    origin = [f.x + f.w * 0.36, f.y + f.h * 0.42];
+    // The part of user space actually on screen, so the exit columns reach every edge
+    var svg = root.querySelector('svg'), m = svg.getScreenCTM();
+    if (m) {
+      var inv = m.inverse(), p = svg.createSVGPoint();
+      p.x = 0; p.y = 0; var a = p.matrixTransform(inv);
+      p.x = window.innerWidth; p.y = window.innerHeight; var b2 = p.matrixTransform(inv);
+      view = { x: a.x, y: a.y, w: b2.x - a.x, h: b2.y - a.y };
+    }
   }
 
   function reveal() {
@@ -66,12 +74,25 @@
     holeText.setAttribute('fill', 'rgb(' + c + ',' + c + ',' + c + ')');
     fill.style.opacity = 1 - h;
     meta.style.opacity = 1 - inOutCubic(seg(t, 2100, 2500));
-    // 3 · zoom through the letters into the hero
-    var z = inOutCubic(seg(t, 2700, 4000)), s = Math.exp(Math.log(90) * z * z);
-    hole.setAttribute('transform', 'translate(' + origin[0] + ' ' + origin[1] + ') scale(' + s.toFixed(4) + ') translate(' + (-origin[0]) + ' ' + (-origin[1]) + ')');
-    veil.style.opacity = 1 - inOutCubic(seg(t, 3300, 3850));
-    if (t > 3450) reveal();
-    if (t > 4050) { finish(); return; }
+    // 3 · each letter bursts open into a tall column of the film (centre letters first),
+    //     the four columns hold as panels for a beat, then close their seams into one picture
+    var cw = view.w / 4, order = [1, 2, 0, 3];
+    cols.forEach(function (r, i) {
+      var b = boxes[i], st = 2750 + order.indexOf(i) * 110;
+      var g = inOutQuart(seg(t, st, st + 800));
+      var k = inOutCubic(seg(t, 3600, 4000));
+      var gap = 16 * (1 - k), cx = b.x + b.w / 2;
+      var x0 = cx, x1 = view.x + i * cw + gap / 2, w1 = cw - gap;
+      var y0 = b.y + b.h / 2, y1 = view.y - 4, h1 = view.h + 8;
+      r.setAttribute('x', (x0 + (x1 - x0) * g).toFixed(1));
+      r.setAttribute('width', Math.max(0, w1 * g).toFixed(1));
+      r.setAttribute('y', (y0 + (y1 - y0) * g).toFixed(1));
+      r.setAttribute('height', (h1 * g).toFixed(1));
+      r.setAttribute('rx', (28 * (1 - k)).toFixed(1));
+    });
+    hole.style.opacity = 1 - seg(t, 3550, 3750);
+    if (t > 3500) reveal();
+    if (t > 4200) { finish(); return; }
     requestAnimationFrame(frame);
   }
 

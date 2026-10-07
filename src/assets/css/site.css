@@ -2450,13 +2450,23 @@ a.efn-site:hover .efn-site__btn { background: var(--gold); }
 .intro__cap { font-family: var(--font-body); font-size: 15px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; fill: rgba(245,243,238,.7); }
 .intro__track { fill: rgba(245,243,238,.15); }
 .intro__bar { fill: var(--gold); }
-/* Hold the hero's own entrance until the intro hands over */
-.intro-on .hero--reel .split-words .w > span { animation: none; transform: translateY(105%); }
-.intro-on .hero--reel .film__tag, .intro-on .hero--reel .film__cta, .intro-on .hero--reel .reel__bar { opacity: 0; transform: translateY(14px); }
-.hero--reel .film__tag, .hero--reel .film__cta, .hero--reel .reel__bar { transition: opacity .7s var(--ease), transform .8s var(--ease); }
-.hero--reel .film__cta { transition-delay: .35s; }
-.hero--reel .reel__bar { transition-delay: .5s; }
+/* Hero entrance: tag letters gather, gold block sweeps each headline line, words rise out of a blur */
+.film__title .fl { position: relative; display: inline-block; vertical-align: top; padding: 0 .04em; }
+.film__title .fl::after { content: ""; position: absolute; left: 0; right: 0; top: .04em; bottom: .02em; background: var(--gold); transform: scaleX(0); transform-origin: left; animation: flSweep 1.15s cubic-bezier(.77,0,.18,1) both; animation-delay: calc(.1s + var(--l) * .2s); }
+@keyframes flSweep { 0% { transform: scaleX(0); transform-origin: left; } 46% { transform: scaleX(1); transform-origin: left; } 54% { transform: scaleX(1); transform-origin: right; } 100% { transform: scaleX(0); transform-origin: right; } }
+.film__title .fw { display: inline-block; animation: fwIn 1s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(.58s + var(--l) * .2s + var(--i) * .07s); }
+@keyframes fwIn { from { opacity: 0; transform: translateY(.4em) scale(1.06); filter: blur(12px); } to { opacity: 1; transform: none; filter: blur(0); } }
+.hero--reel .film__tag { animation: tagIn 1.2s cubic-bezier(.2,.8,.2,1) .05s both; }
+@keyframes tagIn { from { opacity: 0; letter-spacing: .7em; } to { opacity: 1; letter-spacing: .16em; } }
+.hero--reel .film__cta { animation: ctaIn .9s cubic-bezier(.2,.8,.2,1) 1.35s both; }
+@keyframes ctaIn { from { opacity: 0; transform: translateY(18px) scale(.96); } to { opacity: 1; transform: none; } }
+.hero--reel .reel__bar { animation: introFade .9s ease 1.6s both; }
+.intro-on .hero--reel .fl::after, .intro-on .hero--reel .fw, .intro-on .hero--reel .film__tag, .intro-on .hero--reel .film__cta, .intro-on .hero--reel .reel__bar { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .film__title .fl::after, .film__title .fw, .hero--reel .film__tag, .hero--reel .film__cta, .hero--reel .reel__bar { animation: none; } }
 .intro-on .site-header, .intro-on .announce { opacity: 0; }
 .intro-reveal .site-header, .intro-reveal .announce { animation: introFade .8s var(--ease) .25s both; }
 @keyframes introFade { from { opacity: 0; } to { opacity: 1; } }
 html.intro-on, .intro-on body { overflow: hidden; }
+/* The film settles back from a slight push-in as the intro opens onto it */
+.hero--reel .hero__media { transition: transform 2.4s cubic-bezier(.2,.8,.2,1); }
+.intro-on .hero--reel .hero__media { transform: scale(1.14); }
