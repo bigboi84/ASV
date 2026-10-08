@@ -54,6 +54,13 @@ while ( have_posts() ) :
       </div>
     </fieldset>
 	<?php endif; ?>
+	<?php $planned = afsv_product_planned( $product ); if ( $planned ) : ?>
+    <p class="mk-planned"><span class="mk-planned__dots">
+		<?php foreach ( $planned as $c ) : ?>
+      <span class="swatch swatch--planned" style="--sw:<?php echo esc_attr( $c['hex'] ); ?>" title="<?php echo esc_attr( $c['name'] ); ?>"></span>
+		<?php endforeach; ?>
+    </span> Also planned in <?php echo esc_html( implode( ', ', wp_list_pluck( $planned, 'name' ) ) ); ?>.</p>
+	<?php endif; ?>
     <dl class="mk-specs">
       <div><dt>Crest</dt><dd><?php echo 'executive' === $line ? 'Small gold crest' : 'Small colour crest (designer&#039;s artwork)'; ?></dd></div>
       <div><dt>Line</dt><dd><?php echo 'executive' === $line ? 'Executive' : 'Everyday &amp; Sport'; ?></dd></div>

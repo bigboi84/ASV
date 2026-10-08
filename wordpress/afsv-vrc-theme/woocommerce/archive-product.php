@@ -47,5 +47,6 @@ echo afsv_shop_breadcrumb( array( array( 'Marketplace', home_url( '/marketplace/
   </div>
 </section>
 <?php
+afsv_shop_part( 'coming' );
 afsv_shop_part( 'launch-form' );
 get_footer();

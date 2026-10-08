@@ -55,6 +55,48 @@ function afsv_product_colours( $product ) {
 	return array( array( 'name' => '', 'hex' => '#ddd', 'img' => '' ) );
 }
 
+/** Hex for a colour name (global "Colour" attribute terms); a term can override it with term meta "afsv_hex". */
+function afsv_colour_hex( $name, $term_id = 0 ) {
+	$hex = $term_id ? get_term_meta( $term_id, 'afsv_hex', true ) : '';
+	if ( $hex ) {
+		return $hex;
+	}
+	$map = array(
+		'black'        => '#111111',
+		'white'        => '#F7F7F5',
+		'bright white' => '#FFFFFF',
+		'navy'         => '#14254A',
+		'red'          => '#B3262E',
+		'gray'         => '#8A8F98',
+		'grey'         => '#8A8F98',
+		'beige'        => '#D8C8AE',
+		'gold'         => '#C9A24A',
+	);
+	return $map[ strtolower( trim( $name ) ) ] ?? '#cccccc';
+}
+
+/**
+ * Planned colours: the product's global Colour attribute (pa_colour) terms that have no concept imagery
+ * in afsv_colours yet. Add a colour to a product in WooCommerce and it appears here as "planned".
+ */
+function afsv_product_planned( $product ) {
+	if ( ! taxonomy_exists( 'pa_colour' ) ) {
+		return array();
+	}
+	$have  = array();
+	foreach ( wp_list_pluck( afsv_product_colours( $product ), 'name' ) as $n ) { // "Navy / White" covers Navy and White
+		$have = array_merge( $have, array_map( 'strtolower', array_map( 'trim', explode( '/', $n ) ) ) );
+	}
+	$terms = wc_get_product_terms( $product->get_id(), 'pa_colour', array( 'fields' => 'all' ) );
+	$out   = array();
+	foreach ( (array) $terms as $t ) {
+		if ( ! in_array( strtolower( $t->name ), $have, true ) ) {
+			$out[] = array( 'name' => $t->name, 'hex' => afsv_colour_hex( $t->name, $t->term_id ) );
+		}
+	}
+	return $out;
+}
+
 function afsv_shop_arrow() {
 	return '<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>';
 }
@@ -76,6 +118,8 @@ function afsv_merch_card( $product, $tag = 'h3' ) {
 	$term    = afsv_product_collection( $product->get_id() );
 	$line    = afsv_line_of( $term );
 	$colours = afsv_product_colours( $product );
+	$planned = afsv_product_planned( $product );
+	$all     = array_merge( $colours, $planned );
 	$a       = $colours[0];
 	$name    = $product->get_name();
 	$img     = $a['img'] ? afsv_merch_img( $a['img'] ) : wp_get_attachment_image_url( $product->get_image_id(), 'large' );
@@ -94,11 +138,14 @@ function afsv_merch_card( $product, $tag = 'h3' ) {
   <span class="merch-card__body">
     <span class="merch-card__line"><?php echo 'executive' === $line ? 'Executive · Gold crest' : 'Everyday &amp; Sport · Colour crest'; ?></span>
     <<?php echo tag_escape( $tag ); ?> class="merch-card__name"><?php echo esc_html( $name ); ?></<?php echo tag_escape( $tag ); ?>>
-    <span class="merch-card__swatches" aria-label="<?php echo esc_attr( 'Colours: ' . implode( ', ', wp_list_pluck( $colours, 'name' ) ) ); ?>">
+    <span class="merch-card__swatches" aria-label="<?php echo esc_attr( 'Colours: ' . implode( ', ', wp_list_pluck( $colours, 'name' ) ) . ( $planned ? '; also planned in ' . implode( ', ', wp_list_pluck( $planned, 'name' ) ) : '' ) ); ?>">
 	<?php foreach ( $colours as $c ) : ?>
       <span class="swatch" style="--sw:<?php echo esc_attr( $c['hex'] ); ?>" title="<?php echo esc_attr( $c['name'] ); ?>"></span>
 	<?php endforeach; ?>
-      <span class="merch-card__count"><?php echo esc_html( count( $colours ) > 1 ? count( $colours ) . ' colours' : $colours[0]['name'] ); ?></span>
+	<?php foreach ( $planned as $c ) : ?>
+      <span class="swatch swatch--planned" style="--sw:<?php echo esc_attr( $c['hex'] ); ?>" title="<?php echo esc_attr( $c['name'] . ' (planned)' ); ?>"></span>
+	<?php endforeach; ?>
+      <span class="merch-card__count"><?php echo esc_html( count( $all ) > 1 ? count( $all ) . ' colours' : $all[0]['name'] ); ?></span>
     </span>
   </span>
 </a>

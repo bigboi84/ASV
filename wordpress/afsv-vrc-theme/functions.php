@@ -10,7 +10,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'AFSV_THEME_VERSION', '1.2.2' );
+define( 'AFSV_THEME_VERSION', '1.2.3' );
 define( 'AFSV_BOOKING_URL', 'https://book.afsvvrc.com' );
 
 require_once get_stylesheet_directory() . '/inc/defaults.php';

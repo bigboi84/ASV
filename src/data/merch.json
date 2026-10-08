@@ -36,14 +36,33 @@
       "name": "Executive Aviator Jacket",
       "collection": "executive-apparel",
       "desc": "A black aviator-style jacket with a warm shearling-style collar, gold zips and gold-tipped ribbed trims, finished with a small gold crest on the chest.",
-      "colours": [{ "name": "Black", "hex": "#111111", "img": "executive-aviator-jacket-black.jpg" }]
+      "colours": [
+        {
+          "name": "Black",
+          "hex": "#111111",
+          "img": "executive-aviator-jacket-black.jpg"
+        }
+      ],
+      "planned": [
+        {
+          "name": "Bright White",
+          "hex": "#FFFFFF"
+        }
+      ]
     },
     {
       "slug": "executive-leather-jacket",
       "name": "Executive Leather Jacket",
       "collection": "executive-apparel",
       "desc": "A clean black leather-style jacket with a point collar and gold zip, carrying a small gold crest on the chest.",
-      "colours": [{ "name": "Black", "hex": "#111111", "img": "executive-leather-jacket-black.jpg" }]
+      "colours": [
+        {
+          "name": "Black",
+          "hex": "#111111",
+          "img": "executive-leather-jacket-black.jpg"
+        }
+      ],
+      "planned": []
     },
     {
       "slug": "executive-polo",
@@ -51,23 +70,51 @@
       "collection": "executive-apparel",
       "desc": "A piqué-style polo with gold-tipped collar and cuffs and a small gold crest on the chest.",
       "colours": [
-        { "name": "Black", "hex": "#111111", "img": "executive-polo-black.jpg" },
-        { "name": "White", "hex": "#F7F7F5", "img": "executive-polo-white.jpg" }
-      ]
+        {
+          "name": "Black",
+          "hex": "#111111",
+          "img": "executive-polo-black.jpg"
+        },
+        {
+          "name": "White",
+          "hex": "#F7F7F5",
+          "img": "executive-polo-white.jpg"
+        }
+      ],
+      "planned": []
     },
     {
       "slug": "executive-beanie",
       "name": "Executive Beanie",
       "collection": "executive-accessories",
       "desc": "A ribbed black beanie with a pom, carrying a small gold crest on the cuff.",
-      "colours": [{ "name": "Black", "hex": "#111111", "img": "executive-beanie-black.jpg" }]
+      "colours": [
+        {
+          "name": "Black",
+          "hex": "#111111",
+          "img": "executive-beanie-black.jpg"
+        }
+      ],
+      "planned": []
     },
     {
       "slug": "executive-scarf",
       "name": "Executive Scarf",
       "collection": "executive-accessories",
       "desc": "A soft black fringed scarf with a small gold crest.",
-      "colours": [{ "name": "Black", "hex": "#111111", "img": "executive-scarf-black.jpg" }]
+      "colours": [
+        {
+          "name": "Black",
+          "hex": "#111111",
+          "img": "executive-scarf-black.jpg"
+        }
+      ],
+      "planned": [
+        {
+          "name": "Bright White",
+          "hex": "#FFFFFF"
+        }
+      ]
     },
     {
       "slug": "polo",
@@ -75,9 +122,18 @@
       "collection": "everyday-apparel",
       "desc": "A classic polo in navy or white with a small colour crest on the chest.",
       "colours": [
-        { "name": "Navy", "hex": "#14254A", "img": "regular-polo-navy.jpg" },
-        { "name": "White", "hex": "#F7F7F5", "img": "regular-polo-white.jpg" }
-      ]
+        {
+          "name": "Navy",
+          "hex": "#14254A",
+          "img": "regular-polo-navy.jpg"
+        },
+        {
+          "name": "White",
+          "hex": "#F7F7F5",
+          "img": "regular-polo-white.jpg"
+        }
+      ],
+      "planned": []
     },
     {
       "slug": "tee",
@@ -85,8 +141,30 @@
       "collection": "everyday-apparel",
       "desc": "A crew-neck tee in navy or white with a small colour crest on the chest.",
       "colours": [
-        { "name": "Navy", "hex": "#14254A", "img": "regular-tee-navy.jpg" },
-        { "name": "White", "hex": "#F7F7F5", "img": "regular-tee-white.jpg" }
+        {
+          "name": "Navy",
+          "hex": "#14254A",
+          "img": "regular-tee-navy.jpg"
+        },
+        {
+          "name": "White",
+          "hex": "#F7F7F5",
+          "img": "regular-tee-white.jpg"
+        }
+      ],
+      "planned": [
+        {
+          "name": "Red",
+          "hex": "#B3262E"
+        },
+        {
+          "name": "Gray",
+          "hex": "#8A8F98"
+        },
+        {
+          "name": "Beige",
+          "hex": "#D8C8AE"
+        }
       ]
     },
     {
@@ -95,8 +173,34 @@
       "collection": "everyday-apparel",
       "desc": "A pullover hoodie with a kangaroo pocket, in navy or white, with a small colour crest on the chest.",
       "colours": [
-        { "name": "Navy", "hex": "#14254A", "img": "regular-hoodie-navy.jpg" },
-        { "name": "White", "hex": "#F7F7F5", "img": "regular-hoodie-white.jpg" }
+        {
+          "name": "Navy",
+          "hex": "#14254A",
+          "img": "regular-hoodie-navy.jpg"
+        },
+        {
+          "name": "White",
+          "hex": "#F7F7F5",
+          "img": "regular-hoodie-white.jpg"
+        }
+      ],
+      "planned": [
+        {
+          "name": "Bright White",
+          "hex": "#FFFFFF"
+        },
+        {
+          "name": "Red",
+          "hex": "#B3262E"
+        },
+        {
+          "name": "Gray",
+          "hex": "#8A8F98"
+        },
+        {
+          "name": "Beige",
+          "hex": "#D8C8AE"
+        }
       ]
     },
     {
@@ -104,21 +208,69 @@
       "name": "Varsity Jacket",
       "collection": "everyday-apparel",
       "desc": "A navy varsity jacket with white sleeves, gold-striped trims and a small colour crest on the chest.",
-      "colours": [{ "name": "Navy / White", "hex": "#14254A", "img": "regular-varsity-jacket-navy.jpg" }]
+      "colours": [
+        {
+          "name": "Navy / White",
+          "hex": "#14254A",
+          "img": "regular-varsity-jacket-navy.jpg"
+        }
+      ],
+      "planned": [
+        {
+          "name": "Bright White",
+          "hex": "#FFFFFF"
+        }
+      ]
     },
     {
       "slug": "parka",
       "name": "Parka",
       "collection": "everyday-apparel",
       "desc": "A navy hooded winter parka with a faux-fur-style trim and utility pockets, finished with a small colour crest.",
-      "colours": [{ "name": "Navy", "hex": "#14254A", "img": "regular-parka-navy.jpg" }]
+      "colours": [
+        {
+          "name": "Navy",
+          "hex": "#14254A",
+          "img": "regular-parka-navy.jpg"
+        }
+      ],
+      "planned": [
+        {
+          "name": "Bright White",
+          "hex": "#FFFFFF"
+        }
+      ]
     },
     {
       "slug": "athletic-shorts",
       "name": "Athletic Shorts",
       "collection": "everyday-apparel",
       "desc": "Navy athletic shorts with white piping and a drawcord waist, with a small colour crest.",
-      "colours": [{ "name": "Navy", "hex": "#14254A", "img": "regular-shorts-navy.jpg" }]
+      "colours": [
+        {
+          "name": "Navy",
+          "hex": "#14254A",
+          "img": "regular-shorts-navy.jpg"
+        }
+      ],
+      "planned": [
+        {
+          "name": "White",
+          "hex": "#F7F7F5"
+        },
+        {
+          "name": "Red",
+          "hex": "#B3262E"
+        },
+        {
+          "name": "Gray",
+          "hex": "#8A8F98"
+        },
+        {
+          "name": "Beige",
+          "hex": "#D8C8AE"
+        }
+      ]
     },
     {
       "slug": "cap",
@@ -126,16 +278,182 @@
       "collection": "everyday-accessories",
       "desc": "A six-panel cap in navy or white with a small colour crest on the front.",
       "colours": [
-        { "name": "Navy", "hex": "#14254A", "img": "regular-cap-navy.jpg" },
-        { "name": "White", "hex": "#F7F7F5", "img": "regular-cap-white.jpg" }
-      ]
+        {
+          "name": "Navy",
+          "hex": "#14254A",
+          "img": "regular-cap-navy.jpg"
+        },
+        {
+          "name": "White",
+          "hex": "#F7F7F5",
+          "img": "regular-cap-white.jpg"
+        }
+      ],
+      "planned": []
     },
     {
       "slug": "backpack",
       "name": "Backpack",
       "collection": "everyday-accessories",
       "desc": "A navy backpack with gold piping, a front zip pocket and a side mesh pocket, carrying the colour crest on the front.",
-      "colours": [{ "name": "Navy", "hex": "#14254A", "img": "regular-backpack-navy.jpg" }]
+      "colours": [
+        {
+          "name": "Navy",
+          "hex": "#14254A",
+          "img": "regular-backpack-navy.jpg"
+        }
+      ],
+      "planned": [
+        {
+          "name": "Bright White",
+          "hex": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "colours": [
+    {
+      "name": "Navy",
+      "hex": "#14254A"
+    },
+    {
+      "name": "White",
+      "hex": "#F7F7F5"
+    },
+    {
+      "name": "Black",
+      "hex": "#111111"
+    },
+    {
+      "name": "Red",
+      "hex": "#B3262E"
+    },
+    {
+      "name": "Gray",
+      "hex": "#8A8F98"
+    },
+    {
+      "name": "Beige",
+      "hex": "#D8C8AE"
+    },
+    {
+      "name": "Bright White",
+      "hex": "#FFFFFF"
+    }
+  ],
+  "note_colours": "Colours from Martin Lashley's range notes (email, October 2026). Executive pieces carry the gold crest, everyday pieces the colour crest; final colours are still to be confirmed. Colours marked planned have no concept imagery yet.",
+  "coming": [
+    {
+      "name": "Performance Tee",
+      "line": "everyday",
+      "desc": "A lightweight training tee with the colour crest.",
+      "colours": [
+        {
+          "name": "Navy",
+          "hex": "#14254A"
+        },
+        {
+          "name": "Red",
+          "hex": "#B3262E"
+        },
+        {
+          "name": "White",
+          "hex": "#F7F7F5"
+        }
+      ]
+    },
+    {
+      "name": "Beanie",
+      "line": "everyday",
+      "desc": "A ribbed knit beanie with the colour crest.",
+      "colours": [
+        {
+          "name": "Navy",
+          "hex": "#14254A"
+        },
+        {
+          "name": "Red",
+          "hex": "#B3262E"
+        },
+        {
+          "name": "Bright White",
+          "hex": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Aviator Jacket",
+      "line": "everyday",
+      "desc": "An everyday take on the aviator, with the colour crest.",
+      "colours": [
+        {
+          "name": "Bright White",
+          "hex": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "name": "Socks",
+      "line": "everyday",
+      "desc": "Crew socks with the crest at the cuff.",
+      "colours": [
+        {
+          "name": "Navy",
+          "hex": "#14254A"
+        },
+        {
+          "name": "White",
+          "hex": "#F7F7F5"
+        }
+      ]
+    },
+    {
+      "name": "Bucket Hat",
+      "line": "everyday",
+      "desc": "A soft bucket hat for match days.",
+      "colours": []
+    },
+    {
+      "name": "Duffel Bag",
+      "line": "everyday",
+      "desc": "A kit bag for training and travel.",
+      "colours": []
+    },
+    {
+      "name": "Tote Bag",
+      "line": "everyday",
+      "desc": "A carry-all tote with the crest.",
+      "colours": []
+    },
+    {
+      "name": "Executive Backpack",
+      "line": "executive",
+      "desc": "A structured backpack finished with the gold crest.",
+      "colours": []
+    },
+    {
+      "name": "Executive Messenger",
+      "line": "executive",
+      "desc": "A messenger bag with the gold crest.",
+      "colours": []
+    },
+    {
+      "name": "Laptop Sleeve",
+      "line": "executive",
+      "desc": "A padded sleeve with the gold crest.",
+      "colours": []
+    },
+    {
+      "name": "Umbrella",
+      "line": "executive",
+      "desc": "A full-size umbrella with the gold crest.",
+      "colours": []
+    },
+    {
+      "name": "Founder Coin",
+      "line": "executive",
+      "desc": "A commemorative founder coin.",
+      "colours": []
     }
   ]
 }

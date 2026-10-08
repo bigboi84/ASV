@@ -43,9 +43,39 @@ export function merchCard(m, p, tag = 'h3') {
   <span class="merch-card__body">
     <span class="merch-card__line">${c.line === 'executive' ? 'Executive · Gold crest' : 'Everyday & Sport · Colour crest'}</span>
     ${raw(`<${tag} class="merch-card__name">`)}${p.name}${raw(`</${tag}>`)}
-    <span class="merch-card__swatches" aria-label="Colours: ${p.colours.map((x) => x.name).join(', ')}">${p.colours.map((x) => html`<span class="swatch" style="--sw:${x.hex}" title="${x.name}"></span>`)}<span class="merch-card__count">${p.colours.length > 1 ? `${p.colours.length} colours` : p.colours[0].name}</span></span>
+    ${swatches(p)}
   </span>
 </a>`;
+}
+
+// Colour dots: colours with concept imagery, then planned colours (outlined) from Martin's range notes.
+export function swatches(p) {
+  const planned = p.planned || [];
+  const all = p.colours.concat(planned);
+  return html`<span class="merch-card__swatches" aria-label="Colours: ${p.colours.map((x) => x.name).join(', ')}${planned.length ? `; also planned in ${planned.map((x) => x.name).join(', ')}` : ''}">${p.colours.map((x) => html`<span class="swatch" style="--sw:${x.hex}" title="${x.name}"></span>`)}${planned.map((x) => html`<span class="swatch swatch--planned" style="--sw:${x.hex}" title="${x.name} (planned)"></span>`)}<span class="merch-card__count">${all.length > 1 ? `${all.length} colours` : all[0].name}</span></span>`;
+}
+
+// Pieces in Martin's range that have no concept imagery yet.
+function comingSoon(m) {
+  if (!m.coming || !m.coming.length) return '';
+  return html`
+<section class="band--cream" id="coming" data-el="shop.coming" data-el-build="plugin">
+  <div class="wrap section">
+    <div class="section-head reveal">
+      <p class="eyebrow">In development</p>
+      <h2 class="h2">Coming to the range.</h2>
+      <p class="lead measure">More pieces from the founder's range notes. Concept imagery will follow once designs are approved.</p>
+    </div>
+    <div class="coming-grid">${m.coming.map((x) => html`
+      <div class="coming-card coming-card--${x.line}">
+        <span class="merch-card__line">${x.line === 'executive' ? 'Executive · Gold crest' : 'Everyday & Sport · Colour crest'}</span>
+        <h3 class="coming-card__name">${x.name}</h3>
+        <p class="small">${x.desc}</p>
+        <span class="merch-card__swatches" aria-label="${x.colours.length ? `Planned colours: ${x.colours.map((c) => c.name).join(', ')}` : 'Colours to be confirmed'}">${x.colours.map((c) => html`<span class="swatch swatch--planned" style="--sw:${c.hex}" title="${c.name} (planned)"></span>`)}<span class="merch-card__count">${x.colours.length ? x.colours.map((c) => c.name).join(' · ') : 'Colours to be confirmed'}</span></span>
+      </div>`)}
+    </div>
+  </div>
+</section>`;
 }
 
 function launchForm() {
@@ -244,6 +274,7 @@ ${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'The Col
   <p class="sr-only" aria-live="polite" data-merch-status></p>
   <div class="merch-grid">${m.products.map((p) => merchCard(m, p, 'h2'))}</div>
 </section>
+${comingSoon(m)}
 ${launchForm()}`,
   };
 }
@@ -273,6 +304,7 @@ ${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'The Col
       <legend>Colour: <b data-colour-name>${first.name}</b></legend>
       <div class="mk-colours__row">${p.colours.map((x, i) => html`<button type="button" class="mk-colour" style="--sw:${x.hex}" aria-pressed="${i === 0 ? 'true' : 'false'}" data-colour="${i}" data-img="${M(x.img)}" data-model="${OM(x.img)}" data-vbase="${OMV(x.img)}" data-name="${x.name}" data-alt="${p.name} in ${x.name.toLowerCase()} — concept image"><span class="sr-only">${x.name}</span></button>`)}</div>
     </fieldset>
+    ${p.planned && p.planned.length ? html`<p class="mk-planned"><span class="mk-planned__dots">${p.planned.map((x) => html`<span class="swatch swatch--planned" style="--sw:${x.hex}" title="${x.name}"></span>`)}</span> Also planned in ${p.planned.map((x) => x.name).join(', ')}.</p>` : ''}
     <dl class="mk-specs">
       <div><dt>Crest</dt><dd>${c.line === 'executive' ? 'Small gold crest' : "Small colour crest (designer's artwork)"}</dd></div>
       <div><dt>Line</dt><dd>${c.line === 'executive' ? 'Executive' : 'Everyday & Sport'}</dd></div>

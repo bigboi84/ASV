@@ -124,6 +124,8 @@ for (const [variant, file] of [['overlay', 'index'], ['default', 'membership'], 
   const shop = fs.readFileSync(path.join(SITE, 'shop.html'), 'utf8');
   const launch = topLevel((shop.match(/<main id="main"[^>]*>([\s\S]*?)<\/main>/) || [])[1]).find((b) => b.includes('id="buyer-form"'));
   fs.writeFileSync(path.join(THEME, 'chrome', 'part-launch-form.html'), wpLinks(launch) + '\n');
+  const coming = topLevel((shop.match(/<main id="main"[^>]*>([\s\S]*?)<\/main>/) || [])[1]).find((b) => b.includes('id="coming"'));
+  fs.writeFileSync(path.join(THEME, 'chrome', 'part-coming.html'), (coming ? wpLinks(coming) : '') + '\n');
 }
 
 // ───────── Assets ─────────
