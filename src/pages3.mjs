@@ -3,7 +3,7 @@
 import { html, raw, breadcrumb, formSection, previewForm, pad2 } from './lib.mjs';
 import { xhero, head, kgrid } from './pages2.mjs';
 
-const PREVIEW = 'Development preview — this form is not connected yet.';
+const SENT = 'Your details have been received. We will be in touch with updates as plans are approved.';
 
 // Numbered process strip: [title, body][]
 const steps = (items) => html`
@@ -61,9 +61,9 @@ ${formSection({
       { label: 'Country', req: true, auto: 'country-name' },
       { label: 'City', auto: 'address-level2' },
     ],
-    consent: 'Keep me up to date by email about AFSV VRC. I can unsubscribe at any time.',
+    consent: 'Keep me up to date by email about AFSV VRC. I can unsubscribe at any time.', updatesList: true,
     submit: 'Keep me up to date',
-    status: `${PREVIEW} When connected, you’ll be added to the pre-registration list and emailed when membership opens.`,
+    status: SENT,
   }),
 })}
 <section class="band--cream" data-el="member.benefits" data-el-build="elementor">
@@ -85,10 +85,10 @@ export function eduPartners() {
   return {
     title: 'Education Partnerships',
     description: 'Partner with AFSV VRC in education — schools, school boards, colleges, universities and learning organisations supporting neurodivergent students.',
-    ogImage: 'assets/img/life/academy.jpg',
+    ogImage: 'assets/img/whitby/learn.jpg',
     body: html`
 ${breadcrumb([{ label: 'Neurodiversity', route: '/neurodiversity' }, { label: 'Education Partnerships' }])}
-${xhero({ kicker: 'Neurodiversity · Education partnerships', title: 'Partner with us in education.', img: 'life/academy.jpg', alt: 'Concept rendering: a racially diverse group of students and a teacher working together in a bright village classroom overlooking the fields.', lead: 'For schools, school boards, colleges, universities and learning organisations who want to help neurodivergent students thrive — in the classroom, on the field and beyond.', badge: '', ctas: [{ label: 'Become an education partner', href: '#edu-form' }] })}
+${xhero({ kicker: 'Neurodiversity · Education partnerships', title: 'Partner with us in education.', img: 'whitby/learn.jpg', alt: 'Concept rendering: a racially diverse group of students working on laptops with a mentor in a bright learning lounge overlooking floodlit fields.', lead: 'For schools, school boards, colleges, universities and learning organisations who want to help neurodivergent students thrive — in the classroom, on the field and beyond.', badge: '', ctas: [{ label: 'Become an education partner', href: '#edu-form' }] })}
 <section class="wrap section" data-el="edu.who" data-el-build="elementor">
   ${head('Who this is for', 'Education partners only.', 'This page is for education partnerships. For sponsorship, corporate or community partnerships, visit Partners & Sponsors.')}
   ${kgrid([
@@ -117,7 +117,7 @@ ${xhero({ kicker: 'Neurodiversity · Education partnerships', title: 'Partner wi
   ${head('The process', 'From first message to first program.')}
   ${steps([
     ['Tell us about you', 'Share your organisation, the students you serve and what you’d like to explore.'],
-    ['Intro call', 'Our education team will reach out within five business days to talk it through.'],
+    ['Intro call', 'Our education team aims to reach out within five business days to talk it through.'],
     ['Shape a pilot', 'Together we design a small pilot that fits your students, timetable and goals.'],
     ['Agree & launch', 'We put a simple agreement in place and launch as programs open.'],
   ])}
@@ -125,7 +125,7 @@ ${xhero({ kicker: 'Neurodiversity · Education partnerships', title: 'Partner wi
 ${formSection({
   id: 'edu-form', el: 'edu.form', cls: 'section--flush-top',
   title: 'Become an education partner.',
-  lead: 'Tell us about your organisation and we’ll be in touch within five business days.',
+  lead: 'Tell us about your organisation and we aim to be in touch within five business days.',
   note: raw('Education partnerships only. Other partnerships: <a class="text-link" href="partners.html">Partners &amp; Sponsors</a>.'),
   form: previewForm({
     fields: [
@@ -142,7 +142,7 @@ ${formSection({
     ],
     consent: 'I agree to be contacted about an education partnership with AFSV VRC.',
     submit: 'Send partnership enquiry',
-    status: `${PREVIEW} When connected, enquiries go to the education team at info@afsvhcl.com.`,
+    status: SENT,
   }),
 })}`,
   };
@@ -181,7 +181,7 @@ ${xhero({ kicker: 'Marketplace · Become a vendor', title: 'Sell with AFSV VRC.'
   ${head('The process', 'How becoming a vendor works.')}
   ${steps([
     ['Apply', 'Fill in the form below with your company details, how many products you’d like to sell and their value.'],
-    ['Evaluation', 'Your application is emailed to our marketplace team for review. We look at product fit, quality, values and pricing — usually within ten business days.'],
+    ['Evaluation', 'Your application is emailed to our marketplace team for review. We look at product fit, quality, values and pricing, and aim to reply within ten business days.'],
     ['Samples & terms', 'Shortlisted vendors share samples and we agree simple, clear terms together.'],
     ['Go live', 'We set up your listings, fulfilment and payments, ready for when the marketplace opens.'],
   ])}
@@ -215,16 +215,39 @@ ${formSection({
       { label: 'Business type', type: 'select', req: true, ph: 'Choose one', options: ['Brand or manufacturer', 'Artisan or maker', 'Distributor or wholesaler', 'Retailer', 'Athlete-owned business', 'Non-profit or social enterprise', 'Other'] },
       { label: 'Product category', type: 'select', req: true, ph: 'Choose one', options: ['Apparel & fanwear', 'Training & performance gear', 'Accessories', 'Books & education resources', 'Health & wellness', 'Food & beverage', 'Art, crafts & gifts', 'Other'] },
       { label: 'Number of products', type: 'select', req: true, ph: 'How many products?', options: ['1–5', '6–20', '21–50', '51–100', 'Over 100'] },
-      { label: 'Estimated total value of products', type: 'select', req: true, ph: 'Choose a range', options: ['Under $5,000', '$5,000–$25,000', '$25,000–$100,000', '$100,000–$500,000', 'Over $500,000'] },
-      { label: 'Typical retail price per item', type: 'select', ph: 'Choose a range', options: ['Under $25', '$25–$75', '$75–$150', 'Over $150'] },
+      { label: 'Estimated total value of products (CAD)', type: 'select', req: true, ph: 'Choose a range', options: ['Under $5,000', '$5,000–$25,000', '$25,000–$100,000', '$100,000–$500,000', 'Over $500,000'] },
+      { label: 'Typical retail price per item (CAD)', type: 'select', ph: 'Choose a range', options: ['Under $25', '$25–$75', '$75–$150', 'Over $150'] },
       { label: 'Where are your products made?' },
       { label: 'Describe your products', type: 'textarea', req: true, full: true },
       { label: 'Certifications or sustainability practices', type: 'textarea', rows: 2, full: true },
     ],
     consent: 'I confirm these details are accurate and agree to be contacted about my application.',
     submit: 'Submit for evaluation',
-    status: `${PREVIEW} When connected, your application is emailed to info@afsvhcl.com for evaluation.`,
+    status: SENT,
   }),
 })}`,
   };
 }
+
+// Audit item B04 (Martin Lashley, Oct 2026): replaces the unsourced "1 in 5 children" claim.
+// One block, used word for word wherever the statistics appear. 2023 survey data, ten provinces,
+// parent/guardian-reported diagnoses; age groups differ and diagnoses overlap, so the figures are
+// never added together.
+export const ND_SOURCE = 'https://health-infobase.canada.ca/chronic-conditions/childhood/prevalence.html';
+export const ND_METHOD = 'https://health-infobase.canada.ca/chronic-conditions/childhood/technical-notes.html';
+const ND_FIGURES = [
+  ['8.4%', 'Diagnosed ADHD', 'Children and youth aged 1–17'],
+  ['3.0%', 'Diagnosed autism', 'Children and youth aged 1–17'],
+  ['6.8%', 'Diagnosed learning disabilities or disorders', 'Children and youth aged 5–17'],
+];
+export const ndStats = (tone = 'dark') => html`
+  <div class="ndstats ndstats--${tone}" data-el="nd-stats-2023">
+    <p class="ndstats__lead">Every child deserves opportunities to learn, participate and belong.</p>
+    <div class="ndstats__grid" data-stagger>
+      ${ND_FIGURES.map(([n, t, a]) => html`<div class="ndstats__fig"><b>${n}</b><h3>${t}</h3><p>${a} · 2023 data</p></div>`)}
+    </div>
+    <p class="ndstats__body">Government of Canada analysis of the 2023 Canadian Health Survey on Children and Youth reports diagnosed ADHD in 8.4% of children and youth aged 1–17, autism in 3.0% of those aged 1–17, and learning disabilities or disorders in 6.8% of those aged 5–17 across Canada’s ten provinces.</p>
+    <p class="ndstats__body">AFSV VRC’s proposed Sports Village places neurodivergent inclusion at the centre of its planning for sports, education and life skills.</p>
+    <p class="ndstats__note">2023 survey data for Canada’s ten provinces (territories not included), based on parent or guardian reports of diagnosed conditions. Age groups differ and diagnoses overlap, so these figures are not added together and are not an overall estimate of neurodivergence.</p>
+    <p class="ndstats__src">Source: <a href="${ND_SOURCE}" target="_blank" rel="noopener">Public Health Agency of Canada, Chronic conditions in childhood: Prevalence</a>, using 2023 Canadian Health Survey on Children and Youth data. <a href="${ND_METHOD}" target="_blank" rel="noopener">Methodology</a></p>
+  </div>`;

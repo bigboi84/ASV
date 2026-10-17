@@ -10,7 +10,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'AFSV_THEME_VERSION', '1.2.3' );
+define( 'AFSV_THEME_VERSION', '1.2.4' );
 define( 'AFSV_BOOKING_URL', 'https://book.afsvvrc.com' );
 
 require_once get_stylesheet_directory() . '/inc/defaults.php';
@@ -100,4 +100,47 @@ add_filter( 'body_class', function ( $classes ) {
 		$classes[] = 'is-market';
 	}
 	return $classes;
+} );
+
+/* Browser titles (audit B05): "Page | AFSV VRC" on corporate pages, "AFSV VRC | Sport, Education and
+   Inclusion" on the homepage, and "Marketplace" kept for the commerce pages only. */
+add_filter( 'document_title_separator', function () {
+	return '|';
+} );
+add_filter( 'document_title_parts', function ( $parts ) {
+	if ( is_front_page() ) {
+		return array( 'title' => 'AFSV VRC', 'tagline' => 'Sport, Education and Inclusion' );
+	}
+	unset( $parts['tagline'] );
+	$commerce = 'market' === afsv_chrome_variant();
+	if ( function_exists( 'is_shop' ) && is_shop() ) {
+		$parts['title'] = 'The Collection';
+	}
+	$parts['site'] = $commerce ? 'AFSV VRC Marketplace' : 'AFSV VRC';
+	return $parts;
+} );
+
+/* The Collection has no page excerpt for the theme's description tag: give it one. */
+add_action( 'wp_head', function () {
+	if ( function_exists( 'is_shop' ) && is_shop() ) {
+		echo '<meta name="description" content="' . esc_attr( 'Every piece in the AFSV VRC concept collection: Executive and Everyday & Sport apparel and accessories, shown as concept previews.' ) . '">' . "\n";
+	}
+}, 4 );
+
+/* Legacy routes from the first build (audit A01): send visitors to the current pages. Temporary (302)
+   until the redirects are approved; then switch to 301. */
+add_action( 'template_redirect', function () {
+	if ( ! is_page() ) {
+		return;
+	}
+	$map  = array(
+		'legal'                 => '/compliance/',
+		'accessibility-privacy' => '/accessibility/',
+		'vendors'               => '/become-a-vendor/',
+	);
+	$slug = get_post_field( 'post_name', get_queried_object_id() );
+	if ( isset( $map[ $slug ] ) && ! wp_get_post_parent_id( get_queried_object_id() ) ) {
+		wp_safe_redirect( home_url( $map[ $slug ] ), 302 );
+		exit;
+	}
 } );

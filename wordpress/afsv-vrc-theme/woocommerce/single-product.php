@@ -26,9 +26,9 @@ while ( have_posts() ) :
     <figure class="mk-product__stage">
       <img src="<?php echo esc_url( $stage ); ?>" alt="<?php echo esc_attr( $name . ( $first['name'] ? ' in ' . strtolower( $first['name'] ) : '' ) . ' — concept image' ); ?>" width="960" height="1200" fetchpriority="high" data-stage>
 	<?php if ( $first['img'] ) : ?>
-      <img class="mk-product__model" src="<?php echo esc_url( afsv_merch_model( $first['img'] ) ); ?>" alt="" width="960" height="1200" data-model-stage>
+      <img class="mk-product__model" src="<?php echo esc_url( afsv_merch_model( $first['img'] ) ); ?>" alt="<?php echo esc_attr( $name . ( $first['name'] ? ' in ' . strtolower( $first['name'] ) : '' ) . ' worn by a model — concept image' ); ?>" aria-hidden="true" width="960" height="1200" data-model-stage>
       <video class="mk-product__model mk-product__vid" muted loop playsinline preload="none" poster="<?php echo esc_url( afsv_merch_model( $first['img'] ) ); ?>" data-vbase="<?php echo esc_url( afsv_merch_clip( $first['img'] ) ); ?>" data-model-video aria-hidden="true"></video>
-      <span class="merch-card__hint" aria-hidden="true">Hover to see it worn</span>
+      <button type="button" class="mk-model-toggle" aria-pressed="false" data-model-toggle>View on model</button>
 	<?php endif; ?>
     </figure>
 	<?php if ( count( $colours ) > 1 ) : ?>
@@ -62,7 +62,7 @@ while ( have_posts() ) :
     </span> Also planned in <?php echo esc_html( implode( ', ', wp_list_pluck( $planned, 'name' ) ) ); ?>.</p>
 	<?php endif; ?>
     <dl class="mk-specs">
-      <div><dt>Crest</dt><dd><?php echo 'executive' === $line ? 'Small gold crest' : 'Small colour crest (designer&#039;s artwork)'; ?></dd></div>
+      <div><dt>Crest</dt><dd><?php echo 'executive' === $line ? 'Gold AFSV VRC crest' : 'Colour AFSV VRC crest'; ?></dd></div>
       <div><dt>Line</dt><dd><?php echo 'executive' === $line ? 'Executive' : 'Everyday &amp; Sport'; ?></dd></div>
       <div><dt>Sizes</dt><dd>To be confirmed</dd></div>
       <div><dt>Pricing</dt><dd>To be confirmed</dd></div>

@@ -179,43 +179,45 @@
   <p class="small muted">Fields marked <span aria-hidden="true" style="color:var(--danger)">*</span><span class="sr-only">with an asterisk</span> are required.</p>
   <div class="form__grid">
 <div class="field">
-  <label class="field__label" for="f162">First name<span class="req" aria-hidden="true">*</span></label>
-  <input type="text" id="f162" name="first-name" autocomplete="given-name" aria-describedby="f162-err" required aria-required="true">
-  
-  <span class="field__error" id="f162-err" aria-live="polite"></span>
-</div>
-<div class="field">
-  <label class="field__label" for="f163">Last name<span class="req" aria-hidden="true">*</span></label>
-  <input type="text" id="f163" name="last-name" autocomplete="family-name" aria-describedby="f163-err" required aria-required="true">
+  <label class="field__label" for="f163">First name<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f163" name="first-name" autocomplete="given-name" aria-describedby="f163-err" required aria-required="true">
   
   <span class="field__error" id="f163-err" aria-live="polite"></span>
 </div>
-<div class="field field--full">
-  <label class="field__label" for="f164">Email<span class="req" aria-hidden="true">*</span></label>
-  <input type="email" id="f164" name="email" autocomplete="email" aria-describedby="f164-err" required aria-required="true">
+<div class="field">
+  <label class="field__label" for="f164">Last name<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f164" name="last-name" autocomplete="family-name" aria-describedby="f164-err" required aria-required="true">
   
   <span class="field__error" id="f164-err" aria-live="polite"></span>
 </div>
 <div class="field field--full">
-  <label class="field__label" for="f165">I am interested in<span class="req" aria-hidden="true">*</span></label>
-  <select id="f165" name="i-am-interested-in" aria-describedby="f165-err" required aria-required="true"><option value="">Choose one</option><option value="membership">AFSV VRC membership</option><option value="business-membership">Business membership</option><option value="sports-village">Whitby Smart Sports Village</option><option value="programs">Programs &amp; athlete development</option><option value="education">Education &amp; academic success</option><option value="life-skills">Life skills</option><option value="neurodiversity">Neurodiversity support &amp; programs</option><option value="education-partnership">Education partnership (neurodiversity)</option><option value="ambassador">Becoming an ambassador</option><option value="partnership">Partnership &amp; sponsorship</option><option value="diaspora">Global Diaspora Network</option><option value="gaisb">GAISB AI education</option><option value="marketplace">Marketplace — shopping</option><option value="vendor">Marketplace — selling my products</option><option value="other">Something else</option></select>
+  <label class="field__label" for="f165">Email<span class="req" aria-hidden="true">*</span></label>
+  <input type="email" id="f165" name="email" autocomplete="email" aria-describedby="f165-err" required aria-required="true">
   
   <span class="field__error" id="f165-err" aria-live="polite"></span>
 </div>
-<div class="field">
-  <label class="field__label" for="f166">Country<span class="req" aria-hidden="true">*</span></label>
-  <input type="text" id="f166" name="country" autocomplete="country-name" aria-describedby="f166-err" required aria-required="true">
+<div class="field field--full">
+  <label class="field__label" for="f166">I am interested in<span class="req" aria-hidden="true">*</span></label>
+  <select id="f166" name="i-am-interested-in" aria-describedby="f166-err" required aria-required="true"><option value="">Choose one</option><option value="membership">AFSV VRC membership</option><option value="business-membership">Business membership</option><option value="sports-village">Whitby Smart Sports Village</option><option value="programs">Programs &amp; athlete development</option><option value="education">Education &amp; academic success</option><option value="life-skills">Life skills</option><option value="neurodiversity">Neurodiversity support &amp; programs</option><option value="education-partnership">Education partnership (neurodiversity)</option><option value="ambassador">Becoming an ambassador</option><option value="partnership">Partnership &amp; sponsorship</option><option value="diaspora">Global Diaspora Network</option><option value="gaisb">GAISB AI education</option><option value="marketplace">Marketplace — shopping</option><option value="vendor">Marketplace — selling my products</option><option value="other">Something else</option></select>
   
   <span class="field__error" id="f166-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f167">City <span class="opt">(optional)</span></label>
-  <input type="text" id="f167" name="city" autocomplete="address-level2" aria-describedby="f167-err">
+  <label class="field__label" for="f167">Country<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f167" name="country" autocomplete="country-name" aria-describedby="f167-err" required aria-required="true">
   
   <span class="field__error" id="f167-err" aria-live="polite"></span>
+</div>
+<div class="field">
+  <label class="field__label" for="f168">City <span class="opt">(optional)</span></label>
+  <input type="text" id="f168" name="city" autocomplete="address-level2" aria-describedby="f168-err">
+  
+  <span class="field__error" id="f168-err" aria-live="polite"></span>
 </div></div>
-  <label class="check" for="f161"><input type="checkbox" id="f161" name="consent" required aria-describedby="f161-err"><span>Keep me up to date by email about AFSV VRC. I can unsubscribe at any time.<span class="field__error" id="f161-err"></span></span></label>
-  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. When connected, you’ll be added to the pre-registration list and emailed when membership opens.</div>
+  <p class="small muted form__privacy">Please do not include diagnoses, medical records or financial documents in this form. If follow-up needs that information, our team will arrange a secure channel.</p>
+  <label class="check" for="f162"><input type="checkbox" id="f162" name="consent" required aria-describedby="f162-err"><span>Keep me up to date by email about AFSV VRC. I can unsubscribe at any time.<span class="field__error" id="f162-err"></span></span></label>
+
+  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Your details have been received. We will be in touch with updates as plans are approved.</div>
   <div><button type="submit" class="btn btn--navy">Keep me up to date<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></button></div>
 </form>
   </div>

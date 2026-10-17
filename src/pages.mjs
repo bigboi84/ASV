@@ -4,6 +4,7 @@ import {
 } from './lib.mjs';
 
 import { aboutExtra, whitbyOverview, whitbyRoadmap, membershipExtra, partnersExtra, contactExtra, EXTRAS, xhero } from './pages2.mjs';
+import { ndStats } from './pages3.mjs';
 
 const IMG = (f) => `assets/img/${f}`;
 let V = {};
@@ -33,7 +34,7 @@ Object.assign(SKETCH, {
   Globe: '<circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.4 2.4 3.6 5.2 3.6 8.6s-1.2 6.2-3.6 8.6c-2.4-2.4-3.6-5.2-3.6-8.6s1.2-6.2 3.6-8.6z"/>',
 });
 export const sketchIcon = (name) => raw(`<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${SKETCH[name]}</svg>`);
-const PREVIEW = 'Development preview — this form is not connected yet.';
+const SENT = 'Your details have been received. We will be in touch with updates as plans are approved.';
 
 
 // Featured event block (home + events page). WordPress: Events CPT single-card template.
@@ -81,7 +82,7 @@ function esportsBand() {
       <p class="lead">Not every participant connects with traditional sport. AFSV VRC esports and media pathways are intended to build social connection, skills, confidence, storytelling and career exploration — from competition to the broadcast desk.</p>
       <div class="btn-row btn-row--stack">
         ${btn('Explore esports & media pathways', '/technology-media', 'gold')}
-        ${btn('Get launch updates', '/technology-media#interest', 'line-light')}
+        ${btn('Get launch updates', '/technology-media#efn-connect', 'line-light')}
       </div>
       <p class="esports__note">Competition, production and podcast spaces are conceptual and not yet operational.</p>
     </div>
@@ -131,8 +132,8 @@ const EDU_CATS = [
   ['Family support resources', 'Resources and counselling for families navigating neurodivergent challenges.', 'neuro/family.jpg'],
 ];
 const TIERS = [
-  { name: 'Individual', items: ['Community platform access', '10–15% marketplace pricing', 'Education & wellness resources', 'Welcome package with branded hoodie'], fund: 'Part of every membership supports the Neurodivergent Inclusion Fund' },
-  { name: 'Business', items: ['Marketplace directory listing', 'Business profile & spotlight features', 'Sponsorship opportunities', 'Inclusion Champion designation'], fund: 'Part of every membership supports the Neurodivergent Inclusion Fund' },
+  { name: 'Individual', items: ['Community platform access', 'Proposed member benefits (details to be confirmed)', 'Education & wellness resources', 'Welcome package with branded hoodie'], fund: 'Help expand access through membership, subject to approved fund arrangements' },
+  { name: 'Business', items: ['Marketplace directory listing', 'Business profile & spotlight features', 'Sponsorship opportunities', 'Inclusion Champion designation'], fund: 'Help expand access through membership, subject to approved fund arrangements' },
 ];
 const OPPS = [
   ['Multi-sport development', 'Athletes & Families', 'Keep up to date on proposed year-round training programs and be among the first to know when programs launch.', 'Keep up to date', '#register'],
@@ -144,8 +145,8 @@ export function home(d) {
   const pillarImgs = [
     ['life/hall.jpg', 'Concept rendering: racially diverse youth athletes training basketball, sprints and futsal in a busy multi-sport hall at night, with coaches cheering them on.'],
     ['ai-education-studio.jpg', 'Adult learners at a long desk with large data displays while an instructor explains.'],
-    ['life/entrance.jpg', 'Concept rendering: a step-free entrance at dusk where staff welcome a young athlete using a sports wheelchair and a visitor with a guide dog.'],
-    ['life/plaza.jpg', 'Concept rendering: racially diverse families and teen athletes arriving at the village plaza at dusk, the dome glowing behind them.'],
+    ['life/nd.jpg', 'Concept rendering: children and teens taking part in an adapted soccer session with patient coaches in a calm, sensory-considered setting.'],
+    ['life/lifeskills.jpg', 'Concept rendering: racially diverse teens cooking a healthy meal with a chef mentor while others work on budgeting with a coach.'],
   ];
   const pathways = [
     { ...d.pathways[0], desc: 'Athlete pathways, coaching and multi-sport training.', img: 'life/academy.jpg' },
@@ -191,8 +192,8 @@ export function home(d) {
   </div>
   <div class="hero__scrim" aria-hidden="true"></div>
   <div class="wrap hero__content hero__content--film">
-    <p class="film__tag">Whitby, Ontario</p>
-    <h1 class="film__title" aria-label="Canada's new year-round sports village"><span aria-hidden="true">${raw(["Canada's new year-round", 'sports village'].map((line, l) => `<span class="fl" style="--l:${l}">${line.split(' ').map((w, i) => `<span class="fw" style="--i:${i}">${esc(w)}</span>`).join(' ')}</span>`).join('<br>'))}</span></h1>
+    <p class="film__tag">Whitby, Ontario · Concept renderings</p>
+    <h1 class="film__title" aria-label="A proposed year-round sports village for Whitby"><span aria-hidden="true">${raw(['A proposed year-round', 'sports village for Whitby'].map((line, l) => `<span class="fl" style="--l:${l}">${line.split(' ').map((w, i) => `<span class="fw" style="--i:${i}">${esc(w)}</span>`).join(' ')}</span>`).join('<br>'))}</span></h1>
     <a class="film__cta" href="whitby-smart-sports-village.html">Explore the village</a>
   </div>
   <div class="reel__bar">
@@ -227,7 +228,7 @@ export function home(d) {
         <li><span>Pilot</span><b>Whitby, Ontario</b></li>
         <li><span>Model</span><b>4 strategic pillars</b></li>
         <li><span>Reach</span><b>Canada · Caribbean · Global</b></li>
-        <li><span>Book. Train. Perform.</span><a href="${SITE.booking}" target="_blank" rel="noopener noreferrer">Book a session ${icon('external')}<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><span>Book. Train. Perform.</span><a href="${href('/facilities')}#interest">Explore future booking</a></li>
       </ul>
     </div>
   </div>
@@ -401,7 +402,7 @@ ${esportsBand()}
 
 <section class="band--cream" data-el="home.neurodiversity" data-el-build="elementor">
   <div class="wrap section split split--center">
-    <figure class="figure figure--4x3 figure--motion wipe neuro-figure" data-video-scope data-swap-stage>${EDU_CATS.map((c, i) => html`<img class="swap-img" data-swap-img="${i}" src="${IMG(c[2])}" alt="" width="1200" height="900" loading="lazy">`)}${pmedia({ img: IMG('life/nd.jpg'), alt: 'Concept rendering: racially diverse neurodivergent kids and teens enjoying an adapted soccer session with patient coaches.', w: 1600, h: 900 })}</figure>
+    <figure class="figure figure--4x3 figure--motion wipe neuro-figure" data-video-scope data-swap-stage>${EDU_CATS.map((c, i) => html`<img class="swap-img" data-swap-img="${i}" src="${IMG(c[2])}" alt="" width="1200" height="900" loading="lazy">`)}${pmedia({ img: IMG('life/nd.jpg'), alt: 'Concept rendering: racially diverse kids and teens enjoying an adapted soccer session with patient coaches.', w: 1600, h: 900 })}</figure>
     <div class="reveal">
       <p class="eyebrow mb-s">Neurodiversity Access &amp; Opportunity</p>
       <h2 class="h2 mb-m">Different Minds.<br>Equal Opportunity.</h2>
@@ -411,16 +412,17 @@ ${esportsBand()}
     </div>
   </div>
   <div class="wrap edu-cats">
-    <div class="edu-cats__stat reveal" tabindex="0" data-swap="-1"><b>1 in 5</b><span>children in Canada are neurodivergent — millions of families need these services.</span></div>
+    <div class="edu-cats__stat reveal" tabindex="0" data-swap="-1"><b>Every child</b><span>deserves opportunities to learn, participate and belong.</span></div>
     ${EDU_CATS.map(([t, b], i) => html`<div class="edu-cats__card reveal" tabindex="0" data-swap="${i}"><h3>${t}</h3><p>${b}</p></div>`)}
   </div>
+  <div class="wrap">${ndStats('light')}</div>
 </section>
 
 <section class="efn" data-el="home.efn" data-el-build="elementor">
   <div class="wrap section split split--center">
     <div class="reveal">
       <p class="eyebrow mb-s">EFN · Esports &amp; Fans Network</p>
-      <h2 class="h2 mb-m">Where sports<br>meets digital.</h2>
+      <h2 class="h2 mb-m">Where sport<br>meets digital.</h2>
       <p class="lead mb-m">EFN connects athletes and fans through digital competitions and interactive media — a proposed esports arena, broadcasting studio and digital media hub, integrated into the sports village ecosystem. Home of FanZone™.</p>
       <ul class="efn__list mb-l">${EFN.map(([t, b]) => html`<li><b>${t}</b><span>${b}</span></li>`)}</ul>
       ${btn('Explore the digital platform', '/technology-media', 'gold')}
@@ -450,7 +452,7 @@ ${esportsBand()}
   <div class="section-head reveal">
     <p class="eyebrow mb-s">Join the community</p>
     <h2 class="h2">Become part of the AFSVHCL movement.</h2>
-    <p class="body-lg muted">Membership isn’t open yet — pre-register now and be first to know when it goes live. Every membership helps fund neurodivergent inclusion programs.</p>
+    <p class="body-lg muted">Membership isn’t open yet — pre-register now and be first to know when it goes live. Membership is proposed to help expand access to neurodivergent inclusion programs, subject to approved fund arrangements.</p>
   </div>
   <div class="tiers" data-stagger>
     ${TIERS.map((t) => html`<article class="tier">
@@ -487,9 +489,9 @@ ${formSection({
       { label: 'Email', type: 'email', req: true, auto: 'email' },
       { label: 'Interest pathway', type: 'select', req: true, ph: 'Select a pathway', full: true, options: ['Train and develop', 'Become a member', 'Shop the movement', 'Partner with us', 'Neurodiversity access and opportunity', 'Join the service provider network'] },
     ],
-    consent: 'I agree to receive occasional updates from AFSV VRC. You can unsubscribe at any time.', consentReq: false,
+    consent: 'I agree to receive occasional updates from AFSV VRC. You can unsubscribe at any time.', consentReq: false, updatesList: true,
     submit: 'Keep up to date',
-    status: `${PREVIEW} Submissions will route once mailbox and CRM routing is confirmed.`,
+    status: SENT,
   }),
 })}
 
@@ -750,7 +752,7 @@ const WH_FACILITIES = [
 const WH_HIGHLIGHTS = ['Year-round training', 'State-of-the-art infrastructure', 'Multi-sport development', 'Education & mentorship', 'Special needs inclusion', 'Esports & innovation', 'Community engagement', 'Sustainable & green design'];
 const WH_FEATURES = ['Serving athletes of all ages', 'Inclusive programs for every ability', 'Pathways to scholarships & careers', 'Building stronger communities', 'Connecting the Caribbean diaspora', 'Creating a legacy for generations'];
 const WH_ECOSYSTEM = [
-  { name: 'AFSV VRC Development Group Ltd.', role: 'Infrastructure development' },
+  { name: 'AFSV VRC Global Development Group Ltd.', role: 'Infrastructure development' },
   { name: 'MLMSR Mentorship LLC', role: 'Education & special needs support' },
   { name: 'EFN — Esports & Fans Network', role: 'Digital & esports division' },
 ];
@@ -874,7 +876,7 @@ ${formSection({
   id: 'whitby-partner-form', el: 'whitby.partner-form',
   title: 'Request the project brief.',
   lead: 'Tell us how your organisation would work with the pilot and we will share the current project materials.',
-  note: 'Development preview — no documents are distributed from this form until the project brief is approved for release.',
+  note: 'Project documents are shared only once the project brief is approved for release.',
   form: previewForm({
     fields: [
       { label: 'Name', req: true, auto: 'name' },
@@ -887,7 +889,7 @@ ${formSection({
     ],
     consent: 'I agree to be contacted about partnership opportunities with AFSV VRC.',
     submit: 'Submit request',
-    status: `${PREVIEW} Submissions will route to the partnerships inbox once confirmed.`,
+    status: SENT,
   }),
 })}`,
   };
@@ -949,9 +951,9 @@ ${formSection({
       { label: 'Timeframe' },
       { label: 'Accessibility needs', type: 'textarea', rows: 3, full: true, hint: 'Tell us what would make a space work for you. No diagnosis or medical detail is needed.' },
     ],
-    consent: 'I agree to receive facility updates from AFSV VRC. You can unsubscribe at any time.',
+    consent: 'I agree to receive facility updates from AFSV VRC. You can unsubscribe at any time.', updatesList: true,
     submit: 'Keep Up to Date',
-    status: `${PREVIEW} Submissions will route once inventory and mailbox routing are confirmed.`,
+    status: SENT,
   }),
 })}`,
   };
@@ -1006,11 +1008,11 @@ ${formSection({
       { label: 'Country', req: true, auto: 'country-name' },
       { label: 'Membership pathway', type: 'select', req: true, ph: 'Select a pathway', options: paths },
       { label: 'Sports or interests' },
-      { label: 'Age group', type: 'select', ph: 'Prefer not to say', options: ['Under 18', '18–24', '25–39', '40–59', '60+'] },
-      { label: 'Preferred communication channel', type: 'select', req: true, ph: 'Select a channel', options: ['Email', 'Phone', 'Text message'] },
+      { label: 'Age group', type: 'select', ph: 'Prefer not to say', options: ['Under 18', '18–24', '25–39', '40–59', '60+'], hint: 'If you are under 18, please ask a parent or guardian to complete this form.' },
+      { label: 'Preferred communication channel', type: 'select', req: true, ph: 'Select a channel', options: ['Email', 'Phone', 'Text message'], hint: 'If you choose phone or text, please add your mobile number. We text only about your membership interest, separately from email updates.' },
       { label: 'Accessibility or accommodation request', type: 'textarea', rows: 3, full: true },
     ],
-    consent: 'I agree to receive membership updates from AFSV VRC. You can unsubscribe at any time.',
+    consent: 'I agree to receive membership updates from AFSV VRC. You can unsubscribe at any time.', updatesList: true,
     submit: 'Keep Up to Date',
     statusTitle: 'Thank you for joining the AFSV VRC interest list.',
     status: 'We will share membership details, benefits and launch timing as they are approved.',
@@ -1138,7 +1140,7 @@ ${formSection({
     ],
     consent: 'I agree to AFSV VRC contacting me about this inquiry.',
     submit: 'Submit inquiry',
-    status: `${PREVIEW} Inquiries will route by type once owners and mailbox routing are confirmed; investor inquiries route to restricted recipients.`,
+    status: SENT,
   }),
 })}`,
   };
@@ -1185,12 +1187,11 @@ ${formSection({
   id: 'interest', title: c.form.title, lead: c.form.lead, note: c.form.note,
   form: previewForm({
     fields: fromDesignFields(c.form.fields),
-    consent: 'I agree to be contacted about this inquiry and to receive occasional updates from AFSV VRC. You can unsubscribe at any time.',
+    consent: 'I agree to AFSV VRC contacting me about this inquiry.',
     submit: 'Submit inquiry',
-    status: `${PREVIEW} On the live site it routes to a named owner and sends an automatic confirmation.`,
+    status: SENT,
   }),
 })}
-${pendingInputs()}
 ${ctaBand(c.ctaHead, [{ label: c.ctaLabel, route: c.ctaHref }])}`,
   };
 }
@@ -1199,7 +1200,7 @@ ${ctaBand(c.ctaHead, [{ label: c.ctaLabel, route: c.ctaHref }])}`,
 export function news(d) {
   return {
     title: 'News, Stories & Impact',
-    description: 'A controlled publishing framework for AFSV VRC updates, stories, approved milestones and verified impact.',
+    description: 'Updates, stories, approved milestones and verified impact from AFSV VRC.',
     ogImage: IMG('life/academy.jpg'),
     body: html`
 ${breadcrumb([{ label: 'About', route: '/about' }, { label: 'News, Stories & Impact' }])}
@@ -1215,20 +1216,20 @@ ${note('Consent is mandatory for stories, photographs, testimonials and identify
   ${eventFeature(d.events[0], 'news.event-card')}
 </section>
 <section class="wrap section" id="updates" data-el="news.types" data-el-build="custom-widget">
-  <div class="section-head reveal" style="align-items:start"><h2 class="h2">Content types.</h2><p class="body-lg muted">Ten types, each with its own review path. The archive is empty until the first entry is approved — no sample stories are published here.</p></div>
+  <div class="section-head reveal" style="align-items:start"><h2 class="h2">What we will share.</h2><p class="body-lg muted">Stories, updates and announcements will appear here as they are approved for publication.</p></div>
   <div class="hairline list-cells" data-stagger>
-    ${d.newsTypes.map((l) => html`<div class="cell"><div class="cell__top"><span class="num">${l.num}</span><span class="pill pill--soft">Draft</span></div><span>${l.label}</span></div>`)}
+    ${d.newsTypes.map((l) => html`<div class="cell"><div class="cell__top"><span class="num">${l.num}</span><span class="pill pill--soft">Coming soon</span></div><span>${l.label}</span></div>`)}
   </div>
 </section>
 <section class="band--cream" data-el="news.directory" data-el-build="custom-widget">
   <div class="wrap section split">
-    <div class="reveal"><h2 class="h2 mb-m">Partner directory.</h2><p class="body-lg mb-s measure-sm">Architecture for approved partner profiles, organised by category. The directory stays empty until each profile is approved and its logo permission is on file.</p><p class="small muted">No profile is auto-published. No logo appears without written permission.</p></div>
-    <div><h3 class="eyebrow mb-m" style="color:var(--gold-mid)">Fields per profile</h3><ul class="tags">${d.dirFields.map((l) => html`<li>${l.label}</li>`)}</ul></div>
+    <div class="reveal"><h2 class="h2 mb-m">Partner directory.</h2><p class="body-lg mb-s measure-sm">Approved partner profiles will be listed here by category.</p><p class="small muted">Partner logos appear only with written permission.</p></div>
+    <div><h3 class="eyebrow mb-m" style="color:var(--gold-mid)">Each profile will include</h3><ul class="tags">${d.dirFields.map((l) => html`<li>${l.label}</li>`)}</ul></div>
   </div>
 </section>
 <section class="band--navy" data-el="news.impact" data-el-build="custom-widget">
   <div class="wrap section">
-    <div class="section-head reveal"><h2 class="h2">Impact dashboard.</h2><p class="body-lg" style="color:#E7E4DC">Future architecture. Every figure below stays blank until it is verified, and projections will be labelled as projections rather than shown as results.</p></div>
+    <div class="section-head reveal"><h2 class="h2">Impact reporting.</h2><p class="body-lg" style="color:#E7E4DC">Figures will be published here once they are verified. Any projection will be clearly labelled as a projection.</p></div>
     <div class="hairline" style="--min:240px" data-stagger>
       ${d.impactMetrics.map((m) => html`<div class="cell" style="min-height:150px;gap:12px"><span class="metric__value" aria-hidden="true">—</span><span class="metric__label">${m.label}<span class="sr-only">: not yet verified</span></span><span class="metric__state" aria-hidden="true">Not yet verified</span></div>`)}
     </div>
@@ -1242,7 +1243,7 @@ ${formSection({
     fields: d.newsForm.map((f) => ({ label: f.label, req: f.req, ph: f.ph, type: f.isSelect ? 'select' : f.isArea ? 'textarea' : f.type, options: f.options.map((o) => o.label), full: f.span === '1 / -1' })),
     consent: 'I agree to be contacted about this story. I understand this is not publication consent.',
     submit: 'Send story interest',
-    status: `${PREVIEW} On the live site it routes to a named owner and sends an automatic confirmation.`,
+    status: SENT,
   }),
 })}
 ${ctaBand('Partners and sponsors appear here only once approved.', [{ label: 'Partner with us', route: '/partners' }])}`,
@@ -1277,7 +1278,7 @@ ${formSection({
     fields: d.accessForm.map((f) => ({ label: f.label, req: f.req, ph: f.ph, type: f.isSelect ? 'select' : f.isArea ? 'textarea' : f.type, options: f.options.map((o) => o.label), full: f.span === '1 / -1', id: f.label === 'Issue type' ? 'issue-type' : undefined })),
     consent: 'I agree to be contacted about this inquiry.',
     submit: 'Send inquiry',
-    status: `${PREVIEW} On the live site it routes to a named owner and sends an automatic confirmation.`,
+    status: SENT,
   }),
 })}
 ${ctaBand('Policies are listed with their approval status.', [{ label: 'Legal and policy pages', route: '/legal' }])}`,

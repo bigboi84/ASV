@@ -144,7 +144,7 @@
       <span class="xhero__shade" aria-hidden="true"></span>
       <div class="xhero__copy">
         <p class="xhero__kick">EFN · Esports &amp; Fans Network</p>
-        <h1 class="xhero__title split-words" aria-label="Where sports meets digital."><span aria-hidden="true"><span class="w"><span style="--i:0">Where</span></span> <span class="w"><span style="--i:1">sports</span></span> <span class="w"><span style="--i:2">meets</span></span> <span class="w"><span style="--i:3">digital.</span></span></span></h1>
+        <h1 class="xhero__title split-words" aria-label="Where sport meets digital."><span aria-hidden="true"><span class="w"><span style="--i:0">Where</span></span> <span class="w"><span style="--i:1">sport</span></span> <span class="w"><span style="--i:2">meets</span></span> <span class="w"><span style="--i:3">digital.</span></span></span></h1>
       </div>
       
     </div>
@@ -243,7 +243,7 @@
       <h2 class="h2 mb-m">Get connected.</h2>
       <p class="lead">Tournaments, live streams, athlete media and the fan community — all on the EFN platform.</p>
     </div>
-    <span class="efn-site__btn">Visit EFN <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span>
+    <span class="efn-site__btn">Register interest in EFN <span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></span>
   </a>
 </section>
 
@@ -259,37 +259,40 @@
   <p class="small muted">Fields marked <span aria-hidden="true" style="color:var(--danger)">*</span><span class="sr-only">with an asterisk</span> are required.</p>
   <div class="form__grid">
 <div class="field">
-  <label class="field__label" for="f92">Name<span class="req" aria-hidden="true">*</span></label>
-  <input type="text" id="f92" name="name" autocomplete="name" aria-describedby="f92-err" required aria-required="true">
-  
-  <span class="field__error" id="f92-err" aria-live="polite"></span>
-</div>
-<div class="field">
-  <label class="field__label" for="f93">Organisation <span class="opt">(optional)</span></label>
-  <input type="text" id="f93" name="organisation" autocomplete="organization" aria-describedby="f93-err">
+  <label class="field__label" for="f93">Name<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f93" name="name" autocomplete="name" aria-describedby="f93-err" required aria-required="true">
   
   <span class="field__error" id="f93-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f94">Email<span class="req" aria-hidden="true">*</span></label>
-  <input type="email" id="f94" name="email" autocomplete="email" aria-describedby="f94-err" required aria-required="true">
+  <label class="field__label" for="f94">Organisation <span class="opt">(optional)</span></label>
+  <input type="text" id="f94" name="organisation" autocomplete="organization" aria-describedby="f94-err">
   
   <span class="field__error" id="f94-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f95">Interest<span class="req" aria-hidden="true">*</span></label>
-  <select id="f95" name="interest" aria-describedby="f95-err" required aria-required="true"><option value="">Select one</option><option value="Technology partner">Technology partner</option><option value="Esports organization">Esports organization</option><option value="Media company">Media company</option><option value="Digital sponsor">Digital sponsor</option><option value="Player or creator">Player or creator</option><option value="Other">Other</option></select>
+  <label class="field__label" for="f95">Email<span class="req" aria-hidden="true">*</span></label>
+  <input type="email" id="f95" name="email" autocomplete="email" aria-describedby="f95-err" required aria-required="true">
   
   <span class="field__error" id="f95-err" aria-live="polite"></span>
 </div>
-<div class="field field--full">
-  <label class="field__label" for="f96">Message <span class="opt">(optional)</span></label>
-  <textarea id="f96" name="message" aria-describedby="f96-err" rows="4" placeholder=""></textarea>
+<div class="field">
+  <label class="field__label" for="f96">Interest<span class="req" aria-hidden="true">*</span></label>
+  <select id="f96" name="interest" aria-describedby="f96-err" required aria-required="true"><option value="">Select one</option><option value="Technology partner">Technology partner</option><option value="Esports organization">Esports organization</option><option value="Media company">Media company</option><option value="Digital sponsor">Digital sponsor</option><option value="Player or creator">Player or creator</option><option value="Other">Other</option></select>
   
   <span class="field__error" id="f96-err" aria-live="polite"></span>
+</div>
+<div class="field field--full">
+  <label class="field__label" for="f97">Message <span class="opt">(optional)</span></label>
+  <textarea id="f97" name="message" aria-describedby="f97-err" rows="4" placeholder=""></textarea>
+  
+  <span class="field__error" id="f97-err" aria-live="polite"></span>
 </div></div>
-  <label class="check" for="f91"><input type="checkbox" id="f91" name="consent" required aria-describedby="f91-err"><span>I agree to be contacted about the EFN platform.<span class="field__error" id="f91-err"></span></span></label>
-  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. Submissions will route to the EFN team once confirmed.</div>
+  <p class="small muted form__privacy">Please do not include diagnoses, medical records or financial documents in this form. If follow-up needs that information, our team will arrange a secure channel.</p>
+  <label class="check" for="f92"><input type="checkbox" id="f92" name="consent" required aria-describedby="f92-err"><span>I agree to be contacted about the EFN platform.<span class="field__error" id="f92-err"></span></span></label>
+
+  <label class="check" for="f92m"><input type="checkbox" id="f92m" name="marketing" value="yes"><span>Optional: send me occasional updates from AFSV VRC by email. I can unsubscribe at any time.</span></label>
+  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Your details have been received. We will be in touch with updates as plans are approved.</div>
   <div><button type="submit" class="btn btn--navy">Get in touch<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></button></div>
 </form>
   </div>

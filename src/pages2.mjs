@@ -1,13 +1,13 @@
 // New pages carried over from the AFSVHCL (Sintra) site, plus the extra sections added to
 // existing pages. Everything here uses the rounded "x-" component set styled in site.css.
-import { eduPartnerCta, partnerLogos } from './pages3.mjs';
+import { eduPartnerCta, partnerLogos, ndStats } from './pages3.mjs';
 import {
   html, raw, href, btn, breadcrumb, ctaBand, splitWords, pad2, arrow, formSection, previewForm,
 } from './lib.mjs';
 import { sketchIcon, eventFeature } from './pages.mjs';
 
 const IMG = (f) => `assets/img/${f}`;
-const PREVIEW = 'Development preview — this form is not connected yet.';
+const SENT = 'Your details have been received. We will be in touch with updates as plans are approved.';
 // The EFN platform's own website. Set this once the URL is confirmed; '#efn-connect' until then.
 export const EFN_URL = '#efn-connect';
 
@@ -166,8 +166,8 @@ ${xhero({ kicker: 'Community impact', title: 'Measuring what matters.', img: 'li
     <div class="fund__grid">
       <div class="reveal">
         <p class="eyebrow mb-s">Neurodivergent Inclusion Fund</p>
-        <h2 class="h2 mb-m">Every membership changes a life.</h2>
-        <p class="lead mb-l">AFSVHCL commits a share of every membership to a dedicated Neurodivergent Inclusion Fund — supporting real families, real youth and real outcomes.</p>
+        <h2 class="h2 mb-m">Help expand access through membership.</h2>
+        <p class="lead mb-l">AFSVHCL proposes to direct a share of membership to a dedicated Neurodivergent Inclusion Fund, subject to approved fund arrangements.</p>
         <div class="coins">
           <div class="coin"><b>Every</b><span>individual membership</span><em>gives back</em></div>
           <div class="coin coin--gold"><b>Every</b><span>business membership</span><em>gives more</em></div>
@@ -179,7 +179,7 @@ ${xhero({ kicker: 'Community impact', title: 'Measuring what matters.', img: 'li
   </div>
 </section>
 <section class="wrap section" data-el="impact.targets" data-el-build="elementor">
-  ${head('Five-year targets', 'Aspirational, and labelled that way.')}
+  ${head('Five-year targets', 'Aspirational goals, not commitments.')}
   ${stats([['10000', '+', 'Neurodivergent youth supported', '5-year target'], ['25000', '+', 'Families supported', '5-year target']], 'Targets are aspirational and subject to financing, program launch, partner capacity and feasibility analysis. Actual results may differ materially.')}
 </section>
 <section class="band--cream" data-el="impact.reporting" data-el-build="elementor">
@@ -199,13 +199,14 @@ ${ctaBand('Be part of the impact.', [{ label: 'Explore membership', route: '/mem
 
 // ════════════════════════ FANZONE ════════════════════════
 const REGIONS = [
+  ['Indigenous Peoples', 'First Nations, Inuit and Métis peoples: the original peoples of these lands, each with distinct cultures, languages and histories.', ['First Nations', 'Inuit', 'Métis']],
   ['Africa', 'From West and East Africa to North and Southern Africa — a diverse, dynamic and deeply rooted diaspora.', ['Nigeria', 'Ghana', 'Somalia', 'Ethiopia', 'Egypt', 'South Africa']],
   ['Asia', 'South, East, Southeast and Central Asia — communities that shape Canada’s economy, culture and innovation.', ['India', 'Pakistan', 'China', 'Philippines', 'Vietnam', 'Korea']],
   ['Caribbean', 'A proud Caribbean presence across Canada — culture, sport, entrepreneurship and community leadership.', ['Jamaica', 'Trinidad & Tobago', 'Barbados', 'Guyana', 'Haiti', 'Dominican Republic']],
   ['Europe', 'European communities helped build Canada’s foundation — and remain a major part of our multicultural identity.', ['United Kingdom', 'Ireland', 'Italy', 'Portugal', 'Poland', 'Ukraine']],
   ['Latin America', 'From Mexico to Central and South America — vibrant communities strengthening Canada’s cities and regions.', ['Mexico', 'Brazil', 'Colombia', 'Peru', 'Chile', 'El Salvador']],
   ['Middle East', 'Deep histories and strong family values — contributing across business, healthcare, education and public service.', ['Lebanon', 'Syria', 'Iran', 'Iraq', 'Jordan', 'UAE']],
-  ['North America', 'Including Indigenous peoples, Francophone and Anglophone communities, and cross-border Canadian–US ties.', ['First Nations', 'Inuit', 'Métis', 'Canada', 'United States']],
+  ['North America', 'Francophone and Anglophone communities and cross-border Canadian–US ties.', ['Canada', 'United States']],
   ['Pacific Islands', 'Pacific Islander communities bring unique cultural heritage, resilience and global connection.', ['Fiji', 'Samoa', 'Tonga', 'Hawaii', 'New Zealand']],
 ];
 export const CITIES = [['🇨🇦', 'Toronto'], ['🇨🇦', 'Vancouver'], ['🇨🇦', 'Montreal'], ['🇨🇦', 'Calgary'], ['🇺🇸', 'New York'], ['🇺🇸', 'Miami'], ['🇺🇸', 'Orlando'], ['🇺🇸', 'Atlanta'], ['🇺🇸', 'Houston'], ['🇬🇧', 'London'], ['🇳🇬', 'Lagos'], ['🇮🇳', 'Mumbai'], ['🇵🇭', 'Manila'], ['🇧🇷', 'São Paulo'], ['🇯🇲', 'Kingston'], ['🇰🇪', 'Nairobi'], ['🇦🇪', 'Dubai'], ['🇬🇭', 'Accra'], ['🇨🇳', 'Beijing'], ['🇰🇷', 'Seoul'], ['🇲🇽', 'Mexico City']];
@@ -324,7 +325,7 @@ ${formSection({
     ],
     consent: 'I agree to be contacted about the AFSVHCL™ ambassador initiative.',
     submit: 'Keep up to date',
-    status: `${PREVIEW} Submissions will route to the community team once confirmed.`,
+    status: SENT,
   }),
 })}`,
   };
@@ -352,7 +353,7 @@ export function efn() {
     ogImage: IMG('village/efn-arena.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Esports & Digital' }, { label: 'EFN – Esports & Fans Network' }])}
-${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where sports meets digital.', img: 'village/efn-arena.jpg', alt: 'Concept rendering: a packed esports arena hosting a football video game tournament, with players on stage and giant screens showing soccer gameplay.', lead: 'EFN is the proposed digital and esports division of AFSVHCL™ — connecting athletes and fans through competitive gaming, live streaming and interactive media. Home of FanZone™.', badge: '', ctas: [{ label: 'Get connected', href: EFN_URL }, { label: 'Explore FanZone™', href: '/fanzone' }] })}
+${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where sport meets digital.', img: 'village/efn-arena.jpg', alt: 'Concept rendering: a packed esports arena hosting a football video game tournament, with players on stage and giant screens showing soccer gameplay.', lead: 'EFN is the proposed digital and esports division of AFSVHCL™ — connecting athletes and fans through competitive gaming, live streaming and interactive media. Home of FanZone™.', badge: '', ctas: [{ label: 'Get connected', href: EFN_URL }, { label: 'Explore FanZone™', href: '/fanzone' }] })}
 <section class="efn efn--page" data-el="efn.core" data-el-build="elementor">
   <div class="wrap section">
     ${head('The network', 'Four ways EFN connects.')}
@@ -378,7 +379,7 @@ ${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where spo
       <h2 class="h2 mb-m">Get connected.</h2>
       <p class="lead">Tournaments, live streams, athlete media and the fan community — all on the EFN platform.</p>
     </div>
-    <span class="efn-site__btn">Visit EFN ${arrow()}</span>
+    <span class="efn-site__btn">Register interest in EFN ${arrow()}</span>
   </a>
 </section>
 ${formSection({
@@ -395,7 +396,7 @@ ${formSection({
     ],
     consent: 'I agree to be contacted about the EFN platform.',
     submit: 'Get in touch',
-    status: `${PREVIEW} Submissions will route to the EFN team once confirmed.`,
+    status: SENT,
   }),
 })}`,
   };
@@ -499,7 +500,7 @@ export function accessibility() {
     body: html`${legalDoc({
       kicker: 'Accessibility', title: 'Accessibility Statement', icon: 'Hand',
       intro: 'AFSVHCL™ is committed to ensuring digital accessibility for people of all abilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.',
-      meta: [['Last updated', 'June 7, 2026'], ['Standard', 'WCAG 2.1 Level AA']],
+      meta: [['Last updated', 'June 7, 2026'], ['Target standard', 'WCAG 2.2 Level AA']],
       sections: [
         { h: 'Our commitment', p: ['Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™) believes that the internet should be accessible to all people, including those with disabilities. We are committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability.', 'Inclusion is one of our core values — not just in our sports and education programs, but in every aspect of how we communicate and engage with the public. Our commitment to digital accessibility reflects our broader mission of creating equitable opportunities for all.'] },
         { h: 'Accessibility standards', p: ['We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. These guidelines explain how to make web content more accessible to people with a wide range of disabilities, including:'], cards: [['Eye', 'Visual impairments', 'Including blindness, low vision and colour blindness.'], ['Ear', 'Hearing impairments', 'Including deafness and hard of hearing.'], ['Mind', 'Cognitive disabilities', 'Including learning disabilities, attention deficit and memory limitations.'], ['Hand', 'Motor impairments', 'Including limited fine motor control and physical disabilities.']], after: ['We also aim to comply with the Accessibility for Ontarians with Disabilities Act (AODA) and the Accessible Canada Act, as applicable to our digital presence.'] },
@@ -573,7 +574,7 @@ ${affiliateNetwork()}`,
   ${head('MLMSR Mentorship LLC', 'Proposed education & support programs.', 'Through MLMSR Mentorship LLC, AFSVHCL™ integrates academic support, mentorship and neurodivergent programming into every aspect of the proposed village.')}
   ${kgrid([
     ['Mind', 'Autism Spectrum Support', 'Structured programs integrating physical activity with social skills development and sensory-friendly environments.'],
-    ['Track and sprint', 'ADHD Strategies', 'Focused training environments and mentorship tailored for athletes with ADHD — channelling energy into achievement and growth.'],
+    ['Track and sprint', 'ADHD Strategies', 'Planned training environments and mentorship shaped around each athlete’s individual strengths and needs, with support from qualified independent providers.'],
     ['Inclusive education', 'Dyslexia & Learning Support', 'Academic support and alternative learning methods for athletes with reading challenges and learning differences.'],
     ['Community', 'Family Support Resources', 'Resources and counselling for families navigating neurodivergent challenges — supporting the whole family.'],
     ['Mentorship', 'Mentorship & Leadership', 'One-on-one and group mentorship connecting youth athletes with community leaders, coaches and role models.'],
@@ -583,11 +584,7 @@ ${affiliateNetwork()}`,
 <section class="band--navy" data-el="education.need" data-el-build="elementor">
   <div class="wrap section">
     <div class="section-head reveal"><p class="eyebrow mb-s">The need is real</p><h2 class="h2">Why inclusion matters.</h2></div>
-    <div class="need" data-stagger>
-      <div><b>1 in 5</b><h3>Children in Canada are neurodivergent</h3><p>Autism, ADHD, dyslexia and other learning differences affect millions of Canadian families.</p></div>
-      <div><b>Millions</b><h3>Families across Canada need support</h3><p>Neurodivergent youth and families in every province need accessible, integrated programming.</p></div>
-      <div><b>Thousands</b><h3>Youth athletes underserved</h3><p>Young athletes who would benefit from integrated sports and education programming.</p></div>
-    </div>
+    ${ndStats('dark')}
   </div>
 </section>`,
 };
@@ -625,7 +622,7 @@ export const aboutExtra = () => html`
 const ROADMAP = [
   ['2026–2028', 'Pilot project', 'Secure financing, land and approvals, and construct the first Smart Sports Village dome in Ontario.'],
   ['2028–2029', 'Regional expansion', 'Expand across the region with additional facilities, programs and institutional partnerships.'],
-  ['2029–2031', 'National network', 'A planned network of 10 domes across Canada.'],
+  ['2029–2031', 'National network', 'An aspirational network of up to 10 domes across Canada, subject to sites, financing, approvals and partners.'],
   ['2031+', 'International', 'Caribbean and international expansion connecting diaspora communities through sport and education.'],
 ];
 export const whitbyOverview = () => html`
@@ -643,7 +640,7 @@ export const whitbyOverview = () => html`
 export const whitbyRoadmap = () => html`
 <section class="band--navy roadmap" data-el="whitby.roadmap" data-el-build="elementor" data-roadmap>
   <div class="wrap section">
-    <div class="section-head reveal"><p class="eyebrow mb-s">Development roadmap</p><h2 class="h2">From pilot to national network.</h2><p class="body-lg">Timelines are targets, subject to financing, approvals and feasibility.</p></div>
+    <div class="section-head reveal"><p class="eyebrow mb-s">Development roadmap</p><h2 class="h2">From pilot to national network.</h2><p class="body-lg">An aspirational roadmap. Timelines are targets, subject to sites, financing, approvals, partners and feasibility.</p></div>
     <ol class="roadmap__line">
       ${ROADMAP.map(([y, t, b], i) => html`<li class="roadmap__step" style="--i:${i}"><span class="roadmap__dot">${i + 1}</span><span class="roadmap__year">${y}</span><h3>${t}</h3><p>${b}</p></li>`)}
     </ol>
@@ -654,7 +651,7 @@ export const whitbyRoadmap = () => html`
 const TIER_DETAIL = [
   { name: 'Community Membership', for: 'For individuals', groups: [
     ['Community', ['Digital membership card + member badge (in-app)', 'Welcome certificate', 'Access to member community platform', 'Local chapter events (as available)', 'Volunteer and opportunity board']],
-    ['Marketplace', ['10–15% member pricing on purchases', 'Early access to new merchandise drops', 'Exclusive limited edition access', 'Member-only flash sales']],
+    ['Marketplace', ['Proposed member pricing (details to be confirmed)', 'Early access to new merchandise drops', 'Exclusive limited edition access', 'Member-only flash sales']],
     ['Education & neurodivergent support', ['Family Learning Hub (virtual): resource library, parent webinars', 'Career readiness, financial literacy, entrepreneurship', 'Mental wellness resources', 'Virtual fitness & community challenges', 'Sports development & nutrition content', 'Youth athlete resources']],
     ['Impact & recognition', ['Annual member-facing Impact Report', 'Founding member recognition window (time-limited)']],
     ['Welcome package', ['Premium AFSVHCL branded hoodie', 'Digital membership card', 'Welcome certificate', 'Exclusive member badge in app']],
@@ -704,8 +701,8 @@ export const membershipExtra = () => html`
     <div class="fund__grid">
       <div class="reveal">
         <p class="eyebrow mb-s">Neurodivergent Inclusion Fund</p>
-        <h2 class="h2 mb-m">Every membership changes a life.</h2>
-        <p class="lead mb-l">A fixed amount from every membership is proposed for a dedicated Neurodivergent Inclusion Fund — measured and reported annually.</p>
+        <h2 class="h2 mb-m">Help expand access through membership.</h2>
+        <p class="lead mb-l">A contribution from membership is proposed for a dedicated Neurodivergent Inclusion Fund, subject to approved fund arrangements and reported annually once in place.</p>
         <div class="coins">
           <div class="coin"><b>Every</b><span>individual membership</span><em>gives back</em></div>
           <div class="coin coin--gold"><b>Every</b><span>business membership</span><em>gives more</em></div>
@@ -729,7 +726,7 @@ export const membershipExtra = () => html`
     <div class="reveal"><p class="eyebrow mb-s">Frequently asked questions</p><h2 class="h2">Membership FAQ.</h2></div>
     ${faq([
       ['When can I join?', 'Membership isn’t open yet. Pre-register on the Become a Member page and we’ll email you as soon as it goes live, with everything you need to join. Pre-registering is free and there’s no commitment.'],
-      ['What happens to the Inclusion Fund?', 'AFSVHCL proposes to commit a share of every individual and business membership to a dedicated Neurodivergent Inclusion Fund supporting assessments, tutoring, employment readiness, assistive technology, family support services and scholarships. Allocation would be measured and reported annually.'],
+      ['What happens to the Inclusion Fund?', 'AFSVHCL proposes to direct a share of individual and business membership, subject to approved fund arrangements, to a dedicated Neurodivergent Inclusion Fund supporting assessments, tutoring, employment readiness, assistive technology, family support services and scholarships. Allocation would be measured and reported annually.'],
       ['How do I redeem rewards?', 'The proposed Community Rewards Program lets members earn points for referrals, volunteering, purchases and event participation, redeemable for merchandise, event tickets, membership renewals and partner discounts. Full details will be shared at program launch.'],
       ['Can I upgrade from Individual to Business?', 'Yes. When the program launches, individual members will be able to upgrade to a business membership.'],
       ['What if I’m outside Canada?', 'Membership is planned to be open to individuals and businesses worldwide. Digital benefits, the learning hub, virtual events and the community platform are accessible globally; physical benefits such as local chapter events and merchandise shipping may vary by location.'],
@@ -777,7 +774,7 @@ export const contactExtra = () => html`
     <div class="reveal">
       <p class="eyebrow mb-s">What to expect</p>
       <h2 class="h2 mb-m">Conversations, not sales.</h2>
-      <ul class="check-list">${['We respond to all inquiries within 2–3 business days', 'Initial conversations are exploratory and non-binding', 'No sales pressure — we’re building relationships', 'All discussions are confidential'].map((t) => html`<li>${t}</li>`)}</ul>
+      <ul class="check-list">${['We aim to respond within 2–3 business days', 'Initial conversations are exploratory and non-binding', 'No sales pressure — we’re building relationships', 'We handle inquiries in accordance with our Privacy Policy'].map((t) => html`<li>${t}</li>`)}</ul>
     </div>
     <div class="itypes" data-stagger>
       ${[['Handshake', 'Partnership & sponsorship', 'Corporate partnerships and institutional collaborations.'], ['Building', 'Community & municipal stakeholders', 'Municipalities, school boards and community organizations.'], ['Soccer', 'Athlete & program interest', 'Keep up to date on proposed athlete programs.'], ['Globe', 'Diaspora network interest', 'The proposed Global Diaspora Network.'], ['Signal', 'Media & press', 'Information requests from media organizations.']].map(([i, t, b]) => html`<div class="itype"><span>${ico(i)}</span><div><b>${t}</b><small>${b}</small></div></div>`)}
@@ -798,7 +795,7 @@ ${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'l
   <div class="cgrid">
     <div class="cgrid__form">
       <p class="eyebrow mb-s">Send us a message</p>
-      <h2 class="h2 mb-s">We reply within 2–3 business days.</h2>
+      <h2 class="h2 mb-s">We aim to reply within 2–3 business days.</h2>
       <p class="muted mb-m">All inquiries are exploratory and non-binding.</p>
       ${previewForm({
         fields: [
@@ -826,7 +823,7 @@ ${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'l
           <li><span>${ico('Mentorship')}</span><div><small>Primary contact</small><b>Martin Lashley</b><em>Chairman &amp; CEO, AFSVHCL™</em></div></li>
         </ul>
         <p class="eyebrow">What to expect</p>
-        <ul class="check-list">${['A reply within 2–3 business days', 'Exploratory, non-binding conversations', 'No sales pressure — we’re building relationships', 'All discussions are confidential'].map((t) => html`<li>${t}</li>`)}</ul>
+        <ul class="check-list">${['We aim to reply within 2–3 business days', 'Exploratory, non-binding conversations', 'No sales pressure — we’re building relationships', 'We handle inquiries in accordance with our Privacy Policy'].map((t) => html`<li>${t}</li>`)}</ul>
       </div>
       <div class="cside cside--light">
         <p class="eyebrow">Looking for something specific?</p>

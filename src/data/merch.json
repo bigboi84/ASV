@@ -35,7 +35,7 @@
       "slug": "executive-aviator-jacket",
       "name": "Executive Aviator Jacket",
       "collection": "executive-apparel",
-      "desc": "A black aviator-style jacket with a warm shearling-style collar, gold zips and gold-tipped ribbed trims, finished with a small gold crest on the chest.",
+      "desc": "A black aviator-style jacket with a warm textured collar, gold zips and gold-tipped ribbed trims, finished with a small gold crest on the chest.",
       "colours": [
         {
           "name": "Black",
@@ -54,7 +54,7 @@
       "slug": "executive-leather-jacket",
       "name": "Executive Leather Jacket",
       "collection": "executive-apparel",
-      "desc": "A clean black leather-style jacket with a point collar and gold zip, carrying a small gold crest on the chest.",
+      "desc": "A clean black jacket with a point collar and gold zip, carrying a small gold crest on the chest. Material to be confirmed.",
       "colours": [
         {
           "name": "Black",
@@ -87,7 +87,7 @@
       "slug": "executive-beanie",
       "name": "Executive Beanie",
       "collection": "executive-accessories",
-      "desc": "A ribbed black beanie with a pom, carrying a small gold crest on the cuff.",
+      "desc": "A ribbed black beanie with a pom-pom, carrying a small gold crest on the cuff.",
       "colours": [
         {
           "name": "Black",
@@ -226,7 +226,7 @@
       "slug": "parka",
       "name": "Parka",
       "collection": "everyday-apparel",
-      "desc": "A navy hooded winter parka with a faux-fur-style trim and utility pockets, finished with a small colour crest.",
+      "desc": "A navy hooded winter parka with a trimmed hood and utility pockets, finished with a small colour crest.",
       "colours": [
         {
           "name": "Navy",

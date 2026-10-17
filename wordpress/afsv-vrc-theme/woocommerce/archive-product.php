@@ -34,7 +34,7 @@ echo afsv_shop_breadcrumb( array( array( 'Marketplace', home_url( '/marketplace/
 			continue;
 		}
 		?>
-    <button type="button" class="mk-chip" data-filter="<?php echo esc_attr( $slug ); ?>" aria-pressed="<?php echo $slug === $active ? 'true' : 'false'; ?>"><?php echo esc_html( $term->name ); ?> <span><?php echo (int) $counts[ $slug ]; ?></span></button>
+    <button type="button" class="mk-chip" id="<?php echo esc_attr( $slug ); ?>" data-filter="<?php echo esc_attr( $slug ); ?>" aria-pressed="<?php echo $slug === $active ? 'true' : 'false'; ?>"><?php echo esc_html( $term->name ); ?> <span><?php echo (int) $counts[ $slug ]; ?></span></button>
 	<?php endforeach; ?>
   </div>
   <p class="sr-only" aria-live="polite" data-merch-status></p>

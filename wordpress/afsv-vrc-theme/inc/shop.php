@@ -16,7 +16,7 @@
 defined( 'ABSPATH' ) || exit;
 
 const AFSV_CONCEPT      = 'Concept — pending approval';
-const AFSV_CONCEPT_NOTE = 'Concept visualisations for executive review. Final crest artwork, colours, sizing, pricing and product details are subject to approval.';
+const AFSV_CONCEPT_NOTE = 'Concept preview. Final design, materials, colours, sizes and pricing are subject to approval.';
 const AFSV_COLLECTIONS  = array( 'executive-apparel', 'executive-accessories', 'everyday-apparel', 'everyday-accessories' );
 
 function afsv_merch_img( $f ) {

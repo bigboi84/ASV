@@ -164,7 +164,7 @@
   <div class="wrap section">
     <h2 class="h2 mb-l reveal" style="max-width:26ch">What each program record holds.</h2>
     <div class="hairline" style="--min:260px" data-stagger>
-      <div class="cell" style="min-height:240px;padding:34px 28px 38px"><span class="num">01</span><h3 class="h3">Structured records</h3><p style="font-size:15.5px">Approved title, status, age group, ability level, format, schedule, location, capacity, prerequisites, accessibility, coach or provider, price, media and registration route.</p></div><div class="cell" style="min-height:240px;padding:34px 28px 38px"><span class="num">02</span><h3 class="h3">Status labels</h3><p style="font-size:15.5px">Every program carries a visible status. Until it is approved the record shows “Program details coming soon” and collects interest only.</p></div><div class="cell" style="min-height:240px;padding:34px 28px 38px"><span class="num">03</span><h3 class="h3">Adaptive pathway</h3><p style="font-size:15.5px">Adaptive and sensory-friendly sport is a named category in its own right, not an accommodation applied to another program.</p></div><div class="cell" style="min-height:240px;padding:34px 28px 38px"><span class="num">04</span><h3 class="h3">Registration later</h3><p style="font-size:15.5px">Registration and payment stay switched off until inventory, schedules, pricing, waivers and refund terms are approved.</p></div>
+      <div class="cell" style="min-height:240px;padding:34px 28px 38px"><span class="num">01</span><h3 class="h3">Structured records</h3><p style="font-size:15.5px">Approved title, status, age group, ability level, format, schedule, location, capacity, prerequisites, accessibility, coach or provider, price, media and registration route.</p></div><div class="cell" style="min-height:240px;padding:34px 28px 38px"><span class="num">02</span><h3 class="h3">Status labels</h3><p style="font-size:15.5px">Every program carries a visible status. Until it is approved the record shows “Program details coming soon” and collects interest only.</p></div><div class="cell" style="min-height:240px;padding:34px 28px 38px"><span class="num">03</span><h3 class="h3">Adaptive pathway</h3><p style="font-size:15.5px">Adaptive and sensory-friendly sport is a named category in its own right, not an accommodation applied to another program.</p></div><div class="cell" style="min-height:240px;padding:34px 28px 38px"><span class="num">04</span><h3 class="h3">Registration later</h3><p style="font-size:15.5px">Programs are planned. Register interest for launch updates; registration opens only once schedules, pricing and terms are approved.</p></div>
     </div>
   </div>
 </section>
@@ -273,7 +273,7 @@
 </div>
 <div class="field">
   <label class="field__label" for="f65">Sport or program<span class="req" aria-hidden="true">*</span></label>
-  <select id="f65" name="sport-or-program" aria-describedby="f65-err" required aria-required="true"><option value="">Please select</option><option value="Multi-sport development">Multi-sport development</option><option value="Soccer">Soccer</option><option value="Cricket">Cricket</option><option value="Basketball">Basketball</option><option value="Track and sprint">Track and sprint</option><option value="Strength and conditioning">Strength and conditioning</option><option value="Camps and clinics">Camps and clinics</option><option value="Adaptive and sensory-friendly sport">Adaptive and sensory-friendly sport</option><option value="Athlete mentorship">Athlete mentorship</option><option value="Not sure yet">Not sure yet</option></select>
+  <select id="f65" name="sport-or-program" aria-describedby="f65-err" required aria-required="true"><option value="">Please select</option><option value="Multi-sport development">Multi-sport development</option><option value="Soccer">Soccer</option><option value="Cricket">Cricket</option><option value="Basketball">Basketball</option><option value="Track and sprint">Track and sprint</option><option value="Strength and conditioning">Strength and conditioning</option><option value="Camps and clinics">Camps and clinics</option><option value="Coach education">Coach education</option><option value="Adaptive and sensory-friendly sport">Adaptive and sensory-friendly sport</option><option value="Athlete mentorship">Athlete mentorship</option><option value="Not sure yet">Not sure yet</option></select>
   
   <span class="field__error" id="f65-err" aria-live="polite"></span>
 </div>
@@ -307,16 +307,13 @@
   
   <span class="field__error" id="f70-err" aria-live="polite"></span>
 </div></div>
-  <label class="check" for="f60"><input type="checkbox" id="f60" name="consent" required aria-describedby="f60-err"><span>I agree to be contacted about this inquiry and to receive occasional updates from AFSV VRC. You can unsubscribe at any time.<span class="field__error" id="f60-err"></span></span></label>
-  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. On the live site it routes to a named owner and sends an automatic confirmation.</div>
+  <p class="small muted form__privacy">Please do not include diagnoses, medical records or financial documents in this form. If follow-up needs that information, our team will arrange a secure channel.</p>
+  <label class="check" for="f60"><input type="checkbox" id="f60" name="consent" required aria-describedby="f60-err"><span>I agree to AFSV VRC contacting me about this inquiry.<span class="field__error" id="f60-err"></span></span></label>
+
+  <label class="check" for="f60m"><input type="checkbox" id="f60m" name="marketing" value="yes"><span>Optional: send me occasional updates from AFSV VRC by email. I can unsubscribe at any time.</span></label>
+  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Your details have been received. We will be in touch with updates as plans are approved.</div>
   <div><button type="submit" class="btn btn--navy">Submit inquiry<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></button></div>
 </form>
-  </div>
-</section>
-
-<section class="wrap" data-el="status.pending-inputs" data-el-build="elementor" style="padding-bottom:88px">
-  <div class="pending"><span class="eyebrow">Pending inputs</span>
-    <p>Page copy follows the approved brief. Still outstanding: final photography, approved logos and partner permissions, mailbox routing, legal policies, operational program data, pricing, dates and a named content owner.</p>
   </div>
 </section>
 

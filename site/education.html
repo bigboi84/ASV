@@ -194,7 +194,7 @@
     </article><article class="kcard">
       <span class="kcard__ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="14.6" cy="4.6" r="1.8"/><path d="M8.2 9.6l3.4-2 3 1.8 2 3.2 2.6.6"/><path d="M11.6 7.6l-1.4 5.6 3.2 2.6-.8 5"/><path d="M10.2 13.2l-2.6 3.4-3.6-.4"/><path d="M2.6 21h6M15.6 21h5.8"/></svg></span>
       <h3>ADHD Strategies</h3>
-      <p>Focused training environments and mentorship tailored for athletes with ADHD — channelling energy into achievement and growth.</p>
+      <p>Planned training environments and mentorship shaped around each athlete’s individual strengths and needs, with support from qualified independent providers.</p>
       
     </article><article class="kcard">
       <span class="kcard__ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 6.6C9.8 5 6.6 4.6 3.4 5v13.4c3.2-.4 6.4 0 8.6 1.6 2.2-1.6 5.4-2 8.6-1.6V5c-3.2-.4-6.4 0-8.6 1.6z"/><path d="M12 6.6v13.4"/><path d="M15.8 10.4c.6-1 2.4-.8 2.4.6 0 1.2-2.4 2.6-2.4 2.6s-2.4-1.4-2.4-2.6c0-1.4 1.8-1.6 2.4-.6z"/></svg></span>
@@ -222,11 +222,17 @@
 <section class="band--navy" data-el="education.need" data-el-build="elementor">
   <div class="wrap section">
     <div class="section-head reveal"><p class="eyebrow mb-s">The need is real</p><h2 class="h2">Why inclusion matters.</h2></div>
-    <div class="need" data-stagger>
-      <div><b>1 in 5</b><h3>Children in Canada are neurodivergent</h3><p>Autism, ADHD, dyslexia and other learning differences affect millions of Canadian families.</p></div>
-      <div><b>Millions</b><h3>Families across Canada need support</h3><p>Neurodivergent youth and families in every province need accessible, integrated programming.</p></div>
-      <div><b>Thousands</b><h3>Youth athletes underserved</h3><p>Young athletes who would benefit from integrated sports and education programming.</p></div>
+    
+  <div class="ndstats ndstats--dark" data-el="nd-stats-2023">
+    <p class="ndstats__lead">Every child deserves opportunities to learn, participate and belong.</p>
+    <div class="ndstats__grid" data-stagger>
+      <div class="ndstats__fig"><b>8.4%</b><h3>Diagnosed ADHD</h3><p>Children and youth aged 1–17 · 2023 data</p></div><div class="ndstats__fig"><b>3.0%</b><h3>Diagnosed autism</h3><p>Children and youth aged 1–17 · 2023 data</p></div><div class="ndstats__fig"><b>6.8%</b><h3>Diagnosed learning disabilities or disorders</h3><p>Children and youth aged 5–17 · 2023 data</p></div>
     </div>
+    <p class="ndstats__body">Government of Canada analysis of the 2023 Canadian Health Survey on Children and Youth reports diagnosed ADHD in 8.4% of children and youth aged 1–17, autism in 3.0% of those aged 1–17, and learning disabilities or disorders in 6.8% of those aged 5–17 across Canada’s ten provinces.</p>
+    <p class="ndstats__body">AFSV VRC’s proposed Sports Village places neurodivergent inclusion at the centre of its planning for sports, education and life skills.</p>
+    <p class="ndstats__note">2023 survey data for Canada’s ten provinces (territories not included), based on parent or guardian reports of diagnosed conditions. Age groups differ and diagnoses overlap, so these figures are not added together and are not an overall estimate of neurodivergence.</p>
+    <p class="ndstats__src">Source: <a href="https://health-infobase.canada.ca/chronic-conditions/childhood/prevalence.html" target="_blank" rel="noopener">Public Health Agency of Canada, Chronic conditions in childhood: Prevalence</a>, using 2023 Canadian Health Survey on Children and Youth data. <a href="https://health-infobase.canada.ca/chronic-conditions/childhood/technical-notes.html" target="_blank" rel="noopener">Methodology</a></p>
+  </div>
   </div>
 </section>
 
@@ -242,69 +248,72 @@
   <p class="small muted">Fields marked <span aria-hidden="true" style="color:var(--danger)">*</span><span class="sr-only">with an asterisk</span> are required.</p>
   <div class="form__grid">
 <div class="field">
-  <label class="field__label" for="f72">Name or caregiver name<span class="req" aria-hidden="true">*</span></label>
-  <input type="text" id="f72" name="name-or-caregiver-name" aria-describedby="f72-err" required aria-required="true" placeholder="Full name">
+  <label class="field__label" for="f72">I am<span class="req" aria-hidden="true">*</span></label>
+  <select id="f72" name="i-am" aria-describedby="f72-err" required aria-required="true"><option value="">Please select</option><option value="A parent or guardian">A parent or guardian</option><option value="A learner (18 or over)">A learner (18 or over)</option><option value="An educator">An educator</option><option value="A school or institution">A school or institution</option><option value="Other">Other</option></select>
   
   <span class="field__error" id="f72-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f73">Email<span class="req" aria-hidden="true">*</span></label>
-  <input type="email" id="f73" name="email" aria-describedby="f73-err" required aria-required="true" placeholder="you@example.com">
+  <label class="field__label" for="f73">Name or caregiver name<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f73" name="name-or-caregiver-name" aria-describedby="f73-err" required aria-required="true" placeholder="Full name">
   
   <span class="field__error" id="f73-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f74">Phone <span class="opt">(optional)</span></label>
-  <input type="tel" id="f74" name="phone" aria-describedby="f74-err" placeholder="Optional">
+  <label class="field__label" for="f74">Email<span class="req" aria-hidden="true">*</span></label>
+  <input type="email" id="f74" name="email" aria-describedby="f74-err" required aria-required="true" placeholder="you@example.com">
   
   <span class="field__error" id="f74-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f75">Learner age range<span class="req" aria-hidden="true">*</span></label>
-  <select id="f75" name="learner-age-range" aria-describedby="f75-err" required aria-required="true"><option value="">Please select</option><option value="Under 8">Under 8</option><option value="8–11">8–11</option><option value="12–14">12–14</option><option value="15–17">15–17</option><option value="18–24">18–24</option><option value="25+">25+</option></select>
+  <label class="field__label" for="f75">Phone <span class="opt">(optional)</span></label>
+  <input type="tel" id="f75" name="phone" aria-describedby="f75-err" placeholder="Optional">
   
   <span class="field__error" id="f75-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f76">Region<span class="req" aria-hidden="true">*</span></label>
-  <input type="text" id="f76" name="region" aria-describedby="f76-err" required aria-required="true" placeholder="City or region">
+  <label class="field__label" for="f76">Learner age range (families and learners) <span class="opt">(optional)</span></label>
+  <select id="f76" name="learner-age-range-families-and-learners" aria-describedby="f76-err"><option value="">Please select</option><option value="Under 8">Under 8</option><option value="8–11">8–11</option><option value="12–14">12–14</option><option value="15–17">15–17</option><option value="18–24">18–24</option><option value="25+">25+</option></select>
   
   <span class="field__error" id="f76-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f77">Areas of interest<span class="req" aria-hidden="true">*</span></label>
-  <select id="f77" name="areas-of-interest" aria-describedby="f77-err" required aria-required="true"><option value="">Please select</option><option value="Tutoring">Tutoring</option><option value="Literacy">Literacy</option><option value="Mathematics">Mathematics</option><option value="Academic coaching">Academic coaching</option><option value="Study skills">Study skills</option><option value="Executive-function coaching">Executive-function coaching</option><option value="Homework support">Homework support</option><option value="Technology-assisted learning">Technology-assisted learning</option><option value="Career exploration">Career exploration</option><option value="Mentorship">Mentorship</option><option value="Digital literacy">Digital literacy</option><option value="Financial literacy">Financial literacy</option></select>
+  <label class="field__label" for="f77">Region<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f77" name="region" aria-describedby="f77-err" required aria-required="true" placeholder="City or region">
   
   <span class="field__error" id="f77-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f78">Preferred format <span class="opt">(optional)</span></label>
-  <select id="f78" name="preferred-format" aria-describedby="f78-err"><option value="">Please select</option><option value="In person">In person</option><option value="Virtual">Virtual</option><option value="Either">Either</option></select>
+  <label class="field__label" for="f78">Areas of interest<span class="req" aria-hidden="true">*</span></label>
+  <select id="f78" name="areas-of-interest" aria-describedby="f78-err" required aria-required="true"><option value="">Please select</option><option value="Tutoring">Tutoring</option><option value="Literacy">Literacy</option><option value="Mathematics">Mathematics</option><option value="Academic coaching">Academic coaching</option><option value="Study skills">Study skills</option><option value="Executive-function coaching">Executive-function coaching</option><option value="Homework support">Homework support</option><option value="Technology-assisted learning">Technology-assisted learning</option><option value="Career exploration">Career exploration</option><option value="Mentorship">Mentorship</option><option value="Digital literacy">Digital literacy</option><option value="Financial literacy">Financial literacy</option></select>
   
   <span class="field__error" id="f78-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f79">Organization, if applicable <span class="opt">(optional)</span></label>
-  <input type="text" id="f79" name="organization-if-applicable" aria-describedby="f79-err" placeholder="School, college or community organization">
+  <label class="field__label" for="f79">Preferred format <span class="opt">(optional)</span></label>
+  <select id="f79" name="preferred-format" aria-describedby="f79-err"><option value="">Please select</option><option value="In person">In person</option><option value="Virtual">Virtual</option><option value="Either">Either</option></select>
   
   <span class="field__error" id="f79-err" aria-live="polite"></span>
 </div>
-<div class="field field--full">
-  <label class="field__label" for="f80">Accommodation request <span class="opt">(optional)</span></label>
-  <textarea id="f80" name="accommodation-request" aria-describedby="f80-err" rows="4" placeholder="Optional — anything that would help us respond well"></textarea>
+<div class="field">
+  <label class="field__label" for="f80">Organization, if applicable <span class="opt">(optional)</span></label>
+  <input type="text" id="f80" name="organization-if-applicable" aria-describedby="f80-err" placeholder="School, college or community organization">
   
   <span class="field__error" id="f80-err" aria-live="polite"></span>
+</div>
+<div class="field field--full">
+  <label class="field__label" for="f81">Accommodation request <span class="opt">(optional)</span></label>
+  <textarea id="f81" name="accommodation-request" aria-describedby="f81-err" rows="4" placeholder="Optional — anything that would help us respond well"></textarea>
+  
+  <span class="field__error" id="f81-err" aria-live="polite"></span>
 </div></div>
-  <label class="check" for="f71"><input type="checkbox" id="f71" name="consent" required aria-describedby="f71-err"><span>I agree to be contacted about this inquiry and to receive occasional updates from AFSV VRC. You can unsubscribe at any time.<span class="field__error" id="f71-err"></span></span></label>
-  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. On the live site it routes to a named owner and sends an automatic confirmation.</div>
+  <p class="small muted form__privacy">Please do not include diagnoses, medical records or financial documents in this form. If follow-up needs that information, our team will arrange a secure channel.</p>
+  <label class="check" for="f71"><input type="checkbox" id="f71" name="consent" required aria-describedby="f71-err"><span>I agree to AFSV VRC contacting me about this inquiry.<span class="field__error" id="f71-err"></span></span></label>
+
+  <label class="check" for="f71m"><input type="checkbox" id="f71m" name="marketing" value="yes"><span>Optional: send me occasional updates from AFSV VRC by email. I can unsubscribe at any time.</span></label>
+  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Your details have been received. We will be in touch with updates as plans are approved.</div>
   <div><button type="submit" class="btn btn--navy">Submit inquiry<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></button></div>
 </form>
-  </div>
-</section>
-
-<section class="wrap" data-el="status.pending-inputs" data-el-build="elementor" style="padding-bottom:88px">
-  <div class="pending"><span class="eyebrow">Pending inputs</span>
-    <p>Page copy follows the approved brief. Still outstanding: final photography, approved logos and partner permissions, mailbox routing, legal policies, operational program data, pricing, dates and a named content owner.</p>
   </div>
 </section>
 

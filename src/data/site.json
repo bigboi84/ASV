@@ -440,7 +440,7 @@
         {
           "num": "04",
           "title": "Registration later",
-          "body": "Registration and payment stay switched off until inventory, schedules, pricing, waivers and refund terms are approved."
+          "body": "Programs are planned. Register interest for launch updates; registration opens only once schedules, pricing and terms are approved."
         }
       ],
       "form": {
@@ -493,6 +493,7 @@
               "Track and sprint",
               "Strength and conditioning",
               "Camps and clinics",
+              "Coach education",
               "Adaptive and sensory-friendly sport",
               "Athlete mentorship",
               "Not sure yet"
@@ -625,6 +626,18 @@
         "note": "We do not ask for diagnoses, assessments or medical records. Accommodation requests are optional.",
         "fields": [
           {
+            "l": "I am",
+            "k": "s",
+            "o": [
+              "A parent or guardian",
+              "A learner (18 or over)",
+              "An educator",
+              "A school or institution",
+              "Other"
+            ],
+            "req": true
+          },
+          {
             "l": "Name or caregiver name",
             "k": "t",
             "t": "text",
@@ -645,7 +658,7 @@
             "ph": "Optional"
           },
           {
-            "l": "Learner age range",
+            "l": "Learner age range (families and learners)",
             "k": "s",
             "o": [
               "Under 8",
@@ -654,8 +667,7 @@
               "15–17",
               "18–24",
               "25+"
-            ],
-            "req": true
+            ]
           },
           {
             "l": "Region",
@@ -831,6 +843,7 @@
               "Self-advocacy",
               "Social interaction",
               "Digital safety",
+              "Personal responsibility",
               "Goal setting",
               "Leadership",
               "Entrepreneurship"
@@ -1212,7 +1225,7 @@
       "h1": "Different Minds. Equal Opportunity.",
       "lead": "AFSV VRC is developing an inclusive ecosystem intended to expand access to sport, education, developmental support, life skills, technology and employment for neurodivergent people. Through qualified professionals, community organizations, businesses, sponsors and employers, the program intends to reduce financial and accessibility barriers.",
       "img": "assets/img/life/nd.jpg",
-      "alt": "Concept rendering: racially diverse neurodivergent kids and teens enjoying an adapted soccer session with patient coaches, one boy wearing ear defenders.",
+      "alt": "Concept rendering: racially diverse kids and teens enjoying an adapted soccer session with patient coaches, one boy wearing ear defenders.",
       "ctas": [
         {
           "label": "Get Support / Keep Up to Date",
@@ -1369,7 +1382,7 @@
       "h1": "Your Business Can Help Remove Barriers",
       "lead": "AFSV VRC is developing a network of businesses committed to creating opportunities for neurodivergent individuals and families.",
       "img": "assets/img/life/bfi.jpg",
-      "alt": "Concept rendering: racially diverse neurodivergent young employees working confidently in the village cafe and team store with a supportive manager.",
+      "alt": "Concept rendering: racially diverse young employees working confidently in the village cafe and team store with a supportive manager.",
       "ctas": [
         {
           "label": "Become a Corporate Partner",
@@ -1388,7 +1401,7 @@
           "href": "#interest"
         }
       ],
-      "note": "Sponsorship values and packages are administrator-configurable and are not published. Submissions feed an internal review workflow and are never auto-published.",
+      "note": "Sponsorship values and packages will be shared directly with interested organisations. Every inquiry is reviewed by our team.",
       "listTitle": "Participation pathways.",
       "listLead": "Seven ways a business can take part.",
       "list": [
@@ -1414,8 +1427,8 @@
         },
         {
           "num": "03",
-          "title": "Configurable contribution",
-          "body": "Values and packages are set by an administrator, so nothing is hardcoded and nothing is published before approval."
+          "title": "Tailored contribution",
+          "body": "Contribution levels and packages are agreed with each partner and shared once approved."
         },
         {
           "num": "04",
@@ -1820,7 +1833,7 @@
           "href": "/partners"
         }
       ],
-      "note": "AFSV VRC is not a charity. No donation receipt, tax deductibility, eligibility, funding availability or free service is promised. Contribution and payment functionality remains disabled until legal structure, accounting, privacy, eligibility and fund-administration rules are approved. The form below is an expression of interest, not a donation.",
+      "note": "AFSV VRC is not a charity. No donation receipt, tax deductibility, eligibility, funding availability or free service is promised. Contributions are not being accepted until the legal structure, accounting, privacy, eligibility and fund-administration rules are approved. The form below is an expression of interest, not a donation.",
       "listTitle": "Potential sources.",
       "listLead": "Ten possible sources. None is confirmed, and none implies charitable status.",
       "list": [
@@ -1839,8 +1852,8 @@
       "blocks": [
         {
           "num": "01",
-          "title": "Configurable outcomes",
-          "body": "Sponsored outcomes and their values are administrator-configurable. Nothing is hardcoded and nothing is published before approval."
+          "title": "Tailored outcomes",
+          "body": "Sponsored outcomes and their values are agreed with each sponsor and shared once approved."
         },
         {
           "num": "02",
@@ -1931,7 +1944,7 @@
             "req": true
           },
           {
-            "l": "Proposed value range",
+            "l": "Proposed value range (CAD)",
             "k": "s",
             "o": [
               "Prefer to discuss",
@@ -2626,7 +2639,7 @@
     {
       "num": "03",
       "title": "Outcome sponsorship",
-      "body": "Sponsorship structured around measurable participation, learning and inclusion outcomes. Values and packages are administrator-configurable and not published until approved."
+      "body": "Sponsorship structured around measurable participation, learning and inclusion outcomes. Values and packages are shared directly with interested partners once approved."
     },
     {
       "num": "04",
@@ -2867,7 +2880,7 @@
     },
     {
       "label": "Sport",
-      "body": "Flexible soccer, cricket, basketball, sprint and configurable sport space.",
+      "body": "Flexible soccer, cricket, basketball, sprint and multi-sport space.",
       "tag": ""
     },
     {
@@ -2904,7 +2917,7 @@
     {
       "num": "01",
       "title": "Multi-Sport Dome",
-      "body": "Configurable fields and courts for soccer, cricket, basketball, sprint training and other activities."
+      "body": "Adaptable fields and courts for soccer, cricket, basketball, sprint training and other activities."
     },
     {
       "num": "02",

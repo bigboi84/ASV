@@ -189,43 +189,46 @@
   <p class="small muted">Fields marked <span aria-hidden="true" style="color:var(--danger)">*</span><span class="sr-only">with an asterisk</span> are required.</p>
   <div class="form__grid">
 <div class="field">
-  <label class="field__label" for="f197">Name<span class="req" aria-hidden="true">*</span></label>
-  <input type="text" id="f197" name="name" autocomplete="name" aria-describedby="f197-err" required aria-required="true">
-  
-  <span class="field__error" id="f197-err" aria-live="polite"></span>
-</div>
-<div class="field">
-  <label class="field__label" for="f198">Email<span class="req" aria-hidden="true">*</span></label>
-  <input type="email" id="f198" name="email" autocomplete="email" aria-describedby="f198-err" required aria-required="true">
+  <label class="field__label" for="f198">Name<span class="req" aria-hidden="true">*</span></label>
+  <input type="text" id="f198" name="name" autocomplete="name" aria-describedby="f198-err" required aria-required="true">
   
   <span class="field__error" id="f198-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f199">Ambassador type<span class="req" aria-hidden="true">*</span></label>
-  <select id="f199" name="ambassador-type" aria-describedby="f199-err" required aria-required="true"><option value="">Select a type</option><option value="Brand Ambassadors">Brand Ambassadors</option><option value="Social Media Influencers">Social Media Influencers</option><option value="Athlete Ambassadors">Athlete Ambassadors</option><option value="Community Champions">Community Champions</option></select>
+  <label class="field__label" for="f199">Email<span class="req" aria-hidden="true">*</span></label>
+  <input type="email" id="f199" name="email" autocomplete="email" aria-describedby="f199-err" required aria-required="true">
   
   <span class="field__error" id="f199-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f200">City <span class="opt">(optional)</span></label>
-  <input type="text" id="f200" name="city" autocomplete="address-level2" aria-describedby="f200-err">
+  <label class="field__label" for="f200">Ambassador type<span class="req" aria-hidden="true">*</span></label>
+  <select id="f200" name="ambassador-type" aria-describedby="f200-err" required aria-required="true"><option value="">Select a type</option><option value="Brand Ambassadors">Brand Ambassadors</option><option value="Social Media Influencers">Social Media Influencers</option><option value="Athlete Ambassadors">Athlete Ambassadors</option><option value="Community Champions">Community Champions</option></select>
   
   <span class="field__error" id="f200-err" aria-live="polite"></span>
 </div>
 <div class="field">
-  <label class="field__label" for="f201">Social or portfolio link <span class="opt">(optional)</span></label>
-  <input type="url" id="f201" name="social-or-portfolio-link" aria-describedby="f201-err">
+  <label class="field__label" for="f201">City <span class="opt">(optional)</span></label>
+  <input type="text" id="f201" name="city" autocomplete="address-level2" aria-describedby="f201-err">
   
   <span class="field__error" id="f201-err" aria-live="polite"></span>
 </div>
-<div class="field field--full">
-  <label class="field__label" for="f202">Tell us about yourself <span class="opt">(optional)</span></label>
-  <textarea id="f202" name="tell-us-about-yourself" aria-describedby="f202-err" rows="4" placeholder=""></textarea>
+<div class="field">
+  <label class="field__label" for="f202">Social or portfolio link <span class="opt">(optional)</span></label>
+  <input type="url" id="f202" name="social-or-portfolio-link" aria-describedby="f202-err">
   
   <span class="field__error" id="f202-err" aria-live="polite"></span>
+</div>
+<div class="field field--full">
+  <label class="field__label" for="f203">Tell us about yourself <span class="opt">(optional)</span></label>
+  <textarea id="f203" name="tell-us-about-yourself" aria-describedby="f203-err" rows="4" placeholder=""></textarea>
+  
+  <span class="field__error" id="f203-err" aria-live="polite"></span>
 </div></div>
-  <label class="check" for="f196"><input type="checkbox" id="f196" name="consent" required aria-describedby="f196-err"><span>I agree to be contacted about the AFSVHCL™ ambassador initiative.<span class="field__error" id="f196-err"></span></span></label>
-  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Development preview — this form is not connected yet. Submissions will route to the community team once confirmed.</div>
+  <p class="small muted form__privacy">Please do not include diagnoses, medical records or financial documents in this form. If follow-up needs that information, our team will arrange a secure channel.</p>
+  <label class="check" for="f197"><input type="checkbox" id="f197" name="consent" required aria-describedby="f197-err"><span>I agree to be contacted about the AFSVHCL™ ambassador initiative.<span class="field__error" id="f197-err"></span></span></label>
+
+  <label class="check" for="f197m"><input type="checkbox" id="f197m" name="marketing" value="yes"><span>Optional: send me occasional updates from AFSV VRC by email. I can unsubscribe at any time.</span></label>
+  <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Your details have been received. We will be in touch with updates as plans are approved.</div>
   <div><button type="submit" class="btn btn--navy">Keep up to date<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></button></div>
 </form>
   </div>

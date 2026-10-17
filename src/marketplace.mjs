@@ -19,9 +19,9 @@ const LOOKS = [
   ['executive-beanie', 'executive-beanie-black.jpg', 'Executive Beanie'],
   ['polo', 'regular-polo-white.jpg', 'Polo · White'],
 ];
-const PREVIEW = 'Development preview — this form is not connected yet.';
+const SENT = 'Your details have been received. We will be in touch with updates as plans are approved.';
 const CONCEPT = 'Concept — pending approval';
-const CONCEPT_NOTE = 'Concept visualisations for executive review. Final crest artwork, colours, sizing, pricing and product details are subject to approval.';
+const CONCEPT_NOTE = 'Concept preview. Final design, materials, colours, sizes and pricing are subject to approval.';
 
 const collectionOf = (m, id) => m.collections.find((c) => c.id === id);
 const productsIn = (m, id) => m.products.filter((p) => p.collection === id);
@@ -96,9 +96,9 @@ function launchForm() {
         { label: 'Collection of interest', type: 'select', id: 'interest-collection', ph: 'Select a collection', options: ['Executive Apparel', 'Executive Accessories', 'Everyday & Sport Apparel', 'Everyday & Sport Accessories', 'All of the collection'] },
         { label: 'Pieces you are interested in', type: 'textarea', rows: 2, full: true },
       ],
-      consent: 'I agree to receive marketplace launch updates from AFSV VRC.',
+      consent: 'I agree to receive marketplace launch updates from AFSV VRC.', updatesList: true,
       submit: 'Join the Launch List',
-      status: `${PREVIEW} Launch-list submissions will route once commerce approvals are complete.`,
+      status: SENT,
     })}
   </div>
 </section>`;
@@ -121,7 +121,7 @@ export function marketplace(d, m) {
   const everyday = m.products.filter((p) => lineOf(m, p) === 'everyday');
   return {
     title: 'Marketplace',
-    description: 'Wear the Movement. Build the Future. A first look at the AFSV VRC collection: Executive and Everyday & Sport apparel and accessories, in concept for executive review.',
+    description: 'Wear the Movement. Build the Future. A first look at the AFSV VRC collection: Executive and Everyday & Sport apparel and accessories, shown as concept previews.',
     ogImage: M('executive-aviator-jacket-black.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Marketplace' }])}
@@ -203,7 +203,7 @@ ${breadcrumb([{ label: 'Marketplace' }])}
         <p class="eyebrow mb-s">The Everyday &amp; Sport line</p>
         <h2 class="h2" id="everyday-h">Made for training days and match days.</h2>
       </div>
-      <p class="body-lg muted">Navy and white essentials with the designer's colour crest, from tees and polos to winter layers, caps and bags.</p>
+      <p class="body-lg muted">Navy and white essentials with the colour AFSV VRC crest, from tees and polos to winter layers, caps and bags.</p>
     </div>
     <div class="merch-grid" data-stagger>${everyday.map((p) => merchCard(m, p))}</div>
     <p class="mt-l"><a class="text-link" href="shop.html">Browse the full collection — ${m.products.length} pieces ${arrow()}</a></p>
@@ -213,7 +213,7 @@ ${breadcrumb([{ label: 'Marketplace' }])}
 <section class="wrap section" data-el="marketplace.details" data-el-build="elementor">
   <div class="mk-details" data-stagger>
     <div><span class="num">01</span><h3>A smaller, discreet crest</h3><p>No wording beneath the mark. The crest sits quietly on the chest, cuff or front panel.</p></div>
-    <div><span class="num">02</span><h3>Gold or colour</h3><p>Gold crests identify the Executive line; the designer's colour crest marks Everyday &amp; Sport.</p></div>
+    <div><span class="num">02</span><h3>Gold or colour</h3><p>The gold AFSV VRC crest identifies the Executive line; the colour AFSV VRC crest marks Everyday &amp; Sport.</p></div>
     <div><span class="num">03</span><h3>Part of the ecosystem</h3><p>Marketplace purchases are intended to support athlete development, education and inclusion programs.</p></div>
   </div>
 </section>
@@ -233,7 +233,7 @@ ${breadcrumb([{ label: 'Marketplace' }])}
 </section>
 <section class="wrap section section--flush-top" data-el="marketplace.member-pricing" data-el-build="elementor">
   <div class="mprice reveal">
-    <div><p class="eyebrow mb-s">Member exclusive pricing</p><h2 class="h2">Unlock 10–15% off every purchase.</h2><p class="lead">AFSV VRC membership is proposed to unlock member pricing, early access to drops and member-only sales. Pre-register and we’ll email you when it opens.</p></div>
+    <div><p class="eyebrow mb-s">Proposed member benefits</p><h2 class="h2">Member benefits are coming.</h2><p class="lead">Proposed member benefits such as member pricing, early access to drops and member-only sales; details to be confirmed. Pre-register and we’ll email you when it opens.</p></div>
     <div class="btn-row">${btn('Become a member', '/become-a-member', 'gold')}</div>
   </div>
 </section>
@@ -269,7 +269,7 @@ ${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'The Col
 <section class="wrap section section--flush-top" data-el="shop.grid" data-el-build="plugin" data-merch>
   <div class="mk-filter" role="group" aria-label="Filter by collection">
     <button type="button" class="mk-chip" data-filter="all" aria-pressed="true">All <span>${m.products.length}</span></button>
-    ${m.collections.map((c) => html`<button type="button" class="mk-chip" data-filter="${c.id}" aria-pressed="false">${c.name} <span>${productsIn(m, c.id).length}</span></button>`)}
+    ${m.collections.map((c) => html`<button type="button" class="mk-chip" id="${c.id}" data-filter="${c.id}" aria-pressed="false">${c.name} <span>${productsIn(m, c.id).length}</span></button>`)}
   </div>
   <p class="sr-only" aria-live="polite" data-merch-status></p>
   <div class="merch-grid">${m.products.map((p) => merchCard(m, p, 'h2'))}</div>
@@ -292,7 +292,7 @@ export function merchProduct(d, m, p) {
 ${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'The Collection', route: '/shop' }, { label: p.name }])}
 <section class="wrap section section--flush-top mk-product" data-el="product.main" data-el-build="plugin" data-merch-product>
   <div class="mk-product__gallery">
-    <figure class="mk-product__stage"><img src="${M(first.img)}" alt="${p.name} in ${first.name.toLowerCase()} — concept image" width="960" height="1200" fetchpriority="high" data-stage><img class="mk-product__model" src="${OM(first.img)}" alt="" width="960" height="1200" data-model-stage><video class="mk-product__model mk-product__vid" muted loop playsinline preload="none" poster="${OM(first.img)}" data-vbase="${OMV(first.img)}" data-model-video aria-hidden="true"></video><span class="merch-card__hint" aria-hidden="true">Hover to see it worn</span></figure>
+    <figure class="mk-product__stage"><img src="${M(first.img)}" alt="${p.name} in ${first.name.toLowerCase()} — concept image" width="960" height="1200" fetchpriority="high" data-stage><img class="mk-product__model" src="${OM(first.img)}" alt="${p.name} in ${first.name.toLowerCase()} worn by a model — concept image" aria-hidden="true" width="960" height="1200" data-model-stage><video class="mk-product__model mk-product__vid" muted loop playsinline preload="none" poster="${OM(first.img)}" data-vbase="${OMV(first.img)}" data-model-video aria-hidden="true"></video><button type="button" class="mk-model-toggle" aria-pressed="false" data-model-toggle>View on model</button></figure>
     ${p.colours.length > 1 ? html`<div class="mk-product__thumbs" aria-hidden="true">${p.colours.map((x, i) => html`<span class="${i === 0 ? 'is-on' : ''}" data-thumb="${i}"><img src="${M(x.img)}" alt="" width="960" height="1200" loading="lazy"></span>`)}</div>` : ''}
   </div>
   <div class="mk-product__info">
@@ -306,7 +306,7 @@ ${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'The Col
     </fieldset>
     ${p.planned && p.planned.length ? html`<p class="mk-planned"><span class="mk-planned__dots">${p.planned.map((x) => html`<span class="swatch swatch--planned" style="--sw:${x.hex}" title="${x.name}"></span>`)}</span> Also planned in ${p.planned.map((x) => x.name).join(', ')}.</p>` : ''}
     <dl class="mk-specs">
-      <div><dt>Crest</dt><dd>${c.line === 'executive' ? 'Small gold crest' : "Small colour crest (designer's artwork)"}</dd></div>
+      <div><dt>Crest</dt><dd>${c.line === 'executive' ? 'Gold AFSV VRC crest' : 'Colour AFSV VRC crest'}</dd></div>
       <div><dt>Line</dt><dd>${c.line === 'executive' ? 'Executive' : 'Everyday & Sport'}</dd></div>
       <div><dt>Sizes</dt><dd>To be confirmed</dd></div>
       <div><dt>Pricing</dt><dd>To be confirmed</dd></div>

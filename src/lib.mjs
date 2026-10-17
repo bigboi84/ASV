@@ -169,13 +169,20 @@ export function field(f) {
 </div>`;
 }
 
-export function previewForm({ fields, consent, consentReq = true, submit, status, statusTitle = 'Thank you.' }) {
+// F01: an inquiry form never makes marketing permission a condition of a reply: marketing is a
+// separate, unticked choice. Forms whose purpose is an updates list (updatesList) skip it.
+// Consent wording pending counsel approval.
+
+export function previewForm({ fields, consent, consentReq = true, updatesList = false, submit, status, statusTitle = 'Thank you.' }) {
   const cid = `f${++fieldSeq}`;
   return html`
 <form class="form" data-preview-form>
   <p class="small muted">Fields marked <span aria-hidden="true" style="color:var(--danger)">*</span><span class="sr-only">with an asterisk</span> are required.</p>
   <div class="form__grid">${fields.map(field)}</div>
-  ${consent ? html`<label class="check" for="${cid}"><input type="checkbox" id="${cid}" name="consent"${consentReq ? raw(' required aria-describedby="' + cid + '-err"') : ''}><span>${consent}<span class="field__error" id="${cid}-err"></span></span></label>` : ''}
+  <p class="small muted form__privacy">Please do not include diagnoses, medical records or financial documents in this form. If follow-up needs that information, our team will arrange a secure channel.</p>
+  ${consent ? html`<label class="check" for="${cid}"><input type="checkbox" id="${cid}" name="consent"${consentReq ? raw(' required aria-describedby="' + cid + '-err"') : ''}><span>${consent}<span class="field__error" id="${cid}-err"></span></span></label>
+${updatesList ? '' : html`
+  <label class="check" for="${cid}m"><input type="checkbox" id="${cid}m" name="marketing" value="yes"><span>Optional: send me occasional updates from AFSV VRC by email. I can unsubscribe at any time.</span></label>`}` : ''}
   <div class="form-status" role="status" tabindex="-1" hidden><strong>${statusTitle}</strong>${status}</div>
   <div><button type="submit" class="btn btn--navy">${submit}${arrow()}</button></div>
 </form>`;

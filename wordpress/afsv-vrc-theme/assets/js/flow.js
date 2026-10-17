@@ -305,7 +305,7 @@
         swatches.forEach(function (s) { s.setAttribute('aria-pressed', s === b ? 'true' : 'false'); });
         thumbs.forEach(function (t, j) { t.classList.toggle('is-on', j === i); });
         if (stage) { stage.src = b.getAttribute('data-img'); stage.alt = b.getAttribute('data-alt'); }
-        if (mstage) mstage.src = b.getAttribute('data-model');
+        if (mstage) { mstage.src = b.getAttribute('data-model'); mstage.alt = b.getAttribute('data-alt').replace(' — concept image', ' worn by a model — concept image'); }
         var mv = $('[data-model-video]', prod);
         if (mv) { mv.pause(); mv.removeAttribute('src'); mv.poster = b.getAttribute('data-model'); mv.setAttribute('data-vbase', b.getAttribute('data-vbase')); mv.load(); }
         if (cname) cname.textContent = b.getAttribute('data-name');
@@ -327,6 +327,23 @@
   $$('.merch-card').forEach(function (c) { hoverVideo(c, $('.merch-card__vid', c)); });
   var pstage = $('.mk-product__stage');
   if (pstage) hoverVideo(pstage, $('[data-model-video]', pstage));
+  // "View on model": the same on-model view for touch and keyboard users (audit M05).
+  var mtoggle = pstage && $('[data-model-toggle]', pstage);
+  if (mtoggle) {
+    mtoggle.addEventListener('click', function () {
+      var on = !pstage.classList.contains('is-model');
+      pstage.classList.toggle('is-model', on);
+      mtoggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+      mtoggle.textContent = on ? 'View product' : 'View on model';
+      var still = $('[data-stage]', pstage), model = $('[data-model-stage]', pstage), vid = $('[data-model-video]', pstage);
+      if (still) still.setAttribute('aria-hidden', on ? 'true' : 'false');
+      if (model) model.setAttribute('aria-hidden', on ? 'false' : 'true');
+      if (vid && !reduce) {
+        if (on) { var src = vid.getAttribute('data-vbase') + vext; if (vid.getAttribute('src') !== src) vid.src = src; var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
+        else vid.pause();
+      }
+    });
+  }
 
   /* ───────── Frame loop ───────── */
   var ticking = false;

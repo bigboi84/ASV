@@ -283,8 +283,33 @@
     f.classList.remove('is-invalid');
     el.removeAttribute('aria-invalid');
   }
+  // Conditional requirements (audit F02, F04): a phone number is required when phone or text is the
+  // chosen contact method; learner age only applies to families and learners.
+  function controlByLabel(form, re) {
+    var hit = null;
+    $$('.field', form).forEach(function (f) { var l = $('.field__label', f); if (!hit && l && re.test(l.textContent)) hit = $('input, select, textarea', f); });
+    return hit;
+  }
+  function setRequired(el, on) {
+    if (!el) return;
+    el.required = on;
+    if (on) el.setAttribute('aria-required', 'true'); else el.removeAttribute('aria-required');
+    var l = $('.field__label', fieldOf(el)); if (!l) return;
+    var mark = $('.req', l), opt = $('.opt', l);
+    if (on && !mark) { if (opt) opt.parentNode.removeChild(opt); l.insertAdjacentHTML('beforeend', '<span class="req" aria-hidden="true">*</span>'); }
+    if (!on && mark) { mark.parentNode.removeChild(mark); if (!opt) l.insertAdjacentHTML('beforeend', ' <span class="opt">(optional)</span>'); }
+    if (!on) clearError(el);
+  }
+  function applyRules(form) {
+    var pref = controlByLabel(form, /preferred contact|communication channel|contact method|contact preference/i), phone = $('input[type="tel"]', form);
+    if (pref && pref.tagName === 'SELECT' && phone) setRequired(phone, /phone|text|call|sms/i.test(pref.value));
+    var who = controlByLabel(form, /^\s*I am/i), age = controlByLabel(form, /learner age/i);
+    if (who && age) setRequired(age, /parent|guardian|learner/i.test(who.value));
+  }
   $$('form[data-preview-form]').forEach(function (form) {
     form.setAttribute('novalidate', '');
+    applyRules(form);
+    form.addEventListener('change', function () { applyRules(form); });
     var controls = $$('input, select, textarea', form);
     controls.forEach(function (el) {
       el.addEventListener('blur', function () { if (el.value || el.type === 'checkbox') { if (el.checkValidity()) clearError(el); else showError(el); } });
