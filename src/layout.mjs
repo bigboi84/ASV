@@ -151,21 +151,21 @@ function footer(cols) {
       <div class="btn-row"><a class="btn btn--gold btn--sm" href="membership.html">Community membership</a><a class="btn btn--line-light btn--sm" href="partners.html">Ecosystem partners</a></div>
     </div>
     ${cols.map((col) => html`
-    <div>
-      <h2>${col.title}</h2>
+    <details class="fcol" open data-fcol>
+      <summary><h2>${col.title}</h2></summary>
       <ul>${col.links.map((l) => html`<li><a href="${href(l.href)}"${extAttrs(l.href)}>${l.label}${isExternal(l.href) ? raw('<span class="sr-only"> (opens in a new tab)</span>') : ''}</a></li>`)}</ul>
-    </div>`)}
+    </details>`)}
   </div>
   <div class="wrap site-footer__eco">
-    <div>
-      <h2>AFSVHCL™ ecosystem</h2>
+    <details class="fcol" open data-fcol>
+      <summary><h2>AFSVHCL™ ecosystem</h2></summary>
       <ul class="site-footer__entities">${ECOSYSTEM.map(([n, r]) => html`<li><b>${n}</b><span>${r}</span></li>`)}</ul>
-    </div>
-    <div>
-      <h2>Trademark notices</h2>
+    </details>
+    <details class="fcol" open data-fcol>
+      <summary><h2>Trademark notices</h2></summary>
       <ul class="site-footer__marks">${MARKS.map((m) => html`<li>${m}</li>`)}</ul>
       <p class="site-footer__fine">™ indicates an unregistered trademark.</p>
-    </div>
+    </details>
   </div>
   <div class="wrap site-footer__disclaimer">
     <p><b>Development-stage disclaimer.</b> AFSVHCL™ is a development-stage company. The AI-Driven Sports Village and all related facilities, programs, services and initiatives described on this website are proposed concepts only — they do not currently exist as operational facilities or active programs. All concepts, timelines, projections, partnerships and proposed activities are for informational and exploratory discussion purposes only and remain subject to financing, regulatory approvals, due diligence, feasibility analysis and execution capacity. No memberships, programs or services are currently available for purchase. No securities are being offered. See our <a href="compliance.html">Compliance &amp; Legal</a> page for full disclosures.</p>

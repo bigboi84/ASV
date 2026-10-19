@@ -2547,3 +2547,44 @@ html.intro-on, .intro-on body { overflow: hidden; }
 .hero--reel .film__note { animation: ctaIn .9s cubic-bezier(.2,.8,.2,1) 1.5s both; }
 .intro-on .hero--reel .film__note { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .hero--reel .film__note { animation: none; } }
+
+/* ───────── Mobile pass (Oct 2026) ───────── */
+/* Footer sections: <details> that are always open on desktop and fold on phones */
+.fcol > summary { list-style: none; cursor: default; }
+.fcol > summary::-webkit-details-marker { display: none; }
+.fcol > summary h2 { display: block; }
+@media (max-width: 720px) {
+  .site-footer__grid { grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; }
+  .site-footer__brand { margin-bottom: 26px; }
+  .site-footer__eco { grid-template-columns: minmax(0, 1fr) !important; gap: 0 !important; padding-top: 0 !important; border-top: 0 !important; }
+  .fcol { border-top: 1px solid rgba(245,243,238,.14); }
+  .site-footer__eco .fcol:last-child { border-bottom: 1px solid rgba(245,243,238,.14); }
+  .fcol > summary { cursor: pointer; display: flex; align-items: center; justify-content: space-between; min-height: 52px; }
+  .fcol > summary h2 { margin: 0 !important; }
+  .fcol > summary::after { content: ''; width: 9px; height: 9px; margin-right: 4px; border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(45deg) translateY(-3px); transition: transform .25s; }
+  .fcol[open] > summary::after { transform: rotate(-135deg) translateY(-2px); }
+  .fcol > ul, .fcol > p { padding-bottom: 20px; }
+  .fcol li a { display: inline-block; padding: 4px 0; }
+  .site-footer__disclaimer { padding-top: 24px; }
+  /* legal links in the bottom bar: full-size tap targets */
+  .site-footer__bar nav { gap: 0 18px; }
+  .site-footer__bar nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  /* tick boxes: a taller tap area */
+  .check { padding: 6px 0; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; }
+  /* homepage dome section: keep text readable over bright sky */
+  .expand__shade { background: linear-gradient(0deg, rgba(9,30,54,.96) 0%, rgba(9,30,54,.84) 55%, rgba(9,30,54,.66) 100%) !important; }
+  /* smallest labels up to a readable size */
+  .pill, .pill--soft, .pill--gold, .countdown__label, .merch-card__tag, .merch-card__line, .mk-collection__k, .event__wordmark small, .site-footer__contact span { font-size: 11px !important; }
+  .orbit__core .eyebrow, .coin .eyebrow, .fund .eyebrow { font-size: 11px; }
+}
+/* Shop and product grids: two pieces per row on phones */
+@media (max-width: 560px) {
+  .merch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; }
+  .merch-card__body { gap: 4px; }
+  .merch-card__name { font-size: 15px; line-height: 1.25; }
+  .merch-card__line { letter-spacing: .06em; }
+  .merch-card__swatches { flex-wrap: wrap; row-gap: 4px; }
+  .merch-card__count { width: 100%; font-size: 12px; }
+  .merch-card__tag { top: 8px; left: 8px; padding: 4px 8px; }
+}

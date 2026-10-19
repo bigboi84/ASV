@@ -420,17 +420,17 @@
         "Adaptive and sensory-friendly sport",
         "Athlete mentorship"
       ],
-      "blocksTitle": "What each program record holds.",
+      "blocksTitle": "What to expect from each program.",
       "blocks": [
         {
           "num": "01",
-          "title": "Structured records",
-          "body": "Approved title, status, age group, ability level, format, schedule, location, capacity, prerequisites, accessibility, coach or provider, price, media and registration route."
+          "title": "Clear details",
+          "body": "When a program opens, its page will show the age group, ability level, format, schedule, location, capacity, accessibility, coach or provider, price and how to register."
         },
         {
           "num": "02",
-          "title": "Status labels",
-          "body": "Every program carries a visible status. Until it is approved the record shows “Program details coming soon” and collects interest only."
+          "title": "Visible status",
+          "body": "Every program shows its status. Until it opens, it reads “Program details coming soon” and you can register interest for updates."
         },
         {
           "num": "03",

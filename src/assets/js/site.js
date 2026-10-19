@@ -236,6 +236,18 @@
     setLabel();
   }
 
+  /* ───────── Footer: sections fold into tap-to-open headings on phones; always open on desktop ───────── */
+  var fcols = $$('[data-fcol]');
+  if (fcols.length && window.matchMedia) {
+    var phone = window.matchMedia('(max-width: 720px)');
+    var setFooter = function () { fcols.forEach(function (d) { d.open = !phone.matches; }); };
+    setFooter();
+    if (phone.addEventListener) phone.addEventListener('change', setFooter); else if (phone.addListener) phone.addListener(setFooter);
+    fcols.forEach(function (d) {
+      $('summary', d).addEventListener('click', function (e) { if (!phone.matches) e.preventDefault(); });
+    });
+  }
+
   /* ───────── Scroll reveal with grid stagger ───────── */
   var revealEls = $$('.reveal');
   if (!reduceMotion && 'IntersectionObserver' in window) {
@@ -250,6 +262,9 @@
         if (!en.isIntersecting) return;
         var el = en.target;
         el.classList.add('is-in'); io.unobserve(el);
+        // Cards in a sideways swipe row appear together, so they don't fade in late while swiping.
+        var rail = el.closest('.mk-rail, .mk-look__rail');
+        if (rail) $$('.reveal', rail).forEach(function (r) { r.classList.add('is-in'); io.unobserve(r); });
         // drop the stagger delay once revealed so hover/tilt transitions stay instant
         if (el.style.transitionDelay) setTimeout(function () { el.style.transitionDelay = ''; }, 1300);
       });
