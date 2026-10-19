@@ -25,7 +25,8 @@ Product data (WooCommerce) and site settings can be changed directly through the
 ## Live site and rules
 - Staging and live site: https://afsv.198-105-177-163.sslip.io. WordPress, Elementor, WooCommerce, theme `afsv-vrc` (child of hello-elementor), plugin AFSV VRC Core.
 - Registered company: **AFSV VRC Global Development Group Limited**. Keep Athletes & Fans Sports Village Holding Company Limited distinct; awaiting Martin's answers on where each name applies.
-- Domain and email: **afsvvrc.com**, **info@afsvvrc.com** (not afsvhcl.com).
+- Domain: **afsvvrc.com** everywhere visitors see it (not afsvhcl.com). Martin, 19 Oct 2026: "In reviewing it is the website is still afsvhcl.com. This is not correct. It is afsvvrc.com." His trigger was an automated email the site sent.
+- Email: every GoDaddy (Microsoft 365) mailbox is on @afsvhcl.com. info@afsvhcl.com is the only Business Professional licence and is the account WordPress sends through. Public address: info@afsvvrc.com, added as an alias on info@afsvhcl.com (alias setup in progress 19 Oct).
 - Products are display-only: no prices, no Add to cart.
 - No unsupported claims: proposed and planned wording for the village and services; statistics only with their source.
 - The legal text comes from counsel only and must not be paraphrased. The full Terms and Privacy DOCX files are still outstanding.
