@@ -70,27 +70,21 @@ while ( have_posts() ) :
     <div class="btn-row btn-row--stack">
 		<?php echo afsv_shop_btn( 'Keep up to date on this piece', home_url( '/marketplace/#buyer-form' ), 'navy' ) . afsv_shop_btn( 'Back to the collection', get_permalink( wc_get_page_id( 'shop' ) ), 'line-dark' ); // phpcs:ignore ?>
     </div>
-    <p class="small muted mt-m"><?php echo esc_html( AFSV_CONCEPT_NOTE ); ?> Front and back views, detail shots and a product video will be added for each piece.</p>
+    <p class="small muted mt-m"><?php echo esc_html( AFSV_CONCEPT_NOTE ); ?></p>
   </div>
 </section>
 	<?php
-	// More from the same line: same collection first, then the rest of the line.
-	$related = array();
-	foreach ( afsv_collection_products() as $p ) {
+	// The next pieces in the same line, starting after this one, so each page recommends a different set.
+	$in_line = array_values( array_filter( afsv_collection_products(), function ( $p ) use ( $line ) {
+		return afsv_line_of( afsv_product_collection( $p->get_id() ) ) === $line;
+	} ) );
+	$at = 0;
+	foreach ( $in_line as $i => $p ) {
 		if ( $p->get_id() === $product->get_id() ) {
-			continue;
-		}
-		$t = afsv_product_collection( $p->get_id() );
-		if ( $t && $term && $t->slug === $term->slug ) {
-			$related[] = $p;
+			$at = $i;
 		}
 	}
-	foreach ( afsv_collection_products() as $p ) {
-		if ( $p->get_id() !== $product->get_id() && ! in_array( $p, $related, true ) && afsv_line_of( afsv_product_collection( $p->get_id() ) ) === $line ) {
-			$related[] = $p;
-		}
-	}
-	$related = array_slice( $related, 0, 4 );
+	$related = array_slice( array_merge( array_slice( $in_line, $at + 1 ), array_slice( $in_line, 0, $at ) ), 0, 4 );
 	if ( $related ) :
 		?>
 <section class="band--cream" data-el="product.related">

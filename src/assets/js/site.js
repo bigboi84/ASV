@@ -353,7 +353,7 @@
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
       fetch(window.AFSV_FORMS + formId, { method: 'POST', body: data, credentials: 'same-origin' })
         .then(function (r) { return r.ok ? done(true, 'We’ve received your submission and will be in touch soon.') : r.json().then(function (j) { throw new Error(j && j.message); }); })
-        .catch(function (err) { done(false, (err && err.message) || 'Something went wrong. Please email info@afsvhcl.com.'); if (btn) btn.textContent = 'Try again'; });
+        .catch(function (err) { done(false, (err && err.message) || 'Something went wrong. Please email info@afsvvrc.com.'); if (btn) btn.textContent = 'Try again'; });
     });
   });
 

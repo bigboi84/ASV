@@ -52,7 +52,7 @@ export function eventFeature(e, el = 'home.event') {
     <p class="event__headline"><span>${e.headline}</span> ${e.subhead}</p>
     <ul class="event__themes">${e.themes.map((t) => html`<li>${t}</li>`)}</ul>
     <p class="event__summary">${e.summary}</p>
-    <p class="event__where"><strong>${e.dateLabel}</strong> · ${e.venue}, ${e.city}</p>
+    <p class="event__where"><strong>${e.dateLabel}</strong>${e.certLabel ? html` · ${e.certLabel}` : ''} · ${e.venue}, ${e.city}</p>
     <div class="btn-row btn-row--stack">
       <a class="btn btn--gold event__cta" href="${e.url}" target="_blank" rel="noopener noreferrer">${e.ctaPrimary}<span class="sr-only"> (opens the summit website in a new tab)</span>${icon('external')}</a>
       <a class="btn btn--line-light event__cta2" href="${e.url}" target="_blank" rel="noopener noreferrer">${e.ctaSecondary}<span class="sr-only"> (opens in a new tab)</span>${icon('external')}</a>
@@ -60,7 +60,7 @@ export function eventFeature(e, el = 'home.event') {
     <p class="event__host">${e.host}</p>
   </div>
   <aside class="event__side">
-    <p class="event__side-label">Summit opens in</p>
+    <p class="event__side-label">Main summit opens in</p>
     <div class="countdown" data-countdown="${e.start}" role="timer" aria-label="Countdown to ${e.name}">
       ${[['days', 'Days'], ['hours', 'Hours'], ['mins', 'Minutes'], ['secs', 'Seconds']].map(([k, l]) => html`<div class="countdown__cell"><span class="countdown__num" data-unit="${k}">--</span><span class="countdown__label">${l}</span></div>`)}
     </div>
@@ -97,7 +97,7 @@ function esportsBand() {
 // Hero film: a 25-second concept flythrough of the proposed village (AI concept renderings,
 // opening on the designer's Whitby dome). Chips follow the film's timeline and jump to each chapter.
 const FILM = [
-  { t: 0, label: 'The Village', line: 'The proposed Whitby Smart Sports Village: dome, fields, track and courts.' },
+  { t: 0, label: 'The Village', line: 'The proposed Whitby AI-Driven Sports Village: dome, fields, track and courts.' },
   { t: 4.17, label: 'Arrival', line: 'Through the main gate and up into the concourse.' },
   { t: 8.33, label: 'High Performance', line: 'Strength & conditioning, sports science and recovery.' },
   { t: 12.5, label: 'Esports Studio', line: 'Compete. Stream. Connect. The future is digital.' },
@@ -115,7 +115,7 @@ const MISSION = [
   ['Growth', 'Investment & Sustainable Growth', 'A scalable national infrastructure model with diversified revenue streams.'],
 ];
 const ECO3 = [
-  { tag: 'AFSV VRC', tone: 'gold', name: 'AFSV-VRC™ Development Group Ltd.', kicker: 'Infrastructure development', img: 'whitby/site-aerial.jpg', body: "Designing and building the infrastructure for Canada's Smart Sports Village network — planning, designing and delivering facilities across Canada.", route: '/whitby-smart-sports-village' },
+  { tag: 'AFSV VRC', tone: 'gold', name: 'AFSV VRC Global Development Group Limited', kicker: 'Infrastructure development', img: 'whitby/site-aerial.jpg', body: "Designing and building the infrastructure for Canada's AI-Driven Sports Village network — planning, designing and delivering facilities across Canada.", route: '/whitby-smart-sports-village' },
   { tag: 'EDU', tone: 'red', name: 'Education & Inclusion Programming', kicker: 'MLMSR Mentorship · Special needs support', img: 'whitby/learn.jpg', body: 'Mentorship and education programs for youth and neurodivergent learners — leadership development, academic support and specialized programs.', route: '/education' },
   { tag: 'EFN', tone: 'slate', name: 'EFN – Esports & Fans Network', kicker: 'Digital & esports division', img: 'village/efn-arena.jpg', body: 'A digital platform connecting athletes and fans through esports tournaments, live streaming, athlete media and global fan engagement. Home of FanZone™.', route: '/technology-media' },
 ];
@@ -179,7 +179,7 @@ export function home(d) {
       </g>
     </g>
     <g class="intro__meta" data-intro-meta>
-      <text x="800" y="700" text-anchor="middle" class="intro__cap" data-intro-cap>Whitby, Ontario · Smart Sports Village</text>
+      <text x="800" y="700" text-anchor="middle" class="intro__cap" data-intro-cap>Whitby, Ontario · AI-Driven Sports Village</text>
       <rect x="650" y="730" width="300" height="2" class="intro__track" data-intro-track/>
       <rect x="650" y="730" width="0" height="2" class="intro__bar" data-intro-bar/>
     </g>
@@ -221,7 +221,7 @@ export function home(d) {
     <div class="reveal">
       <p class="lead mb-m">One connected village for sport, high performance, esports, education, mentorship and inclusion — where athletes, families and communities can train, learn, connect and grow.</p>
       <div class="btn-row mb-l">
-        ${btn('Explore the Smart Sports Village', '/whitby-smart-sports-village', 'navy')}
+        ${btn('Explore the AI-Driven Sports Village', '/whitby-smart-sports-village', 'navy')}
         ${btn('Join the Movement', '/membership', 'line-dark')}
       </div>
       <ul class="home-intro__facts">
@@ -248,7 +248,7 @@ export function home(d) {
     <h2 class="h2">Creating opportunities through sport &amp; education.</h2>
     <p class="body-lg muted">Our ecosystem integrates athlete development, education and mentorship, special needs inclusion, esports engagement, corporate partnerships and global diaspora participation.</p>
   </div>
-<div class="mslide" aria-label="Our mission pillars">
+<div class="mslide" aria-label="Our focus areas">
   <div class="mslide__track">
     ${[0, 1].map((dup) => html`<ul${dup ? raw(' aria-hidden="true"') : ''}>${MISSION.map(([ic, t, b], i) => html`<li class="mcard"><span class="mcard__num">${pad2(i + 1)}</span><span class="mcard__ico">${sketchIcon(ic)}</span><h3>${t}</h3><p>${b}</p></li>`)}</ul>`)}
   </div>
@@ -261,7 +261,7 @@ export function home(d) {
     <div class="wrap tri__grid">
       <div class="tri__intro">
         <p class="eyebrow mb-s">AFSVHCL™ ecosystem</p>
-        <h2 class="tri__title">Three pillars.<br><em>One vision.</em></h2>
+        <h2 class="tri__title">Three divisions.<br><em>One vision.</em></h2>
         <ol class="tri__steps">
           ${ECO3.map((e, i) => html`<li${i === 0 ? raw(' class="is-on"') : ''}><span>${pad2(i + 1)}</span>${e.tag}</li>`)}
         </ol>
@@ -289,7 +289,7 @@ export function home(d) {
     </div>
     <div class="stack" data-stack>
       <nav class="stack__tabs" aria-label="Strategic pillars">
-        ${d.pillars4.map((p, i) => html`<a href="#pillar-${p.num}"${i === 0 ? raw(' class="is-active" aria-current="true"') : ''}><span>${p.num}</span>${d.pillars[i].title}</a>`)}
+        ${d.pillars4.map((p, i) => html`<a href="#pillar-${p.num}"${i === 0 ? raw(' class="is-active" aria-current="true"') : ''}><span>${p.num}</span>${p.title}</a>`)}
       </nav>
       <div class="stack__list">
         ${d.pillars4.map((p, i) => html`
@@ -313,7 +313,7 @@ export function home(d) {
     <p class="eyebrow">Proposed pilot · Whitby, Ontario</p>
     <h2 class="draw__title" data-sweep>A year-round home for sport, learning and community.</h2>
   </div>
-  <svg class="draw__art" viewBox="0 0 1200 360" role="img" aria-label="Line drawing of the proposed Whitby Smart Sports Village: a multi-sport dome beside low pavilions with solar canopies, a running track in front." focusable="false">
+  <svg class="draw__art" viewBox="0 0 1200 360" role="img" aria-label="Line drawing of the proposed Whitby AI-Driven Sports Village: a multi-sport dome beside low pavilions with solar canopies, a running track in front." focusable="false">
     <circle class="draw__line draw__line--gold" pathLength="1" cx="1060" cy="104" r="34"/>
     <path class="draw__line" pathLength="1" d="M0 300 H1200"/>
     <path class="draw__line" pathLength="1" d="M170 300 C 170 115, 770 115, 770 300"/>
@@ -338,7 +338,7 @@ export function home(d) {
     <span class="expand__shade" aria-hidden="true"></span>
     <div class="wrap expand__content">
       <div class="expand__card reveal">
-        <h2 class="h2">Whitby Smart Sports Village</h2>
+        <h2 class="h2">Whitby AI-Driven Sports Village</h2>
         <p class="lead">Our proposed Whitby pilot is envisioned as a technology-enabled, multi-sport destination serving athletes, students, families, clubs, educators and community partners.</p>
         <ul class="expand__tags">${['Multi-sport dome', 'Performance & recovery', 'Learning & life skills', 'Sensory-aware spaces', 'Esports & broadcast'].map((t) => html`<li>${t}</li>`)}</ul>
         ${btn('Discover the Vision', '/whitby-smart-sports-village', 'gold')}
@@ -514,7 +514,7 @@ ${breadcrumb([{ label: 'Events' }])}
 </section>
 <section class="wrap section section--flush-top" data-el="events.list" data-el-build="custom-widget">
   <div class="event-list">${d.events.map((e) => eventFeature(e, 'events.card'))}</div>
-  <div class="pending mt-l"><span class="eyebrow">More events</span><p>Further events will be listed here as they are confirmed, including program showcases, partner sessions and Whitby Smart Sports Village milestones.</p></div>
+  <div class="pending mt-l"><span class="eyebrow">More events</span><p>Further events will be listed here as they are confirmed, including program showcases, partner sessions and Whitby AI-Driven Sports Village milestones.</p></div>
 </section>
 ${ctaBand('Want to host or sponsor an event with us?', [{ label: 'Talk to the partnerships team', route: '/partners' }, { label: 'Contact us', route: '/contact' }])}`,
   };
@@ -540,13 +540,13 @@ export function about(d) {
   const story = [
     { k: 'The belief', t: 'Sport can transform communities', b: 'when it is combined with education, technology and opportunity.' },
     { k: 'The ecosystem', t: 'AFSVHCL™', b: 'An integrated platform combining sports science, education programs, esports engagement and community participation.' },
-    { k: 'The pilot', t: 'Whitby Smart Sports Village', b: 'A proposed year-round, technology-enabled destination in Whitby, Ontario.' },
+    { k: 'The pilot', t: 'Whitby AI-Driven Sports Village', b: 'A proposed year-round, technology-enabled destination in Whitby, Ontario.' },
     { k: 'The network', t: 'Canada, the Caribbean and beyond', b: 'A national network of multi-sport dome facilities and scalable initiatives in global markets.' },
   ];
   return {
     title: 'About Us',
     overlay: true,
-    description: 'AFSV VRC Global Development Group Ltd. develops a connected ecosystem that expands opportunity through sport, education, technology and inclusive community programming.',
+    description: 'AFSV VRC Global Development Group Limited develops a connected ecosystem that expands opportunity through sport, education, technology and inclusive community programming.',
     ogImage: IMG('life/plaza.jpg'),
     body: html`
 <section class="about-hero" data-el="about.hero" data-el-build="elementor">
@@ -554,7 +554,7 @@ export function about(d) {
     <div class="about-hero__copy">
       <p class="eyebrow eyebrow-rule">About AFSV VRC</p>
       <h1 class="h1 split-words" aria-label="A new model for sport, learning and community development."><span aria-hidden="true">${splitWords(['A new model for sport,', 'learning and community', 'development.'], ['development.'])}</span></h1>
-      <p class="lead">AFSV VRC Global Development Group Ltd. was formed to develop and operate a connected ecosystem that expands opportunity through sport, education, technology and inclusive community programming. Our work begins with a proposed Smart Sports Village pilot in Whitby, Ontario, and extends to partnerships and scalable initiatives in Canada, the Caribbean and global markets.</p>
+      <p class="lead">AFSV VRC Global Development Group Limited was formed to develop and operate a connected ecosystem that expands opportunity through sport, education, technology and inclusive community programming. Our work begins with a proposed AI-Driven Sports Village pilot in Whitby, Ontario, and extends to partnerships and scalable initiatives in Canada, the Caribbean and global markets.</p>
       <div class="btn-row btn-row--stack">${btn('Meet the leadership', '/leadership', 'gold')}${btn('Our strategic pillars', '/strategic-pillars', 'line-light')}</div>
     </div>
     <div class="collage" aria-hidden="true">
@@ -574,7 +574,7 @@ export function about(d) {
     </article>
     <article class="mv__card mv__card--dark reveal">
       <span class="mv__label">Vision</span>
-      <p class="mv__text">A global network of smart sports villages and connected programs where talent is developed, learning is supported, inclusion is designed in, and communities share in the benefits of sport-led development.</p>
+      <p class="mv__text">A global network of AI-driven sports villages and connected programs where talent is developed, learning is supported, inclusion is designed in, and communities share in the benefits of sport-led development.</p>
     </article>
   </div>
 </section>
@@ -735,7 +735,7 @@ ${breadcrumb([{ label: 'About', route: '/about' }, { label: 'Strategic Pillars' 
 }
 
 // ════════════════════════ WHITBY ════════════════════════
-// Whitby facilities, from the AFSV VRC Whitby Smart Sports Village facility mockup.
+// Whitby facilities, from the AFSV VRC Whitby AI-Driven Sports Village facility mockup.
 const WH_FACILITIES = [
   { img: 'dome', name: 'Multi-Sport Inflatable Dome', line: 'A proposed 150,000 sq ft dome for year-round training under one roof.', items: ['Full-size, competition-quality soccer field', 'Indoor track', 'Cricket nets', 'Multi-sport courts'] },
   { img: 'soccer', name: 'Soccer Fields', line: 'Outdoor pitches for training and match play.', items: ['Outdoor training fields'] },
@@ -752,22 +752,22 @@ const WH_FACILITIES = [
 const WH_HIGHLIGHTS = ['Year-round training', 'State-of-the-art infrastructure', 'Multi-sport development', 'Education & mentorship', 'Special needs inclusion', 'Esports & innovation', 'Community engagement', 'Sustainable & green design'];
 const WH_FEATURES = ['Serving athletes of all ages', 'Inclusive programs for every ability', 'Pathways to scholarships & careers', 'Building stronger communities', 'Connecting the Caribbean diaspora', 'Creating a legacy for generations'];
 const WH_ECOSYSTEM = [
-  { name: 'AFSV VRC Global Development Group Ltd.', role: 'Infrastructure development' },
+  { name: 'AFSV VRC Global Development Group Limited', role: 'Infrastructure development' },
   { name: 'MLMSR Mentorship LLC', role: 'Education & special needs support' },
   { name: 'EFN — Esports & Fans Network', role: 'Digital & esports division' },
 ];
 
 export function whitby(d) {
   return {
-    title: 'Whitby Smart Sports Village',
+    title: 'Whitby AI-Driven Sports Village',
     description: 'A proposed year-round, technology-enabled destination in Whitby, Ontario bringing multi-sport participation, athlete development, education, inclusive supports, media and community under one roof.',
     ogImage: IMG('whitby-dome.jpg'),
     body: html`
-${breadcrumb([{ label: 'Smart Sports Village' }, { label: 'Whitby Smart Sports Village' }])}
+${breadcrumb([{ label: 'AI-Driven Sports Village' }, { label: 'Whitby AI-Driven Sports Village' }])}
 <section class="wrap page-head" data-el="whitby.hero" data-el-build="elementor" style="padding-bottom:0">
   <span class="pill mb-m">Proposed development</span>
-  <h1 class="h1 split-words" style="max-width:22ch" aria-label="The Whitby Smart Sports Village: a connected place to train, learn and belong."><span aria-hidden="true">${splitWords('The Whitby Smart Sports Village: a connected place to train, learn and belong.')}</span></h1>
-  <p class="lead measure mb-l">AFSV VRC is advancing a proposed Smart Sports Village pilot in Whitby, Ontario: a year-round, technology-enabled destination bringing multi-sport participation, athlete development, education, inclusive supports, media and community experiences under one roof.</p>
+  <h1 class="h1 split-words" style="max-width:22ch" aria-label="The Whitby AI-Driven Sports Village: a connected place to train, learn and belong."><span aria-hidden="true">${splitWords('The Whitby AI-Driven Sports Village: a connected place to train, learn and belong.')}</span></h1>
+  <p class="lead measure mb-l">AFSV VRC is advancing a proposed AI-Driven Sports Village pilot in Whitby, Ontario: a year-round, technology-enabled destination bringing multi-sport participation, athlete development, education, inclusive supports, media and community experiences under one roof.</p>
   <figure class="figure figure--16x9 figure--motion wipe">${pmedia({ img: IMG('whitby-dome.jpg'), alt: 'Conceptual rendering: a large white inflatable sports dome carrying the AFSV VRC crest, with a glass-fronted entrance pavilion, landscaped plaza, accessible parking and people arriving, and a lake on the horizon. Not an existing facility.', parallax: 0.05, eager: true, w: 1600, h: 900 })}
     <figcaption class="caption-bar">Conceptual Rendering — Not an Existing Facility</figcaption>
   </figure>
@@ -870,7 +870,7 @@ ${whitbyRoadmap()}
   </div>
 </section>
 <section class="wrap" data-el="whitby.disclaimer" data-el-build="elementor">
-  <div class="callout" role="note"><span class="eyebrow">Important</span><p style="font-size:15.5px;line-height:1.66">The Whitby Smart Sports Village is a proposed development. Images, dimensions, uses, timelines, partnerships and features shown are conceptual and subject to feasibility, approvals, financing, final design and operating agreements.</p></div>
+  <div class="callout" role="note"><span class="eyebrow">Important</span><p style="font-size:15.5px;line-height:1.66">The Whitby AI-Driven Sports Village is a proposed development. Images, dimensions, uses, timelines, partnerships and features shown are conceptual and subject to feasibility, approvals, financing, final design and operating agreements.</p></div>
 </section>
 ${formSection({
   id: 'whitby-partner-form', el: 'whitby.partner-form',
@@ -901,16 +901,16 @@ export function facilities(d) {
   const filterKeys = ['all', ...groups];
   return {
     title: 'Facilities',
-    description: 'The proposed Smart Sports Village is being designed around adaptable spaces for sport, education, innovation, inclusion and community use.',
+    description: 'The proposed AI-Driven Sports Village is being designed around adaptable spaces for sport, education, innovation, inclusion and community use.',
     ogImage: IMG('life/cutaway.jpg'),
     body: html`
-${breadcrumb([{ label: 'Smart Sports Village', route: '/whitby-smart-sports-village' }, { label: 'Facilities' }])}
+${breadcrumb([{ label: 'AI-Driven Sports Village', route: '/whitby-smart-sports-village' }, { label: 'Facilities' }])}
 <section class="wrap page-head" data-el="facilities.header" data-el-build="elementor">
   <div class="split split--end">
     <div>
       <p class="eyebrow mb-s">Facilities</p>
       <h1 class="h1 mb-m split-words" aria-label="Flexible spaces for performance, learning and community."><span aria-hidden="true">${splitWords('Flexible spaces for performance, learning and community.')}</span></h1>
-      <p class="lead measure">The proposed Smart Sports Village is being designed around adaptable spaces for sport, education, innovation, inclusion and community use. Final configuration is subject to design development, approvals and partner requirements.</p>
+      <p class="lead measure">The proposed AI-Driven Sports Village is being designed around adaptable spaces for sport, education, innovation, inclusion and community use. Final configuration is subject to design development, approvals and partner requirements.</p>
     </div>
     <figure class="figure figure--16x10 figure--motion wipe" data-video-scope>${pmedia({ img: IMG('life/cutaway.jpg'), alt: 'Concept rendering: a cutaway of the proposed dome at blue hour showing the floodlit pitch, running track, courts, a learning mezzanine and an esports studio, with crowds inside. Not an existing facility.', w: 1344, h: 752 })}
       <figcaption class="caption-bar">Conceptual Rendering — Not an Existing Facility</figcaption>

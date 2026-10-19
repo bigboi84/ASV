@@ -158,7 +158,7 @@ export function impact() {
 ${breadcrumb([{ label: 'About', route: '/about' }, { label: 'Impact' }])}
 ${xhero({ kicker: 'Community impact', title: 'Measuring what matters.', img: 'life/impact.jpg', alt: 'Concept rendering: a racially diverse crowd of youth and families cheering as a mentor presents a scholarship certificate to a teen wearing headphones, at golden hour outside the dome.', lead: 'AFSVHCL™ is committed to measurable, transparent community impact — from neurodivergent inclusion to youth athlete development, education and global diaspora empowerment.', badge: 'Development-stage targets — subject to financing & program launch', ctas: [{ label: 'Join the community', href: '/membership' }, { label: 'Partner with us', href: '/partners' }] })}
 <section class="wrap section" data-el="impact.pillars" data-el-build="elementor">
-  ${head('Impact framework', 'Six pillars of impact.')}
+  ${head('Impact framework', 'Six impact areas.')}
   ${kgrid(IMPACT6)}
 </section>
 <section class="band--navy fund" data-el="impact.fund" data-el-build="elementor">
@@ -340,7 +340,7 @@ export function efn() {
     ['Globe', 'Global fan engagement', 'Digital memberships, live stats and interactive experiences.'],
   ];
   const platform = [
-    ['Esports', 'Esports Arena', '80–120 gaming stations, tournament stage and streaming control centre integrated into the Smart Sports Village.'],
+    ['Esports', 'Esports Arena', '80–120 gaming stations, tournament stage and streaming control centre integrated into the AI-Driven Sports Village.'],
     ['Signal', 'Live Streaming & Broadcasting', 'Broadcast-quality production for sports competitions, esports tournaments and athlete media content.'],
     ['Mic', 'Sports Village Podcast Network', 'Podcast studio and storytelling platform amplifying athletes, coaches and community leaders.'],
     ['Chart', 'Athlete Data & Analytics', 'A digital athlete management platform tracking performance, development and recruitment data.'],
@@ -404,7 +404,7 @@ ${formSection({
 
 // ════════════════════════ LEGAL & POLICY PAGES ════════════════════════
 const MARKS = ['AFSVHCL™', 'Athletes & Fans Sports Village™', 'AFSV VRC™', 'FanZone™', 'AFSVHCL Marketplace™', 'AFSVHCL Executive Collection™', 'AFSVHCL Founder Series™', 'AFSVHCL Legacy Collection™'];
-const LEGAL_MAIL = 'info@afsvhcl.com';
+const LEGAL_MAIL = 'info@afsvvrc.com';
 
 export function compliance(d) {
   return {
@@ -414,12 +414,12 @@ export function compliance(d) {
       kicker: 'Compliance & Legal', title: 'Legal disclosures & compliance', icon: 'Scale',
       intro: 'AFSVHCL™ is committed to transparency, legal compliance and responsible communication at every stage of our development.',
       sections: [
-        { h: 'Development-stage concept notice', p: ['Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™) is a development-stage company. The Smart Sports Village and all related facilities, programs, services and initiatives described on this website are proposed concepts only — they do not currently exist as operational facilities or active programs.', 'All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only and remain subject to financing, regulatory approvals, due diligence, feasibility analysis, contractual negotiations, market conditions and execution capacity.', 'No memberships, programs or services are currently available for purchase. No funds are being solicited from the public at this time. No securities are being offered.'] },
+        { h: 'Development-stage concept notice', p: ['Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™) is a development-stage company. The AI-Driven Sports Village and all related facilities, programs, services and initiatives described on this website are proposed concepts only — they do not currently exist as operational facilities or active programs.', 'All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only and remain subject to financing, regulatory approvals, due diligence, feasibility analysis, contractual negotiations, market conditions and execution capacity.', 'No memberships, programs or services are currently available for purchase. No funds are being solicited from the public at this time. No securities are being offered.'] },
         { h: 'No securities offering', p: ['Nothing on this website constitutes an offer to sell, a solicitation of an offer to buy, or a recommendation of any security or investment product. AFSVHCL™ is not currently registered as an issuer of securities in any jurisdiction.', 'Any future capital raise activities will be conducted in full compliance with applicable securities laws, including the Ontario Securities Act and any applicable federal regulations. Prospective investors will be provided with appropriate disclosure documents through proper legal channels.'] },
         { h: 'No membership sales currently active', p: ['Membership programs described on this website — including the Global Diaspora Network — are proposed future programs. No memberships are currently available for purchase. No payments are being accepted. Any pricing referenced is indicative only and subject to change.', 'When membership programs are formally launched, they will be accompanied by appropriate terms and conditions, privacy policies, refund policies and consumer protection disclosures in compliance with applicable law.'] },
         { h: 'Partnership & sponsorship disclosures', p: ['References to potential partnerships, sponsorships, institutional relationships and community collaborations on this website reflect exploratory discussions and aspirational goals only. No formal partnership or sponsorship agreements have been finalized unless explicitly stated otherwise.', 'Expressions of interest do not constitute binding commitments. Formal agreements will be executed through proper legal channels with appropriate documentation.'] },
         { h: 'Forward-looking statements', p: ['This website contains forward-looking statements, including projections, timelines, revenue estimates and expansion plans. These statements are based on current assumptions and expectations and are subject to significant risks, uncertainties and changes in circumstances.', 'Actual results may differ materially from those projected. AFSVHCL™ undertakes no obligation to update forward-looking statements to reflect new information, future events or changed circumstances.'] },
-        { h: 'ESG commitment', p: ['AFSVHCL™ is committed to ESG (Environmental, Social and Governance) principles, integrating sustainability, community impact and ethical governance into all operations. Our mission to support youth development, education, inclusion and community empowerment reflects our core commitment to social responsibility and long-term value creation.', 'As we develop the Smart Sports Village ecosystem, we prioritize environmental sustainability, equitable access to programs and opportunities, transparent governance practices and measurable community impact.'] },
+        { h: 'ESG commitment', p: ['AFSVHCL™ is committed to ESG (Environmental, Social and Governance) principles, integrating sustainability, community impact and ethical governance into all operations. Our mission to support youth development, education, inclusion and community empowerment reflects our core commitment to social responsibility and long-term value creation.', 'As we develop the AI-Driven Sports Village ecosystem, we prioritize environmental sustainability, equitable access to programs and opportunities, transparent governance practices and measurable community impact.'] },
         { h: 'Privacy & personal information', p: ['AFSVHCL™ is committed to protecting the privacy of individuals who interact with this website. Any personal information submitted through this website will be handled in accordance with applicable privacy legislation, including the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy laws.', 'See our Privacy Policy and Terms of Use for details.'] },
         { h: 'Safeguarding', p: ['Programs involving children, youth and vulnerable people will operate under documented safeguarding policies, screened staff and volunteers, and clear reporting routes before any program launches. Please do not share diagnoses, medical records or details about a child through website forms.'] },
         { h: 'Trademark notices', p: ['The following are unregistered trademarks of Athletes & Fans Sports Village Holding Company Limited:'], pills: MARKS, after: ['Unauthorized use of these marks is prohibited. ™ indicates an unregistered trademark claim.'] },
@@ -430,12 +430,12 @@ export function compliance(d) {
   };
 }
 
-const META = [['Last modified', 'June 12, 2026'], ['Website owner', 'AFSV VRC Global Development Group Ltd.'], ['Website', 'www.afsvhcl.com']];
+const META = [['Last modified', 'June 12, 2026'], ['Website owner', 'AFSV VRC Global Development Group Limited'], ['Website', 'www.afsvvrc.com']];
 
 export function privacy() {
   return {
     title: 'Privacy Policy',
-    description: 'How AFSV VRC Global Development Group Ltd. collects, uses and protects personal information.',
+    description: 'How AFSV VRC Global Development Group Limited collects, uses and protects personal information.',
     body: html`${legalDoc({
       kicker: 'Legal', title: 'Privacy Policy', icon: 'Lock', meta: META,
       sections: [
@@ -464,7 +464,7 @@ export function terms() {
     body: html`${legalDoc({
       kicker: 'Legal', title: 'Website Terms of Use', icon: 'Doc', meta: META,
       sections: [
-        { h: 'Overview', p: ['These terms constitute a legal agreement entered into between the user and AFSV VRC Global Development Group Ltd., governing access to and use of the website, including any content, functionality, and services offered on or through it. Acceptance is by use, and the Privacy Policy is incorporated by reference.'] },
+        { h: 'Overview', p: ['These terms constitute a legal agreement entered into between the user and AFSV VRC Global Development Group Limited, governing access to and use of the website, including any content, functionality, and services offered on or through it. Acceptance is by use, and the Privacy Policy is incorporated by reference.'] },
         { h: 'Key terms', sub: [
           ['Amendments', 'The Company may revise these Terms at its sole discretion, with all changes taking effect immediately upon posting and applying to continued use; users are expected to check periodically, and continued use constitutes acceptance.'],
           ['Account termination', 'The Company reserves the right at any time to disable or terminate any account, username, or password in its sole discretion for any or no reason.'],
@@ -592,9 +592,9 @@ ${affiliateNetwork()}`,
 // About — six pillars, core values, mission statement.
 export const aboutExtra = () => html`
 <section class="wrap section" data-el="about.six-pillars" data-el-build="elementor">
-  ${head('Our ecosystem', 'Six pillars. One vision.', 'AFSVHCL™ is not another sports facility — it is the ecosystem that makes every sports club, academy and institution better.')}
+  ${head('Our ecosystem', 'Six focus areas. One vision.', 'AFSVHCL™ is not another sports facility — it is the ecosystem that makes every sports club, academy and institution better.')}
   ${kgrid([
-    ['Dome', 'Smart Sports Infrastructure', 'Proposed year-round multi-sport dome facilities designed to remove the seasonal limits that restrict Canadian athletes.'],
+    ['Dome', 'AI-Driven Sports Infrastructure', 'Proposed year-round multi-sport dome facilities designed to remove the seasonal limits that restrict Canadian athletes.'],
     ['Inclusive education', 'Education & Inclusion', 'Integrated academic support, mentorship and neurodivergent programming through MLMSR Mentorship LLC.'],
     ['Esports', 'Esports & Digital Media', 'A digital ecosystem connecting athletes and fans through esports, live streaming and interactive media via EFN.'],
     ['Globe', 'Global Diaspora Network', "Connecting Canada's multicultural communities worldwide to support youth development and community empowerment."],
@@ -620,7 +620,7 @@ export const aboutExtra = () => html`
 
 // Whitby — overview, roadmap.
 const ROADMAP = [
-  ['2026–2028', 'Pilot project', 'Secure financing, land and approvals, and construct the first Smart Sports Village dome in Ontario.'],
+  ['2026–2028', 'Pilot project', 'Secure financing, land and approvals, and construct the first AI-Driven Sports Village dome in Ontario.'],
   ['2028–2029', 'Regional expansion', 'Expand across the region with additional facilities, programs and institutional partnerships.'],
   ['2029–2031', 'National network', 'An aspirational network of up to 10 domes across Canada, subject to sites, financing, approvals and partners.'],
   ['2031+', 'International', 'Caribbean and international expansion connecting diaspora communities through sport and education.'],
@@ -631,10 +631,10 @@ export const whitbyOverview = () => html`
     <div class="reveal">
       <p class="eyebrow mb-s">Project overview</p>
       <h2 class="h2 mb-m">The foundation for a national network.</h2>
-      <p class="lead mb-m">The Smart Sports Village is the proposed flagship pilot of AFSVHCL™ — designed as the model for a national network of integrated sports and education campuses across Canada.</p>
-      <p class="muted">The proposed dome would integrate elite athletic development, applied learning, neurodivergent support pathways, esports and digital media, and measurable community impact — all under one roof, year-round. It is proposed for a 12–15 acre Smart Sports &amp; Education Campus in partnership with municipal and post-secondary institutions, subject to financing, approvals and feasibility analysis.</p>
+      <p class="lead mb-m">The AI-Driven Sports Village is the proposed flagship pilot of AFSVHCL™ — designed as the model for a national network of integrated sports and education campuses across Canada.</p>
+      <p class="muted">The proposed dome would integrate elite athletic development, applied learning, neurodivergent support pathways, esports and digital media, and measurable community impact — all under one roof, year-round. It is proposed for an AI-Driven Sports &amp; Education Campus, with a land search of up to 20 acres, in partnership with municipal and post-secondary institutions, subject to financing, approvals and feasibility analysis.</p>
     </div>
-    ${stats([['150', 'K sq ft', 'Dome', ''], ['12–15', ' acres', 'Sports & education campus', ''], ['10', '', 'Domes — 5-year vision', '']])}
+    ${stats([['150', 'K sq ft', 'Dome', ''], ['Up to 20', ' acres', 'Land-search scope', ''], ['10', '', 'Domes — 5-year vision', '']])}
   </div>
 </section>`;
 export const whitbyRoadmap = () => html`
@@ -666,7 +666,7 @@ const TIER_DETAIL = [
 ];
 export const membershipExtra = () => html`
 <section class="wrap section" data-el="membership.pillars" data-el-build="elementor">
-  ${head('The four pillars', 'A membership built on four pillars.', 'Every AFSVHCL membership is designed to deliver value across community, commerce, education and measurable social impact.')}
+  ${head('Four benefit areas', 'A membership built on four benefit areas.', 'Every AFSVHCL membership is designed to deliver value across community, commerce, education and measurable social impact.')}
   ${kgrid([
     ['Community', 'Community', 'Belonging, local chapters, events, volunteer opportunities and a global network committed to youth development and inclusion.'],
     ['Tag', 'Marketplace', 'Member pricing, exclusive drops, partner offers and early access to premium AFSVHCL merchandise and athlete gear.'],
@@ -764,7 +764,7 @@ ${affiliateNetwork()}`;
 export const contactExtra = () => html`
 <section class="wrap section" data-el="contact.details" data-el-build="elementor">
   <div class="cdetails" data-stagger>
-    <article class="cdetail"><span class="kcard__ico">${ico('Doc')}</span><small>Email</small><a href="mailto:info@afsvhcl.com">info@afsvhcl.com</a></article>
+    <article class="cdetail"><span class="kcard__ico">${ico('Doc')}</span><small>Email</small><a href="mailto:info@afsvvrc.com">info@afsvvrc.com</a></article>
     <article class="cdetail"><span class="kcard__ico">${ico('Dome')}</span><small>Location</small><b>Whitby, Ontario, Canada</b></article>
     <article class="cdetail"><span class="kcard__ico">${ico('Mentorship')}</span><small>Primary contact</small><b>Martin Lashley</b><span>Chairman &amp; CEO, AFSVHCL™</span></article>
   </div>
@@ -790,7 +790,7 @@ export function contactPage(d) {
     ogImage: IMG('life/welcome.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Contact Us' }])}
-${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'life/welcome.jpg', alt: 'Concept rendering: a racially diverse welcome team greeting families, a teen athlete and a child in a wheelchair at the curved front desk of the village concourse at dusk.', lead: 'We welcome exploratory conversations with potential partners, sponsors, community stakeholders and supporters of the AFSVHCL™ vision.', badge: 'No memberships, programs or services are currently available for purchase', ctas: [{ label: 'Send a message', href: '#contact-form' }, { label: 'Email us', href: 'mailto:info@afsvhcl.com' }] })}
+${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'life/welcome.jpg', alt: 'Concept rendering: a racially diverse welcome team greeting families, a teen athlete and a child in a wheelchair at the curved front desk of the village concourse at dusk.', lead: 'We welcome exploratory conversations with potential partners, sponsors, community stakeholders and supporters of the AFSVHCL™ vision.', badge: 'No memberships, programs or services are currently available for purchase', ctas: [{ label: 'Send a message', href: '#contact-form' }, { label: 'Email us', href: 'mailto:info@afsvvrc.com' }] })}
 <section class="wrap section" id="contact-form" data-el="contact.form" data-el-build="plugin">
   <div class="cgrid">
     <div class="cgrid__form">
@@ -818,7 +818,7 @@ ${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'l
       <div class="cside">
         <p class="eyebrow">Contact information</p>
         <ul class="cside__list">
-          <li><span>${ico('Doc')}</span><div><small>Email</small><a href="mailto:info@afsvhcl.com">info@afsvhcl.com</a></div></li>
+          <li><span>${ico('Doc')}</span><div><small>Email</small><a href="mailto:info@afsvvrc.com">info@afsvvrc.com</a></div></li>
           <li><span>${ico('Dome')}</span><div><small>Location</small><b>Whitby, Ontario, Canada</b></div></li>
           <li><span>${ico('Mentorship')}</span><div><small>Primary contact</small><b>Martin Lashley</b><em>Chairman &amp; CEO, AFSVHCL™</em></div></li>
         </ul>

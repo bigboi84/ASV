@@ -15,7 +15,7 @@ const steps = (items) => html`
 export const INTERESTS = [
   ['membership', 'AFSV VRC membership'],
   ['business-membership', 'Business membership'],
-  ['sports-village', 'Whitby Smart Sports Village'],
+  ['sports-village', 'Whitby AI-Driven Sports Village'],
   ['programs', 'Programs & athlete development'],
   ['education', 'Education & academic success'],
   ['life-skills', 'Life skills'],

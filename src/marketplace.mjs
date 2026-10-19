@@ -219,7 +219,7 @@ ${breadcrumb([{ label: 'Marketplace' }])}
 </section>
 
 <section class="wrap section" data-el="marketplace.proposed-collections" data-el-build="elementor">
-  <div class="section-head reveal"><p class="eyebrow mb-s">Proposed collections</p><h2 class="h2">What's coming to the marketplace.</h2><p class="body-lg muted">The official e-commerce platform for AFSVHCL and AFSV VRC Development Group Ltd. Every purchase is intended to support neurodivergent inclusion programs.</p></div>
+  <div class="section-head reveal"><p class="eyebrow mb-s">Proposed collections</p><h2 class="h2">What's coming to the marketplace.</h2><p class="body-lg muted">The official e-commerce platform for AFSVHCL and AFSV VRC Global Development Group Limited Ltd. Every purchase is intended to support neurodivergent inclusion programs.</p></div>
   <div class="pcols" data-stagger>
     ${[
       ['executive-aviator-jacket-black.jpg', 'AFSVHCL Executive Collection™', 'Premium branded apparel and accessories for corporate partners and leadership.'],
@@ -282,7 +282,10 @@ ${launchForm()}`,
 // ════════════════════════ PRODUCT ════════════════════════
 export function merchProduct(d, m, p) {
   const c = collectionOf(m, p.collection);
-  const related = productsIn(m, p.collection).filter((x) => x.slug !== p.slug).concat(m.products.filter((x) => x.collection !== p.collection && lineOf(m, x) === c.line)).slice(0, 4);
+  // The next pieces in the same line, starting after this one, so each page recommends a different set.
+  const line = m.products.filter((x) => lineOf(m, x) === c.line);
+  const at = line.findIndex((x) => x.slug === p.slug);
+  const related = line.slice(at + 1).concat(line.slice(0, at)).slice(0, 4);
   const first = p.colours[0];
   return {
     title: p.name,
@@ -315,7 +318,7 @@ ${breadcrumb([{ label: 'Marketplace', route: '/marketplace' }, { label: 'The Col
       ${btn('Keep up to date on this piece', '/marketplace#buyer-form', 'navy')}
       ${btn('Back to the collection', '/shop', 'line-dark')}
     </div>
-    <p class="small muted mt-m">${CONCEPT_NOTE} Front and back views, detail shots and a product video will be added for each piece.</p>
+    <p class="small muted mt-m">${CONCEPT_NOTE}</p>
   </div>
 </section>
 <section class="band--cream" data-el="product.related" data-el-build="plugin">

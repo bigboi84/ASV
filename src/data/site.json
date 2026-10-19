@@ -30,10 +30,10 @@
       ]
     },
     {
-      "label": "Smart Sports Village",
+      "label": "AI-Driven Sports Village",
       "kids": [
         {
-          "label": "Whitby Smart Sports Village",
+          "label": "Whitby AI-Driven Sports Village",
           "href": "/whitby-smart-sports-village"
         },
         {
@@ -378,7 +378,7 @@
     },
     {
       "id": "pickup",
-      "label": "Pickup at Whitby Smart Sports Village",
+      "label": "Pickup at Whitby AI-Driven Sports Village",
       "note": "Available once the site is operational.",
       "cost": 0
     }
@@ -2592,7 +2592,7 @@
     "General",
     "Membership",
     "Programs",
-    "Whitby Smart Sports Village",
+    "Whitby AI-Driven Sports Village",
     "Education and inclusion",
     "Sponsorship and investment",
     "Marketplace / vendors",
@@ -2685,7 +2685,7 @@
         "Martin Lashley founded Athletes & Fans Sports Village Holding Company Limited with a singular belief: sport can transform communities when combined with education, technology, and opportunity.",
         "Recognizing the challenges athletes face in Canada's climate, Lashley envisioned a network of high-performance indoor sports environments capable of supporting year-round training while simultaneously delivering mentorship, academic support, and career pathways for young people.",
         "That vision evolved into the AFSVHCL™ ecosystem, an integrated platform combining sports science, education programs, esports engagement, and community participation.",
-        "The Whitby Smart Sports Village project represents the first step toward building a national network of multi-sport dome facilities designed to serve athletes, families, and communities across Canada."
+        "The Whitby AI-Driven Sports Village project represents the first step toward building a national network of multi-sport dome facilities designed to serve athletes, families, and communities across Canada."
       ],
       "quote": "“We are not building a sports facility. We are building an ecosystem — one that will change the trajectory of thousands of young lives and strengthen communities across Canada and the world.”",
       "quoteBy": "— Martin Lashley, Founder, Chairman & Interim CEO, AFSVHCL™",
@@ -2748,7 +2748,7 @@
       "bio": [
         "Michelle Lashley serves as the Chief Operating Officer of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL), where she oversees the operational execution of the company's global sports, education, and community development initiatives.",
         "With extensive experience in organizational management, program development, and strategic implementation, Michelle plays a pivotal role in transforming the Athletes & Fans Sports Village vision into a fully operational ecosystem. She leads the coordination of internal operations, strategic partnerships, and program delivery across the company's expanding initiatives in Canada, the Caribbean, and the United States.",
-        "As COO, Michelle is responsible for ensuring that the organization's core pillars — elite athletic development, education, wellness, esports innovation, and community inclusion — are executed efficiently and sustainably. She works closely with the executive leadership team to implement operational systems, manage key stakeholder relationships, and ensure the successful rollout of major projects including the Whitby Smart Sports Village pilot in Ontario and related international initiatives.",
+        "As COO, Michelle is responsible for ensuring that the organization's core pillars — elite athletic development, education, wellness, esports innovation, and community inclusion — are executed efficiently and sustainably. She works closely with the executive leadership team to implement operational systems, manage key stakeholder relationships, and ensure the successful rollout of major projects including the Whitby AI-Driven Sports Village pilot in Ontario and related international initiatives.",
         "Michelle is also the Founder of MLMSR Mentorship LLC, an education and mentorship organization that supports the Athletes & Fans Sports Village platform through academic programming, mentorship initiatives, and specialized education support for neurodivergent youth, including individuals on the autism spectrum and those with ADHD and dyslexia.",
         "Her leadership strengthens the organization's ability to deliver a next-generation sports infrastructure model that integrates high-performance athletics with education, technology, and community impact.",
         "Through her role at AFSVHCL, Michelle continues to help shape a transformative platform designed to empower athletes, support families, and build sustainable sports communities around the world."
@@ -2798,20 +2798,20 @@
     },
     {
       "name": "Vinai Charran",
-      "role": "Chief Investor, AFSVHCL · Founder & CEO, Charran's Group of Companies",
+      "role": "Deputy Chairman and Deputy CEO, AFSV VRC Global Development Group Limited · Founder & CEO, Charran's Group of Companies",
       "img": "assets/img/leaders/vinai-charran.jpg",
       "bio": [
-        "Vinai Charran serves as Chief Investor for Athletes & Fans Sports Village Holding Company Limited (AFSVHCL) and plays a central role in supporting the organization's strategic growth and capital development initiatives.",
+        "Vinai Charran serves as Deputy Chairman and Deputy CEO of AFSV VRC Global Development Group Limited and plays a central role in supporting the organization's strategic growth and capital development initiatives.",
         "A successful entrepreneur and international businessman, Vinai brings extensive experience in investment strategy, business development, and global commercial operations. His leadership and financial support help advance the Athletes & Fans Sports Village vision of building a next-generation global sports, education, and community development ecosystem.",
         "Vinai is the Founder and CEO of Charran's Group of Companies, a diversified business enterprise with operations spanning retail, education, publishing, and international trade. Through decades of entrepreneurial leadership, he has established a reputation for identifying innovative opportunities and building sustainable business platforms that deliver long-term value.",
-        "Within AFSVHCL, Vinai provides strategic investment leadership and supports the development of major initiatives, including the Whitby Smart Sports Village pilot project in Ontario, Canada, which will serve as the foundation for a broader national and international rollout of integrated sports, education, and community infrastructure.",
+        "As Deputy Chairman and Deputy CEO, Vinai provides strategic and investment leadership and supports the development of major initiatives, including the proposed Whitby AI-Driven Sports Village pilot project in Ontario, Canada, intended as the foundation for a broader national and international rollout of integrated sports, education, and community infrastructure.",
         "Beyond his business accomplishments, Vinai is deeply committed to initiatives that promote education, youth development, and community empowerment. His investment in the Athletes & Fans Sports Village platform reflects his belief that sports, education, and mentorship can transform lives and create lasting opportunities for future generations.",
-        "Through his partnership with AFSVHCL, Vinai continues to help drive the development of a globally scalable sports and education platform designed to inspire athletes, empower communities, and foster innovation in youth development worldwide."
+        "Through his role with AFSV VRC Global Development Group Limited, Vinai continues to help drive the development of a globally scalable sports and education platform designed to inspire athletes, empower communities, and foster innovation in youth development worldwide."
       ],
       "focus": [
         {
           "t": "Strategic Investment Leadership",
-          "d": "Driving capital growth and long-term value creation for AFSVHCL."
+          "d": "Driving capital growth and long-term value creation for AFSV VRC."
         },
         {
           "t": "Global Business Development",
@@ -2969,7 +2969,7 @@
     },
     {
       "num": "03",
-      "title": "Neurodiversity Access & Opportunity",
+      "title": "Neurodivergent Support & Inclusive Education",
       "desc": "Access, support and opportunity built in from the start.",
       "href": "/neurodiversity"
     },
@@ -3103,7 +3103,7 @@
           "href": "/leadership"
         },
         {
-          "label": "Smart Sports Village",
+          "label": "AI-Driven Sports Village",
           "href": "/whitby-smart-sports-village"
         },
         {
@@ -3201,19 +3201,24 @@
         "Nations",
         "Humanity"
       ],
-      "summary": "AI is joining the workforce. Money is going digital. AI agents now connect the two. Three days in Port of Spain for the people shaping what comes next: CEOs and executives, governments and regulators, financial professionals, investors and builders.",
-      "host": "Hosted in the Caribbean by AFSV VRC Global Development Group Ltd., Canada.",
-      "start": "2027-04-29T09:00:00-04:00",
-      "dateLabel": "April 29 – May 1, 2027",
-      "day": "29",
+      "summary": "AI is joining the workforce. Money is going digital. AI agents now connect the two. Certifications from April 26 to 29 and a two-day main summit on April 30 and May 1 in Port of Spain, for the people shaping what comes next: CEOs and executives, governments and regulators, financial professionals, investors and builders.",
+      "host": "Hosted in the Caribbean by AFSV VRC Global Development Group Limited, Canada.",
+      "start": "2027-04-30T09:00:00-04:00",
+      "dateLabel": "Main summit April 30 – May 1, 2027",
+      "certLabel": "Certifications April 26–29, 2027",
+      "day": "30",
       "month": "Apr",
       "endLabel": "– 1 May 2027",
       "venue": "Hyatt Regency Trinidad",
       "city": "Port of Spain, Trinidad & Tobago",
       "facts": [
         [
-          "3 days",
-          "of keynotes, roundtables and sessions"
+          "Apr 26–29",
+          "certification days, before the main summit"
+        ],
+        [
+          "2 days",
+          "of main-summit keynotes, roundtables and sessions"
         ],
         [
           "50+",

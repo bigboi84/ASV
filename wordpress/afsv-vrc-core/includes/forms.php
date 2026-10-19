@@ -134,12 +134,12 @@ function afsv_core_handle_form( WP_REST_Request $req ) {
 /* ───────── Settings: recipients, auto-replies, sender ───────── */
 
 const AFSV_FORM_DEFAULTS = array(
-	'to'         => 'info@afsvhcl.com',
+	'to'         => 'info@afsvvrc.com',
 	'from_name'  => 'AFSV VRC',
 	'from_email' => '',
 	'ar_enabled' => 1,
 	'ar_subject' => 'Thank you, {name} — we received your message',
-	'ar_body'    => "Hi {name},\n\nThank you for getting in touch with AFSV VRC. We've received your submission (\"{form}\") and a member of our team will be in touch soon.\n\nFor your records, here is what you sent:\n\n{answers}\n\nWarm regards,\nThe AFSV VRC team\ninfo@afsvhcl.com",
+	'ar_body'    => "Hi {name},\n\nThank you for getting in touch with AFSV VRC. We've received your submission (\"{form}\") and a member of our team will be in touch soon.\n\nFor your records, here is what you sent:\n\n{answers}\n\nWarm regards,\nThe AFSV VRC team\ninfo@afsvvrc.com",
 );
 
 function afsv_core_form_settings() {
@@ -263,7 +263,7 @@ function afsv_core_form_settings_screen() {
       <tr><th scope="row"><label for="afsv-from-name"><?php esc_html_e( 'From name', 'afsv-vrc-core' ); ?></label></th>
         <td><input type="text" class="regular-text" id="afsv-from-name" name="from_name" value="<?php echo esc_attr( $s['from_name'] ); ?>"></td></tr>
       <tr><th scope="row"><label for="afsv-from-email"><?php esc_html_e( 'From email', 'afsv-vrc-core' ); ?></label></th>
-        <td><input type="email" class="regular-text" id="afsv-from-email" name="from_email" value="<?php echo esc_attr( $s['from_email'] ); ?>" placeholder="<?php esc_attr_e( 'Leave empty to use the WordPress default', 'afsv-vrc-core' ); ?>"><p class="description"><?php esc_html_e( 'Use an address on your own domain (e.g. no-reply@afsvhcl.com) so emails are not marked as spam.', 'afsv-vrc-core' ); ?></p></td></tr>
+        <td><input type="email" class="regular-text" id="afsv-from-email" name="from_email" value="<?php echo esc_attr( $s['from_email'] ); ?>" placeholder="<?php esc_attr_e( 'Leave empty to use the WordPress default', 'afsv-vrc-core' ); ?>"><p class="description"><?php esc_html_e( 'Use an address on your own domain (e.g. no-reply@afsvvrc.com) so emails are not marked as spam.', 'afsv-vrc-core' ); ?></p></td></tr>
       <tr><th scope="row"><?php esc_html_e( 'Auto-reply', 'afsv-vrc-core' ); ?></th>
         <td><label><input type="checkbox" name="ar_enabled" value="1" <?php checked( $s['ar_enabled'] ); ?>> <?php esc_html_e( 'Send an automatic reply to the person who filled in the form', 'afsv-vrc-core' ); ?></label></td></tr>
       <tr><th scope="row"><label for="afsv-ar-subject"><?php esc_html_e( 'Auto-reply subject', 'afsv-vrc-core' ); ?></label></th>

@@ -4,7 +4,7 @@
 
 export const SITE = {
   name: 'AFSV VRC',
-  legal: 'AFSV VRC Global Development Group Ltd.',
+  legal: 'AFSV VRC Global Development Group Limited',
   tagline: 'Building Athletes. Empowering Minds. Strengthening Communities.',
   url: 'https://afsvvrc.com',
   booking: 'https://book.afsvvrc.com',
