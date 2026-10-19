@@ -194,7 +194,10 @@ export function home(d) {
   <div class="wrap hero__content hero__content--film">
     <p class="film__tag">Whitby, Ontario · Concept renderings</p>
     <h1 class="film__title" aria-label="A proposed year-round sports village for Whitby"><span aria-hidden="true">${raw(['A proposed year-round', 'sports village for Whitby'].map((line, l) => `<span class="fl" style="--l:${l}">${line.split(' ').map((w, i) => `<span class="fw" style="--i:${i}">${esc(w)}</span>`).join(' ')}</span>`).join('<br>'))}</span></h1>
-    <a class="film__cta" href="whitby-smart-sports-village.html">Explore the village</a>
+    <div class="film__actions">
+      <a class="film__cta" href="whitby-smart-sports-village.html">Explore the village</a>
+      <p class="film__note" title="This film shows computer-generated concept renderings of the proposed village. The facility is not yet built or operating.">Concept preview · Proposed development<span class="sr-only">. This film shows computer-generated concept renderings of the proposed village. The facility is not yet built or operating.</span></p>
+    </div>
   </div>
   <div class="reel__bar">
     <div class="wrap reel__bar-inner">

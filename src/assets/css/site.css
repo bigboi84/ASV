@@ -2539,3 +2539,11 @@ html.intro-on, .intro-on body { overflow: hidden; }
 .mk-product__stage.is-model .mk-product__vid { opacity: 1; }
 /* the chips double as no-script anchor targets for /shop/#collection links */
 .mk-chip { scroll-margin-top: 120px; }
+
+/* Hero: small concept disclaimer under "Explore the village" (hero otherwise unchanged) */
+.film__actions { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 22px; }
+.film__actions .film__cta { margin-top: 0; }
+.film__note { margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.85); text-shadow: 0 1px 6px rgba(0,0,0,.55); }
+.hero--reel .film__note { animation: ctaIn .9s cubic-bezier(.2,.8,.2,1) 1.5s both; }
+.intro-on .hero--reel .film__note { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .hero--reel .film__note { animation: none; } }

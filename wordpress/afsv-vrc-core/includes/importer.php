@@ -51,6 +51,11 @@ function afsv_core_upsert( $type, $slug, $args ) {
 	$args = array_merge( array( 'post_type' => $type, 'post_name' => $slug ), $args );
 	if ( $found ) {
 		$args['ID'] = $found[0]->ID;
+		// "Create as drafts" only applies to new pages: a page that already exists keeps its current
+		// status, so rebuilding can never take a published page (or the whole live site) offline.
+		if ( isset( $args['post_status'] ) && 'publish' !== $args['post_status'] ) {
+			unset( $args['post_status'] );
+		}
 	}
 	return wp_insert_post( wp_slash( $args ), true );
 }
@@ -69,6 +74,11 @@ function afsv_core_upsert_page( $slug, $parent, $args ) {
 	$args = array_merge( array( 'post_type' => 'page', 'post_name' => $slug, 'post_parent' => $parent ), $args );
 	if ( $found ) {
 		$args['ID'] = $found[0]->ID;
+		// "Create as drafts" only applies to new pages: a page that already exists keeps its current
+		// status, so rebuilding can never take a published page (or the whole live site) offline.
+		if ( isset( $args['post_status'] ) && 'publish' !== $args['post_status'] ) {
+			unset( $args['post_status'] );
+		}
 	}
 	return wp_insert_post( wp_slash( $args ), true );
 }
@@ -166,7 +176,7 @@ function afsv_core_run_import( $opts ) {
 			update_option( 'show_on_front', 'page' );
 			update_option( 'page_on_front', $id );
 		}
-		$log[] = sprintf( 'Page: %s%s (%s)', ! empty( $p['parent'] ) ? $p['parent'] . '/' : '', $p['title'], $status );
+		$log[] = sprintf( 'Page: %s%s (%s)', ! empty( $p['parent'] ) ? $p['parent'] . '/' : '', $p['title'], get_post_status( $id ) );
 	}
 	if ( class_exists( '\Elementor\Plugin' ) ) {
 		\Elementor\Plugin::instance()->files_manager->clear_cache();
@@ -225,7 +235,7 @@ function afsv_core_setup_screen() {
 		<?php wp_nonce_field( 'afsv_import' ); ?>
 		<table class="form-table" role="presentation"><tbody>
 			<tr><th scope="row"><?php esc_html_e( 'Pages', 'afsv-vrc-core' ); ?></th><td>
-				<label><input type="radio" name="afsv_status" value="draft" checked> <?php esc_html_e( 'Create as drafts (review first)', 'afsv-vrc-core' ); ?></label><br>
+				<label><input type="radio" name="afsv_status" value="draft" checked> <?php esc_html_e( 'New pages as drafts (existing pages keep their current status)', 'afsv-vrc-core' ); ?></label><br>
 				<label><input type="radio" name="afsv_status" value="publish"> <?php esc_html_e( 'Publish', 'afsv-vrc-core' ); ?></label>
 				<p class="description"><?php esc_html_e( 'Pages that already exist keep their slug and are overwritten with the AFSV VRC layout.', 'afsv-vrc-core' ); ?></p>
 			</td></tr>
