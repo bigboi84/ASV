@@ -24,7 +24,15 @@ Product data (WooCommerce) and site settings can be changed directly through the
 
 ## Live site and rules
 - Staging and live site: https://afsv.198-105-177-163.sslip.io. WordPress, Elementor, WooCommerce, theme `afsv-vrc` (child of hello-elementor), plugin AFSV VRC Core.
-- Registered company: **AFSV VRC Global Development Group Limited**. Keep Athletes & Fans Sports Village Holding Company Limited distinct; awaiting Martin's answers on where each name applies.
+- Registered company: **AFSV VRC Global Development Group Limited** (short form: "AFSV VRC"). Martin, 19 Oct 2026: use it everywhere, including the copyright, legal pages and trademark owner.
+  - Exception: Natalie's and Michelle's bios keep Athletes & Fans Sports Village Holding Company Limited (AFSVHCL).
+  - Martin's title: "Founder, Chairman & Interim CEO, AFSVHCL™ · Founder, AFSV VRC Global Development Group Limited". His quote attribution keeps "Founder, Chairman & Interim CEO, AFSVHCL™".
+  - Vinai's title: "Deputy Chairman and Deputy CEO, AFSVHCL™ · Deputy Chairman and Deputy CEO, AFSV VRC Global Development Group Limited · Founder & CEO, Charran's Group of Companies".
+  - Short titles for the Leadership top row live in the `chip` field.
+  - Trademark names keep their names (e.g. AFSVHCL Marketplace™). Vinai's own quote is kept word for word.
+- Menu:
+  - "Esports" is a single tab linking to the EFN page.
+  - "Membership & FanZone" has FanZone listed first.
 - Domain: **afsvvrc.com** everywhere visitors see it (not afsvhcl.com). Martin, 19 Oct 2026: "In reviewing it is the website is still afsvhcl.com. This is not correct. It is afsvvrc.com." His trigger was an automated email the site sent.
 - Email: GoDaddy (Microsoft 365) has separate mailboxes on both afsvhcl.com and afsvvrc.com.
   - **info@afsvvrc.com** (Business Professional) is the public address and the account WordPress sends through. SMTP Authentication was switched on 19 Oct.

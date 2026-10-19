@@ -20,7 +20,7 @@ $a = wp_parse_args(
 	)
 );
 $cols  = is_array( $a['columns'] ) ? $a['columns'] : afsv_footer_columns();
-$legal = __( 'AFSV VRC Global Development Group Ltd.', 'afsv-vrc' );
+$legal = __( 'AFSV VRC Global Development Group Limited', 'afsv-vrc' );
 
 $legal_links = afsv_nav_tree( 'afsv-legal' );
 if ( ! $legal_links ) {

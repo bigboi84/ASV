@@ -146,7 +146,7 @@ function footer(cols) {
       <ul class="site-footer__contact">
         <li><span>Location</span>Whitby, Ontario, Canada</li>
         <li><span>Email</span><a href="mailto:info@afsvvrc.com">info@afsvvrc.com</a></li>
-        <li><span>Leadership</span>Martin Lashley – Chairman &amp; CEO</li>
+        <li><span>Leadership</span>Martin Lashley – Founder, Chairman &amp; Interim CEO</li>
       </ul>
       <div class="btn-row"><a class="btn btn--gold btn--sm" href="membership.html">Community membership</a><a class="btn btn--line-light btn--sm" href="partners.html">Ecosystem partners</a></div>
     </div>
@@ -158,7 +158,7 @@ function footer(cols) {
   </div>
   <div class="wrap site-footer__eco">
     <details class="fcol" open data-fcol>
-      <summary><h2>AFSVHCL™ ecosystem</h2></summary>
+      <summary><h2>AFSV VRC ecosystem</h2></summary>
       <ul class="site-footer__entities">${ECOSYSTEM.map(([n, r]) => html`<li><b>${n}</b><span>${r}</span></li>`)}</ul>
     </details>
     <details class="fcol" open data-fcol>
@@ -168,11 +168,11 @@ function footer(cols) {
     </details>
   </div>
   <div class="wrap site-footer__disclaimer">
-    <p><b>Development-stage disclaimer.</b> AFSVHCL™ is a development-stage company. The AI-Driven Sports Village and all related facilities, programs, services and initiatives described on this website are proposed concepts only — they do not currently exist as operational facilities or active programs. All concepts, timelines, projections, partnerships and proposed activities are for informational and exploratory discussion purposes only and remain subject to financing, regulatory approvals, due diligence, feasibility analysis and execution capacity. No memberships, programs or services are currently available for purchase. No securities are being offered. See our <a href="compliance.html">Compliance &amp; Legal</a> page for full disclosures.</p>
+    <p><b>Development-stage disclaimer.</b> AFSV VRC is a development-stage company. The AI-Driven Sports Village and all related facilities, programs, services and initiatives described on this website are proposed concepts only — they do not currently exist as operational facilities or active programs. All concepts, timelines, projections, partnerships and proposed activities are for informational and exploratory discussion purposes only and remain subject to financing, regulatory approvals, due diligence, feasibility analysis and execution capacity. No memberships, programs or services are currently available for purchase. No securities are being offered. See our <a href="compliance.html">Compliance &amp; Legal</a> page for full disclosures.</p>
   </div>
   <div class="site-footer__bar">
     <div class="wrap">
-      <p>© ${new Date().getFullYear()} Athletes &amp; Fans Sports Village Holding Company Limited (AFSVHCL). All rights reserved.</p>
+      <p>© ${new Date().getFullYear()} AFSV VRC Global Development Group Limited. All rights reserved.</p>
       <nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refund-policy.html">Refunds</a><a href="shipping-policy.html">Shipping</a><a href="accessibility.html">Accessibility</a><a href="compliance.html">Compliance</a></nav>
     </div>
   </div>

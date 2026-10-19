@@ -29,7 +29,7 @@ $a = wp_parse_args(
 $nav     = is_array( $a['nav'] ) ? $a['nav'] : afsv_nav_tree( 'afsv-primary', $a['menu'] );
 $overlay = (bool) $a['overlay'];
 $name    = get_bloginfo( 'name' );
-$legal   = __( 'AFSV VRC Global Development Group Ltd.', 'afsv-vrc' );
+$legal   = __( 'AFSV VRC Global Development Group Limited', 'afsv-vrc' );
 ?>
 <?php if ( $overlay ) : ?><div class="masthead masthead--overlay"><?php endif; ?>
 

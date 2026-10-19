@@ -6,7 +6,7 @@
  * Version:           1.2.8
  * Requires at least: 6.5
  * Requires PHP:      7.4
- * Author:            AFSV VRC Global Development Group Ltd.
+ * Author:            AFSV VRC Global Development Group Limited
  * License:           GPL-2.0-or-later
  * Text Domain:       afsv-vrc-core
  *

@@ -263,7 +263,7 @@ export function home(d) {
     <span class="tri__shape" aria-hidden="true"></span>
     <div class="wrap tri__grid">
       <div class="tri__intro">
-        <p class="eyebrow mb-s">AFSVHCL™ ecosystem</p>
+        <p class="eyebrow mb-s">AFSV VRC ecosystem</p>
         <h2 class="tri__title">Three divisions.<br><em>One vision.</em></h2>
         <ol class="tri__steps">
           ${ECO3.map((e, i) => html`<li${i === 0 ? raw(' class="is-on"') : ''}><span>${pad2(i + 1)}</span>${e.tag}</li>`)}
@@ -454,7 +454,7 @@ ${esportsBand()}
 <section class="wrap section" data-el="home.membership" data-el-build="elementor">
   <div class="section-head reveal">
     <p class="eyebrow mb-s">Join the community</p>
-    <h2 class="h2">Become part of the AFSVHCL movement.</h2>
+    <h2 class="h2">Become part of the AFSV VRC movement.</h2>
     <p class="body-lg muted">Membership isn’t open yet — pre-register now and be first to know when it goes live. Membership is proposed to help expand access to neurodivergent inclusion programs, subject to approved fund arrangements.</p>
   </div>
   <div class="tiers" data-stagger>
@@ -542,7 +542,7 @@ const MODEL_ICONS = [
 export function about(d) {
   const story = [
     { k: 'The belief', t: 'Sport can transform communities', b: 'when it is combined with education, technology and opportunity.' },
-    { k: 'The ecosystem', t: 'AFSVHCL™', b: 'An integrated platform combining sports science, education programs, esports engagement and community participation.' },
+    { k: 'The ecosystem', t: 'AFSV VRC', b: 'An integrated platform combining sports science, education programs, esports engagement and community participation.' },
     { k: 'The pilot', t: 'Whitby AI-Driven Sports Village', b: 'A proposed year-round, technology-enabled destination in Whitby, Ontario.' },
     { k: 'The network', t: 'Canada, the Caribbean and beyond', b: 'A national network of multi-sport dome facilities and scalable initiatives in global markets.' },
   ];
@@ -628,7 +628,7 @@ ${aboutExtra()}
 </section>
 
 <section class="wrap section" data-el="about.leadership" data-el-build="elementor">
-  <div class="section-head reveal"><h2 class="h2">The leadership team.</h2><p class="body-lg muted">The people guiding governance, operations and investment across AFSVHCL. <a class="text-link" href="leadership.html">Full profiles ${arrow()}</a></p></div>
+  <div class="section-head reveal"><h2 class="h2">The leadership team.</h2><p class="body-lg muted">The people guiding governance, operations and investment across AFSV VRC. <a class="text-link" href="leadership.html">Full profiles ${arrow()}</a></p></div>
   <div class="team" data-stagger>
     ${d.leadership.map((p) => html`
     <a class="team-card" href="leadership.html#${p.slug}">
@@ -652,16 +652,16 @@ export function leadership(d) {
   return {
     title: 'Leadership',
     overlay: true,
-    description: 'Meet the leadership of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL) and AFSV VRC.',
+    description: 'Meet the leadership of AFSV VRC Global Development Group Limited and AFSV VRC.',
     ogImage: IMG('martin-lashley.jpg'),
     body: html`
 <section class="lead-hero" data-el="leadership.hero" data-el-build="elementor">
   <div class="wrap lead-hero__inner">
     <p class="eyebrow eyebrow-rule">Leadership team</p>
     <h1 class="h1 split-words" aria-label="The team behind the vision."><span aria-hidden="true">${splitWords(['The team behind', 'the vision.'], ['vision.'])}</span></h1>
-    <p class="lead">AFSVHCL™ is led by a dedicated team of entrepreneurs, community builders, and visionaries committed to transforming youth sports, education, and community development in Canada and beyond.</p>
+    <p class="lead">AFSV VRC is led by a dedicated team of entrepreneurs, community builders, and visionaries committed to transforming youth sports, education, and community development in Canada and beyond.</p>
     <nav class="lead-chips" aria-label="Leaders">
-      ${d.leadership.map((p) => html`<a href="#${p.slug}">${portrait(p, 'lead-chips__img')}<span><b>${p.name}</b><small>${p.role}</small></span></a>`)}
+      ${d.leadership.map((p) => html`<a href="#${p.slug}">${portrait(p, 'lead-chips__img')}<span><b>${p.name}</b><small>${p.chip || p.role}</small></span></a>`)}
     </nav>
   </div>
 </section>
@@ -837,7 +837,7 @@ ${whitbyRoadmap()}
 <section class="wrap section" data-el="whitby.ecosystem" data-el-build="elementor">
   <div class="wh-eco">
     <div class="reveal">
-      <p class="eyebrow mb-s">AFSVHCL ecosystem</p>
+      <p class="eyebrow mb-s">AFSV VRC ecosystem</p>
       <h2 class="h2 mb-m">Three divisions, one village.</h2>
       <ol class="wh-eco__list">${WH_ECOSYSTEM.map((e) => html`<li><b>${e.name}</b><span>${e.role}</span></li>`)}</ol>
     </div>

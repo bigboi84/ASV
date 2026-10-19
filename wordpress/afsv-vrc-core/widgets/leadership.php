@@ -37,7 +37,7 @@ class AFSV_Widget_Leadership extends AFSV_Widget {
 		$this->text( 'eyebrow', __( 'Eyebrow (hero)', 'afsv-vrc-core' ), 'Leadership team' );
 		$this->text( 'heading', __( 'Heading', 'afsv-vrc-core' ), 'The leadership team.' );
 		$this->text( 'ink', __( 'Underlined words (hero)', 'afsv-vrc-core' ), 'vision.' );
-		$this->text( 'text', __( 'Intro', 'afsv-vrc-core' ), 'The people guiding governance, operations and investment across AFSVHCL.', 'textarea' );
+		$this->text( 'text', __( 'Intro', 'afsv-vrc-core' ), 'The people guiding governance, operations and investment across AFSV VRC.', 'textarea' );
 		$this->text( 'link_label', __( 'Link label (cards)', 'afsv-vrc-core' ), 'Full profiles' );
 		$this->url( 'link', __( 'Leadership page', 'afsv-vrc-core' ), '/leadership' );
 		$this->add_control(

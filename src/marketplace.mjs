@@ -219,13 +219,13 @@ ${breadcrumb([{ label: 'Marketplace' }])}
 </section>
 
 <section class="wrap section" data-el="marketplace.proposed-collections" data-el-build="elementor">
-  <div class="section-head reveal"><p class="eyebrow mb-s">Proposed collections</p><h2 class="h2">What's coming to the marketplace.</h2><p class="body-lg muted">The official e-commerce platform for AFSVHCL and AFSV VRC Global Development Group Limited Ltd. Every purchase is intended to support neurodivergent inclusion programs.</p></div>
+  <div class="section-head reveal"><p class="eyebrow mb-s">Proposed collections</p><h2 class="h2">What's coming to the marketplace.</h2><p class="body-lg muted">The official e-commerce platform for AFSV VRC Global Development Group Limited. Every purchase is intended to support neurodivergent inclusion programs.</p></div>
   <div class="pcols" data-stagger>
     ${[
       ['executive-aviator-jacket-black.jpg', 'AFSVHCL Executive Collection™', 'Premium branded apparel and accessories for corporate partners and leadership.'],
       ['executive-polo-black.jpg', 'AFSVHCL Founder Series™', 'Exclusive limited-edition merchandise for founding members and early supporters.'],
-      ['regular-varsity-jacket-navy.jpg', 'AFSVHCL Legacy Collection™', 'Heritage-inspired apparel celebrating the AFSVHCL™ mission and community.'],
-      ['regular-tee-navy.jpg', 'Athlete Performance Gear', 'Proposed branded training kits, apparel and equipment for AFSVHCL™ athletes.'],
+      ['regular-varsity-jacket-navy.jpg', 'AFSVHCL Legacy Collection™', 'Heritage-inspired apparel celebrating the AFSV VRC mission and community.'],
+      ['regular-tee-navy.jpg', 'Athlete Performance Gear', 'Proposed branded training kits, apparel and equipment for AFSV VRC athletes.'],
       ['regular-cap-navy.jpg', 'FanZone™ Member Merchandise', 'Exclusive merchandise available to FanZone™ community members.'],
       ['regular-hoodie-navy.jpg', 'Diaspora Heritage Collection', 'Branded hoodies and apparel featuring cultural heritage flags for diaspora members.'],
     ].map(([img, t, b]) => html`<article class="pcol"><figure><img src="${M(img)}" alt="" width="960" height="1200" loading="lazy"></figure><div><h3>${t}</h3><p>${b}</p></div></article>`)}

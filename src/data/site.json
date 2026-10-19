@@ -64,17 +64,8 @@
       ]
     },
     {
-      "label": "Esports & Digital",
-      "kids": [
-        {
-          "label": "EFN – Esports & Fans Network",
-          "href": "/technology-media"
-        },
-        {
-          "label": "FanZone™ & Global Diaspora Network",
-          "href": "/fanzone"
-        }
-      ]
+      "label": "Esports",
+      "href": "/technology-media"
     },
     {
       "label": "Neurodiversity",
@@ -102,8 +93,12 @@
       ]
     },
     {
-      "label": "Membership",
+      "label": "Membership & FanZone",
       "kids": [
+        {
+          "label": "FanZone™ & Global Diaspora Network",
+          "href": "/fanzone"
+        },
         {
           "label": "Become a Member",
           "href": "/become-a-member"
@@ -2672,19 +2667,19 @@
   "leadership": [
     {
       "name": "Martin Lashley",
-      "role": "Founder, Chairman & Interim CEO",
+      "role": "Founder, Chairman & Interim CEO, AFSVHCL™ · Founder, AFSV VRC Global Development Group Limited",
       "img": "assets/img/martin-lashley.jpg",
       "noImg": false,
       "bio": [
-        "Martin Lashley is the Founder, Chairman, and Interim Chief Executive Officer of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL), a Canadian-based sports infrastructure and youth development company building an integrated ecosystem that combines elite sport, education support, sports science, esports, and community engagement."
+        "Martin Lashley is the Founder, Chairman, and Interim Chief Executive Officer of Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™) and the Founder of AFSV VRC Global Development Group Limited, a Canadian-based sports infrastructure and youth development company building an integrated ecosystem that combines elite sport, education support, sports science, esports, and community engagement."
       ],
       "alt": "Martin Lashley standing on the turf inside an indoor sports dome.",
       "slug": "martin-lashley",
-      "short": "Founded AFSVHCL on a singular belief: sport can transform communities when combined with education, technology and opportunity.",
+      "short": "Founded AFSV VRC on a singular belief: sport can transform communities when combined with education, technology and opportunity.",
       "story": [
-        "Martin Lashley founded Athletes & Fans Sports Village Holding Company Limited with a singular belief: sport can transform communities when combined with education, technology, and opportunity.",
+        "Martin Lashley founded Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™) and AFSV VRC Global Development Group Limited with a singular belief: sport can transform communities when combined with education, technology, and opportunity.",
         "Recognizing the challenges athletes face in Canada's climate, Lashley envisioned a network of high-performance indoor sports environments capable of supporting year-round training while simultaneously delivering mentorship, academic support, and career pathways for young people.",
-        "That vision evolved into the AFSVHCL™ ecosystem, an integrated platform combining sports science, education programs, esports engagement, and community participation.",
+        "That vision evolved into the AFSV VRC ecosystem, an integrated platform combining sports science, education programs, esports engagement, and community participation.",
         "The Whitby AI-Driven Sports Village project represents the first step toward building a national network of multi-sport dome facilities designed to serve athletes, families, and communities across Canada."
       ],
       "quote": "“We are not building a sports facility. We are building an ecosystem — one that will change the trajectory of thousands of young lives and strengthen communities across Canada and the world.”",
@@ -2706,7 +2701,8 @@
           "t": "Community & Global Impact",
           "d": "A national network of multi-sport domes, starting in Whitby."
         }
-      ]
+      ],
+      "chip": "Founder, Chairman & Interim CEO"
     },
     {
       "name": "Natalie Sutherland-Lashley",
@@ -2798,10 +2794,10 @@
     },
     {
       "name": "Vinai Charran",
-      "role": "Deputy Chairman and Deputy CEO, AFSV VRC Global Development Group Limited · Founder & CEO, Charran's Group of Companies",
+      "role": "Deputy Chairman and Deputy CEO, AFSVHCL™ · Deputy Chairman and Deputy CEO, AFSV VRC Global Development Group Limited · Founder & CEO, Charran's Group of Companies",
       "img": "assets/img/leaders/vinai-charran.jpg",
       "bio": [
-        "Vinai Charran serves as Deputy Chairman and Deputy CEO of AFSV VRC Global Development Group Limited and plays a central role in supporting the organization's strategic growth and capital development initiatives.",
+        "Vinai Charran serves as Deputy Chairman and Deputy CEO of both Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™) and AFSV VRC Global Development Group Limited, and plays a central role in supporting the organization's strategic growth and capital development initiatives.",
         "A successful entrepreneur and international businessman, Vinai brings extensive experience in investment strategy, business development, and global commercial operations. His leadership and financial support help advance the Athletes & Fans Sports Village vision of building a next-generation global sports, education, and community development ecosystem.",
         "Vinai is the Founder and CEO of Charran's Group of Companies, a diversified business enterprise with operations spanning retail, education, publishing, and international trade. Through decades of entrepreneurial leadership, he has established a reputation for identifying innovative opportunities and building sustainable business platforms that deliver long-term value.",
         "As Deputy Chairman and Deputy CEO, Vinai provides strategic and investment leadership and supports the development of major initiatives, including the proposed Whitby AI-Driven Sports Village pilot project in Ontario, Canada, intended as the foundation for a broader national and international rollout of integrated sports, education, and community infrastructure.",
@@ -2836,7 +2832,8 @@
         "desc": "A diversified business enterprise with operations across retail, education, publishing, and international trade."
       },
       "tagline": "Building a legacy. Inspiring generations.",
-      "alt": "Portrait of Vinai Charran in a charcoal suit and red tie."
+      "alt": "Portrait of Vinai Charran in a charcoal suit and red tie.",
+      "chip": "Deputy Chairman & Deputy CEO"
     }
   ],
   "pillars4": [
@@ -3095,7 +3092,7 @@
       "title": "Explore",
       "links": [
         {
-          "label": "About AFSVHCL™",
+          "label": "About AFSV VRC",
           "href": "/about"
         },
         {
@@ -3132,7 +3129,7 @@
           "href": "/fanzone"
         },
         {
-          "label": "Esports & Digital (EFN)",
+          "label": "Esports (EFN)",
           "href": "/technology-media"
         },
         {

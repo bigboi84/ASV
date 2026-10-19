@@ -119,7 +119,7 @@ function legalDoc({ kicker, title, intro, meta = [], sections, icon: ic = 'Doc',
       ${s.pills ? html`<ul class="xlegal__pills">${s.pills.map((l) => html`<li>${l}</li>`)}</ul>` : ''}
       ${s.cards ? html`<div class="xlegal__cards">${s.cards.map(([i, h, t]) => html`<div><span>${ico(i)}</span><b>${h}</b><small>${t}</small></div>`)}</div>` : ''}
       ${s.after ? (s.after).map((t) => html`<p>${t}</p>`) : ''}
-      ${s.mail ? html`<p class="xlegal__mail"><a href="mailto:${s.mail}">${s.mail}</a><span>Martin Lashley — Chairman &amp; CEO, AFSVHCL™</span></p>` : ''}
+      ${s.mail ? html`<p class="xlegal__mail"><a href="mailto:${s.mail}">${s.mail}</a><span>Martin Lashley — Founder, Chairman &amp; Interim CEO, AFSVHCL™ · Founder, AFSV VRC Global Development Group Limited</span></p>` : ''}
     </section>`)}
     ${related.length ? html`<div class="xlegal__related">${related.map(([l, r]) => html`<a href="${href(r)}">${l} ${arrow()}</a>`)}</div>` : ''}
   </div>
@@ -152,11 +152,11 @@ const fundOrbit = () => html`
 export function impact() {
   return {
     title: 'Impact',
-    description: 'AFSVHCL™ is committed to measurable, transparent community impact — from neurodivergent inclusion to youth athlete development, education and global diaspora empowerment.',
+    description: 'AFSV VRC is committed to measurable, transparent community impact — from neurodivergent inclusion to youth athlete development, education and global diaspora empowerment.',
     ogImage: IMG('life/impact.jpg'),
     body: html`
 ${breadcrumb([{ label: 'About', route: '/about' }, { label: 'Impact' }])}
-${xhero({ kicker: 'Community impact', title: 'Measuring what matters.', img: 'life/impact.jpg', alt: 'Concept rendering: a racially diverse crowd of youth and families cheering as a mentor presents a scholarship certificate to a teen wearing headphones, at golden hour outside the dome.', lead: 'AFSVHCL™ is committed to measurable, transparent community impact — from neurodivergent inclusion to youth athlete development, education and global diaspora empowerment.', badge: 'Development-stage targets — subject to financing & program launch', ctas: [{ label: 'Join the community', href: '/membership' }, { label: 'Partner with us', href: '/partners' }] })}
+${xhero({ kicker: 'Community impact', title: 'Measuring what matters.', img: 'life/impact.jpg', alt: 'Concept rendering: a racially diverse crowd of youth and families cheering as a mentor presents a scholarship certificate to a teen wearing headphones, at golden hour outside the dome.', lead: 'AFSV VRC is committed to measurable, transparent community impact — from neurodivergent inclusion to youth athlete development, education and global diaspora empowerment.', badge: 'Development-stage targets — subject to financing & program launch', ctas: [{ label: 'Join the community', href: '/membership' }, { label: 'Partner with us', href: '/partners' }] })}
 <section class="wrap section" data-el="impact.pillars" data-el-build="elementor">
   ${head('Impact framework', 'Six impact areas.')}
   ${kgrid(IMPACT6)}
@@ -167,7 +167,7 @@ ${xhero({ kicker: 'Community impact', title: 'Measuring what matters.', img: 'li
       <div class="reveal">
         <p class="eyebrow mb-s">Neurodivergent Inclusion Fund</p>
         <h2 class="h2 mb-m">Help expand access through membership.</h2>
-        <p class="lead mb-l">AFSVHCL proposes to direct a share of membership to a dedicated Neurodivergent Inclusion Fund, subject to approved fund arrangements.</p>
+        <p class="lead mb-l">AFSV VRC proposes to direct a share of membership to a dedicated Neurodivergent Inclusion Fund, subject to approved fund arrangements.</p>
         <div class="coins">
           <div class="coin"><b>Every</b><span>individual membership</span><em>gives back</em></div>
           <div class="coin coin--gold"><b>Every</b><span>business membership</span><em>gives more</em></div>
@@ -184,7 +184,7 @@ ${xhero({ kicker: 'Community impact', title: 'Measuring what matters.', img: 'li
 </section>
 <section class="band--cream" data-el="impact.reporting" data-el-build="elementor">
   <div class="wrap section">
-    ${head('Transparency & accountability', 'Annual impact reporting.', 'AFSVHCL is committed to publishing an Annual Impact Report — measuring and disclosing the real-world outcomes of the Neurodivergent Inclusion Fund, community programs and ecosystem partnerships. Impact is not a marketing claim. It is a commitment.')}
+    ${head('Transparency & accountability', 'Annual impact reporting.', 'AFSV VRC is committed to publishing an Annual Impact Report — measuring and disclosing the real-world outcomes of the Neurodivergent Inclusion Fund, community programs and ecosystem partnerships. Impact is not a marketing claim. It is a commitment.')}
     <ol class="steps3" data-stagger>
       <li><span>01</span>${ico('Chart')}<h3>Measured outcomes</h3><p>Quantified results across inclusion, education and community programs.</p></li>
       <li><span>02</span>${ico('Doc')}<h3>Published annually</h3><p>Transparent reporting shared with members, partners and the community.</p></li>
@@ -192,7 +192,7 @@ ${xhero({ kicker: 'Community impact', title: 'Measuring what matters.', img: 'li
     </ol>
   </div>
 </section>
-<section class="wrap section section--flush-top">${flag('AFSVHCL™ is in active development. All impact targets, fund commitments and program outcomes described are aspirational and subject to financing, program launch, partner capacity and feasibility analysis. No programs are currently active.')}</section>
+<section class="wrap section section--flush-top">${flag('AFSV VRC is in active development. All impact targets, fund commitments and program outcomes described are aspirational and subject to financing, program launch, partner capacity and feasibility analysis. No programs are currently active.')}</section>
 ${ctaBand('Be part of the impact.', [{ label: 'Explore membership', route: '/membership' }, { label: 'Contact us', route: '/contact' }])}`,
   };
 }
@@ -222,17 +222,17 @@ export function fanzone() {
     ['Tag', 'Member discounts', 'Proposed exclusive discounts on goods and services from businesses within the FanZone™ community.'],
     ['Star', 'Referral rewards', 'Proposed rewards for introducing others to the FanZone™ community — redeemable for merchandise, tickets and renewals.'],
     ['Cert', 'Official membership certificate', 'A formal certificate recognising your commitment to youth sports development and community empowerment.'],
-    ['Kit', 'Heritage hoodie', 'A premium AFSVHCL hoodie featuring your diaspora heritage flag — representing your roots and your vision.'],
-    ['Gift', 'Exclusive merchandise', 'Access to AFSVHCL merchandise available only to members of the FanZone™ community network.'],
+    ['Kit', 'Heritage hoodie', 'A premium AFSV VRC hoodie featuring your diaspora heritage flag — representing your roots and your vision.'],
+    ['Gift', 'Exclusive merchandise', 'Access to AFSV VRC merchandise available only to members of the FanZone™ community network.'],
     ['Community', 'Networking & community access', 'Connect with diaspora leaders, athletes, partners and supporters, with priority access to community events and athlete showcases.'],
   ];
   return {
     title: 'FanZone™ & Global Diaspora Network',
-    description: 'FanZone™ is the proposed AFSVHCL community membership connecting Canada’s multicultural communities worldwide through youth development, inclusion and community empowerment.',
+    description: 'FanZone™ is the proposed AFSV VRC community membership connecting Canada’s multicultural communities worldwide through youth development, inclusion and community empowerment.',
     ogImage: IMG('life/flags.jpg'),
     body: html`
-${breadcrumb([{ label: 'Esports & Digital' }, { label: 'FanZone™' }])}
-${xhero({ kicker: 'FanZone™ · Global Diaspora Network', title: 'Your roots. Our community.', img: 'life/flags.jpg', alt: 'Concept rendering: a racially and culturally diverse crowd waving flags from Jamaica, India, Nigeria, the Philippines, Brazil, Canada, Trinidad, Ghana and Mexico alongside navy and gold scarves at a match inside the dome.', lead: 'The proposed AFSVHCL FanZone™ membership connects Canada’s multicultural communities worldwide through shared purpose: youth development, inclusion and community empowerment.', badge: 'Proposed program — not yet available', ctas: [{ label: 'Keep up to date', href: '/membership#membership-form' }, { label: 'See membership tiers', href: '/membership#tiers' }] })}
+${breadcrumb([{ label: 'Membership & FanZone' }, { label: 'FanZone™' }])}
+${xhero({ kicker: 'FanZone™ · Global Diaspora Network', title: 'Your roots. Our community.', img: 'life/flags.jpg', alt: 'Concept rendering: a racially and culturally diverse crowd waving flags from Jamaica, India, Nigeria, the Philippines, Brazil, Canada, Trinidad, Ghana and Mexico alongside navy and gold scarves at a match inside the dome.', lead: 'The proposed AFSV VRC FanZone™ membership connects Canada’s multicultural communities worldwide through shared purpose: youth development, inclusion and community empowerment.', badge: 'Proposed program — not yet available', ctas: [{ label: 'Keep up to date', href: '/membership#membership-form' }, { label: 'See membership tiers', href: '/membership#tiers' }] })}
 <section class="wrap section" data-el="fanzone.perks" data-el-build="elementor">
   ${head('Proposed member benefits', 'More than a membership — a community economy.', 'Designed to give back, with community discounts and rewards alongside the mission of supporting youth development.')}
   ${kgrid(perks)}
@@ -255,7 +255,7 @@ ${xhero({ kicker: 'FanZone™ · Global Diaspora Network', title: 'Your roots. O
     <div class="section-head reveal">
       <p class="eyebrow mb-s">A truly global community</p>
       <h2 class="h2">Connecting the diaspora worldwide.</h2>
-      <p class="body-lg">The AFSVHCL Global Diaspora Network welcomes communities from every corner of the world. Canada’s diversity is our greatest strength.</p>
+      <p class="body-lg">The AFSV VRC Global Diaspora Network welcomes communities from every corner of the world. Canada’s diversity is our greatest strength.</p>
     </div>
   </div>
   ${cityMarquee()}
@@ -266,10 +266,10 @@ ${xhero({ kicker: 'FanZone™ · Global Diaspora Network', title: 'Your roots. O
     <div class="reveal">
       <p class="eyebrow mb-s">Proposed welcome package</p>
       <h2 class="h2 mb-m">Wear your heritage.</h2>
-      <ul class="check-list mb-l">${['Premium AFSVHCL branded hoodie with your heritage flag', 'Official membership certificate', 'Exclusive community merchandise', 'Networking opportunities & community initiatives'].map((t) => html`<li>${t}</li>`)}</ul>
+      <ul class="check-list mb-l">${['Premium AFSV VRC branded hoodie with your heritage flag', 'Official membership certificate', 'Exclusive community merchandise', 'Networking opportunities & community initiatives'].map((t) => html`<li>${t}</li>`)}</ul>
       ${btn('Keep up to date', '/membership#membership-form', 'navy')}
     </div>
-    <figure class="welcome-kit__img reveal"><img src="${IMG('merch/regular-hoodie-navy.jpg')}" alt="Concept mockup of the navy AFSVHCL hoodie with the colour crest." width="960" height="1200" loading="lazy"><figcaption>Concept — subject to change</figcaption></figure>
+    <figure class="welcome-kit__img reveal"><img src="${IMG('merch/regular-hoodie-navy.jpg')}" alt="Concept mockup of the navy AFSV VRC hoodie with the colour crest." width="960" height="1200" loading="lazy"><figcaption>Concept — subject to change</figcaption></figure>
   </div>
 </section>
 <section class="wrap section section--flush-top">${flag('The FanZone™ membership and Global Diaspora Network are proposed future programs. Discount structures, rewards and partner business network are in the concept and planning phase. No memberships are currently available for purchase and no funds are being solicited.')}</section>
@@ -280,18 +280,18 @@ ${ctaBand('Represent your roots.', [{ label: 'Explore membership', route: '/memb
 // ════════════════════════ AMBASSADORS ════════════════════════
 export function ambassadors() {
   const types = [
-    ['Megaphone', 'Brand Ambassadors', 'Represent AFSVHCL™ in your community, at events and across your networks.'],
+    ['Megaphone', 'Brand Ambassadors', 'Represent AFSV VRC in your community, at events and across your networks.'],
     ['Phone', 'Social Media Influencers', 'Create content, share stories and amplify the mission across Instagram, TikTok, YouTube, LinkedIn and beyond.'],
     ['Multi-sport development', 'Athlete Ambassadors', 'Current and former athletes who champion youth development and inspire the next generation.'],
-    ['Community', 'Community Champions', 'Local leaders, coaches, educators and mentors who connect AFSVHCL™ to grassroots communities across Canada.'],
+    ['Community', 'Community Champions', 'Local leaders, coaches, educators and mentors who connect AFSV VRC to grassroots communities across Canada.'],
   ];
   return {
     title: 'Ambassadors & Community Champions',
-    description: 'Community leaders, athletes and creators can express interest in supporting the proposed AFSVHCL™ ecosystem.',
+    description: 'Community leaders, athletes and creators can express interest in supporting the proposed AFSV VRC ecosystem.',
     ogImage: IMG('life/ambassadors.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Membership', route: '/membership' }, { label: 'Ambassadors' }])}
-${xhero({ kicker: 'Ambassadors & community champions', title: 'Be the voice of the movement.', img: 'life/ambassadors.jpg', alt: 'Concept rendering: racially diverse athlete ambassadors and a content creator signing autographs and taking selfies with excited kids outside the dome at dusk.', lead: 'AFSVHCL™ is building a proposed national ecosystem — and we’re inviting community leaders, athletes and creators to express interest in supporting the vision.', badge: 'Proposed program — not yet active', ctas: [{ label: 'Keep up to date', href: '#ambassador-form' }, { label: 'Explore membership', href: '/membership' }] })}
+${xhero({ kicker: 'Ambassadors & community champions', title: 'Be the voice of the movement.', img: 'life/ambassadors.jpg', alt: 'Concept rendering: racially diverse athlete ambassadors and a content creator signing autographs and taking selfies with excited kids outside the dome at dusk.', lead: 'AFSV VRC is building a proposed national ecosystem — and we’re inviting community leaders, athletes and creators to express interest in supporting the vision.', badge: 'Proposed program — not yet active', ctas: [{ label: 'Keep up to date', href: '#ambassador-form' }, { label: 'Explore membership', href: '/membership' }] })}
 <section class="wrap section" data-el="ambassadors.types" data-el-build="elementor">
   ${head('Who this is for', 'Community-led growth, done responsibly.', 'The ambassador initiative builds awareness and community alignment. Any formal program will launch only after legal review, with clear terms, privacy notices and participation guidelines.')}
   <div class="amb" data-stagger>
@@ -323,7 +323,7 @@ ${formSection({
       { label: 'Social or portfolio link', type: 'url' },
       { label: 'Tell us about yourself', type: 'textarea', full: true },
     ],
-    consent: 'I agree to be contacted about the AFSVHCL™ ambassador initiative.',
+    consent: 'I agree to be contacted about the AFSV VRC ambassador initiative.',
     submit: 'Keep up to date',
     status: SENT,
   }),
@@ -349,11 +349,11 @@ export function efn() {
   ];
   return {
     title: 'EFN – Esports & Fans Network',
-    description: 'EFN – Esports & Fans Network is the proposed digital and esports division of AFSVHCL™, connecting athletes and fans through competitive gaming, live streaming and interactive media.',
+    description: 'EFN – Esports & Fans Network is the proposed digital and esports division of AFSV VRC, connecting athletes and fans through competitive gaming, live streaming and interactive media.',
     ogImage: IMG('village/efn-arena.jpg'),
     body: html`
-${breadcrumb([{ label: 'Esports & Digital' }, { label: 'EFN – Esports & Fans Network' }])}
-${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where sport meets digital.', img: 'village/efn-arena.jpg', alt: 'Concept rendering: a packed esports arena hosting a football video game tournament, with players on stage and giant screens showing soccer gameplay.', lead: 'EFN is the proposed digital and esports division of AFSVHCL™ — connecting athletes and fans through competitive gaming, live streaming and interactive media. Home of FanZone™.', badge: '', ctas: [{ label: 'Get connected', href: EFN_URL }, { label: 'Explore FanZone™', href: '/fanzone' }] })}
+${breadcrumb([{ label: 'Esports' }, { label: 'EFN – Esports & Fans Network' }])}
+${xhero({ dark: true, kicker: 'EFN · Esports & Fans Network', title: 'Where sport meets digital.', img: 'village/efn-arena.jpg', alt: 'Concept rendering: a packed esports arena hosting a football video game tournament, with players on stage and giant screens showing soccer gameplay.', lead: 'EFN is the proposed digital and esports division of AFSV VRC — connecting athletes and fans through competitive gaming, live streaming and interactive media. Home of FanZone™.', badge: '', ctas: [{ label: 'Get connected', href: EFN_URL }, { label: 'Explore FanZone™', href: '/fanzone' }] })}
 <section class="efn efn--page" data-el="efn.core" data-el-build="elementor">
   <div class="wrap section">
     ${head('The network', 'Four ways EFN connects.')}
@@ -409,21 +409,21 @@ const LEGAL_MAIL = 'info@afsvvrc.com';
 export function compliance(d) {
   return {
     title: 'Compliance & Legal',
-    description: 'Legal disclosures and compliance information for Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™).',
+    description: 'Legal disclosures and compliance information for AFSV VRC Global Development Group Limited.',
     body: html`${legalDoc({
       kicker: 'Compliance & Legal', title: 'Legal disclosures & compliance', icon: 'Scale',
-      intro: 'AFSVHCL™ is committed to transparency, legal compliance and responsible communication at every stage of our development.',
+      intro: 'AFSV VRC is committed to transparency, legal compliance and responsible communication at every stage of our development.',
       sections: [
-        { h: 'Development-stage concept notice', p: ['Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™) is a development-stage company. The AI-Driven Sports Village and all related facilities, programs, services and initiatives described on this website are proposed concepts only — they do not currently exist as operational facilities or active programs.', 'All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only and remain subject to financing, regulatory approvals, due diligence, feasibility analysis, contractual negotiations, market conditions and execution capacity.', 'No memberships, programs or services are currently available for purchase. No funds are being solicited from the public at this time. No securities are being offered.'] },
-        { h: 'No securities offering', p: ['Nothing on this website constitutes an offer to sell, a solicitation of an offer to buy, or a recommendation of any security or investment product. AFSVHCL™ is not currently registered as an issuer of securities in any jurisdiction.', 'Any future capital raise activities will be conducted in full compliance with applicable securities laws, including the Ontario Securities Act and any applicable federal regulations. Prospective investors will be provided with appropriate disclosure documents through proper legal channels.'] },
+        { h: 'Development-stage concept notice', p: ['AFSV VRC Global Development Group Limited is a development-stage company. The AI-Driven Sports Village and all related facilities, programs, services and initiatives described on this website are proposed concepts only — they do not currently exist as operational facilities or active programs.', 'All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only and remain subject to financing, regulatory approvals, due diligence, feasibility analysis, contractual negotiations, market conditions and execution capacity.', 'No memberships, programs or services are currently available for purchase. No funds are being solicited from the public at this time. No securities are being offered.'] },
+        { h: 'No securities offering', p: ['Nothing on this website constitutes an offer to sell, a solicitation of an offer to buy, or a recommendation of any security or investment product. AFSV VRC is not currently registered as an issuer of securities in any jurisdiction.', 'Any future capital raise activities will be conducted in full compliance with applicable securities laws, including the Ontario Securities Act and any applicable federal regulations. Prospective investors will be provided with appropriate disclosure documents through proper legal channels.'] },
         { h: 'No membership sales currently active', p: ['Membership programs described on this website — including the Global Diaspora Network — are proposed future programs. No memberships are currently available for purchase. No payments are being accepted. Any pricing referenced is indicative only and subject to change.', 'When membership programs are formally launched, they will be accompanied by appropriate terms and conditions, privacy policies, refund policies and consumer protection disclosures in compliance with applicable law.'] },
         { h: 'Partnership & sponsorship disclosures', p: ['References to potential partnerships, sponsorships, institutional relationships and community collaborations on this website reflect exploratory discussions and aspirational goals only. No formal partnership or sponsorship agreements have been finalized unless explicitly stated otherwise.', 'Expressions of interest do not constitute binding commitments. Formal agreements will be executed through proper legal channels with appropriate documentation.'] },
-        { h: 'Forward-looking statements', p: ['This website contains forward-looking statements, including projections, timelines, revenue estimates and expansion plans. These statements are based on current assumptions and expectations and are subject to significant risks, uncertainties and changes in circumstances.', 'Actual results may differ materially from those projected. AFSVHCL™ undertakes no obligation to update forward-looking statements to reflect new information, future events or changed circumstances.'] },
-        { h: 'ESG commitment', p: ['AFSVHCL™ is committed to ESG (Environmental, Social and Governance) principles, integrating sustainability, community impact and ethical governance into all operations. Our mission to support youth development, education, inclusion and community empowerment reflects our core commitment to social responsibility and long-term value creation.', 'As we develop the AI-Driven Sports Village ecosystem, we prioritize environmental sustainability, equitable access to programs and opportunities, transparent governance practices and measurable community impact.'] },
-        { h: 'Privacy & personal information', p: ['AFSVHCL™ is committed to protecting the privacy of individuals who interact with this website. Any personal information submitted through this website will be handled in accordance with applicable privacy legislation, including the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy laws.', 'See our Privacy Policy and Terms of Use for details.'] },
+        { h: 'Forward-looking statements', p: ['This website contains forward-looking statements, including projections, timelines, revenue estimates and expansion plans. These statements are based on current assumptions and expectations and are subject to significant risks, uncertainties and changes in circumstances.', 'Actual results may differ materially from those projected. AFSV VRC undertakes no obligation to update forward-looking statements to reflect new information, future events or changed circumstances.'] },
+        { h: 'ESG commitment', p: ['AFSV VRC is committed to ESG (Environmental, Social and Governance) principles, integrating sustainability, community impact and ethical governance into all operations. Our mission to support youth development, education, inclusion and community empowerment reflects our core commitment to social responsibility and long-term value creation.', 'As we develop the AI-Driven Sports Village ecosystem, we prioritize environmental sustainability, equitable access to programs and opportunities, transparent governance practices and measurable community impact.'] },
+        { h: 'Privacy & personal information', p: ['AFSV VRC is committed to protecting the privacy of individuals who interact with this website. Any personal information submitted through this website will be handled in accordance with applicable privacy legislation, including the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy laws.', 'See our Privacy Policy and Terms of Use for details.'] },
         { h: 'Safeguarding', p: ['Programs involving children, youth and vulnerable people will operate under documented safeguarding policies, screened staff and volunteers, and clear reporting routes before any program launches. Please do not share diagnoses, medical records or details about a child through website forms.'] },
-        { h: 'Trademark notices', p: ['The following are unregistered trademarks of Athletes & Fans Sports Village Holding Company Limited:'], pills: MARKS, after: ['Unauthorized use of these marks is prohibited. ™ indicates an unregistered trademark claim.'] },
-        { h: 'Legal inquiries', p: ['For legal inquiries, compliance questions, or to report concerns about content on this website, please contact us directly:'], mail: LEGAL_MAIL, after: ['© 2026 Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™). All Rights Reserved. Ontario, Canada. This website is for informational purposes only. Nothing herein constitutes legal, financial or investment advice.'] },
+        { h: 'Trademark notices', p: ['The following are unregistered trademarks of AFSV VRC Global Development Group Limited:'], pills: MARKS, after: ['Unauthorized use of these marks is prohibited. ™ indicates an unregistered trademark claim.'] },
+        { h: 'Legal inquiries', p: ['For legal inquiries, compliance questions, or to report concerns about content on this website, please contact us directly:'], mail: LEGAL_MAIL, after: ['© 2026 AFSV VRC Global Development Group Limited. All Rights Reserved. Ontario, Canada. This website is for informational purposes only. Nothing herein constitutes legal, financial or investment advice.'] },
       ],
       related: [['Privacy Policy', '/privacy'], ['Terms of Use', '/terms'], ['Accessibility', '/accessibility']],
     })}`,
@@ -460,7 +460,7 @@ export function privacy() {
 export function terms() {
   return {
     title: 'Terms of Use',
-    description: 'The terms governing access to and use of the AFSVHCL™ website.',
+    description: 'The terms governing access to and use of the AFSV VRC website.',
     body: html`${legalDoc({
       kicker: 'Legal', title: 'Website Terms of Use', icon: 'Doc', meta: META,
       sections: [
@@ -487,29 +487,29 @@ export function terms() {
 
 const shortPolicy = (title, ic, h, body) => ({
   title,
-  description: `${title} for AFSVHCL™.`,
+  description: `${title} for AFSV VRC.`,
   body: html`${legalDoc({ kicker: 'Legal', title, icon: ic, sections: [{ h, p: body }, { h: 'Questions?', p: ['Contact us at:'], mail: LEGAL_MAIL }], related: [['Compliance & Legal', '/compliance'], ['Contact us', '/contact']] })}`,
 });
-export const refund = () => shortPolicy('Refund Policy', 'Refund', 'No purchases currently active', ['AFSVHCL™ is a development-stage company. No memberships, programs, products or services are currently available for purchase. No payments are being accepted at this time.', 'A formal Refund Policy will be published prior to the launch of any products, memberships or services, in compliance with applicable consumer protection legislation including the Ontario Consumer Protection Act.']);
-export const shipping = () => shortPolicy('Shipping Policy', 'Truck', 'No products currently available', ['AFSVHCL™ is a development-stage company. The AFSVHCL™ Marketplace is a proposed future platform. No products are currently available for purchase or shipment.', 'A formal Shipping Policy will be published prior to the launch of the marketplace, in compliance with applicable consumer protection legislation.']);
+export const refund = () => shortPolicy('Refund Policy', 'Refund', 'No purchases currently active', ['AFSV VRC is a development-stage company. No memberships, programs, products or services are currently available for purchase. No payments are being accepted at this time.', 'A formal Refund Policy will be published prior to the launch of any products, memberships or services, in compliance with applicable consumer protection legislation including the Ontario Consumer Protection Act.']);
+export const shipping = () => shortPolicy('Shipping Policy', 'Truck', 'No products currently available', ['AFSV VRC is a development-stage company. The AFSV VRC Marketplace is a proposed future platform. No products are currently available for purchase or shipment.', 'A formal Shipping Policy will be published prior to the launch of the marketplace, in compliance with applicable consumer protection legislation.']);
 
 export function accessibility() {
   return {
     title: 'Accessibility Statement',
-    description: 'AFSVHCL™ is committed to ensuring digital accessibility for people of all abilities.',
+    description: 'AFSV VRC is committed to ensuring digital accessibility for people of all abilities.',
     body: html`${legalDoc({
       kicker: 'Accessibility', title: 'Accessibility Statement', icon: 'Hand',
-      intro: 'AFSVHCL™ is committed to ensuring digital accessibility for people of all abilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.',
+      intro: 'AFSV VRC is committed to ensuring digital accessibility for people of all abilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.',
       meta: [['Last updated', 'June 7, 2026'], ['Target standard', 'WCAG 2.2 Level AA']],
       sections: [
-        { h: 'Our commitment', p: ['Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™) believes that the internet should be accessible to all people, including those with disabilities. We are committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability.', 'Inclusion is one of our core values — not just in our sports and education programs, but in every aspect of how we communicate and engage with the public. Our commitment to digital accessibility reflects our broader mission of creating equitable opportunities for all.'] },
+        { h: 'Our commitment', p: ['AFSV VRC Global Development Group Limited believes that the internet should be accessible to all people, including those with disabilities. We are committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability.', 'Inclusion is one of our core values — not just in our sports and education programs, but in every aspect of how we communicate and engage with the public. Our commitment to digital accessibility reflects our broader mission of creating equitable opportunities for all.'] },
         { h: 'Accessibility standards', p: ['We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.2 Level AA standards. These guidelines explain how to make web content more accessible to people with a wide range of disabilities, including:'], cards: [['Eye', 'Visual impairments', 'Including blindness, low vision and colour blindness.'], ['Ear', 'Hearing impairments', 'Including deafness and hard of hearing.'], ['Mind', 'Cognitive disabilities', 'Including learning disabilities, attention deficit and memory limitations.'], ['Hand', 'Motor impairments', 'Including limited fine motor control and physical disabilities.']], after: ['We also aim to comply with the Accessibility for Ontarians with Disabilities Act (AODA) and the Accessible Canada Act, as applicable to our digital presence.'] },
         { h: 'Measures we are taking', list: ['Using semantic HTML to ensure proper document structure and navigation.', 'Providing descriptive alt text for all meaningful images.', 'Ensuring sufficient colour contrast between text and background elements.', 'Designing responsive layouts that work across devices and screen sizes.', 'Supporting keyboard navigation for all interactive elements.', 'Using clear, simple language and consistent navigation throughout the site.', 'Avoiding content that flashes or blinks in ways that could trigger seizures.', 'Providing clear form labels and error messages for all input fields.', 'Continuously reviewing and improving accessibility as the website evolves.'] },
-        { h: 'Known limitations', p: ['While we strive to ensure that all pages and content on this website are fully accessible, some content may not yet be fully optimized. We are actively working to identify and resolve any accessibility gaps.', 'As AFSVHCL™ is a development-stage company, our website is continuously evolving. We are committed to addressing accessibility issues as they are identified and ensuring that future updates meet or exceed applicable accessibility standards.'] },
+        { h: 'Known limitations', p: ['While we strive to ensure that all pages and content on this website are fully accessible, some content may not yet be fully optimized. We are actively working to identify and resolve any accessibility gaps.', 'As AFSV VRC is a development-stage company, our website is continuously evolving. We are committed to addressing accessibility issues as they are identified and ensuring that future updates meet or exceed applicable accessibility standards.'] },
         { h: 'Assistive technologies', p: ['This website is designed to be compatible with the following assistive technologies:'], list: ['Screen readers (including JAWS, NVDA and VoiceOver)', 'Screen magnification software', 'Speech recognition software', 'Keyboard-only navigation', 'Browser accessibility extensions and tools'], after: ['We recommend using the latest version of your browser for the best experience.'] },
         { h: 'Third-party content', p: ['Some content on this website may be provided by third parties. While we encourage our partners and vendors to provide accessible content, we cannot guarantee the accessibility of third-party content or external websites linked from this site.'] },
-        { h: 'Feedback & accessibility concerns', p: ['We welcome your feedback on the accessibility of the AFSVHCL™ website. If you encounter any accessibility barriers or have suggestions for improvement, please contact us:'], mail: LEGAL_MAIL, after: ['We aim to respond to accessibility feedback within 5 business days and to resolve reported issues as quickly as possible.'] },
-        { h: 'Assessment & review', p: ['AFSVHCL™ will conduct periodic accessibility reviews of this website, including:'], list: ['Automated accessibility testing using industry-standard tools', 'Manual testing with assistive technologies', 'Review of user feedback and reported issues', 'Updates to this statement as improvements are made'] },
+        { h: 'Feedback & accessibility concerns', p: ['We welcome your feedback on the accessibility of the AFSV VRC website. If you encounter any accessibility barriers or have suggestions for improvement, please contact us:'], mail: LEGAL_MAIL, after: ['We aim to respond to accessibility feedback within 5 business days and to resolve reported issues as quickly as possible.'] },
+        { h: 'Assessment & review', p: ['AFSV VRC will conduct periodic accessibility reviews of this website, including:'], list: ['Automated accessibility testing using industry-standard tools', 'Manual testing with assistive technologies', 'Review of user feedback and reported issues', 'Updates to this statement as improvements are made'] },
         { h: 'Applicable legislation', list: ['Accessibility for Ontarians with Disabilities Act (AODA), 2005 — Ontario, Canada', 'Accessible Canada Act (ACA), 2019 — Federal, Canada', 'Web Content Accessibility Guidelines (WCAG) 2.2 — W3C International Standard'], after: ['This accessibility statement was last updated on June 7, 2026.'] },
       ],
       related: [['Compliance & Legal', '/compliance'], ['Privacy Policy', '/privacy']],
@@ -529,7 +529,7 @@ export const affiliateNetwork = () => html`
     <div class="section-head reveal">
       <p class="eyebrow mb-s">Affiliate Academy Network</p>
       <h2 class="h2">Partnering with existing clubs &amp; academies.</h2>
-      <p class="body-lg">AFSVHCL™ is not a competitor to existing clubs — it is the infrastructure and services layer that makes every club, academy and institution better.</p>
+      <p class="body-lg">AFSV VRC is not a competitor to existing clubs — it is the infrastructure and services layer that makes every club, academy and institution better.</p>
     </div>
     <div class="aff" data-stagger>
       ${AFFILIATE.map((t) => html`<article class="aff__card${t.hot ? ' aff__card--hot' : ''}"><h3>${t.name}</h3><p>${t.body}</p><a class="aff__go" href="become-a-member.html?interest=partnership">Keep up to date ${raw('&rarr;')}</a></article>`)}
@@ -563,7 +563,7 @@ export const EXTRAS = {
 <section class="wrap section section--flush-top" data-el="programs.kit" data-el-build="elementor">
   <div class="kitband reveal">
     <span class="kitband__ico">${ico('Kit')}</span>
-    <div><p class="eyebrow mb-s">AFSVHCL athlete performance kit</p><h2 class="h3">Every athlete, fully kitted.</h2><p class="muted">Featuring AFSVHCL branding, the athlete’s national identity and corporate sponsor integration.</p></div>
+    <div><p class="eyebrow mb-s">AFSV VRC athlete performance kit</p><h2 class="h3">Every athlete, fully kitted.</h2><p class="muted">Featuring AFSV VRC branding, the athlete’s national identity and corporate sponsor integration.</p></div>
     <ul>${['Training jersey', 'Training shorts', 'Tracksuit', 'Running shoes', 'Winter jacket', 'Sports bag'].map((t) => html`<li>${t}</li>`)}</ul>
     <span class="pill pill--gold">Planned</span>
   </div>
@@ -571,7 +571,7 @@ export const EXTRAS = {
 ${affiliateNetwork()}`,
   '/education': () => html`
 <section class="wrap section" data-el="education.mlmsr" data-el-build="elementor">
-  ${head('MLMSR Mentorship LLC', 'Proposed education & support programs.', 'Through MLMSR Mentorship LLC, AFSVHCL™ integrates academic support, mentorship and neurodivergent programming into every aspect of the proposed village.')}
+  ${head('MLMSR Mentorship LLC', 'Proposed education & support programs.', 'Through MLMSR Mentorship LLC, AFSV VRC integrates academic support, mentorship and neurodivergent programming into every aspect of the proposed village.')}
   ${kgrid([
     ['Mind', 'Autism Spectrum Support', 'Structured programs integrating physical activity with social skills development and sensory-friendly environments.'],
     ['Track and sprint', 'ADHD Strategies', 'Planned training environments and mentorship shaped around each athlete’s individual strengths and needs, with support from qualified independent providers.'],
@@ -592,7 +592,7 @@ ${affiliateNetwork()}`,
 // About — six pillars, core values, mission statement.
 export const aboutExtra = () => html`
 <section class="wrap section" data-el="about.six-pillars" data-el-build="elementor">
-  ${head('Our ecosystem', 'Six focus areas. One vision.', 'AFSVHCL™ is not another sports facility — it is the ecosystem that makes every sports club, academy and institution better.')}
+  ${head('Our ecosystem', 'Six focus areas. One vision.', 'AFSV VRC is not another sports facility — it is the ecosystem that makes every sports club, academy and institution better.')}
   ${kgrid([
     ['Dome', 'AI-Driven Sports Infrastructure', 'Proposed year-round multi-sport dome facilities designed to remove the seasonal limits that restrict Canadian athletes.'],
     ['Inclusive education', 'Education & Inclusion', 'Integrated academic support, mentorship and neurodivergent programming through MLMSR Mentorship LLC.'],
@@ -631,7 +631,7 @@ export const whitbyOverview = () => html`
     <div class="reveal">
       <p class="eyebrow mb-s">Project overview</p>
       <h2 class="h2 mb-m">The foundation for a national network.</h2>
-      <p class="lead mb-m">The AI-Driven Sports Village is the proposed flagship pilot of AFSVHCL™ — designed as the model for a national network of integrated sports and education campuses across Canada.</p>
+      <p class="lead mb-m">The AI-Driven Sports Village is the proposed flagship pilot of AFSV VRC — designed as the model for a national network of integrated sports and education campuses across Canada.</p>
       <p class="muted">The proposed dome would integrate elite athletic development, applied learning, neurodivergent support pathways, esports and digital media, and measurable community impact — all under one roof, year-round. It is proposed for an AI-Driven Sports &amp; Education Campus, with a land search of up to 20 acres, in partnership with municipal and post-secondary institutions, subject to financing, approvals and feasibility analysis.</p>
     </div>
     ${stats([['150', 'K sq ft', 'Dome', ''], ['Up to 20', ' acres', 'Land-search scope', ''], ['10', '', 'Domes — 5-year vision', '']])}
@@ -654,10 +654,10 @@ const TIER_DETAIL = [
     ['Marketplace', ['Proposed member pricing (details to be confirmed)', 'Early access to new merchandise drops', 'Exclusive limited edition access', 'Member-only flash sales']],
     ['Education & neurodivergent support', ['Family Learning Hub (virtual): resource library, parent webinars', 'Career readiness, financial literacy, entrepreneurship', 'Mental wellness resources', 'Virtual fitness & community challenges', 'Sports development & nutrition content', 'Youth athlete resources']],
     ['Impact & recognition', ['Annual member-facing Impact Report', 'Founding member recognition window (time-limited)']],
-    ['Welcome package', ['Premium AFSVHCL branded hoodie', 'Digital membership card', 'Welcome certificate', 'Exclusive member badge in app']],
+    ['Welcome package', ['Premium AFSV VRC branded hoodie', 'Digital membership card', 'Welcome certificate', 'Exclusive member badge in app']],
   ] },
   { name: 'Community Business Membership', for: 'For businesses, professional firms and community organizations', hot: true, groups: [
-    ['Marketplace & distribution', ['Preferred listing in the AFSVHCL Marketplace Directory (web + app)', 'Member exposure across Canada, USA, the Caribbean and the global diaspora']],
+    ['Marketplace & distribution', ['Preferred listing in the AFSV VRC Marketplace Directory (web + app)', 'Member exposure across Canada, USA, the Caribbean and the global diaspora']],
     ['Marketing', ['Business profile page', 'Member spotlight features', 'Marketplace promotion opportunities']],
     ['Recruitment & inclusion', ['Access to neurodivergent employment initiatives', 'Internship opportunities', 'Student placement programs', 'Volunteer recruitment channel']],
     ['Impact & recognition', ['Community Impact Certificate', 'Annual recognition listing', 'Inclusion Champion designation', 'Awards program participation']],
@@ -666,11 +666,11 @@ const TIER_DETAIL = [
 ];
 export const membershipExtra = () => html`
 <section class="wrap section" data-el="membership.pillars" data-el-build="elementor">
-  ${head('Four benefit areas', 'A membership built on four benefit areas.', 'Every AFSVHCL membership is designed to deliver value across community, commerce, education and measurable social impact.')}
+  ${head('Four benefit areas', 'A membership built on four benefit areas.', 'Every AFSV VRC membership is designed to deliver value across community, commerce, education and measurable social impact.')}
   ${kgrid([
     ['Community', 'Community', 'Belonging, local chapters, events, volunteer opportunities and a global network committed to youth development and inclusion.'],
-    ['Tag', 'Marketplace', 'Member pricing, exclusive drops, partner offers and early access to premium AFSVHCL merchandise and athlete gear.'],
-    ['Inclusive education', 'Education & neurodivergent support', 'A virtual learning hub, parent resources, career readiness and wellness content through AFSVHCL, MLMSR and vetted partners.'],
+    ['Tag', 'Marketplace', 'Member pricing, exclusive drops, partner offers and early access to premium AFSV VRC merchandise and athlete gear.'],
+    ['Inclusive education', 'Education & neurodivergent support', 'A virtual learning hub, parent resources, career readiness and wellness content through AFSV VRC, MLMSR and vetted partners.'],
     ['Chart', 'Impact & recognition', 'Annual reporting, recognition designations and measurable outcomes showing the real-world impact of your membership.'],
   ], { cols: 4 })}
 </section>
@@ -726,7 +726,7 @@ export const membershipExtra = () => html`
     <div class="reveal"><p class="eyebrow mb-s">Frequently asked questions</p><h2 class="h2">Membership FAQ.</h2></div>
     ${faq([
       ['When can I join?', 'Membership isn’t open yet. Pre-register on the Become a Member page and we’ll email you as soon as it goes live, with everything you need to join. Pre-registering is free and there’s no commitment.'],
-      ['What happens to the Inclusion Fund?', 'AFSVHCL proposes to direct a share of individual and business membership, subject to approved fund arrangements, to a dedicated Neurodivergent Inclusion Fund supporting assessments, tutoring, employment readiness, assistive technology, family support services and scholarships. Allocation would be measured and reported annually.'],
+      ['What happens to the Inclusion Fund?', 'AFSV VRC proposes to direct a share of individual and business membership, subject to approved fund arrangements, to a dedicated Neurodivergent Inclusion Fund supporting assessments, tutoring, employment readiness, assistive technology, family support services and scholarships. Allocation would be measured and reported annually.'],
       ['How do I redeem rewards?', 'The proposed Community Rewards Program lets members earn points for referrals, volunteering, purchases and event participation, redeemable for merchandise, event tickets, membership renewals and partner discounts. Full details will be shared at program launch.'],
       ['Can I upgrade from Individual to Business?', 'Yes. When the program launches, individual members will be able to upgrade to a business membership.'],
       ['What if I’m outside Canada?', 'Membership is planned to be open to individuals and businesses worldwide. Digital benefits, the learning hub, virtual events and the community platform are accessible globally; physical benefits such as local chapter events and merchandise shipping may vary by location.'],
@@ -766,7 +766,7 @@ export const contactExtra = () => html`
   <div class="cdetails" data-stagger>
     <article class="cdetail"><span class="kcard__ico">${ico('Doc')}</span><small>Email</small><a href="mailto:info@afsvvrc.com">info@afsvvrc.com</a></article>
     <article class="cdetail"><span class="kcard__ico">${ico('Dome')}</span><small>Location</small><b>Whitby, Ontario, Canada</b></article>
-    <article class="cdetail"><span class="kcard__ico">${ico('Mentorship')}</span><small>Primary contact</small><b>Martin Lashley</b><span>Chairman &amp; CEO, AFSVHCL™</span></article>
+    <article class="cdetail"><span class="kcard__ico">${ico('Mentorship')}</span><small>Primary contact</small><b>Martin Lashley</b><span>Founder, Chairman &amp; Interim CEO, AFSVHCL™ · Founder, AFSV VRC Global Development Group Limited</span></article>
   </div>
 </section>
 <section class="band--cream" data-el="contact.expect" data-el-build="elementor">
@@ -786,11 +786,11 @@ export const contactExtra = () => html`
 export function contactPage(d) {
   return {
     title: 'Contact Us',
-    description: 'Contact AFSVHCL™ — partners, sponsors, community stakeholders, athletes, families, media and supporters.',
+    description: 'Contact AFSV VRC — partners, sponsors, community stakeholders, athletes, families, media and supporters.',
     ogImage: IMG('life/welcome.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Contact Us' }])}
-${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'life/welcome.jpg', alt: 'Concept rendering: a racially diverse welcome team greeting families, a teen athlete and a child in a wheelchair at the curved front desk of the village concourse at dusk.', lead: 'We welcome exploratory conversations with potential partners, sponsors, community stakeholders and supporters of the AFSVHCL™ vision.', badge: 'No memberships, programs or services are currently available for purchase', ctas: [{ label: 'Send a message', href: '#contact-form' }, { label: 'Email us', href: 'mailto:info@afsvvrc.com' }] })}
+${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'life/welcome.jpg', alt: 'Concept rendering: a racially diverse welcome team greeting families, a teen athlete and a child in a wheelchair at the curved front desk of the village concourse at dusk.', lead: 'We welcome exploratory conversations with potential partners, sponsors, community stakeholders and supporters of the AFSV VRC vision.', badge: 'No memberships, programs or services are currently available for purchase', ctas: [{ label: 'Send a message', href: '#contact-form' }, { label: 'Email us', href: 'mailto:info@afsvvrc.com' }] })}
 <section class="wrap section" id="contact-form" data-el="contact.form" data-el-build="plugin">
   <div class="cgrid">
     <div class="cgrid__form">
@@ -808,7 +808,7 @@ ${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'l
           { label: 'Inquiry category', type: 'select', req: true, ph: 'Select a category', full: true, options: d.contactCategories },
           { label: 'Message', type: 'textarea', req: true, rows: 5, full: true, hint: 'Please do not include health records or diagnoses.' },
         ],
-        consent: 'I agree to AFSVHCL contacting me about this inquiry.',
+        consent: 'I agree to AFSV VRC contacting me about this inquiry.',
         submit: 'Send message',
         statusTitle: 'Thank you for reaching out.',
         status: 'Your inquiry has been received and will be directed to the appropriate team member.',
@@ -820,7 +820,7 @@ ${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'l
         <ul class="cside__list">
           <li><span>${ico('Doc')}</span><div><small>Email</small><a href="mailto:info@afsvvrc.com">info@afsvvrc.com</a></div></li>
           <li><span>${ico('Dome')}</span><div><small>Location</small><b>Whitby, Ontario, Canada</b></div></li>
-          <li><span>${ico('Mentorship')}</span><div><small>Primary contact</small><b>Martin Lashley</b><em>Chairman &amp; CEO, AFSVHCL™</em></div></li>
+          <li><span>${ico('Mentorship')}</span><div><small>Primary contact</small><b>Martin Lashley</b><em>Founder, Chairman &amp; Interim CEO, AFSVHCL™ · Founder, AFSV VRC Global Development Group Limited</em></div></li>
         </ul>
         <p class="eyebrow">What to expect</p>
         <ul class="check-list">${['We aim to reply within 2–3 business days', 'Exploratory, non-binding conversations', 'No sales pressure — we’re building relationships', 'We handle inquiries in accordance with our Privacy Policy'].map((t) => html`<li>${t}</li>`)}</ul>
@@ -843,10 +843,10 @@ ${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'l
   <div class="wrap section">
     ${head('Types of inquiries', 'Who we talk to.')}
     <div class="ctypes" data-stagger>
-      ${[['Handshake', 'Partnership & sponsorship', 'Exploratory discussions about corporate partnerships and institutional collaborations.'], ['Building', 'Community & municipal stakeholders', 'Conversations with municipalities, school boards and community organizations.'], ['Soccer', 'Athlete & program interest', 'Keep up to date on proposed future athlete development programs.'], ['Globe', 'Diaspora network interest', 'Express interest in the proposed Global Diaspora Network.'], ['Signal', 'Media & press', 'Media organizations seeking information about AFSVHCL™.']].map(([i, t, b], n) => html`<article class="ctype"><span class="ctype__n">${pad2(n + 1)}</span><span class="kcard__ico">${ico(i)}</span><h3>${t}</h3><p>${b}</p></article>`)}
+      ${[['Handshake', 'Partnership & sponsorship', 'Exploratory discussions about corporate partnerships and institutional collaborations.'], ['Building', 'Community & municipal stakeholders', 'Conversations with municipalities, school boards and community organizations.'], ['Soccer', 'Athlete & program interest', 'Keep up to date on proposed future athlete development programs.'], ['Globe', 'Diaspora network interest', 'Express interest in the proposed Global Diaspora Network.'], ['Signal', 'Media & press', 'Media organizations seeking information about AFSV VRC.']].map(([i, t, b], n) => html`<article class="ctype"><span class="ctype__n">${pad2(n + 1)}</span><span class="kcard__ico">${ico(i)}</span><h3>${t}</h3><p>${b}</p></article>`)}
     </div>
   </div>
 </section>
-<section class="wrap section">${flag('AFSVHCL™ is in active development. All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only. No securities are being offered. No memberships or programs are currently available for purchase.')}</section>`,
+<section class="wrap section">${flag('AFSV VRC is in active development. All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only. No securities are being offered. No memberships or programs are currently available for purchase.')}</section>`,
   };
 }
