@@ -2628,3 +2628,9 @@ body.is-gate { margin: 0; background: var(--navy); color: #fff; min-height: 100v
 .intro-reveal .gate__fine { animation: gateIn .9s ease .7s both; }
 @keyframes gateIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .gate__media img { animation: none; } .intro-reveal .gate__inner > *, .intro-reveal .gate__fine { animation: none; } }
+
+/* Five people on the About team row: keep them on one line on wide screens. */
+@media (min-width: 1180px) {
+  .team:has(> :nth-child(5):last-child) { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+  .team:has(> :nth-child(5):last-child) .team-card__body { padding-inline: 18px; }
+}
