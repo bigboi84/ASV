@@ -29,11 +29,11 @@ Product data (WooCommerce) and site settings can be changed directly through the
 - Switched on in Settings → Coming soon. The public sees the landing page (`src/pages3.mjs` `comingSoon`, exported to `chrome/part-gate.html`; preview at `site/coming-soon.html`).
 - Access: the preview code (30-day signed cookie), or being logged in as contributor or above.
 - Never gated: REST API, wp-admin, wp-login.php, ajax, cron, robots.txt.
-- Optional (Settings → Coming soon → ChatGPT): lets OpenAI's browsing agent read the site while the gate is on. It is verified by user agent AND OpenAI's published IP ranges (openai.com/chatgpt-user.json, gptbot.json, searchbot.json), GET/HEAD only. Martin asked for this on 20 Oct 2026.
+- Optional (Settings → Coming soon → AI assistants): per assistant (ChatGPT, Gemini, Claude) lets its own browsing agent read the site while the gate is on. Each is verified by user agent AND the provider's published addresses, GET/HEAD only: ChatGPT-User (openai.com/chatgpt-user.json); Google-Agent / Google-GeminiNotebook / Google-NotebookLM (Google's user-triggered-agents, -fetchers-google and -fetchers JSON); Claude-User (Anthropic's published outbound range 160.79.104.0/21). Training and indexing crawlers (GPTBot, ClaudeBot, Googlebot, OAI-SearchBot) are NOT let in. Martin asked for this on 20 Oct 2026.
 - While it's on, live page checks with curl see only the landing page. Ask Kiel for the code, POST it once (`afsv_access_code` and the form's nonce) and reuse the `afsv_preview` cookie. Never store the code in the repo.
 
 ## Live site and rules
-- Staging and live site: https://afsv.198-105-177-163.sslip.io. WordPress, Elementor, WooCommerce, theme `afsv-vrc` (child of hello-elementor), plugin AFSV VRC Core.
+- Live site: https://afsvvrc.com (the old sslip address redirects to it). The theme is installed in the folder `afsv-vrc-theme`. WordPress, Elementor, WooCommerce, theme `afsv-vrc` (child of hello-elementor), plugin AFSV VRC Core.
 - Registered company: **AFSV VRC Global Development Group Limited** (short form: "AFSV VRC"). Martin, 19 Oct 2026: use it everywhere, including the copyright, legal pages and trademark owner.
   - Exception: Natalie's and Michelle's bios keep Athletes & Fans Sports Village Holding Company Limited (AFSVHCL).
   - Martin's title: "Founder, Chairman & Interim CEO, AFSVHCL™ · Founder, AFSV VRC Global Development Group Limited". His quote attribution keeps "Founder, Chairman & Interim CEO, AFSVHCL™".
