@@ -39,8 +39,17 @@ function afsv_gate_has_cookie( $s ) {
 	return $exp > time() && hash_equals( afsv_gate_token( $exp, (int) $s['ver'] ), $raw );
 }
 
+/** Visitor IP for the try limit. Behind Cloudflare REMOTE_ADDR is Cloudflare's edge, so prefer CF-Connecting-IP. */
 function afsv_gate_client_ip() {
-	return isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '0';
+	foreach ( array( 'HTTP_CF_CONNECTING_IP', 'REMOTE_ADDR' ) as $k ) {
+		if ( ! empty( $_SERVER[ $k ] ) ) {
+			$ip = sanitize_text_field( wp_unslash( $_SERVER[ $k ] ) );
+			if ( filter_var( $ip, FILTER_VALIDATE_IP ) ) {
+				return $ip;
+			}
+		}
+	}
+	return '0';
 }
 
 add_action( 'template_redirect', function () {
