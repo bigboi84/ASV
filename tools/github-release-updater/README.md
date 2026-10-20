@@ -1,6 +1,14 @@
 # GitHub Release Updater
 
-A small WordPress plugin that gives **your own plugins and themes** one-click updates from **GitHub releases**.
+A small WordPress plugin that gives **your own plugins and themes** one-click updates from **GitHub**, in either of two ways:
+
+| | **Release zip** | **Live branch** |
+|---|---|---|
+| WordPress updates when | you publish a GitHub release with a zip | a new commit lands on a branch |
+| You do on GitHub | tag and release (a workflow can build the zip) | just push |
+| Downloaded | the whole zip | only the files that changed |
+| Good for | versioned, deliberate releases | "I push, the site follows" |
+
 Use it on as many WordPress sites as you like. Everything is set in WordPress admin; there is no code to edit.
 
 - Works with **public** repositories (no token) and **private** repositories (a read-only token).
@@ -22,7 +30,29 @@ Use it on as many WordPress sites as you like. Everything is set in WordPress ad
 4. **Private repository?** Add a token (see below). Public repository: leave it empty.
 5. **Save and check GitHub now.** The Status column shows "Up to date", or "Update available", or what is wrong.
 
-## What your repository needs
+## Live branch: push to GitHub and the site follows
+
+1. In **Settings → GitHub Updates** choose **Updates from: Live branch**, then fill in:
+   - **branch**: the branch to follow (empty = the repository's default branch);
+   - **folder in repo**: where the plugin or theme sits inside the repository, e.g. `wordpress/my-plugin` (empty = the whole repository).
+2. Every 15 minutes the site asks GitHub for the newest commit **that touched that folder**. Commits elsewhere in the repository are ignored.
+3. When there is one, it appears under **Dashboard → Updates** and in the plugin's row here ("Update now").
+4. The update is built from the files you already have plus the differences: GitHub's checksums are compared with your files,
+   and only changed or new files are downloaded. Deleted files are removed. WordPress then installs it the normal way
+   (maintenance mode, replace, reactivate). Since WordPress 6.6 a plugin update that causes a fatal error is rolled back automatically.
+5. **Install automatically** (optional): switches on WordPress's own auto-update for that item, so new commits install on their own
+   within about 15 minutes. Leave it off to approve each update with one click.
+
+No address is opened on your site for GitHub to call, so there is no webhook to secure; the site simply asks GitHub.
+Public repositories need no token. Needs the PHP `ZipArchive` extension (almost every host has it).
+
+### Why this is the right direction
+
+Plugins that *push* files from WordPress up to GitHub (for example, one that uploads a plugin folder with a token)
+are useful for backups, but the live site then becomes the source of truth. Here GitHub is the source of truth and the
+site follows it, so you never upload zips by hand.
+
+## What your repository needs (Release zip mode)
 
 - A **published GitHub release** (not a draft or pre-release) whose **tag is a version**, e.g. `v1.4.0`.
 - A **zip file attached to that release** (an "asset"), containing **one top-level folder** (your plugin or theme).
@@ -55,13 +85,15 @@ site normally makes a handful of requests a day.
 
 - Only packages from the configured repository's own release downloads are accepted.
 - The token is sent only to `api.github.com`, never to the signed download address GitHub redirects to.
+- Live-branch packages are rebuilt locally; file paths containing `..`, symbolic links and anything outside the chosen folder are ignored.
+- **Install automatically** means whoever can push to that branch (or publish that release) can change the code running on the site. Use two-factor authentication on GitHub and, for important sites, leave automatic installs off.
 - Updates are as trustworthy as your GitHub account: turn on two-factor authentication.
 - WordPress does not verify signatures on these zips; it trusts the release you published.
 
 ## Update this plugin itself
 
-Add this plugin as a source in its own list: pick **GitHub Release Updater**, repository `<your-account>/<this-repo>`,
-zip file `gh-release-updater.zip`.
+Add this plugin as a source in its own list: pick **GitHub Release Updater**, repository `<your-account>/<this-repo>`.
+Use **Release zip** (zip file `gh-release-updater.zip`), or **Live branch** with folder `gh-release-updater`.
 
 ## Remove
 

@@ -87,6 +87,9 @@ function afsv_updater_plugin_file() {
 /* ───────── Tell WordPress about the plugin and theme updates ───────── */
 
 add_filter( 'pre_set_site_transient_update_plugins', function ( $t ) {
+	if ( defined( 'GHRU_VERSION' ) ) {
+		return $t; // the GitHub Release Updater plugin is active and handles these updates.
+	}
 	$rel = is_object( $t ) ? afsv_updater_release() : null;
 	if ( ! $rel || ! $rel['plugin_zip'] ) {
 		return $t;
@@ -114,6 +117,9 @@ add_filter( 'pre_set_site_transient_update_plugins', function ( $t ) {
 } );
 
 add_filter( 'pre_set_site_transient_update_themes', function ( $t ) {
+	if ( defined( 'GHRU_VERSION' ) ) {
+		return $t;
+	}
 	$slug = afsv_updater_theme_slug();
 	$rel  = is_object( $t ) && $slug ? afsv_updater_release() : null;
 	if ( ! $rel || ! $rel['theme_zip'] ) {

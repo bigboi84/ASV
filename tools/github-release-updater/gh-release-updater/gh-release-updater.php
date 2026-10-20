@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       GitHub Release Updater
- * Description:       One-click updates for your own plugins and themes from GitHub releases (public or private repositories). Add a repository under Settings → GitHub Updates; new releases then appear under Dashboard → Updates.
- * Version:           1.0.0
+ * Description:       One-click updates for your own plugins and themes from GitHub releases or from the live files of a branch (public or private repositories). Add a repository under Settings → GitHub Updates.
+ * Version:           1.1.0
  * Requires at least: 5.8
  * Requires PHP:      7.4
  * Author:            bigboi84
@@ -14,8 +14,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'GHRU_VERSION', '1.0.0' );
+define( 'GHRU_VERSION', '1.1.0' );
 define( 'GHRU_FILE', __FILE__ );
+
+register_deactivation_hook( __FILE__, function () {
+	wp_clear_scheduled_hook( 'ghru_cron' );
+} );
 
 require_once __DIR__ . '/includes/core.php';
 require_once __DIR__ . '/includes/admin.php';

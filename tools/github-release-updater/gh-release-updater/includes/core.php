@@ -3,10 +3,13 @@
  * Release lookup and WordPress update integration.
  *
  * Each "source" ties one installed plugin or theme to one GitHub repository:
- *   item  "plugin|folder/file.php"  or  "theme|folder"
- *   repo  "owner/name"
- *   asset the zip attached to the release (default: <folder>.zip)
- *   token optional GitHub token, needed only for private repositories
+ *   item   "plugin|folder/file.php"  or  "theme|folder"
+ *   repo   "owner/name"
+ *   mode   "release" (a zip attached to the latest release) or "branch" (the live files of a branch)
+ *   asset  release mode: the zip attached to the release (default: <folder>.zip)
+ *   branch branch mode: the branch to follow
+ *   path   branch mode: the folder inside the repository that holds the plugin or theme ("" = the whole repo)
+ *   token  optional GitHub token, needed only for private repositories
  *
  * @package GH_Release_Updater
  */
@@ -16,7 +19,11 @@ defined( 'ABSPATH' ) || exit;
 /** @return array[] Saved sources. */
 function ghru_sources() {
 	$s = get_option( 'ghru_sources', array() );
-	return is_array( $s ) ? array_values( array_filter( $s, 'is_array' ) ) : array();
+	$s = is_array( $s ) ? array_values( array_filter( $s, 'is_array' ) ) : array();
+	foreach ( $s as $i => $r ) {
+		$s[ $i ] = wp_parse_args( $r, array( 'item' => '', 'repo' => '', 'mode' => 'release', 'asset' => '', 'branch' => '', 'path' => '', 'token' => '' ) );
+	}
+	return $s;
 }
 
 function ghru_item_parts( $src ) {
@@ -150,11 +157,55 @@ function ghru_source_for_package( $url ) {
 		if ( ! ghru_valid_repo( $src['repo'] ) ) {
 			continue;
 		}
-		if ( 0 === strpos( $url, 'https://github.com/' . $src['repo'] . '/releases/download/' ) || 0 === strpos( $url, 'https://api.github.com/repos/' . $src['repo'] . '/releases/assets/' ) ) {
-			return $src;
+		foreach ( array( 'https://github.com/' . $src['repo'] . '/releases/download/', 'https://api.github.com/repos/' . $src['repo'] . '/releases/assets/', 'https://api.github.com/repos/' . $src['repo'] . '/git/trees/' ) as $prefix ) {
+			if ( 0 === strpos( $url, $prefix ) ) {
+				return $src;
+			}
 		}
 	}
 	return null;
+}
+
+/**
+ * One answer for both modes: what is installed, what is available, and what to download.
+ *
+ * @return array have, available, new_version, url, notes, package — or have + error.
+ */
+function ghru_state( $src, $force = false ) {
+	$have = ghru_installed_version( $src );
+	if ( ! $have ) {
+		return array( 'have' => '', 'available' => false, 'error' => __( 'Not installed', 'gh-release-updater' ) );
+	}
+	if ( 'branch' === $src['mode'] ) {
+		$l = ghru_branch_latest( $src, $force );
+		if ( isset( $l['error'] ) ) {
+			return array( 'have' => $have, 'available' => false, 'error' => $l['error'] );
+		}
+		$seen = ghru_installed_sha( $src );
+		return array(
+			'have'        => $have,
+			'available'   => $seen !== $l['sha'],
+			'linked'      => '' !== $seen,
+			'new_version' => 'live-' . $l['short'],
+			'url'         => $l['url'],
+			'notes'       => $l['message'],
+			'package'     => $l['package'],
+			'short'       => $l['short'],
+			'seen'        => $seen,
+		);
+	}
+	$rel = ghru_release( $src, $force );
+	if ( isset( $rel['error'] ) ) {
+		return array( 'have' => $have, 'available' => false, 'error' => $rel['error'] );
+	}
+	return array(
+		'have'        => $have,
+		'available'   => version_compare( $rel['version'], $have, '>' ),
+		'new_version' => $rel['version'],
+		'url'         => $rel['url'],
+		'notes'       => $rel['notes'],
+		'package'     => ghru_package_url( $src, $rel ),
+	);
 }
 
 /* ───────── Plugins ───────── */
@@ -164,22 +215,24 @@ add_filter( 'pre_set_site_transient_update_plugins', function ( $t ) {
 	}
 	foreach ( ghru_sources() as $src ) {
 		list( $type, $file ) = ghru_item_parts( $src );
-		$have                = 'plugin' === $type ? ghru_installed_version( $src ) : '';
-		$rel                 = $have ? ghru_release( $src ) : array( 'error' => 'x' );
-		if ( isset( $rel['error'] ) ) {
+		if ( 'plugin' !== $type ) {
+			continue;
+		}
+		$st = ghru_state( $src );
+		if ( isset( $st['error'] ) ) {
 			continue;
 		}
 		$item = (object) array(
 			'id'          => 'github.com/' . $src['repo'],
 			'slug'        => dirname( $file ),
 			'plugin'      => $file,
-			'new_version' => $rel['version'],
-			'url'         => $rel['url'],
-			'package'     => ghru_package_url( $src, $rel ),
+			'new_version' => $st['new_version'],
+			'url'         => $st['url'],
+			'package'     => $st['package'],
 			'icons'       => array(),
 			'banners'     => array(),
 		);
-		if ( version_compare( $rel['version'], $have, '>' ) ) {
+		if ( $st['available'] ) {
 			$t->response[ $file ] = $item;
 			unset( $t->no_update[ $file ] );
 		} else {
@@ -200,8 +253,8 @@ add_filter( 'plugins_api', function ( $res, $action, $args ) {
 		if ( 'plugin' !== $type || dirname( $file ) !== $args->slug ) {
 			continue;
 		}
-		$rel = ghru_release( $src );
-		if ( isset( $rel['error'] ) ) {
+		$st = ghru_state( $src );
+		if ( isset( $st['error'] ) ) {
 			return $res;
 		}
 		$all  = function_exists( 'get_plugins' ) ? get_plugins() : array();
@@ -209,10 +262,10 @@ add_filter( 'plugins_api', function ( $res, $action, $args ) {
 		return (object) array(
 			'name'          => $name,
 			'slug'          => $args->slug,
-			'version'       => $rel['version'],
-			'homepage'      => $rel['url'],
-			'download_link' => ghru_package_url( $src, $rel ),
-			'sections'      => array( 'changelog' => wp_kses_post( wpautop( esc_html( $rel['notes'] ? $rel['notes'] : __( 'See the release page on GitHub.', 'gh-release-updater' ) ) ) ) ),
+			'version'       => $st['new_version'],
+			'homepage'      => $st['url'],
+			'download_link' => $st['package'],
+			'sections'      => array( 'changelog' => wp_kses_post( wpautop( esc_html( $st['notes'] ? $st['notes'] : __( 'See the page on GitHub.', 'gh-release-updater' ) ) ) ) ),
 		);
 	}
 	return $res;
@@ -225,20 +278,22 @@ add_filter( 'pre_set_site_transient_update_themes', function ( $t ) {
 	}
 	foreach ( ghru_sources() as $src ) {
 		list( $type, $slug ) = ghru_item_parts( $src );
-		$have                = 'theme' === $type ? ghru_installed_version( $src ) : '';
-		$rel                 = $have ? ghru_release( $src ) : array( 'error' => 'x' );
-		if ( isset( $rel['error'] ) ) {
+		if ( 'theme' !== $type ) {
+			continue;
+		}
+		$st = ghru_state( $src );
+		if ( isset( $st['error'] ) ) {
 			continue;
 		}
 		$item = array(
 			'theme'        => $slug,
-			'new_version'  => $rel['version'],
-			'url'          => $rel['url'],
-			'package'      => ghru_package_url( $src, $rel ),
+			'new_version'  => $st['new_version'],
+			'url'          => $st['url'],
+			'package'      => $st['package'],
 			'requires'     => '',
 			'requires_php' => '',
 		);
-		if ( version_compare( $rel['version'], $have, '>' ) ) {
+		if ( $st['available'] ) {
 			$t->response[ $slug ] = $item;
 			unset( $t->no_update[ $slug ] );
 		} else {
@@ -250,15 +305,22 @@ add_filter( 'pre_set_site_transient_update_themes', function ( $t ) {
 	return $t;
 } );
 
-/* ───────── Download (private repositories) ───────── */
+/* ───────── Download ───────── */
 
 /**
- * GitHub answers an authenticated asset request with a redirect to a signed address that must NOT receive
- * the token. So ask GitHub for the redirect without following it, then download from the signed address.
+ * Private releases: GitHub answers an authenticated asset request with a redirect to a signed address that
+ * must NOT receive the token, so ask for the redirect without following it, then download from the signed address.
+ * Live branches: build the package ourselves (see branch.php).
  */
 add_filter( 'upgrader_pre_download', function ( $reply, $package ) {
-	$src = is_string( $package ) && 0 === strpos( $package, 'https://api.github.com/repos/' ) ? ghru_source_for_package( $package ) : null;
-	if ( ! $src || ! ghru_token( $src ) ) {
+	$src = is_string( $package ) && 0 === strpos( $package, 'https://' ) ? ghru_source_for_package( $package ) : null;
+	if ( ! $src ) {
+		return $reply;
+	}
+	if ( 'branch' === $src['mode'] && 0 === strpos( $package, 'https://api.github.com/repos/' . $src['repo'] . '/git/trees/' ) ) {
+		return ghru_branch_build_package( $src, basename( $package ) );
+	}
+	if ( 0 !== strpos( $package, 'https://api.github.com/repos/' ) || ! ghru_token( $src ) ) {
 		return $reply;
 	}
 	$res = wp_remote_get(
@@ -276,8 +338,9 @@ add_filter( 'upgrader_pre_download', function ( $reply, $package ) {
 	if ( is_wp_error( $res ) ) {
 		return $res;
 	}
-	$loc = wp_remote_retrieve_header( $res, 'location' );
-	if ( (int) wp_remote_retrieve_response_code( $res ) >= 300 && (int) wp_remote_retrieve_response_code( $res ) < 400 && is_string( $loc ) && 0 === strpos( $loc, 'https://' ) ) {
+	$loc  = wp_remote_retrieve_header( $res, 'location' );
+	$code = (int) wp_remote_retrieve_response_code( $res );
+	if ( $code >= 300 && $code < 400 && is_string( $loc ) && 0 === strpos( $loc, 'https://' ) ) {
 		return download_url( $loc, 300 );
 	}
 	return new WP_Error( 'ghru_download', __( 'GitHub did not provide the download. Check the token can read this repository.', 'gh-release-updater' ) );
@@ -304,3 +367,5 @@ add_filter( 'upgrader_source_selection', function ( $source, $remote_source, $up
 	}
 	return $source;
 }, 10, 4 );
+
+require_once __DIR__ . '/branch.php';
