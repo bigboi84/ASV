@@ -1,11 +1,21 @@
-# Publishes the two WordPress packages when a version tag (v1.2.11, ...) is pushed.
+# Publishes the two WordPress packages as a GitHub release.
 # The AFSV VRC Core plugin on the website checks this repository's latest release and offers
 # the update in WordPress (Dashboard → Updates).
+#
+# Start it either by pushing a version tag (v1.2.11) or by running this workflow by hand
+# (Actions → Release WordPress packages → Run workflow): it then tags the current branch head
+# with the version found in the plugin header.
 name: Release WordPress packages
 
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      notes:
+        description: 'Release notes (what changed)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -16,9 +26,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Tag must match the plugin and theme versions
+      - name: Work out the version
+        id: v
         run: |
-          v="${GITHUB_REF_NAME#v}"
+          plugin=$(sed -n 's/^ \* Version: *//p' wordpress/afsv-vrc-core/afsv-vrc-core.php | head -n1 | tr -d '[:space:]')
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then v="${GITHUB_REF_NAME#v}"; else v="$plugin"; fi
+          [ -n "$v" ] || { echo "No version found"; exit 1; }
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+          echo "tag=v$v" >> "$GITHUB_OUTPUT"
+
+      - name: The plugin and theme versions must both match
+        run: |
+          v="${{ steps.v.outputs.version }}"
           grep -Eq "^\s*\*?\s*Version:\s+${v}\s*$" wordpress/afsv-vrc-core/afsv-vrc-core.php || { echo "Plugin version is not ${v}"; exit 1; }
           grep -Eq "^Version:\s+${v}\s*$" wordpress/afsv-vrc-theme/style.css || { echo "Theme version is not ${v}"; exit 1; }
           grep -q "'AFSV_CORE_VERSION', '${v}'" wordpress/afsv-vrc-core/afsv-vrc-core.php || { echo "AFSV_CORE_VERSION is not ${v}"; exit 1; }
@@ -34,11 +53,21 @@ jobs:
           unzip -l out/afsv-vrc-core.zip | grep -q ' afsv-vrc-core/afsv-vrc-core.php'
           unzip -l out/afsv-vrc.zip | grep -q ' afsv-vrc/style.css'
 
-      - name: Create the release
+      - name: Create (or update) the release
         env:
           GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.v.outputs.tag }}
+          INPUT_NOTES: ${{ github.event.inputs.notes }}
         run: |
-          git for-each-ref "refs/tags/${GITHUB_REF_NAME}" --format='%(contents)' > notes.md
-          [ -s notes.md ] || echo "AFSV VRC ${GITHUB_REF_NAME}" > notes.md
-          gh release create "${GITHUB_REF_NAME}" out/afsv-vrc-core.zip out/afsv-vrc.zip \
-            --title "AFSV VRC ${GITHUB_REF_NAME}" --notes-file notes.md --latest
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            git for-each-ref "refs/tags/${TAG}" --format='%(contents)' > notes.md
+          else
+            printf '%s\n' "${INPUT_NOTES}" > notes.md
+          fi
+          [ -s notes.md ] && [ -n "$(tr -d '[:space:]' < notes.md)" ] || echo "AFSV VRC ${TAG}" > notes.md
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            gh release upload "${TAG}" out/afsv-vrc-core.zip out/afsv-vrc.zip --clobber
+          else
+            gh release create "${TAG}" out/afsv-vrc-core.zip out/afsv-vrc.zip \
+              --target "${GITHUB_SHA}" --title "AFSV VRC ${TAG}" --notes-file notes.md --latest
+          fi
