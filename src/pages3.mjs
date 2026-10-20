@@ -251,3 +251,31 @@ export const ndStats = (tone = 'dark') => html`
     <p class="ndstats__note">2023 survey data for Canada’s ten provinces (territories not included), based on parent or guardian reports of diagnosed conditions. Age groups differ and diagnoses overlap, so these figures are not added together and are not an overall estimate of neurodivergence.</p>
     <p class="ndstats__src">Source: <a href="${ND_SOURCE}" target="_blank" rel="noopener">Public Health Agency of Canada, Chronic conditions in childhood: Prevalence</a>, using 2023 Canadian Health Survey on Children and Youth data. <a href="${ND_METHOD}" target="_blank" rel="noopener">Methodology</a></p>
   </div>`;
+
+// Coming-soon landing page (private preview gate). On WordPress the theme shows this to visitors without a
+// preview code; <!--gate:fields--> and <!--gate:error--> are filled in by the theme (nonce, message).
+export const comingSoon = (introMarkup) => html`
+<!--gate:intro-->${introMarkup('AFSV VRC · Global Development Group Limited')}<!--/gate:intro-->
+<main id="main" class="gate" data-el="gate">
+  <div class="gate__media" aria-hidden="true">
+    <img src="assets/img/village/film-poster.jpg" alt="" width="1920" height="1080" fetchpriority="high">
+  </div>
+  <div class="gate__scrim" aria-hidden="true"></div>
+  <div class="gate__inner">
+    <img class="gate__logo" src="assets/img/logo-reverse.png" alt="AFSV VRC Global Development Group Limited" width="600" height="160">
+    <p class="gate__kicker">Whitby, Ontario · AI-Driven Sports Village</p>
+    <h1 class="gate__title">Coming soon.</h1>
+    <p class="gate__lead">A new home for sport, learning and community is on its way. Our full website is in private preview.</p>
+    <form class="gate__form" method="post" action="" autocomplete="off">
+      <label class="gate__label" for="afsv-access-code">Have a preview code?</label>
+      <div class="gate__row">
+        <input id="afsv-access-code" name="afsv_access_code" type="password" inputmode="text" autocapitalize="off" spellcheck="false" required aria-describedby="afsv-access-msg" placeholder="Enter your code">
+        <button type="submit" class="btn btn--gold">Enter</button>
+      </div>
+      <p class="gate__msg" id="afsv-access-msg" role="alert"><!--gate:error--></p>
+      <!--gate:fields-->
+    </form>
+    <p class="gate__contact">Questions? <a href="mailto:info@afsvvrc.com">info@afsvvrc.com</a></p>
+  </div>
+  <p class="gate__fine">© 2026 AFSV VRC Global Development Group Limited · Concept renderings of a proposed development</p>
+</main>`;

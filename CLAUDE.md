@@ -22,6 +22,12 @@ Kiel wants Claude to make changes **and push them live itself** wherever possibl
 
 Product data (WooCommerce) and site settings can be changed directly through the connector.
 
+**Coming-soon gate (theme 1.2.8+, `inc/gate.php`):**
+- Switched on in Settings → Coming soon. The public sees the landing page (`src/pages3.mjs` `comingSoon`, exported to `chrome/part-gate.html`; preview at `site/coming-soon.html`).
+- Access: the preview code (30-day signed cookie), or being logged in as contributor or above.
+- Never gated: REST API, wp-admin, wp-login.php, ajax, cron, robots.txt.
+- While it's on, live page checks with curl see only the landing page. Ask Kiel for the code, POST it once (`afsv_access_code` and the form's nonce) and reuse the `afsv_preview` cookie. Never store the code in the repo.
+
 ## Live site and rules
 - Staging and live site: https://afsv.198-105-177-163.sslip.io. WordPress, Elementor, WooCommerce, theme `afsv-vrc` (child of hello-elementor), plugin AFSV VRC Core.
 - Registered company: **AFSV VRC Global Development Group Limited** (short form: "AFSV VRC"). Martin, 19 Oct 2026: use it everywhere, including the copyright, legal pages and trademark owner.

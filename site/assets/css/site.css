@@ -2588,3 +2588,43 @@ html.intro-on, .intro-on body { overflow: hidden; }
   .merch-card__count { width: 100%; font-size: 12px; }
   .merch-card__tag { top: 8px; left: 8px; padding: 4px 8px; }
 }
+
+/* ───────── Coming-soon landing (private preview gate) ───────── */
+body.is-gate { margin: 0; background: var(--navy); color: #fff; min-height: 100vh; }
+.gate { position: relative; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; overflow: hidden; padding: 72px 16px 96px; isolation: isolate; }
+.gate__media, .gate__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.gate__media { z-index: -2; overflow: hidden; }
+.gate__media img { object-position: 30% 50%; animation: gateZoom 30s ease-in-out infinite alternate; }
+@keyframes gateZoom { from { transform: scale(1.02); } to { transform: scale(1.12); } }
+.gate__scrim { position: absolute; inset: 0; z-index: -1; background:
+  radial-gradient(120% 80% at 50% 45%, rgba(9,30,54,.28) 0%, rgba(9,30,54,.6) 60%, rgba(9,30,54,.88) 100%),
+  linear-gradient(180deg, rgba(9,30,54,.5) 0%, rgba(9,30,54,.12) 35%, rgba(9,30,54,.8) 100%); }
+.gate__inner { width: 100%; max-width: 640px; text-align: center; display: grid; justify-items: center; gap: 14px; }
+.gate__logo { width: min(260px, 64vw); height: auto; margin-bottom: 18px; filter: drop-shadow(0 6px 24px rgba(0,0,0,.35)); }
+.gate__kicker { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.gate__title { margin: 0; font-family: 'Anton', var(--font-display); font-weight: 400; font-size: clamp(56px, 11vw, 132px); line-height: .95; letter-spacing: .01em; text-transform: uppercase; color: #fff; text-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.gate__lead { margin: 4px 0 18px; max-width: 46ch; font-size: clamp(16px, 2vw, 18px); line-height: 1.6; color: rgba(255,255,255,.88); }
+.gate__form { width: 100%; max-width: 460px; display: grid; gap: 10px; padding: 20px; border-radius: 22px; background: rgba(9,30,54,.55); border: 1px solid rgba(255,255,255,.16); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); text-align: left; }
+.gate__label { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.9); }
+.gate__row { display: flex; gap: 10px; }
+.gate__row input { flex: 1; min-width: 0; min-height: 48px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08); color: #fff; font: inherit; font-size: 16px; letter-spacing: .06em; }
+.gate__row input::placeholder { color: rgba(255,255,255,.55); letter-spacing: 0; }
+.gate__row input:focus { outline: 2px solid var(--gold); outline-offset: 2px; background: rgba(255,255,255,.12); }
+.gate__row .btn { min-height: 48px; padding-left: 24px; padding-right: 24px; }
+.gate__msg { margin: 0; min-height: 0; font-size: 14px; color: #ffd27a; }
+.gate__msg:empty { display: none; }
+.gate__contact { margin: 8px 0 0; font-size: 14px; color: rgba(255,255,255,.75); }
+.gate__contact a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.gate__fine { position: absolute; left: 16px; right: 16px; bottom: 22px; margin: 0; text-align: center; font-size: 12px; letter-spacing: .04em; color: rgba(255,255,255,.6); }
+@media (max-width: 480px) { .gate__row { flex-direction: column; } .gate__row .btn { width: 100%; justify-content: center; } .gate__form { padding: 16px; } }
+/* entrance: held while the letter intro plays, then rises in as the letters open onto the film */
+.intro-on .gate__inner > *, .intro-on .gate__fine { opacity: 0; }
+.intro-reveal .gate__inner > * { animation: gateIn .9s cubic-bezier(.2,.8,.2,1) both; }
+.intro-reveal .gate__inner > :nth-child(2) { animation-delay: .1s; }
+.intro-reveal .gate__inner > :nth-child(3) { animation-delay: .2s; }
+.intro-reveal .gate__inner > :nth-child(4) { animation-delay: .32s; }
+.intro-reveal .gate__inner > :nth-child(5) { animation-delay: .44s; }
+.intro-reveal .gate__inner > :nth-child(6) { animation-delay: .54s; }
+.intro-reveal .gate__fine { animation: gateIn .9s ease .7s both; }
+@keyframes gateIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .gate__media img { animation: none; } .intro-reveal .gate__inner > *, .intro-reveal .gate__fine { animation: none; } }

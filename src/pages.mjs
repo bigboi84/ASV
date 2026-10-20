@@ -141,26 +141,11 @@ const OPPS = [
   ['Globe', 'Global Community', 'Express your interest in the proposed Global Diaspora Network — support youth sport and represent your heritage.', 'Learn more', 'about.html'],
 ];
 
-export function home(d) {
-  const pillarImgs = [
-    ['life/hall.jpg', 'Concept rendering: racially diverse youth athletes training basketball, sprints and futsal in a busy multi-sport hall at night, with coaches cheering them on.'],
-    ['ai-education-studio.jpg', 'Adult learners at a long desk with large data displays while an instructor explains.'],
-    ['life/nd.jpg', 'Concept rendering: children and teens taking part in an adapted soccer session with patient coaches in a calm, sensory-considered setting.'],
-    ['life/lifeskills.jpg', 'Concept rendering: racially diverse teens cooking a healthy meal with a chef mentor while others work on budgeting with a coach.'],
-  ];
-  const pathways = [
-    { ...d.pathways[0], desc: 'Athlete pathways, coaching and multi-sport training.', img: 'life/academy.jpg' },
-    { ...d.pathways[1], desc: 'Keep up to date on the five proposed membership pathways.', img: 'life/lounge.jpg' },
-    { ...d.pathways[2], desc: 'Executive and Everyday & Sport apparel and accessories.', img: 'merch/regular-varsity-jacket-navy.jpg' },
-    { ...d.pathways[3], desc: 'Sponsorship, education, technology and development routes.', img: 'life/suite.jpg' },
-  ];
-  const INTRO_IMGS = ['whitby/site-aerial.jpg', 'whitby/hp.jpg', 'whitby/esports.jpg', 'life/plaza.jpg', 'whitby/basketball.jpg', 'whitby/soccer.jpg', 'life/academy.jpg']; // one per letter of AFSV VRC
-  return {
-    title: 'Home',
-    overlay: true,
-    description: 'AFSV VRC is creating a smarter, more inclusive sports and education ecosystem where athletes, families, educators, partners and communities can train, learn, connect and grow.',
-    body: html`
-<div class="intro" data-intro aria-hidden="true">
+
+// AFSV VRC letter intro (homepage and coming-soon landing). intro.js drives it; ?nointro or reduced motion skips it.
+const INTRO_IMGS = ['whitby/site-aerial.jpg', 'whitby/hp.jpg', 'whitby/esports.jpg', 'life/plaza.jpg', 'whitby/basketball.jpg', 'whitby/soccer.jpg', 'life/academy.jpg']; // one per letter of AFSV VRC
+export function introMarkup(caption = 'Whitby, Ontario · AI-Driven Sports Village') {
+  return html`<div class="intro" data-intro aria-hidden="true">
   <script>(function(){var d=document.documentElement;if(matchMedia('(prefers-reduced-motion: reduce)').matches||/[?&]nointro/.test(location.search)){var e=document.currentScript.parentNode;e.parentNode.removeChild(e);return;}d.classList.add('intro-on');})();</script>
   <svg class="intro__svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet">
     <defs>
@@ -179,12 +164,33 @@ export function home(d) {
       </g>
     </g>
     <g class="intro__meta" data-intro-meta>
-      <text x="800" y="700" text-anchor="middle" class="intro__cap" data-intro-cap>Whitby, Ontario · AI-Driven Sports Village</text>
+      <text x="800" y="700" text-anchor="middle" class="intro__cap" data-intro-cap>${caption}</text>
       <rect x="650" y="730" width="300" height="2" class="intro__track" data-intro-track/>
       <rect x="650" y="730" width="0" height="2" class="intro__bar" data-intro-bar/>
     </g>
   </svg>
-</div>
+</div>`;
+}
+
+export function home(d) {
+  const pillarImgs = [
+    ['life/hall.jpg', 'Concept rendering: racially diverse youth athletes training basketball, sprints and futsal in a busy multi-sport hall at night, with coaches cheering them on.'],
+    ['ai-education-studio.jpg', 'Adult learners at a long desk with large data displays while an instructor explains.'],
+    ['life/nd.jpg', 'Concept rendering: children and teens taking part in an adapted soccer session with patient coaches in a calm, sensory-considered setting.'],
+    ['life/lifeskills.jpg', 'Concept rendering: racially diverse teens cooking a healthy meal with a chef mentor while others work on budgeting with a coach.'],
+  ];
+  const pathways = [
+    { ...d.pathways[0], desc: 'Athlete pathways, coaching and multi-sport training.', img: 'life/academy.jpg' },
+    { ...d.pathways[1], desc: 'Keep up to date on the five proposed membership pathways.', img: 'life/lounge.jpg' },
+    { ...d.pathways[2], desc: 'Executive and Everyday & Sport apparel and accessories.', img: 'merch/regular-varsity-jacket-navy.jpg' },
+    { ...d.pathways[3], desc: 'Sponsorship, education, technology and development routes.', img: 'life/suite.jpg' },
+  ];
+  return {
+    title: 'Home',
+    overlay: true,
+    description: 'AFSV VRC is creating a smarter, more inclusive sports and education ecosystem where athletes, families, educators, partners and communities can train, learn, connect and grow.',
+    body: html`
+${introMarkup()}
 <section class="hero hero--full hero--reel" data-el="home.hero" data-el-build="elementor" data-film>
   <div class="hero__media reel" aria-hidden="true">
     <img src="${IMG('village/film-poster.jpg')}" alt="" width="1920" height="1080" fetchpriority="high">

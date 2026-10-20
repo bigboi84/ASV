@@ -232,3 +232,26 @@ ${scripts}
 </html>
 `;
 }
+
+// Bare page for the coming-soon landing: no menu, footer or site scripts, just the intro and the gate.
+export function gatePage({ body }) {
+  return `<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coming soon | AFSV VRC</title>
+<meta name="description" content="AFSV VRC Global Development Group Limited: a proposed AI-Driven Sports Village for Whitby, Ontario. Website coming soon.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#091E36">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="is-gate">
+${body}
+<script src="assets/js/intro.js" defer></script>
+</body>
+</html>
+`;
+}

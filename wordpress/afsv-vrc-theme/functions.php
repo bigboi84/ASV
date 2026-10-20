@@ -15,6 +15,7 @@ define( 'AFSV_BOOKING_URL', 'https://book.afsvvrc.com' );
 
 require_once get_stylesheet_directory() . '/inc/defaults.php';
 require_once get_stylesheet_directory() . '/inc/helpers.php';
+require_once get_stylesheet_directory() . '/inc/gate.php';
 if ( class_exists( 'WooCommerce' ) || defined( 'WC_VERSION' ) ) {
 	require_once get_stylesheet_directory() . '/inc/shop.php';
 }

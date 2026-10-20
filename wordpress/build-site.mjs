@@ -23,7 +23,7 @@ const id = () => crypto.randomBytes(4).toString('hex');
 
 // The Collection and the product pages are WooCommerce: /shop/ and /product/<slug>/
 // (rendered by the theme's woocommerce/ templates), so they are not imported as pages.
-const WOO = (file) => file === 'shop' || file.startsWith('product-');
+const WOO = (file) => file === 'shop' || file.startsWith('product-') || file === 'coming-soon';
 const MARKET = new Set(['marketplace', 'shop', 'become-a-vendor']);
 const route = (file) => {
   if (file === 'index') return { slug: 'home', path: '/' };
@@ -126,6 +126,13 @@ for (const [variant, file] of [['overlay', 'index'], ['default', 'membership'], 
   fs.writeFileSync(path.join(THEME, 'chrome', 'part-launch-form.html'), wpLinks(launch) + '\n');
   const coming = topLevel((shop.match(/<main id="main"[^>]*>([\s\S]*?)<\/main>/) || [])[1]).find((b) => b.includes('id="coming"'));
   fs.writeFileSync(path.join(THEME, 'chrome', 'part-coming.html'), (coming ? wpLinks(coming) : '') + '\n');
+}
+
+// Coming-soon landing for the private-preview gate (theme inc/gate.php).
+{
+  const g = fs.readFileSync(path.join(SITE, 'coming-soon.html'), 'utf8');
+  const body = g.slice(g.indexOf('>', g.indexOf('<body')) + 1, g.lastIndexOf('<script'));
+  fs.writeFileSync(path.join(THEME, 'chrome', 'part-gate.html'), wpLinks(body).trim() + '\n');
 }
 
 // ───────── Assets ─────────

@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { page } from './layout.mjs';
+import { page, gatePage } from './layout.mjs';
 import * as P from './pages.mjs';
 import * as MK from './marketplace.mjs';
 import * as P2 from './pages2.mjs';
@@ -53,6 +53,9 @@ for (const [route, pg] of pages) {
   const htmlOut = page({ data, route, title: pg.title, description: pg.description, ogImage: pg.ogImage, overlay: !!pg.overlay, fonts: pg.fonts || [], body: String(pg.body) });
   fs.writeFileSync(path.join(out, file), htmlOut);
 }
+
+// Coming-soon landing (private preview gate); not in the sitemap.
+fs.writeFileSync(path.join(out, 'coming-soon.html'), gatePage({ body: String(P3.comingSoon(P.introMarkup)) }));
 
 // Sitemap for the eventual live domain.
 const urls = pages.filter(([r]) => r !== '/404').map(([r]) => `  <url><loc>https://afsvvrc.com${r === '/' ? '/' : r}</loc></url>`).join('\n');
