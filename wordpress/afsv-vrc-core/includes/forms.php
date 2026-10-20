@@ -4,7 +4,7 @@
  *
  * Submissions are saved as private "Form submissions" in wp-admin and emailed
  * to the address set in Settings → General (or the widget's own recipient).
- * Spam protection: a hidden honeypot field and a per-IP rate limit.
+ * Spam protection: a hidden honeypot field, a per-IP rate limit and (optional) Cloudflare Turnstile.
  *
  * @package AFSV_VRC_Core
  */
@@ -44,6 +44,73 @@ add_action( 'rest_api_init', function () {
 	);
 } );
 
+/* ───────── Spam protection: Cloudflare Turnstile ───────── */
+
+/**
+ * Turnstile settings. The keys come from Cloudflare (Turnstile → your widget); they can also be
+ * defined in wp-config.php as AFSV_TURNSTILE_SITE_KEY / AFSV_TURNSTILE_SECRET.
+ */
+function afsv_core_turnstile() {
+	$o      = get_option( 'afsv_turnstile', array() );
+	$o      = is_array( $o ) ? $o : array();
+	$site   = defined( 'AFSV_TURNSTILE_SITE_KEY' ) ? (string) AFSV_TURNSTILE_SITE_KEY : ( isset( $o['site'] ) ? (string) $o['site'] : '' );
+	$secret = defined( 'AFSV_TURNSTILE_SECRET' ) ? (string) AFSV_TURNSTILE_SECRET : ( isset( $o['secret'] ) ? (string) $o['secret'] : '' );
+	$on     = ! empty( $o['enabled'] );
+	return array(
+		'on'      => $on,
+		'site'    => $site,
+		'secret'  => $secret,
+		'enabled' => $on && $site && $secret,
+	);
+}
+
+/** The visitor's IP. Behind Cloudflare, REMOTE_ADDR is a Cloudflare address, so prefer CF-Connecting-IP. */
+function afsv_core_client_ip() {
+	foreach ( array( 'HTTP_CF_CONNECTING_IP', 'REMOTE_ADDR' ) as $k ) {
+		if ( ! empty( $_SERVER[ $k ] ) ) {
+			$ip = sanitize_text_field( wp_unslash( $_SERVER[ $k ] ) );
+			if ( filter_var( $ip, FILTER_VALIDATE_IP ) ) {
+				return $ip;
+			}
+		}
+	}
+	return '';
+}
+
+/** True when Cloudflare confirms the token, false when it rejects it, WP_Error when Cloudflare cannot be reached. */
+function afsv_core_turnstile_verify( $token ) {
+	$t = afsv_core_turnstile();
+	if ( ! $token ) {
+		return false;
+	}
+	$res = wp_remote_post(
+		'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+		array(
+			'timeout' => 10,
+			'body'    => array(
+				'secret'   => $t['secret'],
+				'response' => $token,
+				'remoteip' => afsv_core_client_ip(),
+			),
+		)
+	);
+	if ( is_wp_error( $res ) ) {
+		return $res;
+	}
+	$d = json_decode( wp_remote_retrieve_body( $res ), true );
+	return is_array( $d ) && ! empty( $d['success'] );
+}
+
+add_action( 'wp_enqueue_scripts', function () {
+	$t = afsv_core_turnstile();
+	if ( ! $t['enabled'] ) {
+		return;
+	}
+	wp_enqueue_script( 'cf-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit', array(), null, array( 'strategy' => 'defer', 'in_footer' => true ) ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters
+	wp_enqueue_script( 'afsv-turnstile', AFSV_CORE_URL . 'assets/turnstile.js', array( 'cf-turnstile' ), AFSV_CORE_VERSION, array( 'strategy' => 'defer', 'in_footer' => true ) );
+	wp_add_inline_script( 'afsv-turnstile', 'window.AFSV_TURNSTILE = ' . wp_json_encode( array( 'key' => $t['site'] ) ) . ';', 'before' );
+}, 30 );
+
 function afsv_core_form_endpoint( $form_id ) {
 	return rest_url( 'afsv/v1/forms/' . sanitize_key( $form_id ) );
 }
@@ -56,7 +123,15 @@ function afsv_core_handle_form( WP_REST_Request $req ) {
 		return new WP_REST_Response( array( 'ok' => true ), 200 );
 	}
 
-	$ip  = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+	// Cloudflare Turnstile (when switched on in Form submissions → Settings).
+	if ( afsv_core_turnstile()['enabled'] ) {
+		$ok = afsv_core_turnstile_verify( isset( $params['cf-turnstile-response'] ) ? sanitize_text_field( wp_unslash( $params['cf-turnstile-response'] ) ) : '' );
+		if ( true !== $ok ) {
+			return new WP_Error( 'afsv_turnstile', __( 'We could not confirm you are human. Please wait a moment and try again, or email info@afsvvrc.com.', 'afsv-vrc-core' ), array( 'status' => 403 ) );
+		}
+	}
+
+	$ip  = afsv_core_client_ip();
 	$key = 'afsv_form_rl_' . md5( $ip );
 	$n   = (int) get_transient( $key );
 	if ( $n >= 5 ) {
@@ -71,7 +146,7 @@ function afsv_core_handle_form( WP_REST_Request $req ) {
 	$name   = '';
 	$email  = '';
 	foreach ( $params as $k => $v ) {
-		if ( 0 === strpos( $k, 'afsv_' ) ) {
+		if ( 0 === strpos( $k, 'afsv_' ) || 'cf-turnstile-response' === $k ) {
 			continue;
 		}
 		$k     = sanitize_key( $k );
@@ -239,6 +314,18 @@ function afsv_core_form_settings_screen() {
 			);
 		}
 		update_option( 'afsv_forms_settings', $new, false );
+		$ts  = get_option( 'afsv_turnstile', array() );
+		$ts  = is_array( $ts ) ? $ts : array();
+		$sec = isset( $in['ts_secret'] ) ? trim( sanitize_text_field( $in['ts_secret'] ) ) : '';
+		update_option(
+			'afsv_turnstile',
+			array(
+				'enabled' => empty( $in['ts_enabled'] ) ? 0 : 1,
+				'site'    => isset( $in['ts_site'] ) ? trim( sanitize_text_field( $in['ts_site'] ) ) : '',
+				'secret'  => '' !== $sec ? $sec : ( isset( $ts['secret'] ) ? $ts['secret'] : '' ), // empty = keep the saved secret
+			),
+			false
+		);
 		$saved = true;
 		if ( ! empty( $in['send_test'] ) ) {
 			$cfg  = afsv_core_form_config( '' );
@@ -271,6 +358,21 @@ function afsv_core_form_settings_screen() {
       <tr><th scope="row"><label for="afsv-ar-body"><?php esc_html_e( 'Auto-reply message', 'afsv-vrc-core' ); ?></label></th>
         <td><textarea class="large-text" rows="9" id="afsv-ar-body" name="ar_body"><?php echo esc_textarea( $s['ar_body'] ); ?></textarea>
         <p class="description"><?php esc_html_e( 'Placeholders: {name}, {email}, {form} (form title), {site}, {answers} (everything they sent).', 'afsv-vrc-core' ); ?></p></td></tr>
+    </table>
+
+    <h2><?php esc_html_e( 'Spam protection (Cloudflare Turnstile)', 'afsv-vrc-core' ); ?></h2>
+	<?php $ts = afsv_core_turnstile(); ?>
+    <p><?php esc_html_e( 'Turnstile is a free Cloudflare check that stops bots from submitting the forms. Visitors normally see nothing; only a suspicious visit is asked to confirm. Create a widget in Cloudflare (Turnstile), then paste its Site key and Secret key here.', 'afsv-vrc-core' ); ?></p>
+    <table class="form-table" role="presentation">
+      <tr><th scope="row"><?php esc_html_e( 'Status', 'afsv-vrc-core' ); ?></th>
+        <td><strong><?php echo $ts['enabled'] ? esc_html__( 'ON — forms are protected', 'afsv-vrc-core' ) : esc_html__( 'OFF', 'afsv-vrc-core' ); ?></strong>
+		<?php if ( $ts['on'] && ! $ts['enabled'] ) : ?><br><span style="color:#b32d2e"><?php esc_html_e( 'Switched on, but both keys are needed.', 'afsv-vrc-core' ); ?></span><?php endif; ?></td></tr>
+      <tr><th scope="row"><?php esc_html_e( 'Protect the forms', 'afsv-vrc-core' ); ?></th>
+        <td><label><input type="checkbox" name="ts_enabled" value="1" <?php checked( $ts['on'] ); ?>> <?php esc_html_e( 'Require Cloudflare Turnstile on every form', 'afsv-vrc-core' ); ?></label></td></tr>
+      <tr><th scope="row"><label for="afsv-ts-site"><?php esc_html_e( 'Site key', 'afsv-vrc-core' ); ?></label></th>
+        <td><input type="text" class="regular-text" id="afsv-ts-site" name="ts_site" value="<?php echo esc_attr( $ts['site'] ); ?>" autocomplete="off" spellcheck="false"><p class="description"><?php esc_html_e( 'The public key. It appears in the page source.', 'afsv-vrc-core' ); ?></p></td></tr>
+      <tr><th scope="row"><label for="afsv-ts-secret"><?php esc_html_e( 'Secret key', 'afsv-vrc-core' ); ?></label></th>
+        <td><input type="password" class="regular-text" id="afsv-ts-secret" name="ts_secret" value="" autocomplete="new-password" spellcheck="false" placeholder="<?php echo $ts['secret'] ? esc_attr__( 'Saved — leave empty to keep it', 'afsv-vrc-core' ) : ''; ?>"><p class="description"><?php esc_html_e( 'Keep this private. It is never shown again after saving.', 'afsv-vrc-core' ); ?></p></td></tr>
     </table>
 
     <h2><?php esc_html_e( 'Per form', 'afsv-vrc-core' ); ?></h2>
