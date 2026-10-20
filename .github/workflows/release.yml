@@ -1,0 +1,44 @@
+# Publishes the two WordPress packages when a version tag (v1.2.11, ...) is pushed.
+# The AFSV VRC Core plugin on the website checks this repository's latest release and offers
+# the update in WordPress (Dashboard → Updates).
+name: Release WordPress packages
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Tag must match the plugin and theme versions
+        run: |
+          v="${GITHUB_REF_NAME#v}"
+          grep -Eq "^\s*\*?\s*Version:\s+${v}\s*$" wordpress/afsv-vrc-core/afsv-vrc-core.php || { echo "Plugin version is not ${v}"; exit 1; }
+          grep -Eq "^Version:\s+${v}\s*$" wordpress/afsv-vrc-theme/style.css || { echo "Theme version is not ${v}"; exit 1; }
+          grep -q "'AFSV_CORE_VERSION', '${v}'" wordpress/afsv-vrc-core/afsv-vrc-core.php || { echo "AFSV_CORE_VERSION is not ${v}"; exit 1; }
+          grep -q "'AFSV_THEME_VERSION', '${v}'" wordpress/afsv-vrc-theme/functions.php || { echo "AFSV_THEME_VERSION is not ${v}"; exit 1; }
+
+      - name: Build the zips (top-level folders afsv-vrc-core and afsv-vrc)
+        run: |
+          mkdir -p out stage
+          cp -r wordpress/afsv-vrc-core stage/afsv-vrc-core
+          cp -r wordpress/afsv-vrc-theme stage/afsv-vrc
+          (cd stage && zip -qr ../out/afsv-vrc-core.zip afsv-vrc-core -x '*.DS_Store')
+          (cd stage && zip -qr ../out/afsv-vrc.zip afsv-vrc -x '*.DS_Store')
+          unzip -l out/afsv-vrc-core.zip | grep -q ' afsv-vrc-core/afsv-vrc-core.php'
+          unzip -l out/afsv-vrc.zip | grep -q ' afsv-vrc/style.css'
+
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git for-each-ref "refs/tags/${GITHUB_REF_NAME}" --format='%(contents)' > notes.md
+          [ -s notes.md ] || echo "AFSV VRC ${GITHUB_REF_NAME}" > notes.md
+          gh release create "${GITHUB_REF_NAME}" out/afsv-vrc-core.zip out/afsv-vrc.zip \
+            --title "AFSV VRC ${GITHUB_REF_NAME}" --notes-file notes.md --latest

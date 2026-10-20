@@ -5,16 +5,19 @@ Kiel wants Claude to make changes **and push them live itself** wherever possibl
 
 1. Edit the static design in `src/`, run `node src/build.mjs` (48 pages into `site/`), then `node wordpress/build-site.mjs`.
    That writes the Elementor page JSON into `wordpress/afsv-vrc-core/content/` and copies the assets into the theme.
-2. Bump versions:
+2. Bump versions (keep the plugin and the theme on the SAME number):
    - theme: `wordpress/afsv-vrc-theme/style.css` and the `AFSV_THEME_VERSION` constant in `functions.php`;
    - plugin: the `Version:` header and the `AFSV_CORE_VERSION` constant in `wordpress/afsv-vrc-core/afsv-vrc-core.php`.
-3. Zip into `wordpress/dist/` (gitignored). The folder names inside the zips must be `afsv-vrc` and `afsv-vrc-core`.
-4. **Theme or plugin code changed?** Kiel uploads the zip(s) (Appearance → Themes / Plugins → Upload → Replace current).
-   WordPress has no API for uploading zip files, so this step stays manual until a self-updater exists.
-5. **Page content changed?** Claude runs the Build itself through the WordPress connector (Easy MCP: `wp_rest_write`):
+3. Commit and push, then publish a release by pushing an annotated tag: `git tag -a vX.Y.Z -m "what changed" && git push origin vX.Y.Z`.
+   - `.github/workflows/release.yml` checks the tag matches both versions, builds `afsv-vrc-core.zip` and `afsv-vrc.zip` (top-level folders `afsv-vrc-core` and `afsv-vrc`) and attaches them to a GitHub release. The tag message becomes the release notes.
+4. **Theme or plugin code changed?** The AFSV VRC Core plugin (1.2.11+, `includes/updater.php`) checks the repository's latest release and WordPress offers it under Dashboard → Updates (or Settings → AFSV VRC updates → Check GitHub now). Kiel clicks Update; nothing installs by itself.
+   - The updater installs into whatever folder is already in use, so a differently named zip folder can no longer create a second copy.
+   - Manual zips are only needed for the very first install of the updater. If you do make a zip by hand, the top-level folders must be `afsv-vrc` and `afsv-vrc-core`. (Zips 1.2.9 and 1.2.10 wrongly used `afsv-vrc-theme`, so the live theme folder is `afsv-vrc-theme`; the old `afsv-vrc` 1.2.8 folder is inactive and can be deleted.)
+5. **Page content changed?** After the plugin update is installed, Claude runs the Build itself through the WordPress connector (Easy MCP: `wp_rest_write`):
    - `POST /afsv/v1/build`, body `{"status":"publish","front":true}`, admin-only (plugin 1.2.7+);
    - `GET /afsv/v1/status` returns the versions, each page's status and the last build time.
    - Existing pages always keep their status, so a build cannot take the site offline (on 19 Oct a drafts build did exactly that).
+   - The page content ships inside the plugin, so a content-only change still needs a release and a plugin update before the Build.
 6. Verify live afterwards:
    - all 36 URLs return 200;
    - grep the live HTML for the change;
@@ -26,6 +29,7 @@ Product data (WooCommerce) and site settings can be changed directly through the
 - Switched on in Settings → Coming soon. The public sees the landing page (`src/pages3.mjs` `comingSoon`, exported to `chrome/part-gate.html`; preview at `site/coming-soon.html`).
 - Access: the preview code (30-day signed cookie), or being logged in as contributor or above.
 - Never gated: REST API, wp-admin, wp-login.php, ajax, cron, robots.txt.
+- Optional (Settings → Coming soon → ChatGPT): lets OpenAI's browsing agent read the site while the gate is on. It is verified by user agent AND OpenAI's published IP ranges (openai.com/chatgpt-user.json, gptbot.json, searchbot.json), GET/HEAD only. Martin asked for this on 20 Oct 2026.
 - While it's on, live page checks with curl see only the landing page. Ask Kiel for the code, POST it once (`afsv_access_code` and the form's nonce) and reuse the `afsv_preview` cookie. Never store the code in the repo.
 
 ## Live site and rules

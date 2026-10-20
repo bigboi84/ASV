@@ -5,7 +5,8 @@
  * When switched on (Settings → Coming soon & preview code), visitors see the coming-soon landing page
  * (chrome/part-gate.html) instead of the site. They get in by:
  *   - being logged in to WordPress with at least Contributor rights (admins, editors…); or
- *   - entering the preview code, which sets a signed cookie for 30 days.
+ *   - entering the preview code, which sets a signed cookie for 30 days; or
+ *   - (optional) being ChatGPT's browsing agent, verified by user agent AND OpenAI's published IP ranges.
  * Changing the code signs every preview visitor out (their cookies stop matching).
  *
  * Never gated: wp-admin, wp-login.php, the REST API (forms, the connector, deploy endpoints), admin-ajax,
@@ -22,7 +23,7 @@ const AFSV_GATE_DAYS   = 30;
 
 function afsv_gate_settings() {
 	$s = get_option( AFSV_GATE_OPTION, array() );
-	return wp_parse_args( is_array( $s ) ? $s : array(), array( 'enabled' => 0, 'code' => '', 'ver' => 1 ) );
+	return wp_parse_args( is_array( $s ) ? $s : array(), array( 'enabled' => 0, 'code' => '', 'ver' => 1, 'ai' => 0 ) );
 }
 
 /** Signed cookie value for a given expiry: "<expiry>.<hmac>"; tied to the current code version. */
@@ -52,6 +53,68 @@ function afsv_gate_client_ip() {
 	return '0';
 }
 
+/* ───────── ChatGPT (optional): let OpenAI's browsing agent read the site while the gate is on ───────── */
+
+/** OpenAI's published address ranges for ChatGPT browsing and its crawlers, cached for a day. */
+function afsv_gate_openai_ranges() {
+	$c = get_site_transient( 'afsv_openai_ips' );
+	if ( is_array( $c ) ) {
+		return $c;
+	}
+	$ranges = array();
+	foreach ( array( 'chatgpt-user', 'gptbot', 'searchbot' ) as $f ) {
+		$res = wp_remote_get( 'https://openai.com/' . $f . '.json', array( 'timeout' => 8 ) );
+		if ( is_wp_error( $res ) || 200 !== (int) wp_remote_retrieve_response_code( $res ) ) {
+			continue;
+		}
+		$d = json_decode( wp_remote_retrieve_body( $res ), true );
+		foreach ( isset( $d['prefixes'] ) && is_array( $d['prefixes'] ) ? $d['prefixes'] : array() as $p ) {
+			$cidr = isset( $p['ipv4Prefix'] ) ? $p['ipv4Prefix'] : ( isset( $p['ipv6Prefix'] ) ? $p['ipv6Prefix'] : '' );
+			if ( $cidr ) {
+				$ranges[] = (string) $cidr;
+			}
+		}
+	}
+	set_site_transient( 'afsv_openai_ips', $ranges, $ranges ? DAY_IN_SECONDS : 15 * MINUTE_IN_SECONDS );
+	return $ranges;
+}
+
+function afsv_gate_ip_in( $ip, $cidr ) {
+	$parts = explode( '/', $cidr, 2 );
+	$a     = @inet_pton( $ip );
+	$b     = @inet_pton( $parts[0] );
+	if ( false === $a || false === $b || strlen( $a ) !== strlen( $b ) ) {
+		return false;
+	}
+	$bits  = isset( $parts[1] ) ? (int) $parts[1] : strlen( $a ) * 8;
+	$bytes = intdiv( $bits, 8 );
+	$rem   = $bits % 8;
+	if ( substr( $a, 0, $bytes ) !== substr( $b, 0, $bytes ) ) {
+		return false;
+	}
+	if ( $rem ) {
+		$mask = ( 0xFF << ( 8 - $rem ) ) & 0xFF;
+		return ( ord( $a[ $bytes ] ) & $mask ) === ( ord( $b[ $bytes ] ) & $mask );
+	}
+	return true;
+}
+
+/** True only for a read-only request from ChatGPT's agent: matching user agent AND an OpenAI address. */
+function afsv_gate_is_chatgpt() {
+	$ua = isset( $_SERVER['HTTP_USER_AGENT'] ) ? (string) wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) : '';
+	$m  = isset( $_SERVER['REQUEST_METHOD'] ) ? (string) $_SERVER['REQUEST_METHOD'] : '';
+	if ( ! in_array( $m, array( 'GET', 'HEAD' ), true ) || ! preg_match( '/ChatGPT-User|GPTBot|OAI-SearchBot/i', $ua ) ) {
+		return false;
+	}
+	$ip = afsv_gate_client_ip();
+	foreach ( afsv_gate_openai_ranges() as $range ) {
+		if ( afsv_gate_ip_in( $ip, $range ) ) {
+			return true;
+		}
+	}
+	return false;
+}
+
 add_action( 'template_redirect', function () {
 	$s = afsv_gate_settings();
 	if ( empty( $s['enabled'] ) || '' === $s['code'] ) {
@@ -64,6 +127,9 @@ add_action( 'template_redirect', function () {
 		return;
 	}
 	if ( afsv_gate_has_cookie( $s ) ) {
+		return;
+	}
+	if ( ! empty( $s['ai'] ) && afsv_gate_is_chatgpt() ) {
 		return;
 	}
 
@@ -154,6 +220,7 @@ function afsv_gate_screen() {
 			'enabled' => ! empty( $_POST['afsv_gate_enabled'] ) && '' !== $code ? 1 : 0,
 			'code'    => $code,
 			'ver'     => (int) $s['ver'],
+			'ai'      => ! empty( $_POST['afsv_gate_ai'] ) ? 1 : 0,
 		);
 		if ( $code !== $s['code'] || ! empty( $_POST['afsv_gate_signout'] ) ) {
 			$new['ver'] = (int) $s['ver'] + 1; // invalidates every preview cookie
@@ -178,6 +245,9 @@ function afsv_gate_screen() {
 			<tr><th scope="row"><label for="afsv-gate-code"><?php esc_html_e( 'Preview code', 'afsv-vrc' ); ?></label></th>
 				<td><input type="text" class="regular-text" id="afsv-gate-code" name="afsv_gate_code" value="<?php echo esc_attr( $s['code'] ); ?>" autocomplete="off" spellcheck="false">
 				<p class="description"><?php esc_html_e( 'Share this with people who should see the site. Not case-sensitive. Changing it signs everyone out of the preview. The page cannot be switched on without a code.', 'afsv-vrc' ); ?></p></td></tr>
+			<tr><th scope="row"><?php esc_html_e( 'ChatGPT', 'afsv-vrc' ); ?></th>
+				<td><label><input type="checkbox" name="afsv_gate_ai" value="1" <?php checked( ! empty( $s['ai'] ) ); ?>> <?php esc_html_e( 'Let ChatGPT read the full site while the coming-soon page is on', 'afsv-vrc' ); ?></label>
+				<p class="description"><?php esc_html_e( 'Only OpenAI’s browsing agent, checked against OpenAI’s published address list, can read pages (view only). Everyone else, including search engines and other bots, still sees the coming-soon page.', 'afsv-vrc' ); ?></p></td></tr>
 			<tr><th scope="row"><?php esc_html_e( 'Sign everyone out', 'afsv-vrc' ); ?></th>
 				<td><label><input type="checkbox" name="afsv_gate_signout" value="1"> <?php esc_html_e( 'End all current previews now (keeps the same code)', 'afsv-vrc' ); ?></label></td></tr>
 		</tbody></table>
