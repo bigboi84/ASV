@@ -52,6 +52,34 @@ Plugins that *push* files from WordPress up to GitHub (for example, one that upl
 are useful for backups, but the live site then becomes the source of truth. Here GitHub is the source of truth and the
 site follows it, so you never upload zips by hand.
 
+## Safe by design
+
+- **Verify connection first.** A connection does nothing until you press **Save and verify connection**. The check confirms the token
+  (and which GitHub account it belongs to), the repository, the branch and folder (or the release), and who made the newest commit.
+  The result is tied to *exactly* the settings you verified: change the repository, branch, folder, token or any trust rule and the
+  connection is switched off until you verify again. Automatic installs only work for a verified connection.
+- **Only your own repository.** Packages are accepted only from the repository you entered. Tick **Only accept a private repository**
+  and the plugin refuses to connect to a public one.
+- **Who may change the site (live branch).** List the GitHub accounts allowed to publish (for example `claude, yourname`) and tick
+  **only verified (signed) commits**. *Every* new commit since the last install is checked, not just the newest, so a bad commit cannot
+  hide underneath a good one. Anything else is simply not offered, and the status says why.
+- **Your token is encrypted** in the database (AES-256, keyed from your site's secret keys) and never shown again. For the strongest
+  setup keep it in `wp-config.php` instead.
+- **A copy of the old version before every update.** The last three are kept in a protected folder inside `wp-content`.
+  **Go back → Restore this version** installs one through WordPress's normal updater, and holds further updates until something
+  *newer* than the version you rolled back from appears (so automatic updates do not put the bad version straight back).
+  The repository history on GitHub is the second safety net.
+
+## Using a private repository
+
+1. GitHub → the repository → **Settings → General → Danger Zone → Change visibility → Make private**.
+2. GitHub → your profile → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**:
+   *Repository access:* only that repository · *Permissions → Repository permissions → Contents:* **Read-only** · pick an expiry you will remember.
+3. Paste the token in the connection's **Token** box (or `define( 'GHRU_TOKEN', '…' );` in `wp-config.php`), tick
+   **Only accept a private repository**, then **Save and verify connection**.
+
+A read-only token can only read: even if it leaked it could not change your code.
+
 ## What your repository needs (Release zip mode)
 
 - A **published GitHub release** (not a draft or pre-release) whose **tag is a version**, e.g. `v1.4.0`.
@@ -81,7 +109,7 @@ Where to put it:
 A token also lifts GitHub's anonymous rate limit (60 lookups an hour). The plugin caches results for 6 hours, so a
 site normally makes a handful of requests a day.
 
-## Security notes
+## More security notes
 
 - Only packages from the configured repository's own release downloads are accepted.
 - The token is sent only to `api.github.com`, never to the signed download address GitHub redirects to.

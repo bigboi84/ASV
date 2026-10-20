@@ -21,7 +21,7 @@ function ghru_sources() {
 	$s = get_option( 'ghru_sources', array() );
 	$s = is_array( $s ) ? array_values( array_filter( $s, 'is_array' ) ) : array();
 	foreach ( $s as $i => $r ) {
-		$s[ $i ] = wp_parse_args( $r, array( 'item' => '', 'repo' => '', 'mode' => 'release', 'asset' => '', 'branch' => '', 'path' => '', 'token' => '' ) );
+		$s[ $i ] = wp_parse_args( $r, array( 'item' => '', 'repo' => '', 'mode' => 'release', 'asset' => '', 'branch' => '', 'path' => '', 'token' => '', 'trusted' => '', 'signed' => 0, 'private' => 0, 'verified' => array() ) );
 	}
 	return $s;
 }
@@ -49,7 +49,44 @@ function ghru_token( $src ) {
 	if ( defined( 'GHRU_TOKEN' ) && GHRU_TOKEN ) {
 		return (string) GHRU_TOKEN;
 	}
-	return isset( $src['token'] ) ? (string) $src['token'] : '';
+	return isset( $src['token'] ) ? ghru_unseal( (string) $src['token'] ) : '';
+}
+
+/** The saved token is stored encrypted (AES-256, key derived from this site's secret keys), never as plain text. */
+function ghru_seal( $plain ) {
+	if ( '' === $plain || ! function_exists( 'openssl_encrypt' ) ) {
+		return $plain;
+	}
+	$iv  = random_bytes( 16 );
+	$enc = openssl_encrypt( $plain, 'aes-256-cbc', hash( 'sha256', wp_salt( 'auth' ), true ), OPENSSL_RAW_DATA, $iv );
+	return false === $enc ? $plain : 'enc1:' . base64_encode( $iv . $enc );
+}
+
+function ghru_unseal( $stored ) {
+	if ( 0 !== strpos( $stored, 'enc1:' ) ) {
+		return $stored;
+	}
+	$raw = base64_decode( substr( $stored, 5 ), true );
+	if ( false === $raw || strlen( $raw ) < 17 || ! function_exists( 'openssl_decrypt' ) ) {
+		return '';
+	}
+	$plain = openssl_decrypt( substr( $raw, 16 ), 'aes-256-cbc', hash( 'sha256', wp_salt( 'auth' ), true ), OPENSSL_RAW_DATA, substr( $raw, 0, 16 ) );
+	return false === $plain ? '' : $plain;
+}
+
+/** Everything that decides what this source may install, hashed. Changing any of it cancels the verification. */
+function ghru_fingerprint( $src ) {
+	return hash( 'sha256', implode( '|', array( $src['item'], $src['repo'], $src['mode'], $src['asset'], $src['branch'], $src['path'], ghru_token( $src ), strtolower( $src['trusted'] ), (int) $src['signed'], (int) $src['private'] ) ) );
+}
+
+/** A source does nothing until its connection has been verified with exactly these settings. */
+function ghru_is_verified( $src ) {
+	return ! empty( $src['verified']['fp'] ) && hash_equals( (string) $src['verified']['fp'], ghru_fingerprint( $src ) );
+}
+
+/** @return string[] Trusted GitHub accounts, lower case. */
+function ghru_trusted( $src ) {
+	return array_values( array_filter( array_map( 'trim', preg_split( '/[\s,;]+/', strtolower( (string) $src['trusted'] ) ) ) ) );
 }
 
 function ghru_installed_version( $src ) {
@@ -176,6 +213,24 @@ function ghru_state( $src, $force = false ) {
 	if ( ! $have ) {
 		return array( 'have' => '', 'available' => false, 'error' => __( 'Not installed', 'gh-release-updater' ) );
 	}
+	if ( ! ghru_is_verified( $src ) ) {
+		return array( 'have' => $have, 'available' => false, 'unverified' => true, 'error' => __( 'Not verified yet. Click “Verify connection”.', 'gh-release-updater' ) );
+	}
+	$st = ghru_state_raw( $src, $force, $have );
+	if ( empty( $st['error'] ) && $st['available'] && ghru_held( $src ) === $st['new_version'] ) {
+		$st['available'] = false;
+		$st['held']      = true;
+	}
+	return $st;
+}
+
+/** What WordPress has been told to leave alone after a rollback (the version or commit that was current then). */
+function ghru_held( $src ) {
+	$h = get_option( 'ghru_hold', array() );
+	return is_array( $h ) && isset( $h[ ghru_src_key( $src ) ] ) ? (string) $h[ ghru_src_key( $src ) ] : '';
+}
+
+function ghru_state_raw( $src, $force, $have ) {
 	if ( 'branch' === $src['mode'] ) {
 		$l = ghru_branch_latest( $src, $force );
 		if ( isset( $l['error'] ) ) {
@@ -317,6 +372,9 @@ add_filter( 'upgrader_pre_download', function ( $reply, $package ) {
 	if ( ! $src ) {
 		return $reply;
 	}
+	if ( 0 === strpos( basename( $package ), 'restore-' ) ) {
+		return ghru_restore_package( $src, substr( basename( $package ), 8 ) );
+	}
 	if ( 'branch' === $src['mode'] && 0 === strpos( $package, 'https://api.github.com/repos/' . $src['repo'] . '/git/trees/' ) ) {
 		return ghru_branch_build_package( $src, basename( $package ) );
 	}
@@ -369,3 +427,5 @@ add_filter( 'upgrader_source_selection', function ( $source, $remote_source, $up
 }, 10, 4 );
 
 require_once __DIR__ . '/branch.php';
+require_once __DIR__ . '/safety.php';
+require_once __DIR__ . '/verify.php';

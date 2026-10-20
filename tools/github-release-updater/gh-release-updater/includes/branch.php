@@ -66,14 +66,15 @@ function ghru_branch_latest( $src, $force = false ) {
 	if ( ! ghru_valid_repo( $src['repo'] ) || ! ghru_branch_ok( $src['branch'] ) || ! ghru_path_ok( $src['path'] ) ) {
 		return array( 'error' => __( 'The repository, branch or folder is not valid.', 'gh-release-updater' ) );
 	}
-	$key = 'ghru_br_' . md5( ghru_src_key( $src ) . '|' . ghru_token( $src ) );
+	$key = 'ghru_br_' . md5( ghru_fingerprint( $src ) );
 	if ( ! $force ) {
 		$c = get_site_transient( $key );
 		if ( is_array( $c ) ) {
 			return $c;
 		}
 	}
-	$args = array( 'per_page' => 1 );
+	$check = ! empty( $src['signed'] ) || ghru_trusted( $src );
+	$args  = array( 'per_page' => $check ? 30 : 1 );
 	if ( '' !== $src['branch'] ) {
 		$args['sha'] = $src['branch'];
 	}
@@ -93,9 +94,25 @@ function ghru_branch_latest( $src, $force = false ) {
 		set_site_transient( $key, $r, 5 * MINUTE_IN_SECONDS );
 		return $r;
 	}
+	// Who may change this site: every commit that is new since the last install must come from a trusted account
+	// (and be signed, if required). Checking only the newest would let an earlier bad commit ride along.
+	$seen = ghru_installed_sha( $src );
+	foreach ( $d as $n => $c ) {
+		if ( ! $check || ( $seen && isset( $c['sha'] ) && $c['sha'] === $seen ) || ( ! $seen && $n > 0 ) ) {
+			break;
+		}
+		$why = ghru_commit_untrusted( $c, $src );
+		if ( $why ) {
+			$r = array( 'error' => $why );
+			set_site_transient( $key, $r, 5 * MINUTE_IN_SECONDS );
+			return $r;
+		}
+	}
 	$sha = $d[0]['sha'];
 	$msg = isset( $d[0]['commit']['message'] ) ? (string) $d[0]['commit']['message'] : '';
+	$by  = isset( $d[0]['author']['login'] ) ? (string) $d[0]['author']['login'] : '';
 	$r   = array(
+		'by'      => $by,
 		'sha'     => $sha,
 		'short'   => substr( $sha, 0, 7 ),
 		'message' => $msg,
@@ -105,6 +122,24 @@ function ghru_branch_latest( $src, $force = false ) {
 	);
 	set_site_transient( $key, $r, 5 * MINUTE_IN_SECONDS );
 	return $r;
+}
+
+/** Empty when the commit may be installed, otherwise the reason it may not. */
+function ghru_commit_untrusted( $c, $src ) {
+	$short = isset( $c['sha'] ) ? substr( (string) $c['sha'], 0, 7 ) : '?';
+	$trust = ghru_trusted( $src );
+	if ( $trust ) {
+		$author    = isset( $c['author']['login'] ) ? strtolower( (string) $c['author']['login'] ) : '';
+		$committer = isset( $c['committer']['login'] ) ? strtolower( (string) $c['committer']['login'] ) : '';
+		// "web-flow" is GitHub itself committing for someone who merged or edited on github.com.
+		if ( ! in_array( $author, $trust, true ) || ! ( in_array( $committer, $trust, true ) || 'web-flow' === $committer ) ) {
+			return sprintf( /* translators: 1: short commit id 2: GitHub account */ __( 'Commit %1$s is by “%2$s”, who is not on the trusted list, so nothing was installed.', 'gh-release-updater' ), $short, $author ? $author : __( 'an unknown account', 'gh-release-updater' ) );
+		}
+	}
+	if ( ! empty( $src['signed'] ) && empty( $c['commit']['verification']['verified'] ) ) {
+		return sprintf( __( 'Commit %s is not signed (verified by GitHub), so nothing was installed.', 'gh-release-updater' ), $short );
+	}
+	return '';
 }
 
 /** Where the item is installed on disk. */
