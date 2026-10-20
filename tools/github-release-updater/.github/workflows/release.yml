@@ -1,0 +1,57 @@
+# Publishes gh-release-updater.zip as a GitHub release. The plugin can then update itself:
+# add this repository to its own list under Settings → GitHub Updates.
+# Start it by pushing a tag (v1.0.1) or by running it by hand (Actions → Run workflow).
+name: Release plugin
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      notes:
+        description: 'Release notes (what changed)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Work out the version and check the plugin matches
+        id: v
+        run: |
+          plugin=$(sed -n 's/^ \* Version: *//p' gh-release-updater/gh-release-updater.php | head -n1 | tr -d '[:space:]')
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then v="${GITHUB_REF_NAME#v}"; else v="$plugin"; fi
+          [ -n "$v" ] || { echo "No version found"; exit 1; }
+          [ "$v" = "$plugin" ] || { echo "Plugin header says ${plugin}, tag says ${v}"; exit 1; }
+          grep -q "'GHRU_VERSION', '${v}'" gh-release-updater/gh-release-updater.php || { echo "GHRU_VERSION is not ${v}"; exit 1; }
+          echo "tag=v$v" >> "$GITHUB_OUTPUT"
+
+      - name: Build the zip
+        run: |
+          mkdir -p out
+          zip -qr out/gh-release-updater.zip gh-release-updater -x '*.DS_Store'
+          unzip -l out/gh-release-updater.zip | grep -q ' gh-release-updater/gh-release-updater.php'
+
+      - name: Create (or update) the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.v.outputs.tag }}
+          INPUT_NOTES: ${{ github.event.inputs.notes }}
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            git for-each-ref "refs/tags/${TAG}" --format='%(contents)' > notes.md
+          else
+            printf '%s\n' "${INPUT_NOTES}" > notes.md
+          fi
+          [ -n "$(tr -d '[:space:]' < notes.md)" ] || echo "GitHub Release Updater ${TAG}" > notes.md
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            gh release upload "${TAG}" out/gh-release-updater.zip --clobber
+          else
+            gh release create "${TAG}" out/gh-release-updater.zip --target "${GITHUB_SHA}" --title "GitHub Release Updater ${TAG}" --notes-file notes.md --latest
+          fi

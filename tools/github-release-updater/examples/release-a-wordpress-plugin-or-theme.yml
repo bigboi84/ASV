@@ -1,0 +1,59 @@
+# Copy this file to .github/workflows/release.yml in the repository of ANY plugin or theme you want
+# GitHub Release Updater to keep up to date. Edit the three values under "env", then push a tag
+# (v1.2.3) or run it by hand (Actions → Run workflow).
+#
+# Needs: the main file's "Version:" header (plugin) or style.css "Version:" (theme) to equal the tag,
+# and the plugin/theme folder to sit at SRC_DIR in the repository.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      notes:
+        description: 'Release notes (what changed)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+env:
+  SRC_DIR: my-plugin            # folder in this repo that holds the plugin or theme
+  ZIP_FOLDER: my-plugin         # the folder name it must have on the website (the zip's single top-level folder)
+  VERSION_FILE: my-plugin/my-plugin.php   # file with the "Version:" header (style.css for a theme)
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Version
+        id: v
+        run: |
+          file=$(sed -n 's/^[ *]*Version: *//p' "${VERSION_FILE}" | head -n1 | tr -d '[:space:]')
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then v="${GITHUB_REF_NAME#v}"; else v="$file"; fi
+          [ -n "$v" ] && [ "$v" = "$file" ] || { echo "Version header (${file}) and tag (${v}) must match"; exit 1; }
+          echo "tag=v$v" >> "$GITHUB_OUTPUT"
+
+      - name: Build the zip
+        run: |
+          mkdir -p out stage
+          cp -r "${SRC_DIR}" "stage/${ZIP_FOLDER}"
+          (cd stage && zip -qr "../out/${ZIP_FOLDER}.zip" "${ZIP_FOLDER}" -x '*.DS_Store')
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.v.outputs.tag }}
+          INPUT_NOTES: ${{ github.event.inputs.notes }}
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = "tag" ]; then git for-each-ref "refs/tags/${TAG}" --format='%(contents)' > notes.md; else printf '%s\n' "${INPUT_NOTES}" > notes.md; fi
+          [ -n "$(tr -d '[:space:]' < notes.md)" ] || echo "${ZIP_FOLDER} ${TAG}" > notes.md
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            gh release upload "${TAG}" "out/${ZIP_FOLDER}.zip" --clobber
+          else
+            gh release create "${TAG}" "out/${ZIP_FOLDER}.zip" --target "${GITHUB_SHA}" --title "${TAG}" --notes-file notes.md --latest
+          fi
