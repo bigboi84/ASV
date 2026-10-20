@@ -51,3 +51,12 @@ Product data (WooCommerce) and site settings can be changed directly through the
 - No EA, FIFA or other third-party trademarks.
 - Don't paste or store secrets.
 - Audit status: `wordpress/AUDIT-REGISTER-2026-10.md`.
+
+## DNS and Cloudflare (set up 19-20 Oct 2026)
+- afsvvrc.com DNS is on Cloudflare (nameservers `cass.ns.cloudflare.com`, `cullen.ns.cloudflare.com`); registrar stays GoDaddy.
+- Records: A `@` → 198.105.177.163 (proxied), CNAME `www` → afsvvrc.com (proxied). All Microsoft 365 email records (3 MX, 3 TXT incl. `_dmarc`, 7 CNAMEs, 2 SRV) are DNS only. Never proxy or delete them.
+- SSL/TLS mode: **Full** (not Flexible; not Full strict until the origin has a valid certificate). Always Use HTTPS and Automatic HTTPS Rewrites are on. No Cache Everything rules; Bot Fight Mode off (it can block the connector).
+- Cloudflare DNSSEC was turned on 20 Oct 2026. Public DS record (not a secret):
+  `afsvvrc.com. 3600 IN DS 2371 13 2 8D9776ACADAC210968055E1A011AC36C5144F15C8620734ADE26A9C0C3B8D24B`
+  (key tag 2371, algorithm 13, digest type 2 SHA-256, KSK flags 257). It only takes effect once the DS is added at GoDaddy (Domains → afsvvrc.com → DNS → DNSSEC); that was not done as of this note.
+- Not done yet: WordPress URLs → https://afsvvrc.com, redirect of the sslip address.
