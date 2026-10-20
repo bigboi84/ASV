@@ -44,6 +44,7 @@ Product data (WooCommerce) and site settings can be changed directly through the
   - **info@afsvvrc.com** (Business Professional) is the public address and the account WordPress sends through. SMTP Authentication was switched on 19 Oct.
   - Post SMTP settings: `smtp.office365.com`, port 587, TLS, username info@afsvvrc.com. Martin enters the password.
   - No alias is needed.
+  - 20 Oct 2026: Post SMTP is set up and its test email arrived (From AFSVVRC <info@afsvvrc.com>). WooCommerce "From" address is info@afsvvrc.com. The WordPress admin email and form notifications stay with Kiel (admin), by his choice.
 - Products are display-only: no prices, no Add to cart.
 - No unsupported claims: proposed and planned wording for the village and services; statistics only with their source.
 - The legal text comes from counsel only and must not be paraphrased. The full Terms and Privacy DOCX files are still outstanding.
@@ -57,4 +58,5 @@ Product data (WooCommerce) and site settings can be changed directly through the
 - Records: A `@` → 198.105.177.163 (proxied), CNAME `www` → afsvvrc.com (proxied). All Microsoft 365 email records (3 MX, 3 TXT incl. `_dmarc`, 7 CNAMEs, 2 SRV) are DNS only. Never proxy or delete them.
 - SSL/TLS mode: **Full** (not Flexible; not Full strict until the origin has a valid certificate). Always Use HTTPS and Automatic HTTPS Rewrites are on. No Cache Everything rules; Bot Fight Mode off (it can block the connector).
 - DNSSEC is off at both GoDaddy and Cloudflare (Cloudflare's was turned on, then disabled again on 20 Oct 2026; no DS record was added at GoDaddy). Optional later: enable at Cloudflare and add the DS record at GoDaddy once the site and email are stable.
-- Not done yet: WordPress URLs → https://afsvvrc.com, redirect of the sslip address.
+- Done 20 Oct 2026: Cloudflare Active, RunCloud domain added (afsvvrc.com primary, www redirects, sslip redirects), WordPress URLs are https://afsvvrc.com.
+- Connector: Easy MCP uses the key-in-URL address (`/wp-json/easy-mcp-ai/v1/mcp/<key>`, no sign-in) because RunCloud's nginx returns 403 for `/.well-known/`, which breaks OAuth discovery. Optional fix: allow `^~ /.well-known/` in the app's NGINX Config. Never store the key in the repo.
