@@ -30,6 +30,9 @@ Product data (WooCommerce) and site settings can be changed directly through the
 - Access: the preview code (30-day signed cookie), or being logged in as contributor or above.
 - Never gated: REST API, wp-admin, wp-login.php, ajax, cron, robots.txt.
 - Optional (Settings → Coming soon → AI assistants): per assistant (ChatGPT, Gemini, Claude) lets its own browsing agent read the site while the gate is on. Each is verified by user agent AND the provider's published addresses, GET/HEAD only: ChatGPT-User (openai.com/chatgpt-user.json); Google-Agent / Google-GeminiNotebook / Google-NotebookLM (Google's user-triggered-agents, -fetchers-google and -fetchers JSON); Claude-User (Anthropic's published outbound range 160.79.104.0/21). Training and indexing crawlers (GPTBot, ClaudeBot, Googlebot, OAI-SearchBot) are NOT let in. Martin asked for this on 20 Oct 2026.
+- Review address (Settings → Coming soon → Review address, default `afsv.198-105-177-163.sslip.io`, theme 1.2.14+): serves the whole site on that host with NO redirect to the main domain and every link rewritten to that host; noindex; forms are switched off there (Turnstile only works on the main domain). Added 21 Oct 2026 because ChatGPT reported "Site Unavailable" on afsvvrc.com.
+- The visitor address (`CF-Connecting-IP`) is trusted only when the request really comes from a Cloudflare address (gate and forms); a direct call to the server cannot fake it.
+- 21 Oct 2026: Kiel switched the gate OFF for Martin's review (the AI allowance did not help ChatGPT, which reported "Site Unavailable", i.e. it never reached the gate). With the gate off the site is public and has no noindex.
 - While it's on, live page checks with curl see only the landing page. Ask Kiel for the code, POST it once (`afsv_access_code` and the form's nonce) and reuse the `afsv_preview` cookie. Never store the code in the repo.
 
 ## Live site and rules

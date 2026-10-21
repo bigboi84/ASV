@@ -64,17 +64,94 @@ function afsv_core_turnstile() {
 	);
 }
 
-/** The visitor's IP. Behind Cloudflare, REMOTE_ADDR is a Cloudflare address, so prefer CF-Connecting-IP. */
-function afsv_core_client_ip() {
-	foreach ( array( 'HTTP_CF_CONNECTING_IP', 'REMOTE_ADDR' ) as $k ) {
-		if ( ! empty( $_SERVER[ $k ] ) ) {
-			$ip = sanitize_text_field( wp_unslash( $_SERVER[ $k ] ) );
-			if ( filter_var( $ip, FILTER_VALIDATE_IP ) ) {
-				return $ip;
+/** Cloudflare's published address ranges (refreshed daily; this list is the fallback). */
+function afsv_core_cloudflare_ranges() {
+	$c = get_site_transient( 'afsv_cf_ranges' );
+	if ( is_array( $c ) && $c ) {
+		return $c;
+	}
+	$out = array();
+	foreach ( array( 'https://www.cloudflare.com/ips-v4', 'https://www.cloudflare.com/ips-v6' ) as $url ) {
+		$res = wp_remote_get( $url, array( 'timeout' => 6 ) );
+		if ( ! is_wp_error( $res ) && 200 === (int) wp_remote_retrieve_response_code( $res ) ) {
+			foreach ( preg_split( '/\s+/', trim( wp_remote_retrieve_body( $res ) ) ) as $r ) {
+				if ( preg_match( '#^[0-9a-f:.]+/\d{1,3}$#i', $r ) ) {
+					$out[] = $r;
+				}
 			}
 		}
 	}
-	return '';
+	if ( count( $out ) < 10 ) {
+		$out = array_merge(
+			array(
+			'173.245.48.0/20',
+			'103.21.244.0/22',
+			'103.22.200.0/22',
+			'103.31.4.0/22',
+			'141.101.64.0/18',
+			'108.162.192.0/18',
+			'190.93.240.0/20',
+			'188.114.96.0/20',
+			'197.234.240.0/22',
+			'198.41.128.0/17',
+			'162.158.0.0/15',
+			'104.16.0.0/13',
+			'104.24.0.0/14',
+			'172.64.0.0/13',
+			'131.0.72.0/22',
+		),
+			array(
+			'2400:cb00::/32',
+			'2606:4700::/32',
+			'2803:f800::/32',
+			'2405:b500::/32',
+			'2405:8100::/32',
+			'2a06:98c0::/29',
+			'2c0f:f248::/32',
+		)
+		);
+	}
+	set_site_transient( 'afsv_cf_ranges', $out, DAY_IN_SECONDS );
+	return $out;
+}
+
+function afsv_core_ip_in( $ip, $cidr ) {
+	$parts = explode( '/', $cidr, 2 );
+	$a     = @inet_pton( $ip );
+	$b     = @inet_pton( $parts[0] );
+	if ( false === $a || false === $b || strlen( $a ) !== strlen( $b ) ) {
+		return false;
+	}
+	$bits  = isset( $parts[1] ) ? (int) $parts[1] : strlen( $a ) * 8;
+	$bytes = intdiv( $bits, 8 );
+	$rem   = $bits % 8;
+	if ( substr( $a, 0, $bytes ) !== substr( $b, 0, $bytes ) ) {
+		return false;
+	}
+	if ( $rem ) {
+		$mask = ( 0xFF << ( 8 - $rem ) ) & 0xFF;
+		return ( ord( $a[ $bytes ] ) & $mask ) === ( ord( $b[ $bytes ] ) & $mask );
+	}
+	return true;
+}
+
+/**
+ * The visitor's IP. Cloudflare passes it in CF-Connecting-IP, which is only believable when the request really came
+ * from Cloudflare; a direct call to the server could put anything in that header.
+ */
+function afsv_core_client_ip() {
+	$remote = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+	if ( ! empty( $_SERVER['HTTP_CF_CONNECTING_IP'] ) && filter_var( $remote, FILTER_VALIDATE_IP ) ) {
+		$cf = sanitize_text_field( wp_unslash( $_SERVER['HTTP_CF_CONNECTING_IP'] ) );
+		if ( filter_var( $cf, FILTER_VALIDATE_IP ) ) {
+			foreach ( afsv_core_cloudflare_ranges() as $range ) {
+				if ( afsv_core_ip_in( $remote, $range ) ) {
+					return $cf;
+				}
+			}
+		}
+	}
+	return filter_var( $remote, FILTER_VALIDATE_IP ) ? $remote : '';
 }
 
 /** True when Cloudflare confirms the token, false when it rejects it, WP_Error when Cloudflare cannot be reached. */
@@ -108,7 +185,7 @@ add_action( 'wp_enqueue_scripts', function () {
 	}
 	wp_enqueue_script( 'cf-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit', array(), null, array( 'strategy' => 'defer', 'in_footer' => true ) ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters
 	wp_enqueue_script( 'afsv-turnstile', AFSV_CORE_URL . 'assets/turnstile.js', array( 'cf-turnstile' ), AFSV_CORE_VERSION, array( 'strategy' => 'defer', 'in_footer' => true ) );
-	wp_add_inline_script( 'afsv-turnstile', 'window.AFSV_TURNSTILE = ' . wp_json_encode( array( 'key' => $t['site'] ) ) . ';', 'before' );
+	wp_add_inline_script( 'afsv-turnstile', 'window.AFSV_TURNSTILE = ' . wp_json_encode( array( 'key' => $t['site'], 'host' => strtolower( (string) wp_parse_url( get_option( 'home' ), PHP_URL_HOST ) ) ) ) . ';', 'before' );
 }, 30 );
 
 function afsv_core_form_endpoint( $form_id ) {

@@ -24,7 +24,7 @@ const AFSV_GATE_DAYS   = 30;
 
 function afsv_gate_settings() {
 	$s = get_option( AFSV_GATE_OPTION, array() );
-	return wp_parse_args( is_array( $s ) ? $s : array(), array( 'enabled' => 0, 'code' => '', 'ver' => 1, 'ai' => array() ) );
+	return wp_parse_args( is_array( $s ) ? $s : array(), array( 'enabled' => 0, 'code' => '', 'ver' => 1, 'ai' => array(), 'preview_host' => 'afsv.198-105-177-163.sslip.io' ) );
 }
 
 /** Signed cookie value for a given expiry: "<expiry>.<hmac>"; tied to the current code version. */
@@ -42,17 +42,133 @@ function afsv_gate_has_cookie( $s ) {
 }
 
 /** Visitor IP for the try limit. Behind Cloudflare REMOTE_ADDR is Cloudflare's edge, so prefer CF-Connecting-IP. */
-function afsv_gate_client_ip() {
-	foreach ( array( 'HTTP_CF_CONNECTING_IP', 'REMOTE_ADDR' ) as $k ) {
-		if ( ! empty( $_SERVER[ $k ] ) ) {
-			$ip = sanitize_text_field( wp_unslash( $_SERVER[ $k ] ) );
-			if ( filter_var( $ip, FILTER_VALIDATE_IP ) ) {
-				return $ip;
+/** Cloudflare's published address ranges (refreshed daily; this list is the fallback). */
+function afsv_gate_cloudflare_ranges() {
+	$c = get_site_transient( 'afsv_cf_ranges' );
+	if ( is_array( $c ) && $c ) {
+		return $c;
+	}
+	$out = array();
+	foreach ( array( 'https://www.cloudflare.com/ips-v4', 'https://www.cloudflare.com/ips-v6' ) as $url ) {
+		$res = wp_remote_get( $url, array( 'timeout' => 6 ) );
+		if ( ! is_wp_error( $res ) && 200 === (int) wp_remote_retrieve_response_code( $res ) ) {
+			foreach ( preg_split( '/\s+/', trim( wp_remote_retrieve_body( $res ) ) ) as $r ) {
+				if ( preg_match( '#^[0-9a-f:.]+/\d{1,3}$#i', $r ) ) {
+					$out[] = $r;
+				}
 			}
 		}
 	}
-	return '0';
+	if ( count( $out ) < 10 ) {
+		$out = array_merge(
+			array(
+		'173.245.48.0/20',
+		'103.21.244.0/22',
+		'103.22.200.0/22',
+		'103.31.4.0/22',
+		'141.101.64.0/18',
+		'108.162.192.0/18',
+		'190.93.240.0/20',
+		'188.114.96.0/20',
+		'197.234.240.0/22',
+		'198.41.128.0/17',
+		'162.158.0.0/15',
+		'104.16.0.0/13',
+		'104.24.0.0/14',
+		'172.64.0.0/13',
+		'131.0.72.0/22',
+	),
+			array(
+		'2400:cb00::/32',
+		'2606:4700::/32',
+		'2803:f800::/32',
+		'2405:b500::/32',
+		'2405:8100::/32',
+		'2a06:98c0::/29',
+		'2c0f:f248::/32',
+	)
+		);
+	}
+	set_site_transient( 'afsv_cf_ranges', $out, DAY_IN_SECONDS );
+	return $out;
 }
+
+/**
+ * The visitor's address. Cloudflare passes it in CF-Connecting-IP, but that header is only believable when the
+ * request really came from Cloudflare; anyone who calls the server directly could write whatever they like in it.
+ */
+function afsv_gate_client_ip() {
+	$remote = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+	if ( ! empty( $_SERVER['HTTP_CF_CONNECTING_IP'] ) && filter_var( $remote, FILTER_VALIDATE_IP ) ) {
+		$cf = sanitize_text_field( wp_unslash( $_SERVER['HTTP_CF_CONNECTING_IP'] ) );
+		if ( filter_var( $cf, FILTER_VALIDATE_IP ) ) {
+			foreach ( afsv_gate_cloudflare_ranges() as $range ) {
+				if ( afsv_gate_ip_in( $remote, $range ) ) {
+					return $cf;
+				}
+			}
+		}
+	}
+	return filter_var( $remote, FILTER_VALIDATE_IP ) ? $remote : '0';
+}
+
+/* ───────── Review address: a second web address that serves the whole site without redirecting ───────── */
+
+/** The extra host (default: the old staging address), or '' when none is set. */
+function afsv_preview_host() {
+	$s = afsv_gate_settings();
+	$h = strtolower( trim( (string) $s['preview_host'] ) );
+	return preg_match( '/^[a-z0-9]([a-z0-9.-]*[a-z0-9])?$/', $h ) ? $h : '';
+}
+
+function afsv_on_preview_host() {
+	$h    = afsv_preview_host();
+	$here = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( preg_replace( '/:\d+$/', '', (string) wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
+	return '' !== $h && $here === $h;
+}
+
+/** The main host, read straight from the stored option so nothing here can loop. */
+function afsv_main_host() {
+	return strtolower( (string) wp_parse_url( get_option( 'home' ), PHP_URL_HOST ) );
+}
+
+// WordPress would normally send every other host to the main one. Not on the review address.
+add_filter( 'redirect_canonical', function ( $url ) {
+	return afsv_on_preview_host() ? false : $url;
+} );
+
+/** Points every absolute link to $main at $here (plain, protocol-relative and JSON-escaped forms). */
+function afsv_preview_rewrite( $html, $main, $here ) {
+	return str_ireplace(
+		array( 'https://' . $main, 'http://' . $main, 'https:\\/\\/' . $main, 'http:\\/\\/' . $main, '//' . $main ),
+		array( 'https://' . $here, 'https://' . $here, 'https:\\/\\/' . $here, 'https:\\/\\/' . $here, '//' . $here ),
+		$html
+	);
+}
+
+/**
+ * On the review address every link, image and script that points at the main domain is pointed at the review
+ * address instead, so a reviewer stays on one host the whole time and never depends on the main domain.
+ */
+add_action( 'template_redirect', function () {
+	if ( ! afsv_on_preview_host() || is_admin() || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) || wp_doing_ajax() || is_robots() ) {
+		return;
+	}
+	$main = afsv_main_host();
+	$here = afsv_preview_host();
+	if ( ! $main || $main === $here ) {
+		return;
+	}
+	header( 'X-Robots-Tag: noindex, nofollow', true );
+	ob_start( function ( $html ) use ( $main, $here ) {
+		foreach ( headers_list() as $h ) {
+			if ( 0 === stripos( $h, 'content-type:' ) && false === stripos( $h, 'text/html' ) ) {
+				return $html; // leave JSON, feeds and downloads alone.
+			}
+		}
+		return afsv_preview_rewrite( $html, $main, $here );
+	} );
+}, -2 );
 
 /* ───────── AI assistants (optional): let a provider's browsing agent read the site while the gate is on ───────── */
 
@@ -274,6 +390,7 @@ function afsv_gate_screen() {
 			'enabled' => ! empty( $_POST['afsv_gate_enabled'] ) && '' !== $code ? 1 : 0,
 			'code'    => $code,
 			'ver'     => (int) $s['ver'],
+			'preview_host' => isset( $_POST['afsv_gate_preview_host'] ) ? strtolower( preg_replace( '/[^A-Za-z0-9.-]/', '', trim( sanitize_text_field( wp_unslash( $_POST['afsv_gate_preview_host'] ) ) ) ) ) : '',
 			'ai'      => array_fill_keys( array_filter( array_keys( afsv_gate_ai_providers() ), function ( $id ) {
 				return ! empty( $_POST['afsv_gate_ai'][ $id ] ); // phpcs:ignore WordPress.Security.NonceVerification
 			} ), 1 ),
@@ -301,6 +418,9 @@ function afsv_gate_screen() {
 			<tr><th scope="row"><label for="afsv-gate-code"><?php esc_html_e( 'Preview code', 'afsv-vrc' ); ?></label></th>
 				<td><input type="text" class="regular-text" id="afsv-gate-code" name="afsv_gate_code" value="<?php echo esc_attr( $s['code'] ); ?>" autocomplete="off" spellcheck="false">
 				<p class="description"><?php esc_html_e( 'Share this with people who should see the site. Not case-sensitive. Changing it signs everyone out of the preview. The page cannot be switched on without a code.', 'afsv-vrc' ); ?></p></td></tr>
+			<tr><th scope="row"><label for="afsv-gate-preview"><?php esc_html_e( 'Review address', 'afsv-vrc' ); ?></label></th>
+				<td><input type="text" class="regular-text" id="afsv-gate-preview" name="afsv_gate_preview_host" value="<?php echo esc_attr( $s['preview_host'] ); ?>" placeholder="afsv.198-105-177-163.sslip.io" autocomplete="off" spellcheck="false">
+				<p class="description"><?php esc_html_e( 'A second web address that shows the whole site without redirecting to the main domain, with every link kept on that address. Use it when a reviewer or an AI tool cannot open the main domain. It is noindex, and the coming-soon rules below still apply. Forms are switched off there (use the main domain). Leave empty to turn it off.', 'afsv-vrc' ); ?></p></td></tr>
 			<tr><th scope="row"><?php esc_html_e( 'AI assistants', 'afsv-vrc' ); ?></th>
 				<td>
 				<?php $on = afsv_gate_ai_on( $s ); ?>

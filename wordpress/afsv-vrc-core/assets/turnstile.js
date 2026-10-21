@@ -4,6 +4,9 @@
   var cfg = window.AFSV_TURNSTILE;
   if (!cfg || !cfg.key) return;
   var tries = 0;
+  // Turnstile only works on the domain it was created for. On any other address (such as the review address)
+  // forms are switched off, with a pointer to the main site, instead of waiting for a check that cannot run.
+  var wrongHost = cfg.host && location.hostname.toLowerCase() !== cfg.host;
 
   function setup(form) {
     if (form.__afsvTs) return;
@@ -45,7 +48,21 @@
     });
   }
 
+  function blockForms() {
+    Array.prototype.forEach.call(document.querySelectorAll('form[data-preview-form]'), function (form) {
+      if (form.__afsvTs) return;
+      form.__afsvTs = true;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        var s = form.querySelector('.form-status');
+        if (s) { s.textContent = 'Forms are switched off on this review address. Please use https://' + cfg.host + ' to send a message.'; s.hidden = false; }
+      }, true);
+    });
+  }
+
   function init() {
+    if (wrongHost) { blockForms(); return; }
     if (!window.turnstile) {
       if (tries++ < 100) setTimeout(init, 100);
       return;
