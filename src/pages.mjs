@@ -6,6 +6,7 @@ import {
 import { aboutExtra, whitbyOverview, whitbyRoadmap, membershipExtra, partnersExtra, contactExtra, EXTRAS, xhero } from './pages2.mjs';
 import { ndStats } from './pages3.mjs';
 
+const roleLines = (r) => raw(r.split('<br>').map((l) => esc(l)).join('<br>'));
 const IMG = (f) => `assets/img/${f}`;
 let V = {};
 export const setVideos = (v) => { V = v; };
@@ -621,7 +622,7 @@ ${aboutExtra()}
   <div class="wrap section founder__grid">
     <figure class="founder__photo wipe">
       <img src="${IMG('martin-lashley.jpg')}" alt="Martin Lashley standing on the turf inside an indoor sports dome." width="940" height="1224" loading="lazy">
-      <figcaption><b>Martin Lashley</b>Founder, Chairman &amp; Interim CEO</figcaption>
+      <figcaption><b>Martin Michael Victor Lashley</b>Founder, Chairman &amp; CEO, AFSV VRC Global Development Group Limited</figcaption>
     </figure>
     <div class="founder__copy reveal">
       <p class="eyebrow">Founder story</p>
@@ -640,7 +641,7 @@ ${aboutExtra()}
     <a class="team-card" href="leadership.html#${p.slug}">
       ${portrait(p, 'team-card__photo')}
       <span class="team-card__body">
-        <span class="team-card__role">${p.role}</span>
+        <span class="team-card__role">${roleLines(p.role)}</span>
         <span class="team-card__name">${p.name}</span>
         <span class="team-card__short">${p.short}</span>
         <span class="team-card__go">View profile ${arrow()}</span>
@@ -667,7 +668,7 @@ export function leadership(d) {
     <h1 class="h1 split-words" aria-label="The team behind the vision."><span aria-hidden="true">${splitWords(['The team behind', 'the vision.'], ['vision.'])}</span></h1>
     <p class="lead">AFSV VRC is led by a dedicated team of entrepreneurs, community builders, and visionaries committed to transforming youth sports, education, and community development in Canada and beyond.</p>
     <nav class="lead-chips" aria-label="Leaders">
-      ${d.leadership.map((p) => html`<a href="#${p.slug}">${portrait(p, 'lead-chips__img')}<span><b>${p.name}</b><small>${p.chip || p.role}</small></span></a>`)}
+      ${d.leadership.map((p) => html`<a href="#${p.slug}">${portrait(p, 'lead-chips__img')}<span><b>${p.name}</b><small>${p.chip || roleLines(p.role)}</small></span></a>`)}
     </nav>
   </div>
 </section>
@@ -681,7 +682,7 @@ ${d.leadership.map((p, i) => html`
         <div class="profile__id">
           <span class="num">${pad2(i + 1)} / ${pad2(d.leadership.length)}</span>
           <h2 class="profile__name" id="${p.slug}-name">${p.name}</h2>
-          <p class="profile__role">${p.role}</p>
+          <p class="profile__role">${roleLines(p.role)}</p>
         </div>
       </div>
       ${p.focus ? html`<div class="profile__focus" data-stagger>${p.focus.map((f) => html`<div><b>${f.t}</b><span>${f.d}</span></div>`)}</div>` : ''}
@@ -849,7 +850,7 @@ ${whitbyRoadmap()}
     </div>
     <blockquote class="wh-quote reveal">
       <p>Empowering youth. Strengthening communities. Building a legacy.</p>
-      <footer><b>Martin Lashley</b><span>Founder &amp; Chairman, AFSV VRC</span></footer>
+      <footer><b>Martin Lashley</b><span>Founder, Chairman &amp; CEO, AFSV VRC</span></footer>
     </blockquote>
   </div>
 </section>

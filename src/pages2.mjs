@@ -119,7 +119,7 @@ function legalDoc({ kicker, title, intro, meta = [], sections, icon: ic = 'Doc',
       ${s.pills ? html`<ul class="xlegal__pills">${s.pills.map((l) => html`<li>${l}</li>`)}</ul>` : ''}
       ${s.cards ? html`<div class="xlegal__cards">${s.cards.map(([i, h, t]) => html`<div><span>${ico(i)}</span><b>${h}</b><small>${t}</small></div>`)}</div>` : ''}
       ${s.after ? (s.after).map((t) => html`<p>${t}</p>`) : ''}
-      ${s.mail ? html`<p class="xlegal__mail"><a href="mailto:${s.mail}">${s.mail}</a><span>Martin Lashley — Founder, Chairman &amp; Interim CEO, AFSVHCL™ · Founder, AFSV VRC Global Development Group Limited</span></p>` : ''}
+      ${s.mail ? html`<p class="xlegal__mail"><a href="mailto:${s.mail}">${s.mail}</a><span>Martin Michael Victor Lashley — Founder, Chairman &amp; Interim CEO — Athletes &amp; Fans Sports Village Holding Company Limited (AFSVHCL)<br>Founder, Chairman &amp; CEO — AFSV VRC Global Development Group Limited</span></p>` : ''}
     </section>`)}
     ${related.length ? html`<div class="xlegal__related">${related.map(([l, r]) => html`<a href="${href(r)}">${l} ${arrow()}</a>`)}</div>` : ''}
   </div>
@@ -766,7 +766,7 @@ export const contactExtra = () => html`
   <div class="cdetails" data-stagger>
     <article class="cdetail"><span class="kcard__ico">${ico('Doc')}</span><small>Email</small><a href="mailto:info@afsvvrc.com">info@afsvvrc.com</a></article>
     <article class="cdetail"><span class="kcard__ico">${ico('Dome')}</span><small>Location</small><b>Whitby, Ontario, Canada</b></article>
-    <article class="cdetail"><span class="kcard__ico">${ico('Mentorship')}</span><small>Primary contact</small><b>Martin Lashley</b><span>Founder, Chairman &amp; Interim CEO, AFSVHCL™ · Founder, AFSV VRC Global Development Group Limited</span></article>
+    <article class="cdetail"><span class="kcard__ico">${ico('Mentorship')}</span><small>Primary contact</small><b>Martin Michael Victor Lashley</b><span>Founder, Chairman &amp; Interim CEO — Athletes &amp; Fans Sports Village Holding Company Limited (AFSVHCL)<br>Founder, Chairman &amp; CEO — AFSV VRC Global Development Group Limited</span></article>
   </div>
 </section>
 <section class="band--cream" data-el="contact.expect" data-el-build="elementor">
@@ -820,7 +820,7 @@ ${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'l
         <ul class="cside__list">
           <li><span>${ico('Doc')}</span><div><small>Email</small><a href="mailto:info@afsvvrc.com">info@afsvvrc.com</a></div></li>
           <li><span>${ico('Dome')}</span><div><small>Location</small><b>Whitby, Ontario, Canada</b></div></li>
-          <li><span>${ico('Mentorship')}</span><div><small>Primary contact</small><b>Martin Lashley</b><em>Founder, Chairman &amp; Interim CEO, AFSVHCL™ · Founder, AFSV VRC Global Development Group Limited</em></div></li>
+          <li><span>${ico('Mentorship')}</span><div><small>Primary contact</small><b>Martin Michael Victor Lashley</b><em>Founder, Chairman &amp; Interim CEO — Athletes &amp; Fans Sports Village Holding Company Limited (AFSVHCL)<br>Founder, Chairman &amp; CEO — AFSV VRC Global Development Group Limited</em></div></li>
         </ul>
         <p class="eyebrow">What to expect</p>
         <ul class="check-list">${['We aim to reply within 2–3 business days', 'Exploratory, non-binding conversations', 'No sales pressure — we’re building relationships', 'We handle inquiries in accordance with our Privacy Policy'].map((t) => html`<li>${t}</li>`)}</ul>
