@@ -133,8 +133,8 @@ const EDU_CATS = [
   ['Family support resources', 'Resources and counselling for families navigating neurodivergent challenges.', 'neuro/family.jpg'],
 ];
 const TIERS = [
-  { name: 'Individual', items: ['Community platform access', 'Proposed member benefits (details to be confirmed)', 'Education & wellness resources', 'Welcome package with branded hoodie'], fund: 'Help expand access through membership, subject to approved fund arrangements' },
-  { name: 'Business', items: ['Marketplace directory listing', 'Business profile & spotlight features', 'Sponsorship opportunities', 'Inclusion Champion designation'], fund: 'Help expand access through membership, subject to approved fund arrangements' },
+  { name: 'Individual', items: ['Community platform access', 'Proposed member benefits (details to be confirmed)', 'Education & wellness resources', 'Welcome package with branded hoodie'], fund: 'A proposed contribution to the Neurodivergent Inclusion Fund, subject to approved fund arrangements' },
+  { name: 'Business', items: ['Marketplace directory listing', 'Business profile & spotlight features', 'Sponsorship opportunities', 'Inclusion Champion designation'], fund: 'A proposed contribution to the Neurodivergent Inclusion Fund, subject to approved fund arrangements' },
 ];
 const OPPS = [
   ['Multi-sport development', 'Athletes & Families', 'Keep up to date on proposed year-round training programs and be among the first to know when programs launch.', 'Keep up to date', '#register'],
@@ -417,7 +417,7 @@ ${esportsBand()}
       <p class="eyebrow mb-s">Neurodiversity Access &amp; Opportunity</p>
       <h2 class="h2 mb-m">Different Minds.<br>Equal Opportunity.</h2>
       <p class="lead mb-m">AFSV VRC is developing an inclusive ecosystem intended to expand access to sport, education, developmental support, life skills, technology and employment for neurodivergent people — reducing financial and accessibility barriers through qualified professionals, community organizations, businesses, sponsors and employers.</p>
-      <ul class="check-list mb-l">${['Sensory-friendly environments', 'Qualified service provider network', 'Neurodiversity Access Fund', 'Neuroinclusive employers'].map((t) => html`<li>${t}</li>`)}</ul>
+      <ul class="check-list mb-l">${['Sensory-friendly environments', 'Qualified service provider network', 'Neurodivergent Inclusion Fund (proposed)', 'Neuroinclusive employers'].map((t) => html`<li>${t}</li>`)}</ul>
       ${btn('Explore Neurodiversity Access & Opportunity', '/neurodiversity', 'navy')}
     </div>
   </div>
@@ -897,7 +897,7 @@ ${formSection({
       { label: 'Partnership type', type: 'select', req: true, ph: 'Select a type', options: d.whitbyPartners },
       { label: 'Message', type: 'textarea', req: true, full: true },
     ],
-    consent: 'I agree to be contacted about partnership opportunities with AFSV VRC.',
+    consent: 'I agree to be contacted about partnership opportunities with AFSV VRC.', terms: true, topic: 'the proposed Whitby AI-Driven Sports Village',
     submit: 'Submit request',
     status: SENT,
   }),
@@ -974,7 +974,7 @@ export function membership(d) {
   const paths = d.memberPathways.map((m) => m.label);
   return {
     title: 'Membership',
-    description: 'Keep up to date on AFSV VRC membership — athlete, family, supporter, educator & coach, and corporate & community partner pathways.',
+    description: 'Keep up to date on AFSV VRC membership — athlete, family, supporter, educator & coach, and corporate & community membership pathways.',
     ogImage: IMG('life/lounge.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Membership' }])}
@@ -1000,6 +1000,7 @@ ${breadcrumb([{ label: 'Membership' }])}
         <p class="small muted">Benefits and pricing pending approval.</p>
       </div>`)}
     </div>
+    <p class="small muted mt-m" style="max-width:70ch">Corporate &amp; Community Membership is a membership category under Business membership. It does not imply sponsorship or partnership status. Organizations may pursue both. For sponsorship or partnership, see Corporate &amp; Community Partnerships under <a class="text-link" href="partners.html">Partners, Sponsors &amp; Investors</a>. Ambassadors and Vendors are separate programs, and FanZone is the diaspora community pathway.</p>
   </div>
 </section>
 ${membershipExtra()}
@@ -1148,7 +1149,7 @@ ${formSection({
       { label: 'Contribution or interest', type: 'textarea', req: true, rows: 2, full: true },
       { label: 'Message', type: 'textarea', req: true, full: true },
     ],
-    consent: 'I agree to AFSV VRC contacting me about this inquiry.',
+    consent: 'I agree to AFSV VRC contacting me about this inquiry.', terms: true, topic: 'AFSV VRC partnership and sponsorship opportunities',
     submit: 'Submit inquiry',
     status: SENT,
   }),
@@ -1197,7 +1198,7 @@ ${formSection({
   id: 'interest', title: c.form.title, lead: c.form.lead, note: c.form.note,
   form: previewForm({
     fields: fromDesignFields(c.form.fields),
-    consent: 'I agree to AFSV VRC contacting me about this inquiry.',
+    consent: 'I agree to AFSV VRC contacting me about this inquiry.', terms: !!c.form.terms, adult: !!c.form.adult, topic: c.form.topic,
     submit: 'Submit inquiry',
     status: SENT,
   }),
@@ -1251,7 +1252,7 @@ ${formSection({
   note: 'This is consent to be contacted, not consent to publish. Publication requires a separate signed media release, and stories involving minors require guardian consent and safeguarding review. Please do not include other people’s identifying details.',
   form: previewForm({
     fields: d.newsForm.map((f) => ({ label: f.label, req: f.req, ph: f.ph, type: f.isSelect ? 'select' : f.isArea ? 'textarea' : f.type, options: f.options.map((o) => o.label), full: f.span === '1 / -1' })),
-    consent: 'I agree to be contacted about this story. I understand this is not publication consent.',
+    consent: 'I agree to be contacted about this story. I understand this is not publication consent.', topic: 'AFSV VRC news and impact stories',
     submit: 'Send story interest',
     status: SENT,
   }),

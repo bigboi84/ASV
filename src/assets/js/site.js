@@ -363,6 +363,13 @@
       });
       var h = form.closest('section'), t = h && $('h2, h1', h);
       data.append('afsv_labels', JSON.stringify(labels));
+      // Consent record (CASL / PIPEDA): every tick box with the wording the visitor saw and whether it was ticked.
+      var consents = [];
+      $$('input[type="checkbox"]', form).forEach(function (c) {
+        var l = c.closest('label');
+        consents.push({ field: c.name, selected: !!c.checked, wording: l ? l.textContent.replace(/\s+/g, ' ').trim() : '' });
+      });
+      data.append('afsv_consents', JSON.stringify(consents));
       data.append('afsv_page', location.href);
       data.append('afsv_title', t ? t.textContent.trim() : document.title);
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }

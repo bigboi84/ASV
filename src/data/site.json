@@ -83,7 +83,7 @@
           "href": "/service-provider-network"
         },
         {
-          "label": "Neurodiversity Access Fund",
+          "label": "Neurodivergent Inclusion Fund",
           "href": "/neurodiversity-access-fund"
         },
         {
@@ -353,7 +353,7 @@
       "specs": [
         "One participant, one day",
         "Date selected at booking",
-        "Access fund support applied at booking",
+        "Support from the proposed Neurodivergent Inclusion Fund, subject to approved arrangements",
         "Non-transferable"
       ]
     }
@@ -445,7 +445,7 @@
         "note": "Do not include diagnoses or medical records. Accessibility needs are optional and free-text.",
         "fields": [
           {
-            "l": "Participant or caregiver name",
+            "l": "Contact name (parent or guardian if inquiring about a child)",
             "k": "t",
             "t": "text",
             "ph": "Full name",
@@ -538,7 +538,9 @@
             "ph": "Anything that would help us plan a session well",
             "span": "1 / -1"
           }
-        ]
+        ],
+        "adult": true,
+        "topic": "AFSV VRC programs and athlete development"
       },
       "ctaHead": "Coaches and providers register through a separate route.",
       "ctaLabel": "Coach or provider inquiry",
@@ -633,7 +635,7 @@
             "req": true
           },
           {
-            "l": "Name or caregiver name",
+            "l": "Contact name (parent or guardian if inquiring about a child)",
             "k": "t",
             "t": "text",
             "ph": "Full name",
@@ -711,7 +713,9 @@
             "ph": "Optional — anything that would help us respond well",
             "span": "1 / -1"
           }
-        ]
+        ],
+        "adult": true,
+        "topic": "AFSV VRC education and academic programs"
       },
       "ctaHead": "Schools, colleges and tutors have their own route.",
       "ctaLabel": "Talk about a partnership",
@@ -791,7 +795,7 @@
         "note": "Safeguarding screening applies to every mentor and delivery partner before contact with participants.",
         "fields": [
           {
-            "l": "Name",
+            "l": "Contact name (parent or guardian if inquiring about a child)",
             "k": "t",
             "t": "text",
             "ph": "Full name",
@@ -881,7 +885,9 @@
             "ph": "Optional",
             "span": "1 / -1"
           }
-        ]
+        ],
+        "adult": true,
+        "topic": "AFSV VRC life-skills programs"
       },
       "ctaHead": "Sponsors fund whole blocks of life-skills programming.",
       "ctaLabel": "Talk to the partnerships team",
@@ -1044,7 +1050,8 @@
             "ph": "Anything else we should know",
             "span": "1 / -1"
           }
-        ]
+        ],
+        "topic": "AFSV VRC esports, technology and media"
       },
       "ctaHead": "Technology and media partners shape these pathways.",
       "ctaLabel": "Talk to the partnerships team",
@@ -1073,10 +1080,10 @@
         },
         {
           "label": "Summit & Events",
-          "href": "/contact"
+          "href": "https://gaisb.ai"
         }
       ],
-      "note": "This is a strategic relationship with the Global AI Standards Body. No accreditation, exclusivity or course availability is claimed beyond approved language, and no GAISB logo or brand mark is published pending written permission. Programs, territories, certifications, fees and dates appear only once contractually approved.",
+      "note": "This is a strategic relationship with the Global AI Standards Body. No accreditation, exclusivity or course availability is claimed beyond approved language. Programs, territories, certifications, fees and dates appear only once contractually approved.",
       "listTitle": "Priority pathways.",
       "listLead": "Eight pathways within the confirmed scope of the relationship.",
       "list": [
@@ -1206,7 +1213,8 @@
             "ph": "What you are trying to achieve",
             "span": "1 / -1"
           }
-        ]
+        ],
+        "topic": "AFSV VRC and GAISB AI education"
       },
       "ctaHead": "Enterprise and education partners engage separately.",
       "ctaLabel": "Talk to the partnerships team",
@@ -1262,7 +1270,7 @@
         {
           "num": "02",
           "title": "Families and carers",
-          "body": "Plain-language information, a vetted provider directory, and help working out what is available."
+          "body": "Plain-language information, a planned provider directory, subject to qualification and safeguarding review, and help working out what is available."
         },
         {
           "num": "03",
@@ -1294,7 +1302,7 @@
         "note": "We do not ask for a diagnosis or medical records. Accommodation information is optional and free-text, and anything sensitive moves to an approved secure process later.",
         "fields": [
           {
-            "l": "Participant or caregiver name",
+            "l": "Contact name (parent or guardian if inquiring about a child)",
             "k": "t",
             "t": "text",
             "ph": "Full name",
@@ -1365,10 +1373,12 @@
             "ph": "Optional — anything that would help us communicate well with you",
             "span": "1 / -1"
           }
-        ]
+        ],
+        "adult": true,
+        "topic": "AFSV VRC neurodiversity programs and supports"
       },
       "ctaHead": "Cost should not decide who takes part.",
-      "ctaLabel": "Neurodiversity Access Fund",
+      "ctaLabel": "Neurodivergent Inclusion Fund",
       "ctaHref": "/neurodiversity-access-fund"
     },
     "/business-for-inclusion": {
@@ -1587,7 +1597,9 @@
             "ph": "Anything else we should know",
             "span": "1 / -1"
           }
-        ]
+        ],
+        "terms": true,
+        "topic": "AFSV VRC business-for-inclusion opportunities"
       },
       "ctaHead": "Sponsorship values are set per agreement, never published in advance.",
       "ctaLabel": "Request partnership information",
@@ -1801,7 +1813,9 @@
             "ph": "Anything else the review should consider",
             "span": "1 / -1"
           }
-        ]
+        ],
+        "terms": true,
+        "topic": "the AFSV VRC Service Provider Network"
       },
       "ctaHead": "Families use the network. Providers apply to join it.",
       "ctaLabel": "Neurodiversity Access & Opportunity",
@@ -1809,7 +1823,7 @@
     },
     "/neurodiversity-access-fund": {
       "group": "Neurodiversity",
-      "kicker": "Neurodiversity Access Fund",
+      "kicker": "Neurodivergent Inclusion Fund (proposed)",
       "h1": "Helping Remove the Cost Barrier",
       "lead": "AFSV VRC intends to develop a funding mechanism helping eligible individuals and families access selected programs and services regardless of financial circumstances.",
       "img": "assets/img/life/fund.jpg",
@@ -1962,7 +1976,9 @@
             "ph": "What you would like to support",
             "span": "1 / -1"
           }
-        ]
+        ],
+        "terms": true,
+        "topic": "the proposed Neurodivergent Inclusion Fund"
       },
       "ctaHead": "Businesses fund access through Business for Inclusion.",
       "ctaLabel": "Business for Inclusion",
@@ -2107,7 +2123,7 @@
       "label": "Value of subsidized and in-kind services"
     },
     {
-      "label": "Access Fund contributions"
+      "label": "Inclusion Fund contributions"
     }
   ],
   "newsForm": [
@@ -2558,7 +2574,7 @@
     },
     {
       "num": "05",
-      "label": "Corporate & Community Partner"
+      "label": "Corporate & Community Membership"
     }
   ],
   "marketCategories": [
@@ -2678,7 +2694,7 @@
       "short": "Founded AFSV VRC on a singular belief: sport can transform communities when combined with education, technology and opportunity.",
       "story": [
         "Martin Lashley founded Athletes & Fans Sports Village Holding Company Limited (AFSVHCL™) and AFSV VRC Global Development Group Limited with a singular belief: sport can transform communities when combined with education, technology, and opportunity.",
-        "Recognizing the challenges athletes face in Canada's climate, Lashley envisioned a network of high-performance indoor sports environments capable of supporting year-round training while simultaneously delivering mentorship, academic support, and career pathways for young people.",
+        "Recognizing the challenges athletes face in Canada's climate, Martin envisioned a network of high-performance indoor sports environments capable of supporting year-round training while simultaneously delivering mentorship, academic support, and career pathways for young people.",
         "That vision evolved into the AFSV VRC ecosystem, an integrated platform combining sports science, education programs, esports engagement, and community participation.",
         "The Whitby AI-Driven Sports Village project represents the first step toward building a national network of multi-sport dome facilities designed to serve athletes, families, and communities across Canada."
       ],
@@ -2709,7 +2725,7 @@
       "role": "Deputy Chairman & Deputy CEO — AFSV VRC Global Development Group Limited",
       "img": "assets/img/leaders/vinai-charran.jpg",
       "bio": [
-        "Vinai Charran serves as Deputy Chairman and Deputy CEO of AFSV VRC Global Development Group Limited, and plays a central role in supporting the organization's strategic growth and capital development initiatives.",
+        "Vinai Charran serves as Deputy Chairman and Deputy CEO of AFSV VRC Global Development Group Limited, and plays an essential role in supporting the organization's strategic growth and capital development initiatives.",
         "A successful entrepreneur and international businessman, Vinai brings extensive experience in investment strategy, business development, and global commercial operations. His leadership and financial support help advance the Athletes & Fans Sports Village vision of building a next-generation global sports, education, and community development ecosystem.",
         "Vinai is the Founder and CEO of Charran's Group of Companies, a diversified business enterprise with operations spanning retail, education, publishing, and international trade. Through decades of entrepreneurial leadership, he has established a reputation for identifying innovative opportunities and building sustainable business platforms that deliver long-term value.",
         "As Deputy Chairman and Deputy CEO, Vinai provides strategic and investment leadership and supports the development of major initiatives, including the proposed Whitby AI-Driven Sports Village pilot project in Ontario, Canada, intended as the foundation for a broader national and international rollout of integrated sports, education, and community infrastructure.",
@@ -2734,7 +2750,7 @@
           "d": "Supporting innovative, scalable projects with a focus on long-term sustainability and global impact."
         }
       ],
-      "quote": "“I believe in the power of sports and education to transform lives and build stronger communities. My investment in AFSVHCL is an investment in our youth and in a better future for generations to come.”",
+      "quote": "“I believe in the power of sports and education to transform lives and build stronger communities. My investment in AFSV VRC Global Development Group Limited is an investment in our youth and in a better future for generations to come.”",
       "quoteBy": "— Vinai Charran, Deputy Chairman & Deputy CEO, AFSV VRC Global Development Group Limited",
       "slug": "vinai-charran",
       "short": "Leads strategic investment and capital growth, drawing on decades building businesses across retail, education, publishing and trade.",
@@ -2836,16 +2852,21 @@
       "alt": "Portrait of Michelle Lashley in a navy blazer in an office."
     },
     {
-      "name": "Clyne Rodriguez",
-      "role": "Vice President, Sales & Marketing — AFSV VRC Global Development Group Limited",
+      "name": "Clyne K. Rodriguez",
+      "role": "Vice President, Global Business Development & Sponsorship — AFSV VRC Global Development Group Limited",
       "img": "assets/img/leaders/clyne-rodriguez.jpg",
-      "chip": "VP, Sales & Marketing",
+      "chip": "VP, Global Business Development & Sponsorship",
       "bio": [
-        "Clyne Rodriguez serves in a consulting capacity with AFSV VRC Global Development Group Limited, supporting corporate partnerships, sponsorship development and international outreach. Working alongside the executive team, he connects prospective partners with the company’s sport, education and innovation initiatives. His responsibilities include sponsorship engagement for the GAISB AI World Summit 2027, English and Spanish communications, and delegate hospitality coordination."
+        "Clyne is an international business development professional and entrepreneur with a diverse background in strategic partnerships, international market expansion, regional management, and corporate relationship development.",
+        "His career spans entrepreneurship, tourism, and international business development, combining practical commercial experience with a degree in Marketing and a Master of Business Administration (MBA).",
+        "Having held senior management positions, including Business Development Manager for Latin American markets, Regional Manager for the Caribbean, and Country Manager for an international company, Clyne brings valuable experience in developing markets, cultivating strategic relationships, and identifying opportunities for sustainable business growth.",
+        "Fluent in Spanish and experienced in engaging Caribbean and Latin American markets, Clyne brings a cross-cultural perspective to international business development. His background in tourism and commercial enterprise has further strengthened his ability to connect people, organisations, and opportunities across diverse markets.",
+        "In his consulting capacity as Vice President, Global Business Development & Sponsorship at AFSV VRC Global Development Group Limited, Clyne supports the Group’s international growth through corporate partnerships, sponsorship development, strategic outreach, and stakeholder engagement. His portfolio includes partnership and sponsorship engagement associated with the GAISB AI World Summit 2027, alongside initiatives connecting business, sport, education, and innovation.",
+        "Driven by an entrepreneurial mindset and a commitment to building meaningful professional relationships, Clyne works closely with the leadership team to develop strategic connections that support AFSV VRC’s vision of creating opportunities and strengthening communities through sport, education, and innovation."
       ],
       "slug": "clyne-rodriguez",
-      "short": "Supports corporate partnerships, sponsorship development and international outreach, working alongside the executive team.",
-      "alt": "Portrait of Clyne Rodriguez, smiling, in a charcoal suit and dark red striped tie against a soft grey background."
+      "short": "Supports the Group’s international growth through corporate partnerships, sponsorship development, strategic outreach and stakeholder engagement.",
+      "alt": "Portrait of Clyne K. Rodriguez, smiling, in a charcoal suit and dark red striped tie against a soft grey background."
     }
   ],
   "pillars4": [

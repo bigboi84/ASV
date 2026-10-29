@@ -8,7 +8,7 @@ const M = (f) => `assets/img/merch/${f}`;
 const OM = (f) => `assets/img/merch/on-model/${f}`; // the same piece worn by a model (shown on hover)
 const OMV = (f) => `assets/video/on-model/${f.replace(/\.jpg$/, '')}`; // its 3s clip (extension picked in flow.js)
 const LOOKS = [
-  ['executive-leather-jacket', 'executive-leather-jacket-black.jpg', 'Executive Leather Jacket'],
+  ['executive-leather-jacket', 'executive-leather-jacket-black.jpg', 'Executive Jacket'],
   ['hoodie', 'regular-hoodie-navy.jpg', 'Hoodie · Navy'],
   ['parka', 'regular-parka-navy.jpg', 'Parka'],
   ['executive-polo', 'executive-polo-black.jpg', 'Executive Polo · Black'],

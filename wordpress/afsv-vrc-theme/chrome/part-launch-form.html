@@ -9,6 +9,7 @@
     
 <form class="form" data-preview-form>
   <p class="small muted">Fields marked <span aria-hidden="true" style="color:var(--danger)">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+  
   <div class="form__grid">
 <div class="field">
   <label class="field__label" for="f211">Name<span class="req" aria-hidden="true">*</span></label>
@@ -41,9 +42,12 @@
   <span class="field__error" id="f214-err" aria-live="polite"></span>
 </div></div>
   <p class="small muted form__privacy">Please do not include diagnoses, medical records or financial documents in this form. If follow-up needs that information, our team will arrange a secure channel.</p>
-  <label class="check" for="f210"><input type="checkbox" id="f210" name="consent" required aria-describedby="f210-err"><span>I agree to receive marketplace launch updates from AFSV VRC.<span class="field__error" id="f210-err"></span></span></label>
+  
+  <label class="check" for="f210"><input type="checkbox" id="f210" name="consent" value="yes" required aria-describedby="f210-err"><span>I agree to receive marketplace launch updates from AFSV VRC.<span class="field__error" id="f210-err"></span></span></label>
 
+  <p class="small muted form__sender">AFSV VRC Global Development Group Ltd. | 36 Jays Drive, Whitby, Ontario L1R 2P6 | <a href="mailto:info@afsvvrc.com">info@afsvvrc.com</a></p>
   <div class="form-status" role="status" tabindex="-1" hidden><strong>Thank you.</strong>Your details have been received. We will be in touch with updates as plans are approved.</div>
+  <p class="small muted form__policy">See our <a href="{{url:/privacy/}}">Privacy Policy</a> for how we handle personal information.</p>
   <div><button type="submit" class="btn btn--navy">Join the Launch List<span class="arrow" aria-hidden="true"><svg class="icon " width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span></button></div>
 </form>
   </div>

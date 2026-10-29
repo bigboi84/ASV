@@ -73,7 +73,7 @@ ${formSection({
       ['Community', 'Community', 'Events, local chapters, volunteering and a global network built around youth development and inclusion.'],
       ['Tag', 'Marketplace perks', 'Member pricing, early access to new drops and member-only sales in the AFSV VRC Marketplace.'],
       ['Inclusive education', 'Learning hub', 'Parent webinars, career readiness, wellness and sport-development resources.'],
-      ['Star', 'Impact you can see', 'Part of every membership supports the Neurodivergent Inclusion Fund, reported every year.'],
+      ['Star', 'Impact you can see', 'A proposed contribution from membership is intended to support the Neurodivergent Inclusion Fund, subject to approved fund arrangements and reported annually once in place.'],
     ], { cols: 4 })}
   </div>
 </section>`,
@@ -140,7 +140,7 @@ ${formSection({
       { label: 'Most interested in', type: 'select', req: true, ph: 'Choose one', options: ['Inclusive sport & PE', 'Tutoring & academic support', 'Teacher & coach training', 'Placements & internships', 'Research & outcomes', 'Family resources', 'Not sure yet'], full: true },
       { label: 'Tell us more', type: 'textarea', full: true },
     ],
-    consent: 'I agree to be contacted about an education partnership with AFSV VRC.',
+    consent: 'I agree to be contacted about an education partnership with AFSV VRC.', terms: true, topic: 'AFSV VRC education partnerships',
     submit: 'Send partnership enquiry',
     status: SENT,
   }),
@@ -221,7 +221,7 @@ ${formSection({
       { label: 'Describe your products', type: 'textarea', req: true, full: true },
       { label: 'Certifications or sustainability practices', type: 'textarea', rows: 2, full: true },
     ],
-    consent: 'I confirm these details are accurate and agree to be contacted about my application.',
+    consent: 'I confirm these details are accurate and agree to be contacted about my application.', terms: true, topic: 'the AFSV VRC marketplace',
     submit: 'Submit for evaluation',
     status: SENT,
   }),

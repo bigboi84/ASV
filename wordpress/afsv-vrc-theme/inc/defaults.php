@@ -30,7 +30,7 @@ function afsv_default_nav() {
 	      array("label" => "Neurodiversity Access & Opportunity", "href" => "/neurodiversity"),
 	      array("label" => "Business for Inclusion", "href" => "/business-for-inclusion"),
 	      array("label" => "Service Provider Network", "href" => "/service-provider-network"),
-	      array("label" => "Neurodiversity Access Fund", "href" => "/neurodiversity-access-fund")
+	      array("label" => "Neurodivergent Inclusion Fund", "href" => "/neurodiversity-access-fund")
 	    )),
 	  array("label" => "Membership", "href" => "/membership"),
 	  array("label" => "Marketplace", "href" => "/marketplace"),
@@ -65,7 +65,7 @@ function afsv_default_footer_columns() {
 	      array("label" => "Neurodiversity Access & Opportunity", "href" => "/neurodiversity"),
 	      array("label" => "Business for Inclusion", "href" => "/business-for-inclusion"),
 	      array("label" => "Service Provider Network", "href" => "/service-provider-network"),
-	      array("label" => "Neurodiversity Access Fund", "href" => "/neurodiversity-access-fund"),
+	      array("label" => "Neurodivergent Inclusion Fund", "href" => "/neurodiversity-access-fund"),
 	      array("label" => "News, Stories & Impact", "href" => "/news-impact"),
 	      array("label" => "Accessibility, Privacy & Safeguarding", "href" => "/accessibility-privacy"),
 	      array("label" => "Legal & Policy Pages", "href" => "/legal")

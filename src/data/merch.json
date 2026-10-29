@@ -52,9 +52,9 @@
     },
     {
       "slug": "executive-leather-jacket",
-      "name": "Executive Leather Jacket",
+      "name": "Executive Jacket",
       "collection": "executive-apparel",
-      "desc": "A clean black jacket with a point collar and gold zip, carrying a small gold crest on the chest. Material to be confirmed.",
+      "desc": "A clean black jacket with a point collar and gold zip, carrying a small gold crest on the chest.",
       "colours": [
         {
           "name": "Black",

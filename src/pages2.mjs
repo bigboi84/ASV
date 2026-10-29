@@ -119,7 +119,7 @@ function legalDoc({ kicker, title, intro, meta = [], sections, icon: ic = 'Doc',
       ${s.pills ? html`<ul class="xlegal__pills">${s.pills.map((l) => html`<li>${l}</li>`)}</ul>` : ''}
       ${s.cards ? html`<div class="xlegal__cards">${s.cards.map(([i, h, t]) => html`<div><span>${ico(i)}</span><b>${h}</b><small>${t}</small></div>`)}</div>` : ''}
       ${s.after ? (s.after).map((t) => html`<p>${t}</p>`) : ''}
-      ${s.mail ? html`<p class="xlegal__mail"><a href="mailto:${s.mail}">${s.mail}</a><span>Martin Michael Victor Lashley — Founder, Chairman &amp; Interim CEO — Athletes &amp; Fans Sports Village Holding Company Limited (AFSVHCL)<br>Founder, Chairman &amp; CEO — AFSV VRC Global Development Group Limited</span></p>` : ''}
+      ${s.mail ? html`<p class="xlegal__mail"><a href="mailto:${s.mail}">${s.mail}</a>${s.mailNote ? html`<span>${s.mailNote}</span>` : html`<span>Martin Michael Victor Lashley — Founder, Chairman &amp; Interim CEO — Athletes &amp; Fans Sports Village Holding Company Limited (AFSVHCL)<br>Founder, Chairman &amp; CEO — AFSV VRC Global Development Group Limited</span>`}</p>` : ''}
     </section>`)}
     ${related.length ? html`<div class="xlegal__related">${related.map(([l, r]) => html`<a href="${href(r)}">${l} ${arrow()}</a>`)}</div>` : ''}
   </div>
@@ -128,7 +128,7 @@ function legalDoc({ kicker, title, intro, meta = [], sections, icon: ic = 'Doc',
 
 // ════════════════════════ IMPACT ════════════════════════
 const IMPACT6 = [
-  ['Mind', 'Neurodivergent Inclusion', 'Assessments, tutoring, employment readiness, assistive technology, family support and scholarships — funded by every membership.'],
+  ['Mind', 'Neurodivergent Inclusion', 'Assessments, tutoring, employment readiness, assistive technology, family support and scholarships — proposed, subject to approved fund arrangements.'],
   ['Multi-sport development', 'Youth Athlete Development', 'Year-round multi-sport training, sports science and performance development for youth athletes across Canada.'],
   ['Inclusive education', 'Education & Mentorship', 'Academic support, mentorship and life skills integrated with athletic training through MLMSR Mentorship LLC.'],
   ['Globe', 'Global Diaspora Community', "Connecting Canada's multicultural communities worldwide to support youth development and community empowerment."],
@@ -184,7 +184,7 @@ ${xhero({ kicker: 'Community impact', title: 'Measuring what matters.', img: 'li
 </section>
 <section class="band--cream" data-el="impact.reporting" data-el-build="elementor">
   <div class="wrap section">
-    ${head('Transparency & accountability', 'Annual impact reporting.', 'AFSV VRC is committed to publishing an Annual Impact Report — measuring and disclosing the real-world outcomes of the Neurodivergent Inclusion Fund, community programs and ecosystem partnerships. Impact is not a marketing claim. It is a commitment.')}
+    ${head('Transparency & accountability', 'Annual impact reporting.', 'AFSV VRC intends to publish an Annual Impact Report once programs are operating — measuring and disclosing the outcomes of the proposed Neurodivergent Inclusion Fund, community programs and ecosystem partnerships. Impact is not a marketing claim. It is a commitment.')}
     <ol class="steps3" data-stagger>
       <li><span>01</span>${ico('Chart')}<h3>Measured outcomes</h3><p>Quantified results across inclusion, education and community programs.</p></li>
       <li><span>02</span>${ico('Doc')}<h3>Published annually</h3><p>Transparent reporting shared with members, partners and the community.</p></li>
@@ -323,7 +323,7 @@ ${formSection({
       { label: 'Social or portfolio link', type: 'url' },
       { label: 'Tell us about yourself', type: 'textarea', full: true },
     ],
-    consent: 'I agree to be contacted about the AFSV VRC ambassador initiative.',
+    consent: 'I agree to be contacted about the AFSV VRC ambassador initiative.', topic: 'the AFSV VRC ambassador initiative',
     submit: 'Keep up to date',
     status: SENT,
   }),
@@ -394,7 +394,7 @@ ${formSection({
       { label: 'Interest', type: 'select', req: true, ph: 'Select one', options: ['Technology partner', 'Esports organization', 'Media company', 'Digital sponsor', 'Player or creator', 'Other'] },
       { label: 'Message', type: 'textarea', full: true },
     ],
-    consent: 'I agree to be contacted about the EFN platform.',
+    consent: 'I agree to be contacted about the EFN platform.', topic: 'AFSV VRC esports, technology and media',
     submit: 'Get in touch',
     status: SENT,
   }),
@@ -414,9 +414,9 @@ export function compliance(d) {
       kicker: 'Compliance & Legal', title: 'Legal disclosures & compliance', icon: 'Scale',
       intro: 'AFSV VRC is committed to transparency, legal compliance and responsible communication at every stage of our development.',
       sections: [
-        { h: 'Development-stage concept notice', p: ['AFSV VRC Global Development Group Limited is a development-stage company. The AI-Driven Sports Village and all related facilities, programs, services and initiatives described on this website are proposed concepts only — they do not currently exist as operational facilities or active programs.', 'All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only and remain subject to financing, regulatory approvals, due diligence, feasibility analysis, contractual negotiations, market conditions and execution capacity.', 'No memberships, programs or services are currently available for purchase. No funds are being solicited from the public at this time. No securities are being offered.'] },
-        { h: 'No securities offering', p: ['Nothing on this website constitutes an offer to sell, a solicitation of an offer to buy, or a recommendation of any security or investment product. AFSV VRC is not currently registered as an issuer of securities in any jurisdiction.', 'Any future capital raise activities will be conducted in full compliance with applicable securities laws, including the Ontario Securities Act and any applicable federal regulations. Prospective investors will be provided with appropriate disclosure documents through proper legal channels.'] },
-        { h: 'No membership sales currently active', p: ['Membership programs described on this website — including the Global Diaspora Network — are proposed future programs. No memberships are currently available for purchase. No payments are being accepted. Any pricing referenced is indicative only and subject to change.', 'When membership programs are formally launched, they will be accompanied by appropriate terms and conditions, privacy policies, refund policies and consumer protection disclosures in compliance with applicable law.'] },
+        { h: 'Development-stage concept notice', p: ['AFSV VRC Global Development Group Limited is a development-stage company. The AI-Driven Sports Village and all related facilities, programs, services and initiatives described on this website are proposed concepts only — they do not currently exist as operational facilities or active programs.', 'All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only and remain subject to financing, regulatory approvals, due diligence, feasibility analysis, contractual negotiations, market conditions and execution capacity.', "AFSV VRC's proposed sports-village memberships, programs, facilities and marketplace offerings are not currently available for purchase. Registrations for the GAISB AI World Summit 2027 are administered separately. No securities are being offered through this website."] },
+        { h: 'No securities offering', p: ['Nothing on this website constitutes an offer to sell, a solicitation of an offer to buy, or a recommendation of any security or investment product.', 'Any future capital raise activities will be conducted in full compliance with applicable securities laws, including the Ontario Securities Act and any applicable federal regulations. Prospective investors will be provided with appropriate disclosure documents through proper legal channels.'] },
+        { h: 'No membership sales currently active', p: ['Membership programs described on this website — including the Global Diaspora Network — are proposed future programs. No memberships are currently available for purchase. No membership payments are being accepted. Any pricing referenced is indicative only and subject to change.', 'When membership programs are formally launched, they will be accompanied by appropriate terms and conditions, privacy policies, refund policies and consumer protection disclosures in compliance with applicable law.'] },
         { h: 'Partnership & sponsorship disclosures', p: ['References to potential partnerships, sponsorships, institutional relationships and community collaborations on this website reflect exploratory discussions and aspirational goals only. No formal partnership or sponsorship agreements have been finalized unless explicitly stated otherwise.', 'Expressions of interest do not constitute binding commitments. Formal agreements will be executed through proper legal channels with appropriate documentation.'] },
         { h: 'Forward-looking statements', p: ['This website contains forward-looking statements, including projections, timelines, revenue estimates and expansion plans. These statements are based on current assumptions and expectations and are subject to significant risks, uncertainties and changes in circumstances.', 'Actual results may differ materially from those projected. AFSV VRC undertakes no obligation to update forward-looking statements to reflect new information, future events or changed circumstances.'] },
         { h: 'ESG commitment', p: ['AFSV VRC is committed to ESG (Environmental, Social and Governance) principles, integrating sustainability, community impact and ethical governance into all operations. Our mission to support youth development, education, inclusion and community empowerment reflects our core commitment to social responsibility and long-term value creation.', 'As we develop the AI-Driven Sports Village ecosystem, we prioritize environmental sustainability, equitable access to programs and opportunities, transparent governance practices and measurable community impact.'] },
@@ -430,7 +430,7 @@ export function compliance(d) {
   };
 }
 
-const META = [['Last modified', 'June 12, 2026'], ['Website owner', 'AFSV VRC Global Development Group Limited'], ['Website', 'www.afsvvrc.com']];
+const META = [['Last modified', 'October 29, 2026'], ['Website owner', 'AFSV VRC Global Development Group Limited'], ['Website', 'www.afsvvrc.com']];
 
 export function privacy() {
   return {
@@ -439,18 +439,18 @@ export function privacy() {
     body: html`${legalDoc({
       kicker: 'Legal', title: 'Privacy Policy', icon: 'Lock', meta: META,
       sections: [
-        { h: 'Overview', p: ['This is a customer- and website-user-facing privacy policy governed by Canadian privacy law as in effect in Ontario. The policy is, accordingly, framed around PIPEDA and provincial legislation but does not specifically address Quebec requirements (e.g., privacy officer designation, mandatory breach reporting, automated decision-making disclosures). Similarly, the policy does not specifically address GDPR or US-laws exposure at this time.'] },
-        { h: 'Key business terms', sub: [
+        { h: 'Overview', p: ['This Privacy Policy explains how AFSV VRC Global Development Group Ltd. (the “Company”) collects, uses, discloses and protects personal information through www.afsvvrc.com, including its contact, interest and pre-registration forms.'] },
+        { h: 'How the Company handles personal information', sub: [
           ['Scope of data collection', 'The Company collects a broad range of data, including personal information that can reasonably be used to directly or indirectly identify the individual, such as name, mailing address, e-mail, telephone, and IP address, as well as business-related, technical, and non-personal/aggregated information. Collection may occur through direct interactions, user contributions, automated technologies, and third-party sources.'],
-          ['Business contact information carve-out', 'The policy treats business contact information used to communicate with individuals in their business capacity as generally not personal information under PIPEDA and provincial legislation.'],
-          ['Use and disclosure', 'Permitted uses include service delivery, billing, marketing, and advertising effectiveness. The Company may use information to market goods and services from itself or third parties, with an opt-out via unsubscribe link or email. Disclosure is permitted to affiliates, advertisers, service providers, in M&A/insolvency transactions, and to comply with legal process.'],
-          ['Retention and anonymization', 'The Company reserves the right to anonymize personal information and use such anonymized and de-identified data for any legitimate business purpose without further notice or consent.'],
+          ['Business contact information carve-out', 'Business contact information collected, used or disclosed solely to communicate with an individual in relation to their employment, business or profession is exempt from Part 1 of PIPEDA. Other uses fall outside this exemption and are subject to applicable privacy laws.'],
+          ['Use and disclosure', 'The Company uses personal information to respond to inquiries, provide requested updates, operate and improve the Website and, where applicable, administer events, products and services, including related communications and billing. Commercial electronic messages are sent as permitted by Canada’s Anti-Spam Legislation, and recipients may unsubscribe from marketing messages at any time. The Company may disclose personal information to service providers acting on its behalf, to affiliates for the stated purposes, and to other parties with consent or as otherwise permitted or required by law.'],
+          ['Retention and anonymization', 'The Company retains personal information only as long as necessary for the purposes for which it was collected or as permitted or required by law. Information that has been anonymized so that it cannot reasonably be linked to an identifiable individual may be used for any legitimate business purpose.'],
           ['Cross-border transfers', 'The Company may process, store, and transfer personal information in countries outside Canada where privacy laws may differ, and where local governments, courts, or regulators may access the information. Named destinations include the United States, the European Union, and other jurisdictions where service providers and affiliates operate.'],
-          ['Individual rights', 'Individuals have the right to request access to and correct their personal information, with the Company committing to respond within 30 days, as per the current requirements under applicable law. Consent withdrawal and complaint avenues (Privacy Commissioner of Canada; Ontario IPC) are provided.'],
-          ['Children', 'The Website is not intended for children under 16, the Company commits not to knowingly collect their information, and will delete information collected from a child under 16 without verified parental consent.'],
+          ['Individual rights', 'Individuals may request access to or correction of their personal information and may withdraw consent, subject to applicable legal or contractual restrictions. The Company responds to access requests within 30 days, subject to extensions permitted by law.'],
+          ['Children and youth', 'This Website provides information about proposed programs for children and youth. Website inquiry forms are intended for adults. Parents or legal guardians may inquire about a child using their own contact details. Please do not include the child\'s full name, diagnoses, medical records or other sensitive personal information in website forms. We do not solicit personal information directly from children under 16.'],
           ['Security', 'The Company disclaims responsibility for unauthorized third-party circumvention of privacy/security measures, provided it has implemented and maintained reasonable safeguards, and notes transmission of information is at the user’s own risk.'],
         ] },
-        { h: 'Privacy inquiries & access requests', p: ['To exercise your rights under this Privacy Policy, including requests to access, correct, or delete your personal information, or to withdraw consent, please contact us:'], mail: LEGAL_MAIL, after: ['We will respond to all access requests within 30 days as required under applicable law. You may also file a complaint with the Office of the Privacy Commissioner of Canada or the Ontario Information and Privacy Commissioner (IPC).', 'This Privacy Policy was last modified on June 12, 2026.'] },
+        { h: 'Privacy inquiries & access requests', p: ['Privacy inquiries, access requests and complaints may be directed by email to the attention of Privacy Officer, AFSV VRC Global Development Group Ltd., at info@afsvvrc.com. If your concern remains unresolved, you may contact the Office of the Privacy Commissioner of Canada.'], mail: LEGAL_MAIL, mailNote: 'Privacy Officer, AFSV VRC Global Development Group Ltd.', after: ['This Privacy Policy was last modified on October 29, 2026.'] },
       ],
       related: [['Terms of Use', '/terms'], ['Compliance & Legal', '/compliance']],
     })}`,
@@ -469,16 +469,15 @@ export function terms() {
           ['Amendments', 'The Company may revise these Terms at its sole discretion, with all changes taking effect immediately upon posting and applying to continued use; users are expected to check periodically, and continued use constitutes acceptance.'],
           ['Account termination', 'The Company reserves the right at any time to disable or terminate any account, username, or password in its sole discretion for any or no reason.'],
           ['Intellectual property and limited use licence', 'Use is restricted to personal and non-commercial purposes, with broad prohibitions on reproducing, distributing, modifying, or transmitting site material except as narrowly carved out.'],
-          ['User submissions', 'By providing any User Submission, the user grants a worldwide, royalty-free, perpetual, irrevocable, non-exclusive license to use, reproduce, modify, distribute, and disclose the material for any purpose without compensation, and waives moral rights under the Copyright Act (Canada).'],
+          ['User submissions', 'Please do not submit confidential or proprietary information through this Website unless the Company has first agreed in writing to receive it on a confidential basis. Unless otherwise agreed in writing, ideas, feedback and proposals submitted through this Website are non-confidential, and submitting them does not restrict the Company from independently developing or using similar ideas. You grant the Company a non-exclusive, royalty-free licence to use and reproduce your submission to evaluate and respond to it. Personal information is handled in accordance with the Privacy Policy.'],
           ['Disclaimer of warranties', 'The website and all content/services are provided on an "as is" and "as available" basis without warranties of any kind, subject to warranties that cannot be excluded under applicable law.'],
-          ['Limitation of liability', 'The Company’s total aggregate liability for all claims is capped at the greater of ten Canadian dollars (CAD $10) or the amount paid to the Company in the twelve months preceding the claim, with broad exclusions for indirect, consequential, and punitive damages.'],
+          ['Limitation of liability', 'To the fullest extent permitted by law, the Company shall not be liable for any indirect, incidental, special, consequential or punitive damages relating to the website or these Terms. The Company’s aggregate liability for all claims relating to the website or these Terms shall not exceed the greater of CAD $10 or the amounts paid by the claimant to the Company during the preceding twelve months. Nothing in these Terms excludes or limits any liability or statutory right that cannot lawfully be excluded or limited.'],
           ['Indemnity', 'Users agree to defend, indemnify, and hold harmless the Company and its affiliates from any claims arising out of breach of the Terms or use of the website.'],
-          ['Enforcement actions', 'Users waive and hold harmless the Company from all claims resulting from any action taken by the Company, including investigations by the Company or law enforcement.'],
-          ['Governing law and forum', 'The Terms are governed by the laws of Ontario and the federal laws of Canada applicable in Ontario, regardless of where the user resides or accesses the site, with conflict-of-law rules excluded. Any action must be brought in the courts of Ontario or the Federal Court of Canada, with exclusive jurisdiction and a waiver of venue objections.'],
+          ['Governing law and forum', 'The Terms are governed by the laws of Ontario and the federal laws of Canada applicable in Ontario, regardless of where the user resides or accesses the site, with conflict-of-law rules excluded. Subject to any non-waivable rights or requirements under applicable law, disputes arising out of or relating to these Terms or the Website shall be brought before the courts of Ontario sitting in Toronto, Ontario, Canada, and the parties submit to the exclusive jurisdiction of those courts.'],
           ['Geographic targeting', 'As the owner is based in Ontario, the website is provided primarily for use by persons located in Canada, and is not intended for use in jurisdictions where prohibited; users outside Canada bear their own risk and compliance burden.'],
           ['Privacy', 'The Privacy Policy is incorporated into these Terms of Use and is an integral part of them.'],
         ] },
-        { h: 'Contact', p: ['Questions about these Terms can be sent to:'], mail: LEGAL_MAIL, after: ['These Terms of Use were last modified on June 12, 2026.'] },
+        { h: 'Contact', p: ['Questions about these Terms can be sent to:'], mail: LEGAL_MAIL, after: ['These Terms of Use were last modified on October 29, 2026.'] },
       ],
       related: [['Privacy Policy', '/privacy'], ['Compliance & Legal', '/compliance']],
     })}`,
@@ -490,7 +489,7 @@ const shortPolicy = (title, ic, h, body) => ({
   description: `${title} for AFSV VRC.`,
   body: html`${legalDoc({ kicker: 'Legal', title, icon: ic, sections: [{ h, p: body }, { h: 'Questions?', p: ['Contact us at:'], mail: LEGAL_MAIL }], related: [['Compliance & Legal', '/compliance'], ['Contact us', '/contact']] })}`,
 });
-export const refund = () => shortPolicy('Refund Policy', 'Refund', 'No purchases currently active', ['AFSV VRC is a development-stage company. No memberships, programs, products or services are currently available for purchase. No payments are being accepted at this time.', 'A formal Refund Policy will be published prior to the launch of any products, memberships or services, in compliance with applicable consumer protection legislation including the Ontario Consumer Protection Act.']);
+export const refund = () => shortPolicy('Refund Policy', 'Refund', 'Proposed offerings not currently available for purchase', ["AFSV VRC's proposed sports-village memberships, programs, marketplace products and related services are not currently available for purchase. Registrations for the GAISB AI World Summit 2027 are administered separately and are subject to the applicable event-specific registration, cancellation and refund terms.", 'A formal Refund Policy will be published prior to the launch of any products, memberships or services, in compliance with applicable consumer protection legislation including the Ontario Consumer Protection Act.']);
 export const shipping = () => shortPolicy('Shipping Policy', 'Truck', 'No products currently available', ['AFSV VRC is a development-stage company. The AFSV VRC Marketplace is a proposed future platform. No products are currently available for purchase or shipment.', 'A formal Shipping Policy will be published prior to the launch of the marketplace, in compliance with applicable consumer protection legislation.']);
 
 export function accessibility() {
@@ -508,7 +507,7 @@ export function accessibility() {
         { h: 'Known limitations', p: ['While we strive to ensure that all pages and content on this website are fully accessible, some content may not yet be fully optimized. We are actively working to identify and resolve any accessibility gaps.', 'As AFSV VRC is a development-stage company, our website is continuously evolving. We are committed to addressing accessibility issues as they are identified and ensuring that future updates meet or exceed applicable accessibility standards.'] },
         { h: 'Assistive technologies', p: ['This website is designed to be compatible with the following assistive technologies:'], list: ['Screen readers (including JAWS, NVDA and VoiceOver)', 'Screen magnification software', 'Speech recognition software', 'Keyboard-only navigation', 'Browser accessibility extensions and tools'], after: ['We recommend using the latest version of your browser for the best experience.'] },
         { h: 'Third-party content', p: ['Some content on this website may be provided by third parties. While we encourage our partners and vendors to provide accessible content, we cannot guarantee the accessibility of third-party content or external websites linked from this site.'] },
-        { h: 'Feedback & accessibility concerns', p: ['We welcome your feedback on the accessibility of the AFSV VRC website. If you encounter any accessibility barriers or have suggestions for improvement, please contact us:'], mail: LEGAL_MAIL, after: ['We aim to respond to accessibility feedback within 5 business days and to resolve reported issues as quickly as possible.'] },
+        { h: 'Feedback & accessibility concerns', p: ['We welcome your feedback on the accessibility of the AFSV VRC website. If you encounter any accessibility barriers or have suggestions for improvement, please contact us:'], mail: LEGAL_MAIL, after: ['Accessible formats and communication supports are available upon request at no additional cost. If you require an alternative way to provide feedback or receive information, please contact info@afsvvrc.com.', 'We aim to respond to accessibility feedback within 5 business days and to resolve reported issues as quickly as possible.'] },
         { h: 'Assessment & review', p: ['AFSV VRC will conduct periodic accessibility reviews of this website, including:'], list: ['Automated accessibility testing using industry-standard tools', 'Manual testing with assistive technologies', 'Review of user feedback and reported issues', 'Updates to this statement as improvements are made'] },
         { h: 'Applicable legislation', list: ['Accessibility for Ontarians with Disabilities Act (AODA), 2005 — Ontario, Canada', 'Accessible Canada Act (ACA), 2019 — Federal, Canada', 'Web Content Accessibility Guidelines (WCAG) 2.2 — W3C International Standard'], after: ['This accessibility statement was last updated on June 7, 2026.'] },
       ],
@@ -632,7 +631,7 @@ export const whitbyOverview = () => html`
       <p class="eyebrow mb-s">Project overview</p>
       <h2 class="h2 mb-m">The foundation for a national network.</h2>
       <p class="lead mb-m">The AI-Driven Sports Village is the proposed flagship pilot of AFSV VRC — designed as the model for a national network of integrated sports and education campuses across Canada.</p>
-      <p class="muted">The proposed dome would integrate elite athletic development, applied learning, neurodivergent support pathways, esports and digital media, and measurable community impact — all under one roof, year-round. It is proposed for an AI-Driven Sports &amp; Education Campus, with a land search of up to 20 acres, in partnership with municipal and post-secondary institutions, subject to financing, approvals and feasibility analysis.</p>
+      <p class="muted">The proposed dome would integrate elite athletic development, applied learning, neurodivergent support pathways, esports and digital media, and measurable community impact — all under one roof, year-round. It is proposed for an AI-Driven Sports &amp; Education Campus, with a land search of up to 20 acres, with potential participation by municipal and post-secondary institutions, subject to financing, approvals and feasibility analysis.</p>
     </div>
     ${stats([['150', 'K sq ft', 'Dome', ''], ['Up to 20', ' acres', 'Land-search scope', ''], ['10', '', 'Domes — 5-year vision', '']])}
   </div>
@@ -748,6 +747,7 @@ ${partnerLogos()}
     ['Phone', 'Technology Partners', 'Digital platform, athlete management, esports and sports technology companies interested in co-development.'],
     ['Globe', 'Community Organizations', 'Diaspora groups, cultural organizations and non-profits aligned with youth development and inclusion.'],
   ])}
+  <p class="small muted mt-m" style="max-width:70ch">Corporate &amp; Community Partnerships are separate from Corporate &amp; Community Membership. Membership does not imply sponsorship or partnership status, and organizations may pursue both. See <a class="text-link" href="membership.html">membership pathways</a>.</p>
 </section>
 <section class="band--cream" data-el="partners.sponsorship" data-el-build="elementor">
   <div class="wrap section">
@@ -790,7 +790,7 @@ export function contactPage(d) {
     ogImage: IMG('life/welcome.jpg'),
     body: html`
 ${breadcrumb([{ label: 'Contact Us' }])}
-${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'life/welcome.jpg', alt: 'Concept rendering: a racially diverse welcome team greeting families, a teen athlete and a child in a wheelchair at the curved front desk of the village concourse at dusk.', lead: 'We welcome exploratory conversations with potential partners, sponsors, community stakeholders and supporters of the AFSV VRC vision.', badge: 'No memberships, programs or services are currently available for purchase', ctas: [{ label: 'Send a message', href: '#contact-form' }, { label: 'Email us', href: 'mailto:info@afsvvrc.com' }] })}
+${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'life/welcome.jpg', alt: 'Concept rendering: a racially diverse welcome team greeting families, a teen athlete and a child in a wheelchair at the curved front desk of the village concourse at dusk.', lead: 'We welcome exploratory conversations with potential partners, sponsors, community stakeholders and supporters of the AFSV VRC vision.', badge: 'Proposed offerings are not currently available for purchase', ctas: [{ label: 'Send a message', href: '#contact-form' }, { label: 'Email us', href: 'mailto:info@afsvvrc.com' }] })}
 <section class="wrap section" id="contact-form" data-el="contact.form" data-el-build="plugin">
   <div class="cgrid">
     <div class="cgrid__form">
@@ -847,6 +847,6 @@ ${xhero({ kicker: 'Contact us', title: 'Let’s build what comes next.', img: 'l
     </div>
   </div>
 </section>
-<section class="wrap section">${flag('AFSV VRC is in active development. All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only. No securities are being offered. No memberships or programs are currently available for purchase.')}</section>`,
+<section class="wrap section">${flag('AFSV VRC is in active development. All concepts, timelines, projections, partnerships and proposed activities referenced on this website are for informational and exploratory discussion purposes only. AFSV VRC’s proposed sports-village memberships, programs, facilities and marketplace offerings are not currently available for purchase. Registrations for the GAISB AI World Summit 2027 are administered separately. No securities are being offered through this website.')}</section>`,
   };
 }

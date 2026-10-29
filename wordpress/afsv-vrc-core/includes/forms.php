@@ -246,6 +246,28 @@ function afsv_core_handle_form( WP_REST_Request $req ) {
 	if ( ! empty( $params['afsv_page'] ) ) {
 		$lines[] = 'Page: ' . esc_url_raw( wp_unslash( $params['afsv_page'] ) );
 	}
+	// Consent record: each tick box, whether it was ticked and the wording shown, with the date and form.
+	$consents = isset( $params['afsv_consents'] ) ? json_decode( wp_unslash( $params['afsv_consents'] ), true ) : array();
+	$record   = array();
+	if ( is_array( $consents ) ) {
+		foreach ( array_slice( $consents, 0, 10 ) as $c ) {
+			if ( ! is_array( $c ) || empty( $c['field'] ) ) {
+				continue;
+			}
+			$record[] = array(
+				'field'    => sanitize_key( $c['field'] ),
+				'selected' => ! empty( $c['selected'] ),
+				'wording'  => sanitize_text_field( isset( $c['wording'] ) ? $c['wording'] : '' ),
+			);
+		}
+	}
+	if ( $record ) {
+		$lines[] = '';
+		$lines[] = 'Consent record (' . gmdate( 'Y-m-d H:i' ) . ' UTC, form: ' . $form . ')';
+		foreach ( $record as $c ) {
+			$lines[] = ( $c['selected'] ? 'Yes' : 'No' ) . ' — ' . $c['wording'];
+		}
+	}
 	$body = implode( "\n", $lines );
 	$sub  = wp_insert_post(
 		array(
@@ -258,6 +280,9 @@ function afsv_core_handle_form( WP_REST_Request $req ) {
 	if ( $sub && ! is_wp_error( $sub ) ) {
 		update_post_meta( $sub, 'afsv_form', $form );
 		update_post_meta( $sub, 'afsv_email', $email );
+		if ( $record ) {
+			update_post_meta( $sub, 'afsv_consents', wp_json_encode( $record ) );
+		}
 	}
 
 	$cfg     = afsv_core_form_config( $form );

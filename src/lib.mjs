@@ -170,20 +170,29 @@ export function field(f) {
 }
 
 // F01: an inquiry form never makes marketing permission a condition of a reply: marketing is a
-// separate, unticked choice. Forms whose purpose is an updates list (updatesList) skip it.
-// Consent wording pending counsel approval.
+// separate, unticked choice (CASL: sender details beside the request). Forms whose purpose is an
+// updates list (updatesList) keep their own consent and show the sender details beside it.
+// `terms` adds the Terms of Use link and a required, unticked agreement (business proposals, applications).
+// `adult` is for the program forms: the person writing is a parent, guardian or adult (legal review, 25 Oct 2026).
+const SENDER = raw('AFSV VRC Global Development Group Ltd. | 36 Jays Drive, Whitby, Ontario L1R 2P6 | <a href="mailto:info@afsvvrc.com">info@afsvvrc.com</a>');
 
-export function previewForm({ fields, consent, consentReq = true, updatesList = false, submit, status, statusTitle = 'Thank you.' }) {
+export function previewForm({ fields, consent, consentReq = true, updatesList = false, terms = false, adult = false, topic = 'AFSV VRC news and activities', submit, status, statusTitle = 'Thank you.' }) {
   const cid = `f${++fieldSeq}`;
   return html`
 <form class="form" data-preview-form>
   <p class="small muted">Fields marked <span aria-hidden="true" style="color:var(--danger)">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+  ${adult ? html`<p class="small muted form__adult">These inquiry forms are intended for adults. If inquiring about a child, please provide your own contact details and do not include the child's full name or sensitive personal information.</p>` : ''}
   <div class="form__grid">${fields.map(field)}</div>
   <p class="small muted form__privacy">Please do not include diagnoses, medical records or financial documents in this form. If follow-up needs that information, our team will arrange a secure channel.</p>
-  ${consent ? html`<label class="check" for="${cid}"><input type="checkbox" id="${cid}" name="consent"${consentReq ? raw(' required aria-describedby="' + cid + '-err"') : ''}><span>${consent}<span class="field__error" id="${cid}-err"></span></span></label>
-${updatesList ? '' : html`
-  <label class="check" for="${cid}m"><input type="checkbox" id="${cid}m" name="marketing" value="yes"><span>Optional: send me occasional updates from AFSV VRC by email. I can unsubscribe at any time.</span></label>`}` : ''}
+  ${terms ? html`<p class="small muted form__privacy">Please do not submit confidential or proprietary information unless the Company has agreed in writing to receive it on a confidential basis.</p>
+  <label class="check" for="${cid}t"><input type="checkbox" id="${cid}t" name="terms-agreed" value="yes" required aria-describedby="${cid}t-err"><span>I agree to the <a href="terms.html">Terms of Use</a>.<span class="field__error" id="${cid}t-err"></span></span></label>` : ''}
+  ${consent ? html`<label class="check" for="${cid}"><input type="checkbox" id="${cid}" name="consent" value="yes"${consentReq ? raw(' required aria-describedby="' + cid + '-err"') : ''}><span>${consent}<span class="field__error" id="${cid}-err"></span></span></label>
+${updatesList ? html`
+  <p class="small muted form__sender">${SENDER}</p>` : html`
+  <label class="check" for="${cid}m"><input type="checkbox" id="${cid}m" name="marketing" value="yes"><span>Yes, I would like to receive occasional email updates about ${topic}. I can withdraw my consent at any time.</span></label>
+  <p class="small muted form__sender">${SENDER}</p>`}` : ''}
   <div class="form-status" role="status" tabindex="-1" hidden><strong>${statusTitle}</strong>${status}</div>
+  <p class="small muted form__policy">See our <a href="privacy.html">Privacy Policy</a> for how we handle personal information.</p>
   <div><button type="submit" class="btn btn--navy">${submit}${arrow()}</button></div>
 </form>`;
 }
