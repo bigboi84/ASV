@@ -12,9 +12,10 @@ export const mocks = {
       const s = (c * 3 + r * 5) % 7; const st = s === 0 || s === 4 ? 'b' : s === 2 ? 'x' : 'o';
       return html`<span class="slot s-${st}">${t}<small>${st === 'b' ? 'Booked' : st === 'x' ? 'Blocked' : 'Open'}</small></span>`; })}</div>`)}</div>
     <div class="mock__legend">${chip('Open', 'm-ok')}${chip('Booked', 'm-bk')}${chip('Blocked', 'm-no')}</div>${cap()}</figure>`,
-  facility: () => html`<figure class="mock"><div class="fcard"><img src="assets/img/whitby/basketball.jpg" alt="" width="640" height="360" loading="lazy">
-    <div class="fcard__b"><div class="fcard__t"><b>Indoor court</b>${chip('Example', 'm-ex')}</div><p>Basketball · Volleyball · Training</p>
-    <ul><li><span>Hours</span>6 am – 10 pm daily</li><li><span>Next open</span>Tue 6:00 pm</li><li><span>Member price</span>Shown here</li></ul><span class="fcard__btn">Book a time</span></div></div>${cap()}</figure>`,
+  facility: (f = {}) => { const { img = 'court', name = 'Indoor court', sports = 'Basketball · Volleyball · Training', hours = '6 am – 10 pm daily', next = 'Tue 6:00 pm', unit = 'Full court or half court' } = f;
+    return html`<figure class="mock"><div class="fcard"><img src="assets/img/photos/${img}.jpg" alt="" width="640" height="427" loading="lazy">
+    <div class="fcard__b"><div class="fcard__t"><b>${name}</b>${chip('Example', 'm-ex')}</div><p>${sports}</p>
+    <ul><li><span>Hours</span>${hours}</li><li><span>Book</span>${unit}</li><li><span>Next open</span>${next}</li><li><span>Member price</span>Shown on the listing</li></ul><span class="fcard__btn">Book a time</span></div></div>${cap('Example listing. Not a real facility yet.')}</figure>`; },
   register: () => html`<figure class="mock"><div class="mock__bar"><b>Spring Tryouts</b>${chip('Open', 'm-ok')}</div>
     <ul class="plist"><li><b>U10 Recreation</b><span>Ages 8–10 · own questions</span></li><li><b>U14 Travel</b><span>Tryout, then team placement</span></li><li><b>Adult League</b><span>Open sign-up</span></li><li><b>Summer Camp</b><span>Capacity limit and waitlist</span></li></ul>
     <div class="mock__row"><span class="mbtn">Register</span><small>About three minutes on a phone</small></div>${cap()}</figure>`,
@@ -43,20 +44,31 @@ export const mocks = {
   member: () => html`<figure class="mock"><div class="mcard"><div class="mcard__top"><b>AFSV VRC</b><span>Member</span></div><div class="mcard__mid">Sample Member</div><div class="mcard__bot"><span>Priority booking · Member pricing</span><i class="mcard__qr" aria-hidden="true"></i></div></div>${cap('Concept card. Example data.')}</figure>`,
 };
 
-// ───────── Row: struggle → fix, with a mock-up ─────────
-// { id, label, title, before, points, mock, flip, link }
-export function sxRow({ id, label, title, before, points, mock, flip = false, link }) {
+// ───────── Product screen (360 Player image) ─────────
+// shots: [[file, alt], ...] from assets/img/360; the first is the main screen, a second one overlaps it.
+export function shot(shots, cap = '360 Player product screen') {
+  const [main, extra] = shots;
+  return html`<figure class="shot${extra ? ' shot--duo' : ''}">
+    <img class="shot__main" src="assets/img/360/${main[0]}" alt="${main[1]}" loading="lazy">
+    ${extra ? html`<img class="shot__extra" src="assets/img/360/${extra[0]}" alt="${extra[1]}" loading="lazy">` : ''}
+    <figcaption class="mock__cap">${cap}</figcaption></figure>`;
+}
+
+// ───────── Row: struggle → fix, with a product screen or a mock-up ─────────
+// { id, label, title, intro, before, points, shots | mock, flip, link }
+export function sxRow({ id, label, title, intro, before, points, mock, shots, flip = false, link }) {
   return html`
 <section class="sx-row${flip ? ' sx-row--flip' : ''}" id="${id}" data-el="book.feature-${id}" data-el-build="elementor">
   <div class="wrap sx-row__grid">
     <div class="sx-row__text">
       <p class="eyebrow eyebrow-rule">${label}</p>
       <h2 class="h2">${title}</h2>
+      ${intro ? html`<p class="body-lg sx-intro-line">${intro}</p>` : ''}
       <p class="sx-before"><span>The struggle</span>${before}</p>
       <ul class="sx-points">${points.map((p) => html`<li>${p}</li>`)}</ul>
       ${link ? html`<p>${btn(link[0], link[1], 'line-dark')}</p>` : ''}
     </div>
-    <div class="sx-row__mock">${mocks[mock]()}</div>
+    <div class="sx-row__mock">${shots ? shot(shots) : mocks[mock]()}</div>
   </div>
 </section>`;
 }

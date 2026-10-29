@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { html, raw, esc, href, extAttrs, isExternal, SITE } from '../src/lib.mjs';
 import * as B from './pages.mjs';
+import { sports } from './sports.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.dirname(here);
@@ -103,7 +104,7 @@ ${body}
 
 const pages = [
   ['/', B.home()],
-  ['/sports', B.sports()],
+  ['/sports', sports()],
   ['/academies-teams-schools', B.academies()],
   ['/venues-and-facilities', B.venues()],
   ['/membership', B.membership()],
@@ -118,6 +119,8 @@ fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
 fs.cpSync(path.join(root, 'src/assets'), path.join(out, 'assets'), { recursive: true });
 fs.copyFileSync(path.join(here, 'book.css'), path.join(out, 'assets/css/book.css'));
+fs.cpSync(path.join(here, 'img/photos'), path.join(out, 'assets/img/photos'), { recursive: true });
+fs.cpSync(path.join(here, 'img/360'), path.join(out, 'assets/img/360'), { recursive: true });
 fs.rmSync(path.join(out, 'assets/video'), { recursive: true, force: true }); // not used here
 
 for (const [route, pg] of pages) {
