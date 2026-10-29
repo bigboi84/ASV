@@ -1,6 +1,7 @@
 // book.afsvvrc.com pages. Reuses the main site's components (../src/lib.mjs, ../src/pages2.mjs).
 import { html, raw, breadcrumb, previewForm, formSection, ctaBand, btn, pad2 } from '../src/lib.mjs';
 import { xhero, head, kgrid } from '../src/pages2.mjs';
+import { sxRow, mocks } from './blocks.mjs';
 
 // One place to change when the 360 Player portal address is final (app.afsvvrc.com is provisional).
 export const APP_URL = 'https://app.afsvvrc.com';
@@ -118,32 +119,101 @@ ${cta()}`,
   };
 }
 
-// ════════════════════════ WHAT YOU CAN FIND ════════════════════════
-export function whatsListed() {
+// ════════════════════════ SPORTS & FEATURES (one page) ════════════════════════
+const SPORTS = [
+  ['soccer', 'Soccer', 'Fields, academies, camps and tryouts.'],
+  ['basketball', 'Basketball', 'Courts, leagues and skills training.'],
+  ['cricket', 'Cricket', 'Nets, indoor pitches and coaching.'],
+  ['track', 'Track & sprint', 'Speed, strength and track programs.'],
+  ['esports', 'Esports', 'Teams, training and competition.'],
+  ['hp', 'Performance & recovery', 'Testing, conditioning and rehab.'],
+];
+
+export function sports() {
   return {
-    title: 'What you can list and book',
-    description: 'Facilities, programs and training, player development and a live calendar: what will be listed and bookable on AFSV VRC Booking.',
-    ogImage: 'assets/img/whitby/basketball.jpg',
+    title: 'Sports and features: run your club from one hub',
+    description: 'One place for your sport: facility booking, registration, scheduling, payments, communication, coaching content and player development. List your club, academy or venue.',
+    ogImage: 'assets/img/whitby/soccer.jpg',
     body: html`
-${breadcrumb([{ label: 'What you can list and book' }])}
-${hero({
-  kicker: 'Listings',
-  title: 'Everything in one place.',
-  lead: 'This is what the public will be able to find here as facilities and programs join. Each listing shows what its owner wants people to know.',
-  img: 'whitby/basketball.jpg',
-  alt: 'Young basketball players of different backgrounds in an indoor training session',
-  ctas: [{ label: 'Sign up to be listed', route: '/register' }],
-})}
-<section class="wrap section" data-el="book.types" data-el-build="elementor">
-  ${head('Listings', 'What will be listed.', 'Booking opens when we activate it. Until then we are signing up the facilities and programs that will appear first.')}
-  ${kgrid([
-    ['Dome', 'Facilities', 'Fields, courts, domes, gyms and studios, each with a page: gallery, hours, rules and a Book button.', ['Operating days and hours', 'Pricing and member pricing', 'Rules and capacity']],
-    ['Soccer', 'Calendar and availability', 'A calendar showing which slots are open, so people book a time that is actually free.', ['Open slots at a glance', 'Blocked times honoured', 'No double booking']],
-    ['Mentorship', 'Programs and training', 'Camps, clinics, tryouts and regular training, each with a schedule and an enquiry button.', ['Schedule and price', 'Enquiry button', 'Run by the listing owner']],
-    ['Growth', 'Player development', 'Pathways that show athletes and parents how to progress, with clear next steps.', ['Pathway content', 'Links to programs']],
-    ['Star', 'Member benefits', 'Priority booking and member pricing for AFSV VRC members.', ['Priority booking', 'Member pricing']],
-    ['Lock', 'One sign-in', 'One account for the 360 Player portal. Facility owners manage only their own listings.', ['Your listings only', 'Update any time']],
-  ])}
+<section class="sx-hero" data-el="book.sports-hero" data-el-build="elementor">
+  <div class="wrap sx-hero__grid">
+    <div>
+      <span class="sx-hero__pill">The all-in-one platform · 360 Player</span>
+      <h1>Run your entire club from one central hub</h1>
+      <p class="lead">Transform your team with one app that brings facility booking, registration, payments, communication and player development together, all in one place. Never open another application again.</p>
+      <div class="btn-row btn-row--stack" style="margin-top:28px">${btn('Sign up to be listed', '/register')}${btn('See what is inside', '#features', 'line-light')}</div>
+      <p class="sx-note">Features shown are planned for 360 Player. Screens are concept mock-ups with example data.</p>
+    </div>
+    <div class="sx-hero__ui" aria-hidden="true">${mocks.calendar()}${mocks.payments()}</div>
+  </div>
+</section>
+<section class="wrap sx-sports" id="sports" data-el="book.sports-cards" data-el-build="elementor">
+  ${head('Sports', 'Built for your sport.', 'List a facility, academy, team or program in the sport you run. More sports are added as people join.')}
+  <div class="sx-sports__grid" data-stagger>
+    ${SPORTS.map(([img, name, blurb]) => html`<a class="sx-sport" href="register.html"><img src="assets/img/whitby/${img}.jpg" alt="" width="640" height="420" loading="lazy"><span class="sx-sport__t"><b>${name}</b><span>${blurb}</span></span></a>`)}
+    <a class="sx-sport" href="register.html" style="background:var(--navy-3)"><span class="sx-sport__t"><b>Another sport?</b><span>Tell us what you run and we will add it.</span></span></a>
+  </div>
+</section>
+<section class="wrap section" id="features" data-el="book.features-intro" data-el-build="elementor" style="padding-bottom:24px">
+  <div class="sx-intro">
+    <p class="eyebrow">Features</p>
+    <h2 class="h2">Everything your club runs on, in one place.</h2>
+    <p class="body-lg muted">Running a club usually means a dozen tools that do not talk to each other. Here is what changes when it is all in one hub.</p>
+  </div>
+</section>
+${sxRow({ id: 'booking', label: 'Facility booking', title: 'Find the space. Book the time. Done.', before: 'Fields get booked by phone, text and favour, and someone always turns up to a locked gate.',
+  points: ['Browse facilities with photos, hours, rules and a clear next open time.', 'A live calendar shows what is free, booked or blocked, so nobody double-books.', 'A booking is confirmed once payment goes through, with a reminder the day before.', 'Members get priority booking and member pricing.'], mock: 'calendar', link: ['Venues: list your space', '/venues-and-facilities'] })}
+${sxRow({ id: 'registration', label: 'Registration', title: 'From sign-up to roster, without the spreadsheet.', before: 'A form here, a spreadsheet there, and an inbox full of the same five questions.',
+  points: ['One registration for every program: recreational, travel, camps, adult leagues.', 'Each program has its own age rules, questions and fee.', 'Families register from a phone and returning families skip what we already know.', 'Run tryouts, place players on teams and keep a waitlist when a camp fills.'], mock: 'register', flip: true })}
+${sxRow({ id: 'scheduling', label: 'Scheduling', title: 'A whole season on one calendar.', before: 'Sticky notes, clashing bookings and last-minute changes that have to be made in four places.',
+  points: ['Add your fields, courts and rooms once, then plan teams into them.', 'Clashes show up before you save, not at the gate on Saturday.', 'Change an event once and everyone affected is told.', 'See who is coming without chasing replies.'], mock: 'calendar' })}
+${sxRow({ id: 'payments', label: 'Payments', title: 'Get paid without the awkward follow-up.', before: 'Working out who has paid takes a spreadsheet nobody trusts and reminders nobody wants to send.',
+  points: ['Set a fee once, for the season, the month, a camp or a kit order.', 'Reminders go out automatically and families pay online by card.', 'See paid, due and overdue at a glance.', 'Prices in USD with CAD shown, and member pricing where it applies.'], mock: 'payments', flip: true })}
+${sxRow({ id: 'communication', label: 'Communication', title: 'Every message, in one place.', before: 'Group chats, personal texts and emails mean someone always says "I never got that".',
+  points: ['Post once to a team, several groups or the whole club.', 'Notifications and email reach everyone, not just the people who check the chat.', 'Clear rules on who can message whom.', 'Safeguarding rules for chats involving young people, to be confirmed with our legal team.'], mock: 'chat' })}
+${sxRow({ id: 'website', label: 'Your public page', title: 'A front page your club can be proud of.', before: 'An out-of-date website that nobody has time to update.',
+  points: ['Your listing page shows your events, teams and sign-up links.', 'It updates itself from the schedule and registrations.', 'Photos, location, rules and contact details you choose to share.', 'People find you beside other clubs and facilities in the area.'], mock: 'website', flip: true })}
+${sxRow({ id: 'coaching', label: 'Coaching content', title: 'Your coaching, kept where everyone can find it.', before: 'Drills in binders, PDFs and someone’s back pocket. When that coach leaves, the knowledge goes too.',
+  points: ['One shared library for drills, exercises and session plans.', 'Draw a drill with a simple board, no design skills needed.', 'Share with one team or the whole club.', 'Drop a session plan straight into the calendar.'], mock: 'library' })}
+${sxRow({ id: 'development', label: 'Player development', title: 'Every player seen. Every step tracked.', before: 'Progress lives in one coach’s head, and a new coach starts from nothing.',
+  points: ['A profile for each player, with goals and reviews.', 'Review templates so every player gets the same attention.', 'Development pathways from first sign-up to the next level.', 'The record stays with the player when coaches change.'], mock: 'profile', flip: true })}
+${sxRow({ id: 'stats', label: 'Stats and insights', title: 'The numbers your club needs, without the spreadsheets.', before: 'Attendance, minutes and effort kept on paper, if they are kept at all.',
+  points: ['Attendance and minutes played tracked as you go.', 'Training load by player and team.', 'Stats that suit the sport, from goals and assists to serve and sprint times.', 'Turn the numbers into conversations with players and parents.'], mock: 'stats' })}
+${sxRow({ id: 'video', label: 'Video', title: 'Turn footage into something coaches use.', before: 'Match video sits on a phone and never gets watched with the player.', 
+  points: ['Bring your footage into one place from the sources you already use.', 'Clip, annotate and share the moments that matter.', 'Tag players so clips appear on their profile.', 'Build playlists across matches or sessions.'], mock: 'video', flip: true })}
+${sxRow({ id: 'leagues', label: 'Leagues and tournaments', title: 'Run a league or a tournament weekend with one tool.', before: 'Fixtures in one file, results in a group chat and standings in somebody’s head.',
+  points: ['Set up leagues and tournaments in the format you need.', 'Fixtures, results and standings update together.', 'Invite outside teams into the same draw.', 'Show live results to everyone watching.'], mock: 'league' })}
+<section class="band--cream" id="app" data-el="book.app" data-el-build="elementor">
+  <div class="wrap section sx-app">
+    ${mocks.phone()}
+    <div>
+      <p class="eyebrow eyebrow-rule">Mobile app</p>
+      <h2 class="h2">Your whole club in your pocket.</h2>
+      <p class="body-lg muted">Most of the club happens away from a desk. 360 Player is designed to work on a phone.</p>
+      <ul class="sx-points">
+        <li><b>Parents</b> register, pay, see schedules and get updates in one place.</li>
+        <li><b>Coaches</b> see their sessions, take attendance and message their team.</li>
+        <li><b>Members</b> show a digital membership card at the door.</li>
+        <li><b>Facility managers</b> see today's bookings and blocked times.</li>
+      </ul>
+      <p class="small muted">Concept screens. App availability and platforms to be confirmed.</p>
+    </div>
+  </div>
+</section>
+<section class="wrap section" id="facilities" data-el="book.facility-examples" data-el-build="elementor">
+  ${head('Facilities', 'Find a space near you.', 'Every facility gets its own page. These are examples of how listings will look. No real facilities are listed yet.')}
+  <div class="sx-fac">${mocks.facility()}${mocks.facility()}${mocks.facility()}</div>
+</section>
+<section class="band--cream" data-el="book.member-card" data-el-build="elementor">
+  <div class="wrap section sx-app" style="grid-template-columns:1.1fr .9fr">
+    <div>
+      <p class="eyebrow eyebrow-rule">Membership</p>
+      <h2 class="h2">Members book first and pay less.</h2>
+      <p class="body-lg muted">AFSV VRC members get priority booking and member pricing, plus the Marketplace, FanZone™ and programs. Benefits and pricing are pending approval.</p>
+      <p>${btn('See membership', '/membership', 'navy')}</p>
+    </div>
+    ${mocks.member()}
+  </div>
 </section>
 ${cta()}`,
   };
@@ -207,15 +277,14 @@ ${hero({
   alt: 'Concept rendering: a diverse group of students and coaches in an academy training hall',
   ctas: [{ label: 'Sign up to be listed', route: '/register' }, { label: 'Log in', route: APP_URL }],
 })}
-<section class="wrap section" data-el="book.academy-benefits" data-el-build="elementor">
-  ${head('What you get', 'A listing that works for you.')}
-  ${kgrid([
-    ['Megaphone', 'A public page', 'Your name, story, programs and contact details, published where families and organizations are looking.'],
-    ['Soccer', 'Programs, tryouts and camps', 'List sessions with dates, ages, price and an enquiry button.'],
-    ['Handshake', 'Book the facilities you need', 'Find and book venues for training and games alongside your own listing.'],
-    ['Chart', 'Simple management', 'Update your listing and see enquiries and bookings in the 360 Player portal.'],
-  ], { cols: 4 })}
-  <p class="body-lg" style="margin-top:28px;max-width:70ch">Listed academies and their families also get access to membership perks. <a class="text-link" href="membership.html">See membership</a>.</p>
+${sxRow({ id: 'a-register', label: 'Registration', title: 'Sign up players without the spreadsheet.', before: 'Tryout forms, spreadsheets and an inbox full of the same questions take weeks away from coaching.',
+  points: ['One registration for every program, camp and tryout, each with its own rules and fee.', 'Families sign up from a phone and pay in the same step.', 'Place players on teams and keep a waitlist when a program fills.'], mock: 'register' })}
+${sxRow({ id: 'a-coach', label: 'Coaching content', title: 'Keep your coaching where everyone can use it.', before: 'Drills in binders and PDFs disappear when a coach moves on.',
+  points: ['One shared library of drills and session plans.', 'Share with a team or the whole academy.', 'Session plans go straight into the calendar.'], mock: 'library', flip: true })}
+${sxRow({ id: 'a-dev', label: 'Player development', title: 'Show families how their player is growing.', before: 'Progress lives in a coach\u2019s head, so families only hear about it at the end of the season.',
+  points: ['A profile for every player with goals and reviews.', 'Pathways from first sign-up to the next level.', 'The record stays with the player when coaches change.'], mock: 'profile' })}
+<section class="wrap section" data-el="book.academy-more" data-el-build="elementor" style="padding-top:0">
+  <p class="body-lg" style="max-width:70ch">Need the full picture? <a class="text-link" href="sports.html">See every feature on the Sports page</a>. Listed academies and their families also get access to <a class="text-link" href="membership.html">membership perks</a>.</p>
 </section>
 ${formSection({
   id: 'register-academy', el: 'book.academy-form',
@@ -243,15 +312,12 @@ ${hero({
   alt: 'Concept rendering: a large indoor dome with a multi-sport field and spectators',
   ctas: [{ label: 'Sign up to be listed', route: '/register' }, { label: 'Log in', route: APP_URL }],
 })}
-<section class="wrap section" data-el="book.venue-benefits" data-el-build="elementor">
-  ${head('What you control', 'Your space, your rules.')}
-  ${kgrid([
-    ['Dome', 'Your facility page', 'Gallery, description, location, rules and capacity.'],
-    ['Soccer', 'Hours and slots', 'Set operating days and hours, slot length, blocked times and availability.'],
-    ['Tag', 'Pricing', 'Set a price and a member price. Prices show in USD with CAD alongside.'],
-    ['Shield', 'Your bookings, your view', 'Facility managers see only their own facilities and bookings.'],
-  ], { cols: 4 })}
-</section>
+${sxRow({ id: 'v-booking', label: 'Booking calendar', title: 'Put your space on the calendar and let it fill.', before: 'Bookings by phone and text leave gaps in the week, and a double booking costs you a customer.',
+  points: ['Set your hours, slot length, blocked times and availability.', 'People see what is open and book it themselves.', 'A booking is confirmed only after payment, so no double bookings.'], mock: 'calendar' })}
+${sxRow({ id: 'v-page', label: 'Your facility page', title: 'A page that shows your space at its best.', before: 'Your space is hard to find unless someone already knows it.',
+  points: ['Photos, description, location, rules and capacity.', 'Price and member price, shown in USD with CAD alongside.', 'Listed beside other facilities in the area.'], mock: 'facility', flip: true })}
+${sxRow({ id: 'v-pay', label: 'Payments and bookings', title: 'Get paid up front and see your bookings.', before: 'Chasing payment after the session and tracking who owes what.',
+  points: ['Customers pay online when they book.', 'Facility managers see only their own facilities and bookings.', 'Cancel, reschedule or refund when plans change.'], mock: 'payments' })}
 ${formSection({
   id: 'register-venue', el: 'book.venue-form',
   title: 'Register your facility.',

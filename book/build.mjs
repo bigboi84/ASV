@@ -14,7 +14,7 @@ const MAIN = B.MAIN;
 
 const NAV = [
   { label: 'Home', href: '/' },
-  { label: 'Listings', href: '/what-you-can-list-and-book' },
+  { label: 'Sports & features', href: '/sports' },
   { label: 'Academies & schools', href: '/academies-teams-schools' },
   { label: 'Venues', href: '/venues-and-facilities' },
   { label: 'Membership', href: '/membership' },
@@ -45,6 +45,7 @@ function layout({ route, title, description, ogImage, body }) {
 <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/book.css">
 <style>.header-actions{display:flex;gap:10px;justify-self:end}@media(max-width:1099px){.header-actions{display:none}}</style>
 </head>
 <body>
@@ -102,7 +103,7 @@ ${body}
 
 const pages = [
   ['/', B.home()],
-  ['/what-you-can-list-and-book', B.whatsListed()],
+  ['/sports', B.sports()],
   ['/academies-teams-schools', B.academies()],
   ['/venues-and-facilities', B.venues()],
   ['/membership', B.membership()],
@@ -116,6 +117,7 @@ const pages = [
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
 fs.cpSync(path.join(root, 'src/assets'), path.join(out, 'assets'), { recursive: true });
+fs.copyFileSync(path.join(here, 'book.css'), path.join(out, 'assets/css/book.css'));
 fs.rmSync(path.join(out, 'assets/video'), { recursive: true, force: true }); // not used here
 
 for (const [route, pg] of pages) {
