@@ -1020,7 +1020,7 @@ ${formSection({
       { label: 'Membership pathway', type: 'select', req: true, ph: 'Select a pathway', options: paths },
       { label: 'Sports or interests' },
       { label: 'Age group', type: 'select', ph: 'Prefer not to say', options: ['Under 18', '18–24', '25–39', '40–59', '60+'], hint: 'If you are under 18, please ask a parent or guardian to complete this form.' },
-      { label: 'Preferred communication channel', type: 'select', req: true, ph: 'Select a channel', options: ['Email', 'Phone', 'Text message'], hint: 'If you choose phone or text, please add your mobile number. We text only about your membership interest, separately from email updates.' },
+      { label: 'Preferred communication channel', type: 'select', req: true, ph: 'Select a channel', options: ['Email', 'Phone'], hint: 'If you choose phone, please add your phone number above.' },
       { label: 'Accessibility or accommodation request', type: 'textarea', rows: 3, full: true },
     ],
     consent: 'I agree to receive membership updates from AFSV VRC. You can unsubscribe at any time.', updatesList: true,
