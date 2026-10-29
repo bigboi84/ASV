@@ -3,7 +3,7 @@
  * Plugin Name:       AFSV VRC Core
  * Plugin URI:        https://afsvvrc.com
  * Description:       Features for the AFSV VRC website: Events and Leadership content types, Elementor-built site header and footer, and the AFSV VRC Elementor widget library. Requires the AFSV VRC theme and Elementor.
- * Version:           1.2.16
+ * Version:           1.2.17
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            AFSV VRC Global Development Group Limited
@@ -15,7 +15,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'AFSV_CORE_VERSION', '1.2.16' );
+define( 'AFSV_CORE_VERSION', '1.2.17' );
 define( 'AFSV_CORE_FILE', __FILE__ );
 define( 'AFSV_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'AFSV_CORE_URL', plugin_dir_url( __FILE__ ) );
@@ -29,6 +29,8 @@ require_once AFSV_CORE_DIR . 'includes/elementor.php';
 require_once AFSV_CORE_DIR . 'includes/importer.php';
 require_once AFSV_CORE_DIR . 'includes/deploy.php';
 require_once AFSV_CORE_DIR . 'includes/updater.php';
+require_once AFSV_CORE_DIR . 'includes/hardening.php';
+require_once AFSV_CORE_DIR . 'includes/cookies.php';
 
 /** The widgets render the theme's design system, so the AFSV VRC theme must be active. */
 function afsv_core_theme_ready() {
