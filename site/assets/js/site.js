@@ -274,17 +274,91 @@
     $$('.reveal, .wipe, h2.h2, [data-timeline]').forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  /* ───────── Form popup: spinner → tick (or warning), with a close button ───────── */
+  var popEl = null, popFrom = null;
+  function sendPopup(returnTo) {
+    popFrom = returnTo || document.activeElement;
+    if (popEl) { popEl.parentNode.removeChild(popEl); popEl = null; }
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    popEl = document.createElement('div');
+    popEl.className = 'fp';
+    popEl.setAttribute('data-state', 'sending');
+    popEl.innerHTML =
+      '<div class="fp__card" role="dialog" aria-modal="true" aria-labelledby="fp-t" aria-describedby="fp-d" tabindex="-1">' +
+      '<button type="button" class="fp__x" aria-label="Close">&times;</button>' +
+      '<svg class="fp__icon" viewBox="0 0 80 80" aria-hidden="true" focusable="false">' +
+      '<circle class="fp__bg" cx="40" cy="40" r="34"/><circle class="fp__ring" cx="40" cy="40" r="34"/>' +
+      '<path class="fp__tick" d="M25 41.5l10.5 10.5L56 30"/><path class="fp__bang" d="M40 24v20M40 55v1"/></svg>' +
+      '<h2 class="fp__t" id="fp-t">Sending…</h2>' +
+      '<p class="fp__d" id="fp-d" role="status" aria-live="polite">Please wait a moment.</p>' +
+      '<button type="button" class="btn btn--navy fp__close">Close</button></div>';
+    document.body.appendChild(popEl);
+    document.documentElement.classList.add('fp-open');
+    var card = popEl.firstChild, t = $('#fp-t', popEl), d = $('#fp-d', popEl);
+    function close() {
+      if (!popEl) return;
+      document.removeEventListener('keydown', onKey, true);
+      document.documentElement.classList.remove('fp-open');
+      popEl.parentNode.removeChild(popEl);
+      popEl = null;
+      if (popFrom && popFrom.focus) { try { popFrom.focus(); } catch (x) { /* gone */ } }
+    }
+    function onKey(e) {
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = $$('button', card);
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    document.addEventListener('keydown', onKey, true);
+    $('.fp__x', popEl).addEventListener('click', close);
+    $('.fp__close', popEl).addEventListener('click', close);
+    popEl.addEventListener('click', function (e) { if (e.target === popEl) close(); });
+    card.focus();
+    return {
+      finish: function (ok, msg) {
+        if (!popEl) return;
+        popEl.setAttribute('data-state', ok ? 'ok' : 'err');
+        if (ok) {
+          t.textContent = 'Message sent';
+          d.textContent = 'Thank you. We’ve received it and will be in touch soon. If you’re expecting an email from us, please check your junk or spam folder.';
+        } else {
+          t.textContent = 'Not sent';
+          d.textContent = (msg || 'Something went wrong.') + ' You can try again, or email info@afsvvrc.com.';
+        }
+        $('.fp__close', popEl).textContent = ok ? 'Close' : 'Back to the form';
+        if (reduce) popEl.classList.add('fp--still');
+      }
+    };
+  }
+
   /* ───────── Forms: inline validation + preview confirmation ───────── */
   function fieldOf(el) { return el.closest('.field') || el.closest('.check'); }
+  function plainLabel(el) {
+    var f = fieldOf(el); if (!f) return 'this field';
+    var l = $('.field__label', f);
+    if (l) return (l.childNodes[0] ? l.childNodes[0].textContent : l.textContent).replace(/\*/g, '').replace(/\(optional\)/i, '').replace(/\s+/g, ' ').trim();
+    var sp = $('span', f);
+    return sp ? sp.textContent.replace(/\s+/g, ' ').trim().slice(0, 70) : 'this box';
+  }
   function messageFor(el) {
+    var name = plainLabel(el);
     if (el.validity.valueMissing) {
-      if (el.type === 'checkbox') return 'Please tick this box to continue.';
-      if (el.tagName === 'SELECT') return 'Please choose an option.';
-      return 'This field is required.';
+      if (el.type === 'checkbox') {
+        if (el.name === 'terms-agreed') return 'Please tick the box to agree to the Terms of Use.';
+        if (el.name === 'consent') return 'Please tick the box to confirm you agree to be contacted.';
+        return 'Please tick this box to continue.';
+      }
+      if (el.tagName === 'SELECT') return 'Please choose an option for “' + name + '”.';
+      if (el.type === 'email') return 'Please enter your email address.';
+      if (el.type === 'tel') return 'Please enter a phone number.';
+      return 'Please fill in “' + name + '”.';
     }
-    if (el.validity.typeMismatch && el.type === 'email') return 'Enter an email address like name@example.com.';
-    if (el.validity.typeMismatch && el.type === 'url') return 'Enter a full web address starting with https://';
-    return 'Please check this field.';
+    if (el.validity.typeMismatch && el.type === 'email') return 'The email address doesn’t look right. Use a format like name@example.com.';
+    if (el.validity.typeMismatch && el.type === 'url') return 'The web address doesn’t look right. Start it with https://';
+    return 'Please check “' + name + '”.';
   }
   function showError(el) {
     var f = fieldOf(el); if (!f) return;
@@ -331,29 +405,65 @@
       el.addEventListener('input', function () { if (el.checkValidity()) clearError(el); });
       el.addEventListener('change', function () { if (el.checkValidity()) clearError(el); });
     });
+    function summaryOf(form) {
+      var box = $('.form-errors', form);
+      if (!box) {
+        box = document.createElement('div');
+        box.className = 'form-errors';
+        box.setAttribute('role', 'alert');
+        box.tabIndex = -1;
+        box.hidden = true;
+        var grid = $('.form__grid', form);
+        form.insertBefore(box, grid || form.firstChild);
+      }
+      return box;
+    }
+    function showSummary(form, bad) {
+      var box = summaryOf(form);
+      box.innerHTML = '<strong>Please fix ' + (bad.length === 1 ? 'this before sending' : bad.length + ' things before sending') + ':</strong><ul></ul>';
+      var ul = $('ul', box);
+      bad.forEach(function (el) {
+        if (!el.id) el.id = 'f-' + Math.random().toString(36).slice(2, 8);
+        var li = document.createElement('li'), a = document.createElement('a');
+        a.href = '#' + el.id;
+        a.textContent = messageFor(el);
+        a.addEventListener('click', function (ev) { ev.preventDefault(); el.focus(); try { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (x) { /* old browser */ } });
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      box.hidden = false;
+      try { box.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (x) { /* old browser */ }
+      box.focus({ preventScroll: true });
+    }
+    function hideSummary(form) { var box = $('.form-errors', form); if (box) box.hidden = true; }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var firstBad = null;
+      var bad = [];
       controls.forEach(function (el) {
-        if (el.checkValidity()) clearError(el); else { showError(el); if (!firstBad) firstBad = el; }
+        if (el.checkValidity()) clearError(el); else { showError(el); bad.push(el); }
       });
-      var status = $('.form-status', form);
-      if (firstBad) {
+      var status = $('.form-status:not(.form-error)', form);
+      if (bad.length) {
         if (status) status.hidden = true;
-        firstBad.focus();
+        showSummary(form, bad);
         return;
       }
+      hideSummary(form);
       var btn = $('button[type="submit"]', form);
+      var HINT = ' If you’re expecting an email from us, please check your junk or spam folder.';
+      var pop = sendPopup(btn);
       function done(ok, msg) {
         if (status) {
           if (msg) status.innerHTML = '<strong>' + (ok ? 'Thank you.' : 'Sorry —') + '</strong> ' + msg;
+          if (ok && status.textContent.indexOf('junk') < 0) status.appendChild(document.createTextNode(HINT));
           status.hidden = false;
-          status.focus();
         }
         if (btn) { btn.disabled = ok; if (ok) btn.textContent = 'Received'; }
+        pop.finish(ok, ok ? '' : (msg || ''));
       }
       // On WordPress (AFSV VRC theme) the form posts to the AFSV VRC Core inbox; the static build only previews.
-      if (!window.AFSV_FORMS) { done(true); return; }
+      if (!window.AFSV_FORMS) { setTimeout(function () { done(true); }, 700); return; }
       var fx = form.closest('[data-form-id]'), sec = form.closest('section[id]'), el = form.closest('[data-el]');
       var formId = ((fx && fx.getAttribute('data-form-id')) || (sec && sec.id) || (el && el.getAttribute('data-el')) || 'interest').toLowerCase().replace(/[^a-z0-9-]+/g, '-');
       var data = new FormData(form), labels = {};
@@ -375,7 +485,7 @@
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
       fetch(window.AFSV_FORMS + formId, { method: 'POST', body: data, credentials: 'same-origin' })
         .then(function (r) { return r.ok ? done(true, 'We’ve received your submission and will be in touch soon.') : r.json().then(function (j) { throw new Error(j && j.message); }); })
-        .catch(function (err) { done(false, (err && err.message) || 'Something went wrong. Please email info@afsvvrc.com.'); if (btn) btn.textContent = 'Try again'; });
+        .catch(function (err) { done(false, (err && err.message) || 'Something went wrong. Please email info@afsvvrc.com.'); if (btn) { btn.disabled = false; btn.textContent = 'Try again'; } });
     });
   });
 
