@@ -40,8 +40,8 @@ Product data (WooCommerce) and site settings can be changed directly through the
 - Live site: https://afsvvrc.com (the old sslip address redirects to it). The theme is installed in the folder `afsv-vrc-theme`. WordPress, Elementor, WooCommerce, theme `afsv-vrc` (child of hello-elementor), plugin AFSV VRC Core.
 - Registered company: **AFSV VRC Global Development Group Limited** (short form: "AFSV VRC"). Martin, 19 Oct 2026: use it everywhere, including the copyright, legal pages and trademark owner.
   - Exception: Natalie's and Michelle's bios keep Athletes & Fans Sports Village Holding Company Limited (AFSVHCL).
-  - Martin's title: "Founder, Chairman & Interim CEO, AFSVHCL™ · Founder, AFSV VRC Global Development Group Limited". His quote attribution keeps "Founder, Chairman & Interim CEO, AFSVHCL™".
-  - Vinai's title: "Deputy Chairman and Deputy CEO, AFSVHCL™ · Deputy Chairman and Deputy CEO, AFSV VRC Global Development Group Limited · Founder & CEO, Charran's Group of Companies".
+  - Titles (Martin's emails of 24 and 27 Oct 2026; supersedes earlier wording): Martin Michael Victor Lashley: "Founder, Chairman & Interim CEO — Athletes & Fans Sports Village Holding Company Limited (AFSVHCL)" and "Founder, Chairman & CEO — AFSV VRC Global Development Group Limited". Vinai Charran: "Deputy Chairman & Deputy CEO — AFSV VRC Global Development Group Limited" only, never under AFSVHCL (his Charran's Group role stays as background). Clyne K. Rodriguez: "Vice President, Global Business Development & Sponsorship — AFSV VRC Global Development Group Limited" (bio supplied by Martin, kept word for word). Order: Martin, Vinai, Natalie, Michelle, Clyne.
+  - Legal wording uses "Ltd." only where the legal team supplied it ("AFSV VRC Global Development Group Ltd.").
   - Short titles for the Leadership top row live in the `chip` field.
   - Trademark names keep their names (e.g. AFSVHCL Marketplace™). Vinai's own quote is kept word for word.
 - Menu:
@@ -50,7 +50,7 @@ Product data (WooCommerce) and site settings can be changed directly through the
 - Domain: **afsvvrc.com** everywhere visitors see it (not afsvhcl.com). Martin, 19 Oct 2026: "In reviewing it is the website is still afsvhcl.com. This is not correct. It is afsvvrc.com." His trigger was an automated email the site sent.
 - Email: GoDaddy (Microsoft 365) has separate mailboxes on both afsvhcl.com and afsvvrc.com.
   - **info@afsvvrc.com** (Business Professional) is the public address and the account WordPress sends through. SMTP Authentication was switched on 19 Oct.
-  - Post SMTP settings: `smtp.office365.com`, port 587, TLS, username info@afsvvrc.com. Martin enters the password.
+  - Post SMTP settings: `smtp.office365.com`, port 587, TLS, username info@afsvvrc.com. Kiel entered the password (never shared with Claude).
   - No alias is needed.
   - 20 Oct 2026: Post SMTP is set up and its test email arrived (From AFSVVRC <info@afsvvrc.com>). WooCommerce "From" address is info@afsvvrc.com. The WordPress admin email and form notifications stay with Kiel (admin), by his choice.
 - Products are display-only: no prices, no Add to cart.
@@ -76,3 +76,4 @@ Product data (WooCommerce) and site settings can be changed directly through the
 - Data location: SSD Nodes VPS in Toronto (per invoice); RunCloud backups are stored on the same server; Cloudflare proxies traffic (global network). Microsoft 365 email is Martin's team's, not listed. Never put the SSD Nodes invoice (home address, transaction ID) in the repo.
 - WooCommerce product 59 is now "Executive Jacket" (slug `executive-jacket`). WordPress sample page, Hello world post and the default draft Privacy/Refund pages were trashed on 29 Oct.
 - Caution: the WordPress settings REST response (`/wp/v2/settings`) includes the stored AI connector API key in plain text. Don't print settings responses; rotate that key.
+- 1.2.18 (29 Oct 2026): forms show an error summary above the form with field-named messages, and a sending → tick/warning popup (X, Close, Esc, click outside) plus a "check your junk or spam folder" hint (`src/assets/js/site.js` `sendPopup`, `site.css` `.fp`, `.form-errors`).
